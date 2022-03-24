@@ -8,7 +8,7 @@ public abstract class Agent implements Steppable {
     protected long expireTime;
     protected String requireGen;
 
-    public abstract void  UseOn(Virologist v);
+    public abstract void UseOn(Virologist v);
 
     public void Step() {
         System.out.println("Agent.Step()");
