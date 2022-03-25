@@ -10,7 +10,7 @@ public class Bag extends Equipment {
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
         SkeletonWriter.Println("Bag.action()");
         ArrayList<Resources> resources = v.getResources();
-        resources.forEach(r -> r.changeMaxAmount(sizeIncrease));
+        resources.forEach(r -> r.setMaxAmount(sizeIncrease));
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
 
