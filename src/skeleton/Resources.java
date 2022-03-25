@@ -7,7 +7,11 @@ public class Resources implements Collectible{
     public void collect(Virologist v) {
 
     }
-    public void ChangeAmountAminoAcid(long x){}
-    public void ChangeAmountNucleotide(long x){}
-    public void ChangeMaxAmount(long x){}
+    public void changeAmountAminoAcid(long x){}
+    public void changeAmountNucleotide(long x){}
+    public void changeMaxAmount(long x){
+        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
+        SkeletonWriter.Println("Resources.changeMaxAmount()");
+        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
+    }
 }

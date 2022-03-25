@@ -1,5 +1,7 @@
 package skeleton;
 
+import java.util.ArrayList;
+
 public abstract class Agent implements Steppable {
     protected Virologist owner;
     protected long effectTime;
@@ -49,7 +51,7 @@ public abstract class Agent implements Steppable {
 
     public void getCrafted(Virologist v) {
         System.out.println("Agent.getCrafted()");
-        Resources resource = v.getResources();
-        v.loseResources(resource);
+        ArrayList<Resources> resources = v.getResources();
+        //v.loseResources(resource);
     }
 }

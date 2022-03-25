@@ -2,8 +2,8 @@ package skeleton;
 
 public class Nucleotide extends Resources{
     @Override
-    public void ChangeAmountNucleotide(long x) {
-        super.ChangeAmountNucleotide(x);
+    public void changeAmountNucleotide(long x) {
+        super.changeAmountNucleotide(x);
     }
 
     @Override
