@@ -4,16 +4,23 @@ public class Invulnerabled extends Attribute{
     private long defPrec;
     @Override
     public void setTimeInvu(long x) {
-        super.setTimeInvu(x);
+        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
+        SkeletonWriter.Println("Invulnerabled.setTimeInvu()");
+        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
 
     @Override
     public long getTimeInvu() {
-        return super.getTimeInvu();
+        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
+        SkeletonWriter.Println("Invulnerabled.getTimeInvu()");
+        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
+        return time;
     }
 
     @Override
     public void changeDefPerc(long x) {
-        super.changeDefPerc(x);
+        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
+        SkeletonWriter.Println("Invulnerabled.changeDefPerc()");
+        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
 }
