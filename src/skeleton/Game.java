@@ -8,7 +8,7 @@ public class Game {
 
     }
 
-    public void endGame(){
+    public static void endGame(){
         System.out.println("Game.endGame()");
     }
 }

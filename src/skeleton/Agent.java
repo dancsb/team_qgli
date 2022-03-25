@@ -54,7 +54,7 @@ public abstract class Agent implements Steppable {
         ArrayList<Resources> resource = v.getResources();
         for (Resources r:
              resource) {
-            v.looseResources(r);
+            v.loseResources(r);
         }
     }
 }
