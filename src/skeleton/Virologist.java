@@ -14,8 +14,8 @@ public class Virologist implements Steppable {
     //csak tesztelésre hoztam létre, puszi: balázs
     public Virologist() {
         resources = new ArrayList<>(2);
-        resources.add(new Resources());
-        resources.add(new Resources());
+        resources.add(new AminoAcid());
+        resources.add(new AminoAcid());
     }
 
     public void move(Field f){}

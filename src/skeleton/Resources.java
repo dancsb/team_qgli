@@ -9,8 +9,10 @@ public abstract class Resources implements Collectible{
 
     public void changeAmountAminoAcid(long x){}
     public void changeAmountNucleotide(long x){}
-    public void changeMaxAmount(long x){
-        System.out.println("Resources.changeMaxAmount()");
+    public void setMaxAmount(long x){
+        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
+        SkeletonWriter.Println("Resources.changeMaxAmount()");
         maxCapacity = x;
+        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
 }
