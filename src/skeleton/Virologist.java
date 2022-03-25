@@ -22,6 +22,12 @@ public class Virologist implements Steppable {
         System.out.println("Virologist.move()");
         ArrayList<Field> neighbours = f.getNeighbours();
         if(checkWin() == true)Game.endGame();
+        for(Field fNeighbours:neighbours)
+        {
+            if(fNeighbours == f){
+                f.accept(this); f.remove(this);
+            }
+        }
 
      }
     public boolean checkWin(){
