@@ -1,8 +1,14 @@
 package skeleton;
 
 public class Gloves extends Equipment{
+
     @Override
-    public void collect(Virologist v) {
+    public void action(Virologist v) {
+
+    }
+
+    @Override
+    public void remove(Virologist v) {
 
     }
 }

@@ -2,8 +2,14 @@ package skeleton;
 
 public class Bag extends Equipment {
     private long sizeIncrease;
+
     @Override
-    public void collect(Virologist v) {
+    public void action(Virologist v) {
+
+    }
+
+    @Override
+    public void remove(Virologist v) {
 
     }
 }
