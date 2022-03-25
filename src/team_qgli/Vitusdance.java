@@ -9,7 +9,7 @@ public class Vitusdance extends Agent {
         System.out.println("Vitusdance.useOn()");
         Attribute[] attribute = v.getAttributes();
         for (Attribute a:attribute) {
-            a.setTimeDance(100);
+            a.setTimeDance(effectTime);
         }
     }
 }
