@@ -6,16 +6,49 @@ public abstract class Agent implements Steppable {
     protected long costAmino;
     protected long costNucleotide;
     protected long expireTime;
-    protected String requireGen;
+    protected String requireGenCode;
 
-    public abstract void UseOn(Virologist v);
-
-    public void Step() {
-        System.out.println("Agent.Step()");
+    public Agent(Virologist v, long effT, long amino, long nucleo, long exTime, String genCode) {
+        owner = v;
+        effectTime = effT;
+        costAmino = amino;
+        costNucleotide = nucleo;
+        expireTime = exTime;
+        requireGenCode = genCode;
     }
 
-    public void GetCrafted(Virologist v) {
-        System.out.println("Agent.GetCrafted()");
+    public Virologist getOwner() {
+        return owner;
     }
 
+    public long getEffectTime() {
+        return effectTime;
+    }
+
+    public long getCostAmino() {
+        return costAmino;
+    }
+
+    public long getCostNucleotide() {
+        return costNucleotide;
+    }
+
+    public long getExpireTime() {
+        return expireTime;
+    }
+
+    public String getRequireGenCode() {
+        return requireGenCode;
+    }
+
+    public abstract void useOn(Virologist v);
+
+    public void step() {
+        System.out.println("Agent.step()");
+    }
+
+    public void getCrafted(Virologist v) {
+        System.out.println("Agent.getCrafted()");
+        v.looseResources(r);
+    }
 }

@@ -2,12 +2,12 @@ package team_qgli;
 
 public class Dancing extends Attribute{
     @Override
-    public void SetTimeDance(long x) {
-        super.SetTimeDance(x);
+    public void setTimeDance(long x) {
+        super.setTimeDance(x);
     }
 
     @Override
-    public long GetTimeDance() {
-        return super.GetTimeDance();
+    public long getTimeDance() {
+        return super.getTimeDance();
     }
 }

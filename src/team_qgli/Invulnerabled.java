@@ -3,17 +3,17 @@ package team_qgli;
 public class Invulnerabled extends Attribute{
     private long defPrec;
     @Override
-    public void SetTimeInvu(long x) {
-        super.SetTimeInvu(x);
+    public void setTimeInvu(long x) {
+        super.setTimeInvu(x);
     }
 
     @Override
-    public long GetTimeInvu() {
-        return super.GetTimeInvu();
+    public long getTimeInvu() {
+        return super.getTimeInvu();
     }
 
     @Override
-    public void ChangeDefPerc(long x) {
-        super.ChangeDefPerc(x);
+    public void changeDefPerc(long x) {
+        super.changeDefPerc(x);
     }
 }
