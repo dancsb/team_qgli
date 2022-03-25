@@ -1,7 +1,5 @@
 package skeleton;
 
-import java.util.ArrayList;
-
 public class Shelter extends Field{
     private Equipment eq;
 
@@ -13,6 +11,10 @@ public class Shelter extends Field{
     @Override
     public boolean accept(Virologist v) {
         System.out.println("Shelter.accept()");
-        return super.accept(v);
+        if (super.accept(v)){
+
+            return true;
+        }
+        return false;
     }
 }
