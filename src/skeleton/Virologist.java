@@ -19,6 +19,9 @@ public class Virologist implements Steppable {
         resources.add(new AminoAcid());
         attributes.add(new Dancing());
         attributes.add(new Paralyzed());
+        attributes.add(new Invulnerabled());
+        geneticCodes=new ArrayList<>();
+        geneticCodes.add(new GeneticCode("test"));
     }
 
     public void move(Field f){
@@ -60,7 +63,10 @@ public class Virologist implements Steppable {
         return true;
     }
     public boolean pickUpEquipment(Equipment e){
-        System.out.println("Virologist.pickUpEquipment()");
+        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
+        SkeletonWriter.Println("Virologist.pickUpEquipment()");
+        e.collect(this);
+        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
         return true;
     }
     public boolean pickUpResource(Resources r){
@@ -69,7 +75,10 @@ public class Virologist implements Steppable {
         return true;
     }
     public void loseEquipment(Equipment e){
-        System.out.println("Virologist.loseEquipment()");
+        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
+        SkeletonWriter.Println("Virologist.loseEquipment()");
+        e.remove(this);
+        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
     public void loseResources(Resources r){
         System.out.println("Virologist.loseResources()");
@@ -93,12 +102,16 @@ public class Virologist implements Steppable {
         return resources;
     }
     public void setParry(boolean b){
-        System.out.println("Virologist.setParry()");
+        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
+        SkeletonWriter.Println("Virologist.setParry()");
         parry=b;
+        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
 
     public ArrayList<GeneticCode> getGenCode() {
-        System.out.println("Virologist.getGenCode()");
+        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
+        SkeletonWriter.Println("Virologist.getGenCode()");
+        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
         return geneticCodes;
     }
 }

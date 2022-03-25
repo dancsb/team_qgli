@@ -163,15 +163,24 @@ public class Skeleton {
     }
 
     private void usesParalyzerTest() {
-        virologist.useAgent(paralyzer, target);
+        Virologist v = new Virologist();
+        Virologist targetV = new Virologist();
+        Paralyzer p=new Paralyzer(v,10,10,10,10,"asd");
+        v.useAgent(p,targetV);
     }
 
     private void usesInvulnerableTest() {
-        virologist.useAgent(invulnerable, target);
+        Virologist v = new Virologist();
+        Virologist targetV = new Virologist();
+        Invulnerable p=new Invulnerable(v,10,10,10,10,"asd");
+        v.useAgent(p,targetV);
     }
 
     private void usesAmnesiaTest() {
-        virologist.useAgent(amnesia, target);
+        Virologist v = new Virologist();
+        Virologist targetV = new Virologist();
+        Amnesia p=new Amnesia(v,10,10,10,10,"asd");
+        v.useAgent(p,targetV);
     }
 
 
@@ -216,15 +225,21 @@ public class Skeleton {
     }
 
     private void picksUpGlovesTest() {
-        virologist.pickUpEquipment(gloves);
+        Virologist v=new Virologist();
+        Gloves g=new Gloves();
+        v.pickUpEquipment(g);
     }
 
     private void picksUpCapeTest() {
-        virologist.pickUpEquipment(cape);
+        Virologist v=new Virologist();
+        Cape g=new Cape();
+        v.pickUpEquipment(g);
     }
 
     private void picksUpBagTest() {
-        virologist.pickUpEquipment(bag);
+        Virologist v=new Virologist();
+        Bag g=new Bag();
+        v.pickUpEquipment(g);
     }
 
     private void picksUpAminoAcidTest() {
@@ -236,11 +251,15 @@ public class Skeleton {
     }
 
     private void losesGlovesTest() {
-        virologist.loseEquipment(gloves);
+        Virologist v=new Virologist();
+        Gloves g=new Gloves();
+        v.loseEquipment(g);
     }
 
     private void losesCapeTest() {
-        virologist.loseEquipment(cape);
+        Virologist v=new Virologist();
+        Cape g=new Cape();
+        v.loseEquipment(g);
     }
 
     private void losesAminoAcidTest() {
@@ -248,7 +267,9 @@ public class Skeleton {
     }
 
     private void losesBagTest() {
-        virologist.loseEquipment(bag);
+        Virologist v=new Virologist();
+        Bag g=new Bag();
+        v.loseEquipment(g);
     }
 
     private void craftsParalyzerTest() {
