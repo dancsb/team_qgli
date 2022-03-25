@@ -1,11 +1,17 @@
 package skeleton;
 
+import java.util.ArrayList;
+
 public class Bag extends Equipment {
     private long sizeIncrease;
 
     @Override
     public void action(Virologist v) {
-
+        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
+        SkeletonWriter.Println("Bag.action()");
+        ArrayList<Resources> resources = v.getResources();
+        resources.forEach(r -> r.changeMaxAmount(sizeIncrease));
+        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
 
     @Override

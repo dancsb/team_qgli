@@ -10,6 +10,14 @@ public class Virologist implements Steppable {
     private ArrayList<GeneticCode>geneticCodes;
     private ArrayList<Attribute>attributes;
     private ArrayList<Equipment>equipments;
+
+    //csak tesztelésre hoztam létre, puszi: balázs
+    public Virologist() {
+        resources = new ArrayList<>(2);
+        resources.add(new Resources());
+        resources.add(new Resources());
+    }
+
     public void move(Field f){}
     public boolean checkWin(){return true;}
     public void stealResources(Virologist v,Resources r){}
@@ -27,6 +35,9 @@ public class Virologist implements Steppable {
     public boolean addGeneticCode(GeneticCode g){return true;}
 
     public ArrayList<Resources> getResources() {
+        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
+        SkeletonWriter.Println("Virologist.getResources()");
+        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
         return resources;
     }
     public void setParry(boolean b){
