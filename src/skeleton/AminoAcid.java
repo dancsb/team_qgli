@@ -7,7 +7,7 @@ public class AminoAcid extends Resources{
     }
 
     @Override
-    public void ChangeAmountAminoAcid(long x) {
-        super.ChangeAmountAminoAcid(x);
+    public void changeAmountAminoAcid(long x) {
+        super.changeAmountAminoAcid(x);
     }
 }

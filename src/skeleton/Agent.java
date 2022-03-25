@@ -50,6 +50,6 @@ public abstract class Agent implements Steppable {
     public void getCrafted(Virologist v) {
         System.out.println("Agent.getCrafted()");
         Resources resource = v.getResources();
-        v.loseResources(resource);
+        v.looseResources(resource);
     }
 }
