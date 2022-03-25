@@ -28,7 +28,7 @@ public class Virologist implements Steppable {
     public boolean pickUpEquipment(Equipment e){return true;}
     public boolean pickUpResource(Resources r){return true;}
     public void loseEquipment(Equipment e){}
-    public void loseResources(Resources r){}
+    public void looseResources(Resources r){}
     public ArrayList<Attribute> getAttributes() {
         return attributes;
     }

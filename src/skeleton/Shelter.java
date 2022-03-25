@@ -12,7 +12,7 @@ public class Shelter extends Field{
     public boolean accept(Virologist v) {
         System.out.println("Shelter.accept()");
         if (super.accept(v)){
-
+            eq.collect(v);
             return true;
         }
         return false;

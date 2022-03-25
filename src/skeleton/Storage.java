@@ -17,7 +17,9 @@ public class Storage extends Field{
     public boolean accept(Virologist v) {
         System.out.println("Storage.accept()");
         if (super.accept(v)){
-
+            for (Resources r: res){
+                r.collect(v);
+            }
             return true;
         }
         return false;
