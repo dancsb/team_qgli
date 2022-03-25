@@ -1,4 +1,4 @@
 package team_qgli;
 
-public class Storage {
+public class Storage extends Field{
 }

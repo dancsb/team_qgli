@@ -1,4 +1,4 @@
 package team_qgli;
 
-public class Shelter {
+public class Shelter extends Field{
 }
