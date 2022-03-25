@@ -6,6 +6,7 @@ public class Map {
     private ArrayList<Field> fields;
 
     public Map() {
+        System.out.println("Map.constructor()");
         this.fields = new ArrayList<>();
     }
 

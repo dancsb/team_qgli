@@ -7,6 +7,7 @@ public class Field {
     private ArrayList<Virologist> virologists;
 
     public Field(){
+        System.out.println("Field.constructor()");
         neighbours = new ArrayList<>();
         virologists = new ArrayList<>();
     }

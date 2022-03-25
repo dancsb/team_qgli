@@ -4,6 +4,7 @@ public class Lab extends Field{
     private GeneticCode gc;
 
     public Lab(GeneticCode gc) {
+        System.out.println("Lab.constructor()");
         this.gc = gc;
     }
 
@@ -15,6 +16,10 @@ public class Lab extends Field{
     @Override
     public boolean accept(Virologist v) {
         System.out.println("Lab.accept()");
-        return super.accept(v);
+         if (super.accept(v)){
+             gc.collect(v);
+             return true;
+         }
+         return false;
     }
 }
