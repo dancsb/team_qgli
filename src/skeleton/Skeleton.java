@@ -184,23 +184,23 @@ public class Skeleton {
     }
 
     private void stealsNucleotideTest() {
-        virologist.stealResources(nucleo);
+        virologist.stealResources(target, nucleo);
     }
 
     private void stealsGlovesTest() {
-        virologist.stealEquipment(gloves);
+        virologist.stealEquipment(target, gloves);
     }
 
     private void stealsCapeTest() {
-        virologist.stealEquipment(cape);
+        virologist.stealEquipment(target, cape);
     }
 
     private void stealsBagTest() {
-        virologist.stealEquipment(bag);
+        virologist.stealEquipment(target, bag);
     }
 
     private void stealsAminoAcidTest() {
-        virologist.stealResources(amino);
+        virologist.stealResources(target, amino);
     }
 
     private void picksUpNucleotideTest() {

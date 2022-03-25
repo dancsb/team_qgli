@@ -38,7 +38,7 @@ public class Virologist implements Steppable {
     public void stealResources(Virologist v,Resources r){
         System.out.println("Virologist.stealResources()");
     }
-    public void stealEquipment(Virologist v,Resources r){
+    public void stealEquipment(Virologist v,Equipment e){
         System.out.println("Virologist.stealEquipment()");
     }
     public void useAgent(Agent a,Virologist target){
