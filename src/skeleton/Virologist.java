@@ -14,14 +14,17 @@ public class Virologist implements Steppable {
     //csak tesztelésre hoztam létre, puszi: balázs
     public Virologist() {
         resources = new ArrayList<>(2);
+        attributes = new ArrayList<>();
         resources.add(new AminoAcid());
         resources.add(new AminoAcid());
+        attributes.add(new Dancing());
+        attributes.add(new Paralyzed());
     }
 
     public void move(Field f){
         System.out.println("Virologist.move()");
         ArrayList<Field> neighbours = f.getNeighbours();
-        if(checkWin() == true)Game.endGame();
+        if(checkWin())Game.endGame();
         for(Field fNeighbours : neighbours)
         {
             if(fNeighbours == f){
@@ -32,23 +35,28 @@ public class Virologist implements Steppable {
      }
     public boolean checkWin(){
         System.out.println("Virologist.checkWin()");
-        if(geneticCodes.size() == 4) return true;
-        else return false;
+        return geneticCodes.size() == 4;
     }
     public void stealResources(Virologist v,Resources r){
         System.out.println("Virologist.stealResources()");
     }
-    public void stealEquipment(Virologist v,Resources r){
+    public void stealEquipment(Virologist v,Equipment e){
         System.out.println("Virologist.stealEquipment()");
     }
     public void useAgent(Agent a,Virologist target){
-        System.out.println("Virologist.useAgent()");
+        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
+        SkeletonWriter.Println("Virologist.useAgent()");
+        a.useOn(target);
+        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
     public void step(){
         System.out.println("Virologist.step()");
     }
     public boolean craftAgent(Agent a){
-        System.out.println("Virologist.craftAgent()");
+        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
+        SkeletonWriter.Println("Virologist.craftAgent()");
+        a.getCrafted(this);
+        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
         return true;
     }
     public boolean pickUpEquipment(Equipment e){
@@ -67,7 +75,9 @@ public class Virologist implements Steppable {
         System.out.println("Virologist.loseResources()");
     }
     public ArrayList<Attribute> getAttributes() {
-        System.out.println("Virologist.getAttributes()");
+        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
+        SkeletonWriter.Println("Virologist.getAttributes()");
+        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
         return attributes;
     }
     public boolean addGeneticCode(GeneticCode g){

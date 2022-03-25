@@ -4,6 +4,7 @@ package skeleton;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Scanner;
 
 public class Skeleton {
 
@@ -28,130 +29,137 @@ public class Skeleton {
     public Skeleton(){}
 
     public void runTests() {
-        System.out.println("1. Virologist crafts Amnesia");
-        System.out.println("2. Virologist crafts Invulnerable");
-        System.out.println("3. Virologist crafts Paralyzer");
-        System.out.println("4. Virologist crafts Vitusdance");
-        System.out.println("5. Virologist loses AminoAcid");
-        System.out.println("6. Virologist loses Bag");
-        System.out.println("7. Virologist loses Cape");
-        System.out.println("8. Virologist loses Gloves");
-        System.out.println("9. Virologist loses Nucleotide");
-        System.out.println("10. Virologist picks up AminoAcid");
-        System.out.println("11. Virologist picks up Bag");
-        System.out.println("12. Virologist picks up Cape");
-        System.out.println("13. Virologist picks up Glove");
-        System.out.println("14. Virologist picks up Nucleotide");
-        System.out.println("15. Virologist steals AminoAcid");
-        System.out.println("16. Virologist steals Bag");
-        System.out.println("17. Virologist steals Cape");
-        System.out.println("18. Virologist steals Glove");
-        System.out.println("19. Virologist steals Nucleotide");
-        System.out.println("20. Virologist steps on Field");
-        System.out.println("21. Virologist steps on Lab");
-        System.out.println("22. Virologist steps on Shelter");
-        System.out.println("23. Virologist steps on Storage");
-        System.out.println("24. Virologist uses Amnesia");
-        System.out.println("25. Virologist uses Invulnerable");
-        System.out.println("26. Virologist uses Paralyzer");
-        System.out.println("27. Virologist uses Vitusdance");
-        System.out.println();
-        System.out.println("Ird be a megfelelo szamot:");
-        BufferedReader reader = new BufferedReader(
-                new InputStreamReader(System.in));
-        try {
-            String selectedUseCase = reader.readLine();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        while (true) {
+            System.out.println("1. Virologist crafts Amnesia");
+            System.out.println("2. Virologist crafts Invulnerable");
+            System.out.println("3. Virologist crafts Paralyzer");
+            System.out.println("4. Virologist crafts Vitusdance");
+            System.out.println("5. Virologist loses AminoAcid");
+            System.out.println("6. Virologist loses Bag");
+            System.out.println("7. Virologist loses Cape");
+            System.out.println("8. Virologist loses Gloves");
+            System.out.println("9. Virologist loses Nucleotide");
+            System.out.println("10. Virologist picks up AminoAcid");
+            System.out.println("11. Virologist picks up Bag");
+            System.out.println("12. Virologist picks up Cape");
+            System.out.println("13. Virologist picks up Glove");
+            System.out.println("14. Virologist picks up Nucleotide");
+            System.out.println("15. Virologist steals AminoAcid");
+            System.out.println("16. Virologist steals Bag");
+            System.out.println("17. Virologist steals Cape");
+            System.out.println("18. Virologist steals Glove");
+            System.out.println("19. Virologist steals Nucleotide");
+            System.out.println("20. Virologist steps on Field");
+            System.out.println("21. Virologist steps on Lab");
+            System.out.println("22. Virologist steps on Shelter");
+            System.out.println("23. Virologist steps on Storage");
+            System.out.println("24. Virologist uses Amnesia");
+            System.out.println("25. Virologist uses Invulnerable");
+            System.out.println("26. Virologist uses Paralyzer");
+            System.out.println("27. Virologist uses Vitusdance");
+            System.out.println("28. Exit");
+            System.out.println();
+            System.out.println("Ird be a megfelelo szamot:");
+            BufferedReader reader = new BufferedReader(
+                    new InputStreamReader(System.in));
+            int selectedUseCase=new Scanner(System.in).nextInt();
 
-        switch (selectedUseCase) {
-            case 1:
-                craftsAmenesiaTest();
-                break;
-            case 2:
-                craftsInvulnerableTest();
-                break;
-            case 3:
-                craftsParalyzerTest();
-                break;
-            case 4:
-                craftsVitusdanceTest();
-                break;
-            case 5:
-                losesAminoAcidTest();
-                break;
-            case 6:
-                losesBagTest();
-                break;
-            case 7:
-                losesCapeTest();
-                break;
-            case 8:
-                losesGlovesTest();
-                break;
-            case 9:
-                losesNucleotideTest();
-            case 10:
-                picksUpAminoAcidTest();
-                break;
-            case 11:
-                picksUpBagTest();
-                break;
-            case 12:
-                picksUpCapeTest();
-                break;
-            case 13:
-                picksUpGlovesTest();
-                break;
-            case 14:
-                picksUpNucleotideTest();
-                break;
-            case 15:
-                stealsAminoAcidTest();
-                break;
-            case 16:
-                stealsBagTest();
-                break;
-            case 17:
-                stealsCapeTest();
-                break;
-            case 18:
-                stealsGlovesTest();
-                break;
-            case 19:
-                stealsNucleotideTest();
-                break;
-            case 20:
-                stepsOnFieldTest();
-                break;
-            case 21:
-                stepsOnLabTest();
-                break;
-            case 22:
-                stepsOnShelterTest();
-                break;
-            case 23:
-                stepsOnStorageTest();
-                break;
-            case 24:
-                usesAmnesiaTest();
-                break;
-            case 25:
-                usesInvulnerableTest();
-                break;
-            case 26:
-                usesParalyzerTest();
-                break;
-            case 27:
-                usesVitusdanceTest();
-                break;
+            switch (selectedUseCase) {
+                case 1:
+                    craftsAmenesiaTest();
+                    break;
+                case 2:
+                    craftsInvulnerableTest();
+                    break;
+                case 3:
+                    craftsParalyzerTest();
+                    break;
+                case 4:
+                    craftsVitusdanceTest();
+                    break;
+                case 5:
+                    losesAminoAcidTest();
+                    break;
+                case 6:
+                    losesBagTest();
+                    break;
+                case 7:
+                    losesCapeTest();
+                    break;
+                case 8:
+                    losesGlovesTest();
+                    break;
+                case 9:
+                    losesNucleotideTest();
+                case 10:
+                    picksUpAminoAcidTest();
+                    break;
+                case 11:
+                    picksUpBagTest();
+                    break;
+                case 12:
+                    picksUpCapeTest();
+                    break;
+                case 13:
+                    picksUpGlovesTest();
+                    break;
+                case 14:
+                    picksUpNucleotideTest();
+                    break;
+                case 15:
+                    stealsAminoAcidTest();
+                    break;
+                case 16:
+                    stealsBagTest();
+                    break;
+                case 17:
+                    stealsCapeTest();
+                    break;
+                case 18:
+                    stealsGlovesTest();
+                    break;
+                case 19:
+                    stealsNucleotideTest();
+                    break;
+                case 20:
+                    stepsOnFieldTest();
+                    break;
+                case 21:
+                    stepsOnLabTest();
+                    break;
+                case 22:
+                    stepsOnShelterTest();
+                    break;
+                case 23:
+                    stepsOnStorageTest();
+                    break;
+                case 24:
+                    usesAmnesiaTest();
+                    break;
+                case 25:
+                    usesInvulnerableTest();
+                    break;
+                case 26:
+                    usesParalyzerTest();
+                    break;
+                case 27:
+                    usesVitusdanceTest();
+                    break;
+                case 28:
+                    System.exit(0);
+                    break;
                 default:
-                throw new IllegalStateException("Ervenytelen szam: " + selectedUseCase);
+                    throw new IllegalStateException("Ervenytelen szam: " + selectedUseCase);
+            }
+            System.out.println("Üss egy billentyűt a továbblépéshez xdddddddd");
+            new Scanner(System.in).nextLine();
         }
     }
     private void usesVitusdanceTest(){
-        virologist.useAgent(vitusdance, target);
+        Virologist v = new Virologist();
+        Virologist targetV = new Virologist();
+        Vitusdance vD=new Vitusdance(v,10,10,10,10,"asd");
+        v.useAgent(vD,targetV);
     }
 
     private void usesParalyzerTest() {
@@ -184,23 +192,23 @@ public class Skeleton {
     }
 
     private void stealsNucleotideTest() {
-        virologist.stealResources(nucleo);
+        //virologist.stealResources(nucleo);
     }
 
     private void stealsGlovesTest() {
-        virologist.stealEquipment(gloves);
+        //virologist.stealEquipment(gloves);
     }
 
     private void stealsCapeTest() {
-        virologist.stealEquipment(cape);
+        //virologist.stealEquipment(cape);
     }
 
     private void stealsBagTest() {
-        virologist.stealEquipment(bag);
+        //virologist.stealEquipment(bag);
     }
 
     private void stealsAminoAcidTest() {
-        virologist.stealResources(amino);
+        //virologist.stealResources(amino);
     }
 
     private void picksUpNucleotideTest() {
