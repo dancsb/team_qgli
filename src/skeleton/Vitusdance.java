@@ -10,7 +10,6 @@ public class Vitusdance extends Agent {
     public void useOn(Virologist v) {
         System.out.println("Vitusdance.useOn()");
         ArrayList<Attribute> attribute=v.getAttributes();
-        //Attribute[] attribute = v.getAttributes();
         for (Attribute a:attribute) {
             a.setTimeDance(effectTime);
         }

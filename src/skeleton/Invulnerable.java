@@ -9,8 +9,7 @@ public class Invulnerable extends Agent {
 
     public void useOn(Virologist v) {
         System.out.println("Invulnerable.useOn()");
-        ArrayList<Attribute> attribute=v.getAttributes();
-        //Attribute[] attribute = v.getAttributes();
+        ArrayList<Attribute> attribute = v.getAttributes();
         for (Attribute a:attribute) {
             a.setTimeInvu(effectTime);
         }
