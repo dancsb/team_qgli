@@ -9,7 +9,7 @@ public class Paralyzer extends Agent {
         System.out.println("Paralyzer.useOn()");
         Attribute[] attribute = v.getAttributes();
         for (Attribute a:attribute) {
-            a.setTimePara(100);
+            a.setTimePara(effectTime);
         }
     }
 }

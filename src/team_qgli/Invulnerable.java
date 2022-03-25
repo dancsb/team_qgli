@@ -9,7 +9,7 @@ public class Invulnerable extends Agent {
         System.out.println("Invulnerable.useOn()");
         Attribute[] attribute = v.getAttributes();
         for (Attribute a:attribute) {
-            a.setTimeInvu(100);
+            a.setTimeInvu(effectTime);
         }
     }
 }
