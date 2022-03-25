@@ -1,4 +1,4 @@
-package team_qgli;
+package skeleton;
 
 public class Amnesia extends Agent {
     public Amnesia(Virologist v, long effT, long amino, long nucleo, long exTime, String genCode) {

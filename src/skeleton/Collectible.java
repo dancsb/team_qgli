@@ -1,4 +1,4 @@
-package team_qgli;
+package skeleton;
 
 public interface Collectible {
     void collect(Virologist v);

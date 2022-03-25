@@ -1,4 +1,4 @@
-package team_qgli;
+package skeleton;
 
 public class Lab extends Field{
     private GeneticCode gc;

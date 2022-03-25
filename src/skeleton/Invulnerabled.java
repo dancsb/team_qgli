@@ -1,4 +1,4 @@
-package team_qgli;
+package skeleton;
 
 public class Invulnerabled extends Attribute{
     private long defPrec;

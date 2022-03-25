@@ -1,4 +1,4 @@
-package team_qgli;
+package skeleton;
 
 public abstract class Equipment implements Collectible {
     @Override

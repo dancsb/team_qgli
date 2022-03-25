@@ -1,4 +1,4 @@
-package team_qgli;
+package skeleton;
 
 public abstract class Agent implements Steppable {
     protected Virologist owner;
@@ -49,6 +49,6 @@ public abstract class Agent implements Steppable {
 
     public void getCrafted(Virologist v) {
         System.out.println("Agent.getCrafted()");
-        v.looseResources(new Resources());
+        v.loseResources(r);
     }
 }

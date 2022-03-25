@@ -1,4 +1,4 @@
-package team_qgli;
+package skeleton;
 
 import java.util.ArrayList;
 
