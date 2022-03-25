@@ -1,4 +1,4 @@
-package team_qgli;
+package skeleton;
 
 public class Vitusdance extends Agent {
     public Vitusdance(Virologist v, long effT, long amino, long nucleo, long exTime, String genCode) {

@@ -1,4 +1,4 @@
-package team_qgli;
+package skeleton;
 
 public class Paralyzed extends Attribute{
     @Override

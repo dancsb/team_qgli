@@ -1,4 +1,4 @@
-package team_qgli;
+package skeleton;
 
 public class Resources implements Collectible{
     protected long amount;

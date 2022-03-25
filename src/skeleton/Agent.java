@@ -1,4 +1,4 @@
-package team_qgli;
+package skeleton;
 
 public abstract class Agent implements Steppable {
     protected Virologist owner;

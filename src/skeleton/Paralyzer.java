@@ -1,4 +1,4 @@
-package team_qgli;
+package skeleton;
 
 public class Paralyzer extends Agent {
     public Paralyzer(Virologist v, long effT, long amino, long nucleo, long exTime, String genCode) {

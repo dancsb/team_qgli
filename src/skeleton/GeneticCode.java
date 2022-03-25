@@ -1,4 +1,4 @@
-package team_qgli;
+package skeleton;
 
 public class GeneticCode implements Collectible{
     private String name;

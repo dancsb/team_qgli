@@ -1,3 +1,3 @@
-# team_qgli
+# skeleton
 biztosan jóü lezs
 HAHAHA DE JÓ LESZ

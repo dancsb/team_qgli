@@ -1,4 +1,4 @@
-package team_qgli;
+package skeleton;
 
 public class Invulnerable extends Agent {
     public Invulnerable(Virologist v, long effT, long amino, long nucleo, long exTime, String genCode) {
