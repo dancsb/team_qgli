@@ -1,5 +1,7 @@
 package skeleton;
 
+import java.util.ArrayList;
+
 public class Nucleotide extends Resources{
     @Override
     public void changeAmountNucleotide(long x) {
@@ -8,6 +10,11 @@ public class Nucleotide extends Resources{
 
     @Override
     public void collect(Virologist v) {
-        super.collect(v);
+        ArrayList<Resources> rs = v.getResources();
+        ArrayList<Resources> resources = v.getResources();
+        for (Resources r:
+                resources) {
+            r.changeAmountNucleotide(amount);
+        }
     }
 }
