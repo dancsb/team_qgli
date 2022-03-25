@@ -7,7 +7,7 @@ public class Nucleotide extends Resources{
     }
 
     @Override
-    public void Collect(Virologist v) {
-        super.Collect(v);
+    public void collect(Virologist v) {
+        super.collect(v);
     }
 }
