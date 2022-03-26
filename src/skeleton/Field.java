@@ -9,9 +9,9 @@ public class Field {
     public Field(){
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
         SkeletonWriter.Println("Field.constructor()");
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
         neighbours = new ArrayList<>();
         virologists = new ArrayList<>();
+        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
 
     public ArrayList<Field> getNeighbours() {
@@ -24,8 +24,8 @@ public class Field {
     public void addNeighbour(Field n){
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
         SkeletonWriter.Println("Field.addNeighbour()");
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
         neighbours.add(n);
+        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
 
     public ArrayList<Virologist> getVirologists() {
@@ -45,7 +45,7 @@ public class Field {
     public void remove(Virologist v){
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
         SkeletonWriter.Println("Field.remove()");
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
         virologists.remove(v);
+        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
 }

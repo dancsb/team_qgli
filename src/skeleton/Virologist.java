@@ -25,19 +25,22 @@ public class Virologist implements Steppable {
     }
 
     public void move(Field f){
-        System.out.println("Virologist.move()");
+        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
+        SkeletonWriter.Println("Virologist.move()");
         ArrayList<Field> neighbours = f.getNeighbours();
-        if(checkWin())Game.endGame();
         for(Field fNeighbours : neighbours)
         {
             if(fNeighbours == f){
                 f.accept(this); f.remove(this);
             }
         }
-
+        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
      }
+
     public boolean checkWin(){
-        System.out.println("Virologist.checkWin()");
+        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
+        SkeletonWriter.Println("Virologist.checkWin()");
+        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
         return geneticCodes.size() == 4;
     }
     public void stealResources(Virologist v,Resources r){
@@ -70,8 +73,9 @@ public class Virologist implements Steppable {
         return true;
     }
     public boolean pickUpResource(Resources r){
-        System.out.println("Virologist.pickUpResources()");
-
+        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
+        SkeletonWriter.Println("Virologist.pickUpResource()");
+        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
         return true;
     }
     public void loseEquipment(Equipment e){
@@ -90,8 +94,10 @@ public class Virologist implements Steppable {
         return attributes;
     }
     public boolean addGeneticCode(GeneticCode g){
-        System.out.println("Virologist.addGeneticCode()");
-
+        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
+        SkeletonWriter.Println("Virologist.addGeneticCode()");
+        if(checkWin())Game.endGame();
+        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
         return true;
     }
 
