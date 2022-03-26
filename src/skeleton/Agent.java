@@ -10,6 +10,7 @@ public abstract class Agent implements Steppable {
     protected long expireTime;
     protected String requireGenCode;
 
+    //ágens konstruktora, melyben paraméterül kapja a Virologust amely lekraftolta, hatási időt, amino és nukleo költségeket és a szükséges genetikai kódot
     public Agent(Virologist v, long effT, long amino, long nucleo, long exTime, String genCode) {
         owner = v;
         effectTime = effT;
@@ -49,6 +50,7 @@ public abstract class Agent implements Steppable {
         System.out.println("Agent.step()");
     }
 
+    //a kratfoláshoz szükséges erőforrások felhasználása, ezek levonása az adott viológustól
     public void getCrafted(Virologist v) {
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
         SkeletonWriter.println("Agent.getCrafted()");
