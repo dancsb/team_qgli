@@ -12,12 +12,14 @@ public class Nucleotide extends Resources{
 
     @Override
     public void collect(Virologist v) {
-        System.out.println("Nucleotide.collect()");
+        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
+        SkeletonWriter.Println("Nucleotide.collect()");
         ArrayList<Resources> rs = v.getResources();
         ArrayList<Resources> resources = v.getResources();
         for (Resources r:
                 resources) {
             r.changeAmountNucleotide(amount);
         }
+        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
 }

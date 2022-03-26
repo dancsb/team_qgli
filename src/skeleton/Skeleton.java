@@ -235,7 +235,11 @@ public class Skeleton {
 
     private void picksUpNucleotideTest() {
         System.out.println("Virologist picks up Nucleotide");
-        virologist.pickUpResource(nucleo);
+        Virologist v=new Virologist();
+        AminoAcid a=new AminoAcid();
+        Nucleotide n=new Nucleotide();
+        Storage s=new Storage(a,n);
+        v.move(s);
     }
 
     private void picksUpGlovesTest() {
@@ -260,8 +264,11 @@ public class Skeleton {
     }
 
     private void picksUpAminoAcidTest() {
-        System.out.println("Virologist picks up AminoAcid");
-        virologist.pickUpResource(amino);
+        Virologist v=new Virologist();
+        AminoAcid a=new AminoAcid();
+        Nucleotide n=new Nucleotide();
+        Storage s=new Storage(a,n);
+        v.move(s);
     }
 
     private void losesNucleotideTest() {

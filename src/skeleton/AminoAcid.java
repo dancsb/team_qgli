@@ -12,12 +12,14 @@ public class AminoAcid extends Resources{
 
     @Override
     public void collect(Virologist v) {
-        System.out.println("AminoAcid.collect()");
+        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
+        SkeletonWriter.Println("AminoAcid.collect()");
         ArrayList<Resources> rs = v.getResources();
         ArrayList<Resources> resources = v.getResources();
         for (Resources r:
                 resources) {
             r.changeAmountAminoAcid(amount);
         }
+        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
 }

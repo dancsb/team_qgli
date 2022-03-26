@@ -75,6 +75,7 @@ public class Virologist implements Steppable {
     public boolean pickUpResource(Resources r){
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
         SkeletonWriter.Println("Virologist.pickUpResource()");
+        r.collect(this);
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
         return true;
     }
