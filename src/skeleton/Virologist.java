@@ -47,10 +47,19 @@ public class Virologist implements Steppable {
     public void stealResources(Virologist v,Resources r){
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
         SkeletonWriter.println("Virologist.stealResources()");
+        //
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
     public void stealEquipment(Virologist v,Equipment e){
-        System.out.println("Virologist.stealEquipment()");
+        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
+        SkeletonWriter.println("Virologist.stealEquipment()");
+        ArrayList<Virologist> av = f.getVirologists();
+        for (Virologist viro:av)
+            if(viro == v) {
+                v.loseEquipment(e);
+                this.pickUpEquipment(e);
+            }
+        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
     public void useAgent(Virologist target, Agent a){
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
@@ -129,7 +138,7 @@ public class Virologist implements Steppable {
         return geneticCodes;
     }
 
-    public Field getF() {
+    public Field getField() {
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
         SkeletonWriter.println("Virologist.getF()");
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);

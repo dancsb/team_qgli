@@ -2,7 +2,6 @@ package skeleton;
 
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Scanner;
 
@@ -215,7 +214,11 @@ public class Skeleton {
 
     private void stealsGlovesTest() {
         System.out.println("Virologist steals Glove");
-        //virologist.stealEquipment(gloves);
+        Virologist virologist = new Virologist();
+        Virologist virologistTarget = new Virologist();
+        virologist.getField().getVirologists().add(virologistTarget);
+        Gloves gloves = new Gloves();
+        virologist.stealEquipment(virologistTarget, gloves);
     }
 
     private void stealsCapeTest() {
@@ -241,7 +244,7 @@ public class Skeleton {
         AminoAcid a=new AminoAcid();
         Nucleotide n=new Nucleotide();
         Storage s=new Storage(a,n);
-        v.getF().addNeighbour(s);
+        v.getField().addNeighbour(s);
         v.move(s);
     }
 
@@ -271,7 +274,7 @@ public class Skeleton {
         AminoAcid a=new AminoAcid();
         Nucleotide n=new Nucleotide();
         Storage s=new Storage(a,n);
-        v.getF().addNeighbour(s);
+        v.getField().addNeighbour(s);
         v.move(s);
     }
 
