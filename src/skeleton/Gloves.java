@@ -5,7 +5,7 @@ package skeleton;
  */
 public class Gloves extends Equipment{
     /**
-     * a kesztyű begyűjtését valósítja meg, és az azzal járó "visszakenés" képességet állítja be
+     * A kesztyű begyűjtését valósítja meg, és az azzal járó "visszakenés" képességet állítja be
      * @param v a virológus aki felveszi
      */
     @Override
@@ -16,7 +16,7 @@ public class Gloves extends Equipment{
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
     /**
-     * a kesztyű elvesztésekor "elveszi" a kesztyű által nyújtott "visszakenés" képességet a virológustól
+     * A kesztyű elvesztésekor "elveszi" a kesztyű által nyújtott "visszakenés" képességet a virológustól
      * @param v a virológus aki elveszti
      */
     @Override

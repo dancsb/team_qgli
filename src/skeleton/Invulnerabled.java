@@ -4,12 +4,12 @@ package skeleton;
  */
 public class Invulnerabled extends Attribute{
     /**
-     * védekezési előny mértéke
+     * Védekezési előny mértéke
      */
     private long defPrec;
 
     /**
-     * beállítja a sebezhetetlenség hatásának idjét
+     * Beállítja a sebezhetetlenség hatásának idjét
      * @param x az idő
      */
     @Override
@@ -20,7 +20,7 @@ public class Invulnerabled extends Attribute{
     }
 
     /**
-     * visszatér a sebezhetetlenség hatásának idejével
+     * Visszatér a sebezhetetlenség hatásának idejével
      * @return visszatér a sebezhetetlenség hatásának idejé
      */
     @Override
@@ -32,7 +32,7 @@ public class Invulnerabled extends Attribute{
     }
 
     /**
-     * megváltoztatja a sebezhetetlenség hatásának mértékét
+     * Megváltoztatja a sebezhetetlenség hatásának mértékét
      * @param x az idő
      */
     @Override

@@ -1,33 +1,50 @@
 package skeleton;
 
+/**
+ * A gyujthető erőforrásokat reprezentálja
+ */
+
 public abstract class Resources implements Collectible{
 
-    //erőforrások mennyisége
+    /**
+     * Eltárolható erőforrások mennyisége és egy virológus által a maximális eltárolható mennyiség
+     */
     protected long amount;
-    //maximális tárolási képessége egy adott erőforrásból egy adott varázslónak
     protected long maxCapacity;
 
 
-    //erőforrások felvételét megvalósító függvény
+    /**
+     * Erőforrások felvételét megvalósító függvény
+     * @param v a virológus amely felvette az adott erőforrást
+     */
     @Override
     public abstract void collect(Virologist v);
 
-    //megváltoztatja egy virológus átal tárolt aminosavak mennyiségét
-    //ha felvesz akkor növeli , ha kraftol vagy lopnak tőle, akkor csökkenti
+    /**
+     * Megváltoztatja egy virológus átal tárolt aminosavak mennyiségét
+     * Ha felvesz akkor növeli , ha kraftol vagy lopnak tőle, akkor csökkenti
+     * @param x az érték amennyivel változtatja az aminosavak mennyiségét
+     */
     public void changeAmountAminoAcid(long x){
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
         SkeletonWriter.println("Resources.changeAmountAminoAcid()");
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
-    //megváltoztatja egy virológus átal tárolt nukleotidok mennyiségét
-    //ha felvesz akkor növeli , ha kraftol vagy lopnak tőle, akkor csökkenti
+
+    /**
+     * Megváltoztatja egy virológus átal tárolt nukleotidok mennyiségét
+     * Ha felvesz akkor növeli , ha kraftol vagy lopnak tőle, akkor csökkenti
+     * @param x az érték amennyivel változtatja a nukleotidok mennyiségét
+     */
     public void changeAmountNucleotide(long x){
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
         SkeletonWriter.println("Resources.changeAmountAminoAcid()");
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
-
-    //beállítja, hogy egy virológus maximálisan mennyi erőforrást tarthat magánál
+    /**
+     * Beállítja, hogy egy virológus maximálisan mennyi erőforrást tarthat magánál
+     * @param x az érték amennyire állítódik a maximálisan tárolható erőforrások száma
+     */
     public void setMaxAmount(long x){
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
         SkeletonWriter.println("Resources.changeMaxAmount()");

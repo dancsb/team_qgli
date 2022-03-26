@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class Cape extends Equipment{
 
     /**
-     * /a köpennyel járó védekezési % mértéke
+     * a köpennyel járó védekezési % mértéke
      */
     private long defPerc;
 

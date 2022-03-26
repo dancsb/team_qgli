@@ -1,11 +1,21 @@
 package skeleton;
 
+/**
+ * A shelter speciális mezőt reprezentálja
+ */
+
 public class Shelter extends Field{
 
-    //az óvóhelyen elhelyezett felszerelés
+    /**
+     * A  felszerelés amely az óvóhelyen található meg
+     */
     private Equipment eq;
 
-    //shelter kosntruktora, létrehozása benne egy megszerezhető felszereléssel
+    /**
+     * Shelter kosntruktora, létrehozása benne egy megszerezhető felszereléssel
+     * @param eq az a felszerelés amely a shleterben található meg
+     */
+
     public Shelter(Equipment eq) {
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
         SkeletonWriter.println("Shelter.constructor()");
@@ -13,7 +23,11 @@ public class Shelter extends Field{
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
 
-    //ha egy virológus arra a mezőre szeretne lépni, eldöntheti, hogy léphet e oda vagy sem
+    /**
+     * Ha egy virológus arra a mezőre szeretne lépni, eldöntheti, hogy léphet e oda vagy sem
+     * @param v az a virológus amelynek a belépését az adott mezőre elfodaja
+     * @return ha léphet arra a mezőre akkor igaz értékkel tér vissza, különben hamissal
+     */
     @Override
     public boolean accept(Virologist v) {
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);

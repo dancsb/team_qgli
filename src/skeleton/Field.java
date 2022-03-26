@@ -8,11 +8,11 @@ import java.util.ArrayList;
 public class Field {
 
     /**
-     * a szomszédos mezőket tároló lista
+     * A szomszédos mezőket tároló lista
      */
     private ArrayList<Field> neighbours;
     /**
-     * a mezőn tartózkodó virológusokat tároló lista
+     * A mezőn tartózkodó virológusokat tároló lista
      */
     private ArrayList<Virologist> virologists;
 
@@ -61,7 +61,7 @@ public class Field {
         return virologists;
     }
     /**
-     * ha egy virológus arra a mezőre szeretne lépni, eldöntheti, hogy léphet e oda vagy sem
+     * Ha egy virológus arra a mezőre szeretne lépni, eldöntheti, hogy léphet e oda vagy sem
      * @param v a virológus aki lépni akar
      * @return true ha léphet, false ha nem
      */
@@ -72,7 +72,7 @@ public class Field {
         return virologists.add(v);
     }
     /**
-     * eltávolít egy virológust az adott mezőről
+     * Eltávolít egy virológust az adott mezőről
      * @param v az eltávolítandó virolgóus
      */
     public void remove(Virologist v){

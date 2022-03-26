@@ -8,7 +8,7 @@ public class Paralyzer extends Agent {
 
     /**
      * Ágens konstruktor
-     * @param v az tulajdonos virológus
+     * @param v a tulajdonos virológus
      * @param effT az idő ameddig tart
      * @param amino az aminosav mértéke ami a craftoláshoz kell
      * @param nucleo a nukleotid mértéke ami a craftoláshoz kell

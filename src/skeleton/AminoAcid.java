@@ -9,8 +9,8 @@ public class AminoAcid extends Resources{
 
 
     /**
-     * megváltoztatja egy virológus átal tárolt aminosavak mennyiségét
-     * ha felvesz akkor növeli , ha kraftol vagy lopnak tőle, akkor csökkenti
+     * Megváltoztatja egy virológus átal tárolt aminosavak mennyiségét
+     * Ha felvesz akkor növeli , ha kraftol vagy lopnak tőle, akkor csökkenti
      * @param x a mennyiség amivel változik az aminosav
      */
     @Override
@@ -21,7 +21,7 @@ public class AminoAcid extends Resources{
     }
 
     /**
-     * aminosavak felvételét megvalósító függvény
+     * Aminosavak felvételét megvalósító függvény
      * @param v a Virológus aki felveszi az aminosavat
      */
 

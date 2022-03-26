@@ -19,7 +19,7 @@ public class Game {
     }
 
     /**
-     * játék vége, akkor hívódik meg, ha checkWin() igaz értékkel tér visssza
+     * Játék vége, akkor hívódik meg, ha checkWin() igaz értékkel tér visssza
      */
     public static void endGame(){
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);

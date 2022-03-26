@@ -31,7 +31,7 @@ public class Attribute implements Steppable{
         return 0;
     }
     /**
-     * egy virológus sebezhetetlen állapotának idejének a beállítása
+     * Egy virológus sebezhetetlen állapotának idejének a beállítása
      * @param x az idő
      */
     public void setTimeInvu(long x){
@@ -50,7 +50,7 @@ public class Attribute implements Steppable{
         return 0;
     }
     /**
-     * egy virológus vitustáncot járó állapotának idejének a beállítása
+     * Egy virológus vitustáncot járó állapotának idejének a beállítása
      * @param x az idő
      */
     public void setTimeDance(long x){
@@ -69,7 +69,7 @@ public class Attribute implements Steppable{
         return 0;
     }
     /**
-     * egy virológus "visszaverési" állapotának a beállítása
+     * Egy virológus "visszaverési" állapotának a beállítása
      * @param x az idő
      */
     public void changeDefPerc(long x){

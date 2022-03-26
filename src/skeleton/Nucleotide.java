@@ -7,8 +7,8 @@ public class Nucleotide extends Resources{
 
 
     /**
-     * megváltoztatja egy virológus átal tárolt nukleotidok mennyiségét
-     * ha felvesz akkor növeli , ha kraftol vagy lopnak tőle, akkor csökkenti, attól függ milyen előjelű számot kap
+     * Megváltoztatja egy virológus átal tárolt nukleotidok mennyiségét
+     * Ha felvesz akkor növeli , ha kraftol vagy lopnak tőle, akkor csökkenti, attól függ milyen előjelű számot kap
      * @param x egy érték amivel változtatja a nukleotidok számát
      */
     @Override
@@ -19,8 +19,8 @@ public class Nucleotide extends Resources{
     }
 
     /**
-     *  nukleotidok felvételét megvalósító függvény
-     * @param v a Virológus aki felveszi a nukleotidot.
+     *  Nukleotidok felvételét megvalósító függvény
+     * @param v a virológus aki felveszi a nukleotidot.
      */
     @Override
     public void collect(Virologist v) {

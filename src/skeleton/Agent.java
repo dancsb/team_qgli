@@ -98,6 +98,7 @@ public abstract class Agent implements Steppable {
     /**
      * step inferface függvénye
      */
+
     public void step() {
         System.out.println("Agent.step()");
     }

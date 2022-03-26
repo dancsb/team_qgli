@@ -6,12 +6,12 @@ package skeleton;
 public class GeneticCode implements Collectible{
 
     /**
-     * adott genetikai kód neve
+     * Adott genetikai kód neve
      */
     private String name;
 
     /**
-     * konstruktor melyben beállítjuk a genetikai kód nevét
+     * Konstruktor melyben beállítjuk a genetikai kód nevét
      * @param name a név
      */
     public GeneticCode(String name){
@@ -30,7 +30,7 @@ public class GeneticCode implements Collectible{
     }
 
     /**
-     * genetikai kód megtanulását végző függvény
+     * Genetikai kód megtanulását végző függvény
      * @param v a virológus aki felveszi
      */
     @Override

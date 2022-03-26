@@ -2,7 +2,10 @@ package skeleton;
 
 public class Paralyzed extends Attribute{
 
-    //beállítja a bénaság hatásának idjét
+    /**
+     * Beállítja a bénaság hatásának idjét
+     * @param x az idő mértéke amennyire béna lesz az adott varázsló
+     */
     @Override
     public void setTimePara(long x) {
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
@@ -10,7 +13,10 @@ public class Paralyzed extends Attribute{
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
 
-    //visszatér a bénaság hatásának idjével
+    /**
+     * Visszatér a bénaság hatásának idjével
+     * @return visszatér a hatás idejével
+     */
     @Override
     public long getTimePara() {
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
