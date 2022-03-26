@@ -4,8 +4,12 @@ import java.util.ArrayList;
 
 public class AminoAcid extends Resources{
 
-    //megváltoztatja egy virológus átal tárolt aminosavak mennyiségét
-    //ha felvesz akkor növeli , ha kraftol vagy lopnak tőle, akkor csökkenti
+
+    /**
+     * megváltoztatja egy virológus átal tárolt aminosavak mennyiségét
+     * ha felvesz akkor növeli , ha kraftol vagy lopnak tőle, akkor csökkenti
+     * @param x a mennyiség amivel változik az aminosav
+     */
     @Override
     public void changeAmountAminoAcid(long x) {
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
@@ -13,7 +17,11 @@ public class AminoAcid extends Resources{
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
 
-    //aminosavak felvételét megvalósító függvény
+    /**
+     * aminosavak felvételét megvalósító függvény
+     * @param v a Virológus aki felveszi az aminosavat
+     */
+
     @Override
     public void collect(Virologist v) {
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
