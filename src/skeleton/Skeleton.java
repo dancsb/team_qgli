@@ -151,7 +151,7 @@ public class Skeleton {
                 default:
                     throw new IllegalStateException("Ervenytelen szam: " + selectedUseCase);
             }
-            System.out.println("Üss egy billentyűt a továbblépéshez xdddddddd");
+            System.out.println("Üss egy billentyűt a továbblépéshez");
             new Scanner(System.in).nextLine();
         }
     }

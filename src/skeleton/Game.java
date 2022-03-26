@@ -4,11 +4,14 @@ public class Game {
     private Map map;
 
     public void startGame(){
-        System.out.println("Game.startGame()");
-
+        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
+        SkeletonWriter.Println("Game.startGame()");
+        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
 
     public static void endGame(){
-        System.out.println("Game.endGame()");
+        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
+        SkeletonWriter.Println("Game.endGame()");
+        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
 }
