@@ -1,9 +1,5 @@
 package skeleton;
 
-
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.security.CodeSigner;
 import java.util.Scanner;
 
 public class Skeleton {
@@ -44,8 +40,6 @@ public class Skeleton {
             System.out.println("28. Exit");
             System.out.println();
             System.out.println("Ird be a megfelelo szamot:");
-            BufferedReader reader = new BufferedReader(
-                    new InputStreamReader(System.in));
             int selectedUseCase=new Scanner(System.in).nextInt();
 
             switch (selectedUseCase) {
@@ -175,25 +169,24 @@ public class Skeleton {
     private void stepsOnStorageTest() {
         System.out.println("Virologist steps on Storage");
         Virologist virologist = new Virologist();
-        AminoAcid amino = new AminoAcid();
-        Nucleotide nucleo = new Nucleotide();
-        Storage storage = new Storage(amino, nucleo);
+        Storage storage = new Storage(new AminoAcid(), new Nucleotide());
+        virologist.getField().addNeighbour(storage);
         virologist.move(storage);
     }
 
     private void stepsOnShelterTest() {
         System.out.println("Virologist steps on Shelter");
         Virologist virologist = new Virologist();
-        Gloves gloves = new Gloves();
-        Shelter shelter = new Shelter(gloves);
+        Shelter shelter = new Shelter(new Bag());
+        virologist.getField().addNeighbour(shelter);
         virologist.move(shelter);
     }
 
     private void stepsOnLabTest() {
         System.out.println("Virologist steps on Lab");
         Virologist virologist = new Virologist();
-        GeneticCode genCode = new GeneticCode("genCode");
-        Lab lab = new Lab(genCode);
+        Lab lab = new Lab(new GeneticCode("poog"));
+        virologist.getField().addNeighbour(lab);
         virologist.move(lab);
     }
 
@@ -201,6 +194,7 @@ public class Skeleton {
         System.out.println("Virologist steps on Field");
         Virologist virologist = new Virologist();
         Field field = new Field();
+        virologist.getField().addNeighbour(field);
         virologist.move(field);
     }
 
@@ -224,17 +218,19 @@ public class Skeleton {
     private void stealsCapeTest() {
         System.out.println("Virologist steals Cape");
         Virologist virologist = new Virologist();
-        Virologist target = new Virologist();
-        Cape cape =new Cape();
-        virologist.stealEquipment(target, cape);
+        Virologist virologistTarget = new Virologist();
+        virologist.getField().getVirologists().add(virologistTarget);
+        Cape cape = new Cape();
+        virologist.stealEquipment(virologistTarget, cape);
     }
 
     private void stealsBagTest() {
         System.out.println("Virologist steals Bag");
         Virologist virologist = new Virologist();
-        Virologist target = new Virologist();
+        Virologist virologistTarget = new Virologist();
+        virologist.getField().getVirologists().add(virologistTarget);
         Bag bag = new Bag();
-        virologist.stealEquipment(target, bag);
+        virologist.stealEquipment(virologistTarget, bag);
     }
 
     private void stealsAminoAcidTest() {
