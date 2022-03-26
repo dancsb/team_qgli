@@ -3,27 +3,12 @@ package skeleton;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.security.CodeSigner;
 import java.util.Scanner;
 
 public class Skeleton {
 
     int selectedUseCase;
-    GeneticCode gc = new GeneticCode("genCode");
-    Virologist virologist = new Virologist();
-    Virologist target = new Virologist();
-    AminoAcid amino = new AminoAcid();
-    Nucleotide nucleo = new Nucleotide();
-    Gloves gloves = new Gloves();
-    Cape cape = new Cape();
-    Bag bag = new Bag();
-    Field field = new Field();
-    Lab lab = new Lab(gc);
-    Shelter shelter = new Shelter(bag);
-    Storage storage = new Storage(amino, nucleo);
-    Invulnerable invulnerable = new Invulnerable(virologist, 10,10 ,10, 10,"genCode");
-    Vitusdance vitusdance = new Vitusdance(virologist,10,10,10,10,"genCode");
-    Amnesia amnesia = new Amnesia(virologist, 10 , 10, 10,10, "genCode");
-    Paralyzer paralyzer = new Paralyzer(virologist,10,10,10,10,"genCode");
 
     public Skeleton(){}
 
@@ -189,27 +174,42 @@ public class Skeleton {
 
     private void stepsOnStorageTest() {
         System.out.println("Virologist steps on Storage");
+        Virologist virologist = new Virologist();
+        AminoAcid amino = new AminoAcid();
+        Nucleotide nucleo = new Nucleotide();
+        Storage storage = new Storage(amino, nucleo);
         virologist.move(storage);
     }
 
     private void stepsOnShelterTest() {
         System.out.println("Virologist steps on Shelter");
+        Virologist virologist = new Virologist();
+        Gloves gloves = new Gloves();
+        Shelter shelter = new Shelter(gloves);
         virologist.move(shelter);
     }
 
     private void stepsOnLabTest() {
         System.out.println("Virologist steps on Lab");
+        Virologist virologist = new Virologist();
+        GeneticCode genCode = new GeneticCode("genCode");
+        Lab lab = new Lab(genCode);
         virologist.move(lab);
     }
 
     private void stepsOnFieldTest() {
         System.out.println("Virologist steps on Field");
+        Virologist virologist = new Virologist();
+        Field field = new Field();
         virologist.move(field);
     }
 
     private void stealsNucleotideTest() {
         System.out.println("Virologist steals Nucleotide");
-        //virologist.stealResources(nucleo);
+        Virologist virologist = new Virologist();
+        Virologist target = new Virologist();
+        Nucleotide nucleo = new Nucleotide();
+        virologist.stealResources(target, nucleo);
     }
 
     private void stealsGlovesTest() {
@@ -223,19 +223,26 @@ public class Skeleton {
 
     private void stealsCapeTest() {
         System.out.println("Virologist steals Cape");
-        //virologist.stealEquipment(cape);
+        Virologist virologist = new Virologist();
+        Virologist target = new Virologist();
+        Cape cape =new Cape();
+        virologist.stealEquipment(target, cape);
     }
 
     private void stealsBagTest() {
         System.out.println("Virologist steals Bag");
-        //virologist.stealEquipment(bag);
+        Virologist virologist = new Virologist();
+        Virologist target = new Virologist();
+        Bag bag = new Bag();
+        virologist.stealEquipment(target, bag);
     }
 
     private void stealsAminoAcidTest() {
         System.out.println("Virologist steals AminoAcid");
         Virologist virologist = new Virologist();
+        Virologist target = new Virologist();
         AminoAcid amino = new AminoAcid();
-        virologist.stealResources(virologist, amino);
+        virologist.stealResources(target, amino);
     }
 
     private void picksUpNucleotideTest() {
@@ -280,6 +287,8 @@ public class Skeleton {
 
     private void losesNucleotideTest() {
         System.out.println("Virologist loses Nucleotide");
+        Virologist virologist = new Virologist();
+        Nucleotide nucleo = new Nucleotide();
         virologist.loseResources(nucleo);
     }
 
@@ -299,6 +308,8 @@ public class Skeleton {
 
     private void losesAminoAcidTest() {
         System.out.println("Virologist loses AminoAcid");
+        Virologist virologist = new Virologist();
+        AminoAcid amino =  new AminoAcid();
         virologist.loseResources(amino);
     }
 
