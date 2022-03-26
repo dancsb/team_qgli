@@ -50,7 +50,7 @@ public class Virologist implements Steppable {
     public void stealEquipment(Virologist v,Equipment e){
         System.out.println("Virologist.stealEquipment()");
     }
-    public void useAgent(Agent a,Virologist target){
+    public void useAgent(Virologist target, Agent a){
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
         SkeletonWriter.Println("Virologist.useAgent()");
         a.useOn(target);
