@@ -223,12 +223,20 @@ public class Skeleton {
 
     private void stealsCapeTest() {
         System.out.println("Virologist steals Cape");
-        //virologist.stealEquipment(cape);
+        Virologist virologist = new Virologist();
+        Virologist virologistTarget = new Virologist();
+        virologist.getField().getVirologists().add(virologistTarget);
+        Cape cape = new Cape();
+        virologist.stealEquipment(virologistTarget, cape);
     }
 
     private void stealsBagTest() {
         System.out.println("Virologist steals Bag");
-        //virologist.stealEquipment(bag);
+        Virologist virologist = new Virologist();
+        Virologist virologistTarget = new Virologist();
+        virologist.getField().getVirologists().add(virologistTarget);
+        Bag bag = new Bag();
+        virologist.stealEquipment(virologistTarget, bag);
     }
 
     private void stealsAminoAcidTest() {
