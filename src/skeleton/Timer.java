@@ -2,6 +2,9 @@ package skeleton;
 
 import java.util.ArrayList;
 
+/**
+ * Timer osztály megvalósítása
+ */
 public class Timer {
 
     private ArrayList<Steppable>steppables;

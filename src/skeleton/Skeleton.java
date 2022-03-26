@@ -1,15 +1,21 @@
 package skeleton;
 
 import java.util.Scanner;
-
+/**
+ * A szkeleton részfeladat tesztelésének a megvalósítása
+ */
 public class Skeleton {
 
-    //kiválasztott szcenárió
+    /**
+     * A felhasználó áltak kiválkasztott szcenárió
+     */
     int selectedUseCase;
 
     public Skeleton(){}
 
-    //teszteket lefuttató függvény, a felhasználó által kiválasztott tesztet futtatja le
+    /**
+     * Teszteket lefuttató függvény, a felhasználó által kiválasztott tesztet futtatja le
+     */
     public void runTests() {
         while (true) {
             System.out.println("1. Virologist crafts Amnesia");
@@ -136,9 +142,10 @@ public class Skeleton {
         }
     }
 
-    // A KÖVETKEZŐ SOROKBAN TALÁLHATÓAK MEG A TESZTFÜGGVÉNYEK, MELYEKETE AZ EGSZERŰSÉG KEDVÉÉRT NEM FOGUNK KÜLÖN KOMMENTELNI
-    // MINDEN TESZTFÜGGVÉNY LÉTREHOZZA A SZÁMÁRA SZÜKSÉGES OBJEKTUMOKAT ÉS MEGHIVJA A TESZTELENDŐ FÜGGVÉNYEKET
-
+    /**
+     *  A KÖVETKEZŐ SOROKBAN TALÁLHATÓAK MEG A TESZTFÜGGVÉNYEK, MELYEKETE AZ EGSZERŰSÉG KEDVÉÉRT NEM FOGUNK KÜLÖN KOMMENTELNI
+     *  MINDEN TESZTFÜGGVÉNY LÉTREHOZZA A SZÁMÁRA SZÜKSÉGES OBJEKTUMOKAT ÉS MEGHIVJA A TESZTELENDŐ FÜGGVÉNYEKET
+     */
     private void usesVitusdanceTest(){
         System.out.println("Virologist uses Vitusdance");
         Virologist v = new Virologist();

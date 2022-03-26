@@ -25,6 +25,7 @@ public class Shelter extends Field{
 
     /**
      * Ha egy virológus arra a mezőre szeretne lépni, eldöntheti, hogy léphet e oda vagy sem
+     * Ha arra a mezőre lép akkor elvégzi az erőforrások begyűjtését
      * @param v az a virológus amelynek a belépését az adott mezőre elfodaja
      * @return ha léphet arra a mezőre akkor igaz értékkel tér vissza, különben hamissal
      */

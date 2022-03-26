@@ -2,8 +2,11 @@ package skeleton;
 
 public abstract class SkeletonWriter {
 
-    //TABULÁLÁST MEGVALÓSITÓ OSZTÁLY
 
+
+    /**
+     * TABULÁLÁST MEGVALÓSITÓ OSZTÁLY
+     */
     private static int level = 0;
 
     public static int getLevel() {
