@@ -4,10 +4,12 @@ import java.util.Scanner;
 
 public class Skeleton {
 
+    //kiválasztott szcenárió
     int selectedUseCase;
 
     public Skeleton(){}
 
+    //teszteket lefuttató függvény, a felhasználó által kiválasztott tesztet futtatja le
     public void runTests() {
         while (true) {
             System.out.println("1. Virologist crafts Amnesia");
@@ -133,6 +135,10 @@ public class Skeleton {
             new Scanner(System.in).nextLine();
         }
     }
+
+    // A KÖVETKEZŐ SOROKBAN TALÁLHATÓAK MEG A TESZTFÜGGVÉNYEK, MELYEKETE AZ EGSZERŰSÉG KEDVÉÉRT NEM FOGUNK KÜLÖN KOMMENTELNI
+    // MINDEN TESZTFÜGGVÉNY LÉTREHOZZA A SZÁMÁRA SZÜKSÉGES OBJEKTUMOKAT ÉS MEGHIVJA A TESZTELENDŐ FÜGGVÉNYEKET
+
     private void usesVitusdanceTest(){
         System.out.println("Virologist uses Vitusdance");
         Virologist v = new Virologist();
