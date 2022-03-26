@@ -59,8 +59,6 @@ public class Skeleton {
             System.out.println("28. Exit");
             System.out.println();
             System.out.println("Ird be a megfelelo szamot:");
-            BufferedReader reader = new BufferedReader(
-                    new InputStreamReader(System.in));
             int selectedUseCase=new Scanner(System.in).nextInt();
 
             switch (selectedUseCase) {
