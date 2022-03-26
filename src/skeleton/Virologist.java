@@ -22,16 +22,17 @@ public class Virologist implements Steppable {
         attributes.add(new Invulnerabled());
         geneticCodes=new ArrayList<>();
         geneticCodes.add(new GeneticCode("test"));
+        f=new Field();
     }
 
     public void move(Field f){
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
         SkeletonWriter.Println("Virologist.move()");
-        ArrayList<Field> neighbours = f.getNeighbours();
+        ArrayList<Field> neighbours = this.f.getNeighbours();
         for(Field fNeighbours : neighbours)
         {
             if(fNeighbours == f){
-                f.accept(this); f.remove(this);
+                f.accept(this); this.f.remove(this);
             }
         }
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
@@ -124,5 +125,12 @@ public class Virologist implements Steppable {
         SkeletonWriter.Println("Virologist.getGenCode()");
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
         return geneticCodes;
+    }
+
+    public Field getF() {
+        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
+        SkeletonWriter.Println("Virologist.getF()");
+        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
+        return f;
     }
 }

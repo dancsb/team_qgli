@@ -239,6 +239,7 @@ public class Skeleton {
         AminoAcid a=new AminoAcid();
         Nucleotide n=new Nucleotide();
         Storage s=new Storage(a,n);
+        v.getF().addNeighbour(s);
         v.move(s);
     }
 
@@ -268,6 +269,7 @@ public class Skeleton {
         AminoAcid a=new AminoAcid();
         Nucleotide n=new Nucleotide();
         Storage s=new Storage(a,n);
+        v.getF().addNeighbour(s);
         v.move(s);
     }
 
