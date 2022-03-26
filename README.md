@@ -1,3 +1,2 @@
 # skeleton
-biztosan jóü lezs
-HAHAHA DE JÓ LESZ
+HAHAHA DE JÓ LESZ, Laci egy nagy q.g.l.i.
