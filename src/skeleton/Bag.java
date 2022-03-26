@@ -16,6 +16,10 @@ public class Bag extends Equipment {
 
     @Override
     public void remove(Virologist v) {
-
+        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
+        SkeletonWriter.Println("Bag.remove()");
+        ArrayList<Resources> resources = v.getResources();
+        resources.forEach(r -> r.setMaxAmount(sizeIncrease));
+        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
 }

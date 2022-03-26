@@ -6,17 +6,23 @@ public class Map {
     private ArrayList<Field> fields;
 
     public Map() {
-        System.out.println("Map.constructor()");
+        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
+        SkeletonWriter.Println("Map.constructor()");
         this.fields = new ArrayList<>();
+        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
 
     public ArrayList<Field> getFields() {
-        System.out.println("Map.getFields()");
+        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
+        SkeletonWriter.Println("Map.getFields()");
+        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
         return fields;
     }
 
     public void addField(Field f){
-        System.out.println("Map.addField()");
+        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
+        SkeletonWriter.Println("Map.addField()");
         fields.add(f);
+        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
 }

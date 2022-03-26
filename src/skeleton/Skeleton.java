@@ -151,19 +151,19 @@ public class Skeleton {
         }
     }
     private void usesVitusdanceTest(){
-        virologist.useAgent(vitusdance, target);
+        virologist.useAgent(target, vitusdance);
     }
 
     private void usesParalyzerTest() {
-        virologist.useAgent(paralyzer, target);
+        virologist.useAgent(target, paralyzer);
     }
 
     private void usesInvulnerableTest() {
-        virologist.useAgent(invulnerable, target);
+        virologist.useAgent(target, invulnerable);
     }
 
     private void usesAmnesiaTest() {
-        virologist.useAgent(amnesia, target);
+        virologist.useAgent(target, amnesia);
     }
 
 
