@@ -5,13 +5,13 @@ public class Game {
 
     public void startGame(){
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.Println("Game.startGame()");
+        SkeletonWriter.println("Game.startGame()");
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
 
     public static void endGame(){
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.Println("Game.endGame()");
+        SkeletonWriter.println("Game.endGame()");
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
 }

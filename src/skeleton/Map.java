@@ -7,21 +7,21 @@ public class Map {
 
     public Map() {
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.Println("Map.constructor()");
+        SkeletonWriter.println("Map.constructor()");
         this.fields = new ArrayList<>();
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
 
     public ArrayList<Field> getFields() {
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.Println("Map.getFields()");
+        SkeletonWriter.println("Map.getFields()");
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
         return fields;
     }
 
     public void addField(Field f){
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.Println("Map.addField()");
+        SkeletonWriter.println("Map.addField()");
         fields.add(f);
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }

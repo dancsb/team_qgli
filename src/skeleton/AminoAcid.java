@@ -6,14 +6,14 @@ public class AminoAcid extends Resources{
     @Override
     public void changeAmountAminoAcid(long x) {
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.Println("AminoAcid.changeAmountAminoAcid()");
+        SkeletonWriter.println("AminoAcid.changeAmountAminoAcid()");
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
 
     @Override
     public void collect(Virologist v) {
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.Println("AminoAcid.collect()");
+        SkeletonWriter.println("AminoAcid.collect()");
         ArrayList<Resources> rs = v.getResources();
         ArrayList<Resources> resources = v.getResources();
         for (Resources r:

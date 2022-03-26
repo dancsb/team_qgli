@@ -7,7 +7,7 @@ public class Cape extends Equipment{
     @Override
     public void action(Virologist v) {
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.Println("Cape.action()");
+        SkeletonWriter.println("Cape.action()");
         ArrayList<Attribute> attributes = v.getAttributes();
         attributes.forEach(r -> r.changeDefPerc(defPerc));
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
@@ -16,7 +16,7 @@ public class Cape extends Equipment{
     @Override
     public void remove(Virologist v) {
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.Println("Cape.remove()");
+        SkeletonWriter.println("Cape.remove()");
         ArrayList<Attribute> attributes = v.getAttributes();
         attributes.forEach(r -> r.changeDefPerc(-defPerc));
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);

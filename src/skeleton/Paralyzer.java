@@ -9,7 +9,7 @@ public class Paralyzer extends Agent {
 
     public void useOn(Virologist v) {
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.Println("Paralyzer.useOn()");
+        SkeletonWriter.println("Paralyzer.useOn()");
         ArrayList<Attribute> attribute=v.getAttributes();
         for (Attribute a:attribute) {
             a.setTimePara(effectTime);

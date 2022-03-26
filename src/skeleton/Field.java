@@ -8,7 +8,7 @@ public class Field {
 
     public Field(){
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.Println("Field.constructor()");
+        SkeletonWriter.println("Field.constructor()");
         neighbours = new ArrayList<>();
         virologists = new ArrayList<>();
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
@@ -16,35 +16,35 @@ public class Field {
 
     public ArrayList<Field> getNeighbours() {
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.Println("Field.getNeighbours()");
+        SkeletonWriter.println("Field.getNeighbours()");
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
         return neighbours;
     }
 
     public void addNeighbour(Field n){
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.Println("Field.addNeighbour()");
+        SkeletonWriter.println("Field.addNeighbour()");
         neighbours.add(n);
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
 
     public ArrayList<Virologist> getVirologists() {
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.Println("Field.getVirologists()");
+        SkeletonWriter.println("Field.getVirologists()");
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
         return virologists;
     }
 
     public boolean accept(Virologist v){
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.Println("Field.accept()");
+        SkeletonWriter.println("Field.accept()");
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
         return virologists.add(v);
     }
 
     public void remove(Virologist v){
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.Println("Field.remove()");
+        SkeletonWriter.println("Field.remove()");
         virologists.remove(v);
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }

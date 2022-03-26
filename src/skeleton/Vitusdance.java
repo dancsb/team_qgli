@@ -8,7 +8,7 @@ public class Vitusdance extends Agent {
     }
     public void useOn(Virologist v) {
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.Println("Vitusdance.useOn()");
+        SkeletonWriter.println("Vitusdance.useOn()");
         ArrayList<Attribute> attribute=v.getAttributes();
         for (Attribute a:attribute) {
             a.setTimeDance(effectTime);

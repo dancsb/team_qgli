@@ -5,14 +5,14 @@ public class Lab extends Field{
 
     public Lab(GeneticCode gc) {
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.Println("Lab.constructor()");
+        SkeletonWriter.println("Lab.constructor()");
         this.gc = gc;
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
 
     public GeneticCode getGeneticCode() {
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.Println("Lab.getGeneticCode()");
+        SkeletonWriter.println("Lab.getGeneticCode()");
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
         return gc;
     }
@@ -20,7 +20,7 @@ public class Lab extends Field{
     @Override
     public boolean accept(Virologist v) {
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.Println("Lab.accept()");
+        SkeletonWriter.println("Lab.accept()");
          if (super.accept(v)){
              gc.collect(v);
              SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);

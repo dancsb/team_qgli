@@ -160,7 +160,7 @@ public class Skeleton {
         Virologist v = new Virologist();
         Virologist targetV = new Virologist();
         Vitusdance vD=new Vitusdance(v,10,10,10,10,"asd");
-        v.useAgent(vD,targetV);
+        v.useAgent(targetV, vD);
     }
 
     private void usesParalyzerTest() {
@@ -168,7 +168,7 @@ public class Skeleton {
         Virologist v = new Virologist();
         Virologist targetV = new Virologist();
         Paralyzer p=new Paralyzer(v,10,10,10,10,"asd");
-        v.useAgent(p,targetV);
+        v.useAgent(targetV, p);
     }
 
     private void usesInvulnerableTest() {
@@ -176,7 +176,7 @@ public class Skeleton {
         Virologist v = new Virologist();
         Virologist targetV = new Virologist();
         Invulnerable p=new Invulnerable(v,10,10,10,10,"asd");
-        v.useAgent(p,targetV);
+        v.useAgent(targetV, p);
     }
 
     private void usesAmnesiaTest() {
@@ -184,7 +184,7 @@ public class Skeleton {
         Virologist v = new Virologist();
         Virologist targetV = new Virologist();
         Amnesia p=new Amnesia(v,10,10,10,10,"asd");
-        v.useAgent(p,targetV);
+        v.useAgent(targetV, p);
     }
 
 
@@ -230,7 +230,9 @@ public class Skeleton {
 
     private void stealsAminoAcidTest() {
         System.out.println("Virologist steals AminoAcid");
-        //virologist.stealResources(amino);
+        Virologist virologist = new Virologist();
+        AminoAcid amino = new AminoAcid();
+        virologist.stealResources(virologist, amino);
     }
 
     private void picksUpNucleotideTest() {

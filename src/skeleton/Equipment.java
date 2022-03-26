@@ -4,7 +4,7 @@ public abstract class Equipment implements Collectible {
     @Override
     public void collect(Virologist v) {
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.Println("Equipment.collect()");
+        SkeletonWriter.println("Equipment.collect()");
         action(v);
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }

@@ -8,7 +8,7 @@ public class Storage extends Field{
 
     public Storage (Resources r1, Resources r2){
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.Println("Storage.constructor()");
+        SkeletonWriter.println("Storage.constructor()");
         res = new ArrayList<>();
         res.add(r1);
         res.add(r2);
@@ -18,7 +18,7 @@ public class Storage extends Field{
     @Override
     public boolean accept(Virologist v) {
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.Println("Storage.accept()");
+        SkeletonWriter.println("Storage.accept()");
         if (super.accept(v)){
             for (Resources r: res){
                 r.collect(v);

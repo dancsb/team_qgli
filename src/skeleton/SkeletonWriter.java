@@ -11,7 +11,7 @@ public abstract class SkeletonWriter {
         SkeletonWriter.level = level;
     }
 
-    public static void Println(String s) {
+    public static void println(String s) {
         for (int i = 0; i < level - 1; i++)
             System.out.print("\t");
         System.out.println(s);

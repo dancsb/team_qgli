@@ -5,7 +5,7 @@ public class Shelter extends Field{
 
     public Shelter(Equipment eq) {
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.Println("Shelter.constructor()");
+        SkeletonWriter.println("Shelter.constructor()");
         this.eq = eq;
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
@@ -13,7 +13,7 @@ public class Shelter extends Field{
     @Override
     public boolean accept(Virologist v) {
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.Println("Shelter.accept()");
+        SkeletonWriter.println("Shelter.accept()");
         if (super.accept(v)){
             eq.collect(v);
             SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);

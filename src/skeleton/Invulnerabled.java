@@ -5,14 +5,14 @@ public class Invulnerabled extends Attribute{
     @Override
     public void setTimeInvu(long x) {
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.Println("Invulnerabled.setTimeInvu()");
+        SkeletonWriter.println("Invulnerabled.setTimeInvu()");
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
 
     @Override
     public long getTimeInvu() {
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.Println("Invulnerabled.getTimeInvu()");
+        SkeletonWriter.println("Invulnerabled.getTimeInvu()");
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
         return time;
     }
@@ -20,7 +20,7 @@ public class Invulnerabled extends Attribute{
     @Override
     public void changeDefPerc(long x) {
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.Println("Invulnerabled.changeDefPerc()");
+        SkeletonWriter.println("Invulnerabled.changeDefPerc()");
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
 }
