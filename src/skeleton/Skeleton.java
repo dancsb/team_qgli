@@ -199,11 +199,12 @@ public class Skeleton {
     }
 
     private void stealsNucleotideTest() {
-        System.out.println("Virologist steals Nucleotide");
+        System.out.println("Virologist steals AminoAcid");
         Virologist virologist = new Virologist();
-        Virologist target = new Virologist();
-        Nucleotide nucleo = new Nucleotide();
-        virologist.stealResources(target, nucleo);
+        Virologist virologistTarget = new Virologist();
+        virologist.getField().getVirologists().add(virologistTarget);
+        Nucleotide nucleotide = new Nucleotide();
+        virologist.stealResources(virologistTarget, nucleotide);
     }
 
     private void stealsGlovesTest() {
@@ -236,9 +237,10 @@ public class Skeleton {
     private void stealsAminoAcidTest() {
         System.out.println("Virologist steals AminoAcid");
         Virologist virologist = new Virologist();
-        Virologist target = new Virologist();
+        Virologist virologistTarget = new Virologist();
+        virologist.getField().getVirologists().add(virologistTarget);
         AminoAcid amino = new AminoAcid();
-        virologist.stealResources(target, amino);
+        virologist.stealResources(virologistTarget, amino);
     }
 
     private void picksUpNucleotideTest() {

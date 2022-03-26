@@ -14,7 +14,6 @@ public class AminoAcid extends Resources{
     public void collect(Virologist v) {
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
         SkeletonWriter.println("AminoAcid.collect()");
-        ArrayList<Resources> rs = v.getResources();
         ArrayList<Resources> resources = v.getResources();
         for (Resources r:
                 resources) {

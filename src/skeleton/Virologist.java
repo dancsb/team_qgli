@@ -16,7 +16,7 @@ public class Virologist implements Steppable {
         resources = new ArrayList<>(2);
         attributes = new ArrayList<>();
         resources.add(new AminoAcid());
-        resources.add(new AminoAcid());
+        resources.add(new Nucleotide());
         attributes.add(new Dancing());
         attributes.add(new Paralyzed());
         attributes.add(new Invulnerabled());
@@ -47,7 +47,13 @@ public class Virologist implements Steppable {
     public void stealResources(Virologist v,Resources r){
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
         SkeletonWriter.println("Virologist.stealResources()");
-        //
+        ArrayList<Virologist>virologists=f.getVirologists();
+        for (Virologist viro:virologists) {
+            if(viro==v){
+                v.loseResources(r);
+                this.pickUpResource(r);
+            }
+        }
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
     public void stealEquipment(Virologist v,Equipment e){
