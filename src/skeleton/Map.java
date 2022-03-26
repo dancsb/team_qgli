@@ -2,6 +2,7 @@ package skeleton;
 
 import java.util.ArrayList;
 
+
 public class Map {
 
     //a pályát alkotó mezőket tároló lista

@@ -1,27 +1,39 @@
 package skeleton;
 
+/**
+ * A labor különleges mezőt reprezentálja
+ */
 public class Lab extends Field{
 
-    //a laborban elhelyezett genetikai kód
+    /**
+     * A laboron elhelyezett genetikai kód
+     */
     private GeneticCode gc;
-
-    //lab kosntruktora, létrehozása benne egy megtanulható genetikai kóddal
+    /**
+     * lab kosntruktora
+     * @param gc megtanulható genetikai kód
+     */
     public Lab(GeneticCode gc) {
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
         SkeletonWriter.println("Lab.constructor()");
         this.gc = gc;
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
-
-    //az adott laborban megtalálható genetikai kóddal tér vissza
+    /**
+     * az adott laborban megtalálható genetikai kóddal tér vissza
+     * @return adott laborban megtalálható genetikai kód
+     */
     public GeneticCode getGeneticCode() {
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
         SkeletonWriter.println("Lab.getGeneticCode()");
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
         return gc;
     }
-
-    //ha egy virológus arra a mezőre szeretne lépni, eldöntheti, hogy léphet e oda vagy sem
+    /**
+     * ha egy virológus arra a mezőre szeretne lépni, eldöntheti, hogy léphet e oda vagy sem, és ha odaléphet megtanulja a genetikai kódot
+     * @param v a virológus aki lépni akar
+     * @return true ha odaléphet, false ha nem
+     */
     @Override
     public boolean accept(Virologist v) {
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);

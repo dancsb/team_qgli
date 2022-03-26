@@ -1,6 +1,12 @@
 package skeleton;
 
-//ide tartoznak a pályán begyűjthető tárgyak, eszközök
+/**
+ * Begyűjthető dolgokat reprezentáló osztály.
+ */
 public interface Collectible {
+    /**
+     * Ez a függvény fut le ha felveszi
+     * @param v a virológus aki felveszi
+     */
     void collect(Virologist v);
 }

@@ -1,11 +1,17 @@
 package skeleton;
-
+/**
+ * Azt a hatást reprezentálja amikor a virológus sebezhetetlen jár.
+ */
 public class Invulnerabled extends Attribute{
-
-    //védekezési előny mértéke
+    /**
+     * védekezési előny mértéke
+     */
     private long defPrec;
 
-    //beállítja a sebezhetetlenség hatásának idjét
+    /**
+     * beállítja a sebezhetetlenség hatásának idjét
+     * @param x az idő
+     */
     @Override
     public void setTimeInvu(long x) {
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
@@ -13,7 +19,10 @@ public class Invulnerabled extends Attribute{
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
 
-    //visszatér a sebezhetetlenség hatásának idjével
+    /**
+     * visszatér a sebezhetetlenség hatásának idejével
+     * @return visszatér a sebezhetetlenség hatásának idejé
+     */
     @Override
     public long getTimeInvu() {
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
@@ -22,7 +31,10 @@ public class Invulnerabled extends Attribute{
         return time;
     }
 
-    //megváltoztatja a sebezhetetlenség hatásának mértékét
+    /**
+     * megváltoztatja a sebezhetetlenség hatásának mértékét
+     * @param x az idő
+     */
     @Override
     public void changeDefPerc(long x) {
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);

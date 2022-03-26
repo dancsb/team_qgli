@@ -2,12 +2,20 @@ package skeleton;
 
 import java.util.ArrayList;
 
+/**
+ * A köpeny különelges felszerelést megvalósító osztály,az equipmentből származik le.
+ */
 public class Cape extends Equipment{
 
-    //a köpennyel járó védekezési előny mértéke
+    /**
+     * /a köpennyel járó védekezési % mértéke
+     */
     private long defPerc;
 
-    //a köpeny begyűjtését valósítja meg, és az azzal járó "ágens elleni védekezés" képességet állítja be
+    /**
+     * Ez a függvény viszi végbe az effekteket amik végbemennek ha felveszi a virológus a köpenyt.
+     * @param v a virológus aki felveszi.
+     */
     @Override
     public void action(Virologist v) {
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
@@ -17,7 +25,10 @@ public class Cape extends Equipment{
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
 
-    //a köpeny elvesztésekor "elveszi" a kopeny által nyújtott "ágens elleni védekezés" képességet a virológustól
+    /**
+     * Ez a függvény viszi végbe az effekteket amik végbemennek ha a virológus elveszti a köpenyt.
+     * @param v a virológus aki felveszi.
+     */
     @Override
     public void remove(Virologist v) {
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);

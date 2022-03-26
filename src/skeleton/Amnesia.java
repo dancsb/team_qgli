@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class Amnesia extends Agent {
 
     /**
-     *
+     * Ágens konstruktor
      * @param v az tulajdonos virológus
      * @param effT az idő ameddig tart
      * @param amino az aminosav mértéke ami a craftoláshoz kell

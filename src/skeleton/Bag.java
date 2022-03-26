@@ -2,12 +2,20 @@ package skeleton;
 
 import java.util.ArrayList;
 
+/**
+ * A "Zsák" különleges felszerelést reprezentálja, leszármazik az Equipmentből
+ */
 public class Bag extends Equipment {
 
-    //a mérték amivel megnöveli a zsák a virológus inventory-át
+    /**
+     * A mérték amivel a zsák megnöveli a virológus anyageltárolási képességét.
+     */
     private long sizeIncrease;
 
-    //a zsák begyűjtését valósítja meg, és az azzal járó "inventroy növelő" képességet állítja be
+    /**
+     * Ez a függvény viszi végbe az effekteket amik végbemennek ha felveszi a virológus a zsákot.
+     * @param v a virológus aki felveszi.
+     */
     @Override
     public void action(Virologist v) {
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
@@ -17,7 +25,10 @@ public class Bag extends Equipment {
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
 
-    //a zsák elvesztésekor "elveszi" a zsák által nyújtott "inventory növelő" képességet a virológustól
+    /**
+     * Ez a függvény viszi végbe az effekteket amik végbemennek ha a virológus elveszti a zsákot.
+     * @param v a virológus aki felveszi.
+     */
     @Override
     public void remove(Virologist v) {
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
