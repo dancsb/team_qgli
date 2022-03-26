@@ -184,21 +184,33 @@ public class Skeleton {
 
     private void stepsOnStorageTest() {
         System.out.println("Virologist steps on Storage");
+        Virologist virologist = new Virologist();
+        Storage storage = new Storage(new AminoAcid(), new Nucleotide());
+        virologist.getField().addNeighbour(storage);
         virologist.move(storage);
     }
 
     private void stepsOnShelterTest() {
         System.out.println("Virologist steps on Shelter");
+        Virologist virologist = new Virologist();
+        Shelter shelter = new Shelter(new Bag());
+        virologist.getField().addNeighbour(shelter);
         virologist.move(shelter);
     }
 
     private void stepsOnLabTest() {
         System.out.println("Virologist steps on Lab");
+        Virologist virologist = new Virologist();
+        Lab lab = new Lab(new GeneticCode("poog"));
+        virologist.getField().addNeighbour(lab);
         virologist.move(lab);
     }
 
     private void stepsOnFieldTest() {
         System.out.println("Virologist steps on Field");
+        Virologist virologist = new Virologist();
+        Field field = new Field();
+        virologist.getField().addNeighbour(field);
         virologist.move(field);
     }
 

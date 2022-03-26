@@ -8,12 +8,16 @@ public class GeneticCode implements Collectible{
     }
 
     public String getName() {
-        System.out.println("GeneticCode.getName()");
+        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
+        SkeletonWriter.println("GeneticCode.getName()");
+        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
         return name;
     }
 
     @Override
     public void collect(Virologist v) {
-        System.out.println("GeneticCode.collect()");
+        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
+        SkeletonWriter.println("GeneticCode.collect()");
+        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
 }
