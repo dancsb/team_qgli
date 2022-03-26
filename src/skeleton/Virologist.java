@@ -85,7 +85,11 @@ public class Virologist implements Steppable {
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
     public void loseResources(Resources r){
-        System.out.println("Virologist.loseResources()");
+        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
+        SkeletonWriter.Println("Virologist.loseResources()");
+        r.changeAmountAminoAcid(-r.amount);
+        r.changeAmountNucleotide(-r.amount);
+        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
     public ArrayList<Attribute> getAttributes() {
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);

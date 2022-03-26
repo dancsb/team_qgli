@@ -5,8 +5,9 @@ import java.util.ArrayList;
 public class Nucleotide extends Resources{
     @Override
     public void changeAmountNucleotide(long x) {
-        System.out.println("Nucleotide.changeAmountNucleotide()");
-        super.changeAmountNucleotide(x);
+        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
+        SkeletonWriter.Println("Nucleotide.changeAmountNucleotide()");
+        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
 
     @Override

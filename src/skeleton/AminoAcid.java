@@ -5,8 +5,9 @@ import java.util.ArrayList;
 public class AminoAcid extends Resources{
     @Override
     public void changeAmountAminoAcid(long x) {
-        System.out.println("AminoAcid.changeAmountAminoAcid()");
-        super.changeAmountAminoAcid(x);
+        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
+        SkeletonWriter.Println("AminoAcid.changeAmountAminoAcid()");
+        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
 
     @Override

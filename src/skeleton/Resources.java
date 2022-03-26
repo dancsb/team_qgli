@@ -7,8 +7,16 @@ public abstract class Resources implements Collectible{
     @Override
     public abstract void collect(Virologist v);
 
-    public void changeAmountAminoAcid(long x){}
-    public void changeAmountNucleotide(long x){}
+    public void changeAmountAminoAcid(long x){
+        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
+        SkeletonWriter.Println("Resources.changeAmountAminoAcid()");
+        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
+    }
+    public void changeAmountNucleotide(long x){
+        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
+        SkeletonWriter.Println("Resources.changeAmountAminoAcid()");
+        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
+    }
     public void setMaxAmount(long x){
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
         SkeletonWriter.Println("Resources.changeMaxAmount()");

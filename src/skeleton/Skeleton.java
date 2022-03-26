@@ -297,20 +297,28 @@ public class Skeleton {
 
     private void craftsParalyzerTest() {
         System.out.println("Virologist crafts Paralyzer");
-        boolean canCraft = virologist.craftAgent(paralyzer);
+        Virologist v=new Virologist();
+        Paralyzer g=new Paralyzer(v,10,10,10,10,"a");
+        v.craftAgent(g);
     }
 
     private void craftsInvulnerableTest() {
         System.out.println("Virologist crafts Invulnerable");
-        boolean canCraft = virologist.craftAgent(invulnerable);
+        Virologist v=new Virologist();
+        Invulnerable g=new Invulnerable(v,10,10,10,10,"a");
+        v.craftAgent(g);
     }
 
     public void craftsAmenesiaTest(){
         System.out.println("Virologist crafts Amnesia");
-        boolean canCraft = virologist.craftAgent(amnesia);
+        Virologist v=new Virologist();
+        Amnesia g=new Amnesia(v,10,10,10,10,"a");
+        v.craftAgent(g);
     }
     private void craftsVitusdanceTest() {
         System.out.println("Virologist crafts Vitusdance");
-        boolean canCraft = virologist.craftAgent(vitusdance);
+        Virologist v=new Virologist();
+        Vitusdance g=new Vitusdance(v,10,10,10,10,"a");
+        v.craftAgent(g);
     }
 }
