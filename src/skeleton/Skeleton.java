@@ -156,6 +156,7 @@ public class Skeleton {
         }
     }
     private void usesVitusdanceTest(){
+        System.out.println("Virologist uses Vitusdance");
         Virologist v = new Virologist();
         Virologist targetV = new Virologist();
         Vitusdance vD=new Vitusdance(v,10,10,10,10,"asd");
@@ -163,6 +164,7 @@ public class Skeleton {
     }
 
     private void usesParalyzerTest() {
+        System.out.println("Virologist uses Paralyzer");
         Virologist v = new Virologist();
         Virologist targetV = new Virologist();
         Paralyzer p=new Paralyzer(v,10,10,10,10,"asd");
@@ -170,6 +172,7 @@ public class Skeleton {
     }
 
     private void usesInvulnerableTest() {
+        System.out.println("Virologist uses Invulnerable");
         Virologist v = new Virologist();
         Virologist targetV = new Virologist();
         Invulnerable p=new Invulnerable(v,10,10,10,10,"asd");
@@ -177,6 +180,7 @@ public class Skeleton {
     }
 
     private void usesAmnesiaTest() {
+        System.out.println("Virologist uses Amnesia");
         Virologist v = new Virologist();
         Virologist targetV = new Virologist();
         Amnesia p=new Amnesia(v,10,10,10,10,"asd");
@@ -185,105 +189,128 @@ public class Skeleton {
 
 
     private void stepsOnStorageTest() {
+        System.out.println("Virologist steps on Storage");
         virologist.move(storage);
     }
 
     private void stepsOnShelterTest() {
+        System.out.println("Virologist steps on Shelter");
         virologist.move(shelter);
     }
 
     private void stepsOnLabTest() {
+        System.out.println("Virologist steps on Lab");
         virologist.move(lab);
     }
 
     private void stepsOnFieldTest() {
+        System.out.println("Virologist steps on Field");
         virologist.move(field);
     }
 
     private void stealsNucleotideTest() {
+        System.out.println("Virologist steals Nucleotide");
         //virologist.stealResources(nucleo);
     }
 
     private void stealsGlovesTest() {
+        System.out.println("Virologist steals Glove");
         //virologist.stealEquipment(gloves);
     }
 
     private void stealsCapeTest() {
+        System.out.println("Virologist steals Cape");
         //virologist.stealEquipment(cape);
     }
 
     private void stealsBagTest() {
+        System.out.println("Virologist steals Bag");
         //virologist.stealEquipment(bag);
     }
 
     private void stealsAminoAcidTest() {
+        System.out.println("Virologist steals AminoAcid");
         //virologist.stealResources(amino);
     }
 
     private void picksUpNucleotideTest() {
+        System.out.println("Virologist picks up Nucleotide");
         virologist.pickUpResource(nucleo);
     }
 
     private void picksUpGlovesTest() {
+        System.out.println("Virologist picks up Glove");
         Virologist v=new Virologist();
         Gloves g=new Gloves();
         v.pickUpEquipment(g);
     }
 
     private void picksUpCapeTest() {
+        System.out.println("Virologist picks up Cape");
         Virologist v=new Virologist();
         Cape g=new Cape();
         v.pickUpEquipment(g);
     }
 
     private void picksUpBagTest() {
+        System.out.println("Virologist picks up Bag");
         Virologist v=new Virologist();
         Bag g=new Bag();
         v.pickUpEquipment(g);
     }
 
     private void picksUpAminoAcidTest() {
+        System.out.println("Virologist picks up AminoAcid");
         virologist.pickUpResource(amino);
     }
 
     private void losesNucleotideTest() {
+        System.out.println("Virologist loses Nucleotide");
         virologist.loseResources(nucleo);
     }
 
     private void losesGlovesTest() {
+        System.out.println("Virologist loses Gloves");
         Virologist v=new Virologist();
         Gloves g=new Gloves();
         v.loseEquipment(g);
     }
 
     private void losesCapeTest() {
+        System.out.println("Virologist loses Cape");
         Virologist v=new Virologist();
         Cape g=new Cape();
         v.loseEquipment(g);
     }
 
     private void losesAminoAcidTest() {
+        System.out.println("Virologist loses AminoAcid");
         virologist.loseResources(amino);
     }
 
     private void losesBagTest() {
+        System.out.println("Virologist loses Bag");
         Virologist v=new Virologist();
         Bag g=new Bag();
         v.loseEquipment(g);
     }
 
     private void craftsParalyzerTest() {
+        System.out.println("Virologist crafts Paralyzer");
         boolean canCraft = virologist.craftAgent(paralyzer);
     }
 
     private void craftsInvulnerableTest() {
+        System.out.println("Virologist crafts Invulnerable");
         boolean canCraft = virologist.craftAgent(invulnerable);
     }
 
     public void craftsAmenesiaTest(){
+        System.out.println("Virologist crafts Amnesia");
         boolean canCraft = virologist.craftAgent(amnesia);
     }
     private void craftsVitusdanceTest() {
+        System.out.println("Virologist crafts Vitusdance");
         boolean canCraft = virologist.craftAgent(vitusdance);
     }
 }
