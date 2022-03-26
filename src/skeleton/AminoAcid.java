@@ -2,6 +2,9 @@ package skeleton;
 
 import java.util.ArrayList;
 
+/**
+ * Ez az osztály reprezentálja az Aminosavat, leszármazik a Resourcesből.
+ */
 public class AminoAcid extends Resources{
 
 
