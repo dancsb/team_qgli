@@ -1,12 +1,12 @@
 package skeleton;
 
 /**
- * A kesztyű különleges felszerelést reprezentálja, leszármazik az Equipment osztályból.
+ * A kesztyu kulonleges felszerelest reprezentalja, leszarmazik az Equipment osztalybol.
  */
 public class Gloves extends Equipment{
     /**
-     * A kesztyű begyűjtését valósítja meg, és az azzal járó "visszakenés" képességet állítja be
-     * @param v a virológus aki felveszi
+     * A kesztyu begyujteset valosítja meg, es az azzal jaro "visszakenes" kepesseget allítja be
+     * @param v a virologus aki felveszi
      */
     @Override
     public void action(Virologist v) {
@@ -16,8 +16,8 @@ public class Gloves extends Equipment{
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
     /**
-     * A kesztyű elvesztésekor "elveszi" a kesztyű által nyújtott "visszakenés" képességet a virológustól
-     * @param v a virológus aki elveszti
+     * A kesztyu elvesztesekor "elveszi" a kesztyu altal nyujtott "visszakenes" kepesseget a virologustol
+     * @param v a virologus aki elveszti
      */
     @Override
     public void remove(Virologist v) {

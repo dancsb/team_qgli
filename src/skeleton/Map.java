@@ -5,10 +5,10 @@ import java.util.ArrayList;
 
 public class Map {
 
-    //a pályát alkotó mezőket tároló lista
+    //a palyat alkoto mezoket tarolo lista
     private ArrayList<Field> fields;
 
-    //konstruktor, melyben legeneráljuk a pályát
+    //konstruktor, melyben legeneraljuk a palyat
     public Map() {
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
         SkeletonWriter.println("Map.constructor()");
@@ -16,7 +16,7 @@ public class Map {
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
 
-    //visszatér a pályán levő mezőkkel
+    //visszater a palyan levo mezokkel
     public ArrayList<Field> getFields() {
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
         SkeletonWriter.println("Map.getFields()");
@@ -24,7 +24,7 @@ public class Map {
         return fields;
     }
 
-    //hozzáad egy mezőt a pályához, ez lehet lab,shleter, sotrage vagy sima field
+    //hozzaad egy mezot a palyahoz, ez lehet lab,shleter, sotrage vagy sima field
     public void addField(Field f){
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
         SkeletonWriter.println("Map.addField()");

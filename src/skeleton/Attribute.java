@@ -1,18 +1,18 @@
 package skeleton;
 
 /**
- * Valamilyen effektet reprezentáló osztály, implementálja a Steppable interfacet
+ * Valamilyen effektet reprezentalo osztaly, implementalja a Steppable interfacet
  */
 public class Attribute implements Steppable{
 
     /**
-     * A hatás ideje
+     * A hatas ideje
      */
     protected long time;
 
     /**
-     * egy virológus paralelizált állapotának idejének a beállítása
-     * @param x az idő
+     * egy virologus paralelizalt allapotanak idejenek a beallítasa
+     * @param x az ido
      */
     public void setTimePara(long x){
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
@@ -21,8 +21,8 @@ public class Attribute implements Steppable{
     }
 
     /**
-     * Visszaadja, hogy még mennyi ideig paralelizált az virológus.
-     * @return az idő
+     * Visszaadja, hogy meg mennyi ideig paralelizalt az virologus.
+     * @return az ido
      */
     public long getTimePara(){
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
@@ -31,8 +31,8 @@ public class Attribute implements Steppable{
         return 0;
     }
     /**
-     * Egy virológus sebezhetetlen állapotának idejének a beállítása
-     * @param x az idő
+     * Egy virologus sebezhetetlen allapotanak idejenek a beallítasa
+     * @param x az ido
      */
     public void setTimeInvu(long x){
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
@@ -40,8 +40,8 @@ public class Attribute implements Steppable{
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
     /**
-     * Visszaadja, hogy még mennyi ideig sebezhetetlen az virológus.
-     * @return az idő
+     * Visszaadja, hogy meg mennyi ideig sebezhetetlen az virologus.
+     * @return az ido
      */
     public long getTimeInvu(){
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
@@ -50,8 +50,8 @@ public class Attribute implements Steppable{
         return 0;
     }
     /**
-     * Egy virológus vitustáncot járó állapotának idejének a beállítása
-     * @param x az idő
+     * Egy virologus vitustancot jaro allapotanak idejenek a beallítasa
+     * @param x az ido
      */
     public void setTimeDance(long x){
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
@@ -59,8 +59,8 @@ public class Attribute implements Steppable{
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
     /**
-     * Visszaadja, hogy még mennyi jár vitustáncot az virológus.
-     * @return az idő
+     * Visszaadja, hogy meg mennyi jar vitustancot az virologus.
+     * @return az ido
      */
     public long getTimeDance(){
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
@@ -69,8 +69,8 @@ public class Attribute implements Steppable{
         return 0;
     }
     /**
-     * Egy virológus "visszaverési" állapotának a beállítása
-     * @param x az idő
+     * Egy virologus "visszaveresi" allapotanak a beallítasa
+     * @param x az ido
      */
     public void changeDefPerc(long x){
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
@@ -79,7 +79,7 @@ public class Attribute implements Steppable{
     }
 
     /**
-     * Step interface függvénye.
+     * Step interface fuggvenye.
      */
     @Override
     public void step() {

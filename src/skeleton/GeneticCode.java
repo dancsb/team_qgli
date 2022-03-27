@@ -1,26 +1,26 @@
 package skeleton;
 
 /**
- * Egy genetikai kódot reprezentál, implementálja a Collectible interfacet
+ * Egy genetikai kodot reprezental, implementalja a Collectible interfacet
  */
 public class GeneticCode implements Collectible{
 
     /**
-     * Adott genetikai kód neve
+     * Adott genetikai kod neve
      */
     private String name;
 
     /**
-     * Konstruktor melyben beállítjuk a genetikai kód nevét
-     * @param name a név
+     * Konstruktor melyben beallítjuk a genetikai kod nevet
+     * @param name a nev
      */
     public GeneticCode(String name){
         this.name = name;
     }
 
     /**
-     * Visszaadja a genetikai kód nevét
-     * @return a genetikai kód neve
+     * Visszaadja a genetikai kod nevet
+     * @return a genetikai kod neve
      */
     public String getName() {
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
@@ -30,8 +30,8 @@ public class GeneticCode implements Collectible{
     }
 
     /**
-     * Genetikai kód megtanulását végző függvény
-     * @param v a virológus aki felveszi
+     * Genetikai kod megtanulasat vegzo fuggveny
+     * @param v a virologus aki felveszi
      */
     @Override
     public void collect(Virologist v) {

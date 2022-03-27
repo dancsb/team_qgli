@@ -1,29 +1,29 @@
 package skeleton;
 
 /**
- * A gyujthető erőforrásokat reprezentálja
+ * A gyujtheto eroforrasokat reprezentalja
  */
 
 public abstract class Resources implements Collectible{
 
     /**
-     * Eltárolható erőforrások mennyisége és egy virológus által a maximális eltárolható mennyiség
+     * Eltarolhato eroforrasok mennyisege es egy virologus altal a maximalis eltarolhato mennyiseg
      */
     protected long amount;
     protected long maxCapacity;
 
 
     /**
-     * Erőforrások felvételét megvalósító függvény
-     * @param v a virológus amely felvette az adott erőforrást
+     * Eroforrasok felvetelet megvalosíto fuggveny
+     * @param v a virologus amely felvette az adott eroforrast
      */
     @Override
     public abstract void collect(Virologist v);
 
     /**
-     * Megváltoztatja egy virológus átal tárolt aminosavak mennyiségét
-     * Ha felvesz akkor növeli , ha kraftol vagy lopnak tőle, akkor csökkenti
-     * @param x az érték amennyivel változtatja az aminosavak mennyiségét
+     * Megvaltoztatja egy virologus atal tarolt aminosavak mennyiseget
+     * Ha felvesz akkor noveli , ha kraftol vagy lopnak tole, akkor csokkenti
+     * @param x az ertek amennyivel valtoztatja az aminosavak mennyiseget
      */
     public void changeAmountAminoAcid(long x){
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
@@ -32,9 +32,9 @@ public abstract class Resources implements Collectible{
     }
 
     /**
-     * Megváltoztatja egy virológus átal tárolt nukleotidok mennyiségét
-     * Ha felvesz akkor növeli , ha kraftol vagy lopnak tőle, akkor csökkenti
-     * @param x az érték amennyivel változtatja a nukleotidok mennyiségét
+     * Megvaltoztatja egy virologus atal tarolt nukleotidok mennyiseget
+     * Ha felvesz akkor noveli , ha kraftol vagy lopnak tole, akkor csokkenti
+     * @param x az ertek amennyivel valtoztatja a nukleotidok mennyiseget
      */
     public void changeAmountNucleotide(long x){
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
@@ -42,8 +42,8 @@ public abstract class Resources implements Collectible{
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
     /**
-     * Beállítja, hogy egy virológus maximálisan mennyi erőforrást tarthat magánál
-     * @param x az érték amennyire állítódik a maximálisan tárolható erőforrások száma
+     * Beallítja, hogy egy virologus maximalisan mennyi eroforrast tarthat maganal
+     * @param x az ertek amennyire allítodik a maximalisan tarolhato eroforrasok szama
      */
     public void setMaxAmount(long x){
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);

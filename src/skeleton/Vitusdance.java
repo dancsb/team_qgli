@@ -3,27 +3,27 @@ package skeleton;
 import java.util.ArrayList;
 
 /**
- * Vitustáncot reprezentáló osztály
+ * Vitustancot reprezentalo osztaly
  */
 public class Vitusdance extends Agent {
 
     /**
-     * Viutsdance ágens konstruktora, melyben paraméterül kapja a virologust amely lekraftolta, hatási időt,
-     * Amino és nukleo költségeket és a szükséges genetikai kódot
-     * @param amino kraftoláshoz szükséges aminosavak száma
-     * @param effT az idő ameddig tart
-     * @param exTime az idő ameddig nem jár le az ágens
-     * @param genCode kraftoláshoz szükséges genetikai kód
-     * @param nucleo kraftoláshoz szükséges nukleotidok száma
-     * @param v a tulajdonos virológus
+     * Viutsdance agens konstruktora, melyben parameterul kapja a virologust amely lekraftolta, hatasi idot,
+     * Amino es nukleo koltsegeket es a szukseges genetikai kodot
+     * @param amino kraftolashoz szukseges aminosavak szama
+     * @param effT az ido ameddig tart
+     * @param exTime az ido ameddig nem jar le az agens
+     * @param genCode kraftolashoz szukseges genetikai kod
+     * @param nucleo kraftolashoz szukseges nukleotidok szama
+     * @param v a tulajdonos virologus
      */
     public Vitusdance(Virologist v, long effT, long amino, long nucleo, long exTime, String genCode) {
         super(v, effT, amino, nucleo, exTime, genCode);
     }
 
     /**
-     * A vitusdance ágens használata egy másik virológuson
-     * @param v a virológus amelyen az ágenst használjuk
+     * A vitusdance agens hasznalata egy masik virologuson
+     * @param v a virologus amelyen az agenst hasznaljuk
      */
     public void useOn(Virologist v) {
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);

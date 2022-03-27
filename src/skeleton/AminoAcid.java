@@ -3,15 +3,15 @@ package skeleton;
 import java.util.ArrayList;
 
 /**
- * Ez az osztály reprezentálja az Aminosavat, leszármazik a Resourcesből.
+ * Ez az osztaly reprezentalja az Aminosavat, leszarmazik a Resourcesbol.
  */
 public class AminoAcid extends Resources{
 
 
     /**
-     * Megváltoztatja egy virológus átal tárolt aminosavak mennyiségét
-     * Ha felvesz akkor növeli , ha kraftol vagy lopnak tőle, akkor csökkenti
-     * @param x a mennyiség amivel változik az aminosav
+     * Megvaltoztatja egy virologus atal tarolt aminosavak mennyiseget
+     * Ha felvesz akkor noveli , ha kraftol vagy lopnak tole, akkor csokkenti
+     * @param x a mennyiseg amivel valtozik az aminosav
      */
     @Override
     public void changeAmountAminoAcid(long x) {
@@ -21,8 +21,8 @@ public class AminoAcid extends Resources{
     }
 
     /**
-     * Aminosavak felvételét megvalósító függvény
-     * @param v a Virológus aki felveszi az aminosavat
+     * Aminosavak felvetelet megvalosíto fuggveny
+     * @param v a Virologus aki felveszi az aminosavat
      */
 
     @Override
@@ -32,7 +32,7 @@ public class AminoAcid extends Resources{
         ArrayList<Resources> resources = v.getResources();
         for (Resources r:
                 resources) {
-            //megnöveli az aminosavak számát
+            //megnoveli az aminosavak szamat
             r.changeAmountAminoAcid(amount);
         }
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);

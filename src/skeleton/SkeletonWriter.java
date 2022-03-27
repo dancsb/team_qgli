@@ -5,7 +5,7 @@ public abstract class SkeletonWriter {
 
 
     /**
-     * TABULÁLÁST MEGVALÓSITÓ OSZTÁLY
+     * TABULALAST MEGVALOSITO OSZTALY
      */
     private static int level = 0;
 

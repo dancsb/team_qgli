@@ -7,9 +7,9 @@ public class Nucleotide extends Resources{
 
 
     /**
-     * Megváltoztatja egy virológus átal tárolt nukleotidok mennyiségét
-     * Ha felvesz akkor növeli , ha kraftol vagy lopnak tőle, akkor csökkenti, attól függ milyen előjelű számot kap
-     * @param x egy érték amivel változtatja a nukleotidok számát
+     * Megvaltoztatja egy virologus atal tarolt nukleotidok mennyiseget
+     * Ha felvesz akkor noveli , ha kraftol vagy lopnak tole, akkor csokkenti, attol fugg milyen elojelu szamot kap
+     * @param x egy ertek amivel valtoztatja a nukleotidok szamat
      */
     @Override
     public void changeAmountNucleotide(long x) {
@@ -19,8 +19,8 @@ public class Nucleotide extends Resources{
     }
 
     /**
-     *  Nukleotidok felvételét megvalósító függvény
-     * @param v a virológus aki felveszi a nukleotidot.
+     *  Nukleotidok felvetelet megvalosíto fuggveny
+     * @param v a virologus aki felveszi a nukleotidot.
      */
     @Override
     public void collect(Virologist v) {
@@ -29,7 +29,7 @@ public class Nucleotide extends Resources{
         ArrayList<Resources> resources = v.getResources();
         for (Resources r:
                 resources) {
-            //megnöveli a nukleotidok számát
+            //megnoveli a nukleotidok szamat
             r.changeAmountNucleotide(amount);
         }
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);

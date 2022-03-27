@@ -1,2 +1,2 @@
 # skeleton
-HAHAHA DE JÓ LESZ, Laci egy nagy q.g.l.i.
+HAHAHA DE JO LESZ, Laci egy nagy q.g.l.i.

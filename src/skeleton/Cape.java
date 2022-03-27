@@ -3,18 +3,18 @@ package skeleton;
 import java.util.ArrayList;
 
 /**
- * A köpeny különelges felszerelést megvalósító osztály,az equipmentből származik le.
+ * A kopeny kulonelges felszerelest megvalosíto osztaly,az equipmentbol szarmazik le.
  */
 public class Cape extends Equipment{
 
     /**
-     * a köpennyel járó védekezési % mértéke
+     * a kopennyel jaro vedekezesi % merteke
      */
     private long defPerc;
 
     /**
-     * Ez a függvény viszi végbe az effekteket amik végbemennek ha felveszi a virológus a köpenyt.
-     * @param v a virológus aki felveszi.
+     * Ez a fuggveny viszi vegbe az effekteket amik vegbemennek ha felveszi a virologus a kopenyt.
+     * @param v a virologus aki felveszi.
      */
     @Override
     public void action(Virologist v) {
@@ -26,8 +26,8 @@ public class Cape extends Equipment{
     }
 
     /**
-     * Ez a függvény viszi végbe az effekteket amik végbemennek ha a virológus elveszti a köpenyt.
-     * @param v a virológus aki felveszi.
+     * Ez a fuggveny viszi vegbe az effekteket amik vegbemennek ha a virologus elveszti a kopenyt.
+     * @param v a virologus aki felveszi.
      */
     @Override
     public void remove(Virologist v) {

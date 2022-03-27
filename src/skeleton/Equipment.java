@@ -1,12 +1,12 @@
 package skeleton;
 
 /**
- * Egy felszerelést reprezentáló osztály, abstract, implementálja a Collectiblet.
+ * Egy felszerelest reprezentalo osztaly, abstract, implementalja a Collectiblet.
  */
 public abstract class Equipment implements Collectible {
     /**
-     * Egy felszerelés begyűjtését valósítja meg, és az azzal járó hatást/képességet állítja be
-     * @param v a virológus aki felveszi
+     * Egy felszereles begyujteset valosítja meg, es az azzal jaro hatast/kepesseget allítja be
+     * @param v a virologus aki felveszi
      */
     @Override
     public void collect(Virologist v) {
@@ -16,13 +16,13 @@ public abstract class Equipment implements Collectible {
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
     /**
-     * Beállitja a felszerelés felvételével járó hatást
-     * @param v a virológus aki felveszi
+     * Beallitja a felszereles felvetelevel jaro hatast
+     * @param v a virologus aki felveszi
      */
     public abstract void action(Virologist v);
     /**
-     * Egy felszerelés elvesztésekor "elveszi" a felszerelés által nyújtott hatást/képességet a virológustól
-     * @param v a virológus aki elveszti
+     * Egy felszereles elvesztesekor "elveszi" a felszereles altal nyujtott hatast/kepesseget a virologustol
+     * @param v a virologus aki elveszti
      */
     public abstract void remove(Virologist v);
 }

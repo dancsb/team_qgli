@@ -3,11 +3,11 @@ package skeleton;
 import java.util.ArrayList;
 
 /**
- *  Ágenst megvalósító class, abstract, implementálja a Steppablet.
+ *  Agenst megvalosíto class, abstract, implementalja a Steppablet.
  */
 public abstract class Agent implements Steppable {
     /**
-     * Az a virológus akié az ágens.
+     * Az a virologus akie az agens.
      */
     protected Virologist owner;
     /**
@@ -15,32 +15,32 @@ public abstract class Agent implements Steppable {
      */
     protected long effectTime;
     /**
-     * Amennyi aminosavba kerül az ágens létrehozása.
+     * Amennyi aminosavba kerul az agens letrehozasa.
      */
     protected long costAmino;
     /**
-     * Amennyi nukleotid kerül az ágens létrehozása.
+     * Amennyi nukleotid kerul az agens letrehozasa.
      */
     protected long costNucleotide;
     /**
-     * Amennyi idő múlva elévül az ágens.
+     * Amennyi ido mulva elevul az agens.
      */
     protected long expireTime;
     /**
-     * Amelyik genetikai kódra szükség van az ágens létrehozásához.
+     * Amelyik genetikai kodra szukseg van az agens letrehozasahoz.
      */
     protected String requireGenCode;
 
-    //ágens konstruktora, melyben paraméterül kapja a Virologust amely lekraftolta, hatási időt, amino és nukleo költségeket és a szükséges genetikai kódot
+    //agens konstruktora, melyben parameterul kapja a Virologust amely lekraftolta, hatasi idot, amino es nukleo koltsegeket es a szukseges genetikai kodot
 
     /**
-     * Ágens konstruktora
-     * @param v a virológus aki owner lesz
-     * @param effT az idő amennyi ideig tart az effekt
-     * @param amino amennyi aminosavra szükség van a craftoláshoz
-     * @param nucleo amennyi nukleotidra szükség van a craftoláshoz
-     * @param exTime mennyi ideig tartson az ágens
-     * @param genCode a genetikai kód amihez szükség lesz a craftoláshoz
+     * Agens konstruktora
+     * @param v a virologus aki owner lesz
+     * @param effT az ido amennyi ideig tart az effekt
+     * @param amino amennyi aminosavra szukseg van a craftolashoz
+     * @param nucleo amennyi nukleotidra szukseg van a craftolashoz
+     * @param exTime mennyi ideig tartson az agens
+     * @param genCode a genetikai kod amihez szukseg lesz a craftolashoz
      */
     public Agent(Virologist v, long effT, long amino, long nucleo, long exTime, String genCode) {
         owner = v;
@@ -52,51 +52,51 @@ public abstract class Agent implements Steppable {
     }
 
     /**
-     * @return Visszadja az ágens tulajdonosát
+     * @return Visszadja az agens tulajdonosat
      */
     public Virologist getOwner() {
         return owner;
     }
 
     /**
-     * @return Visszaadja, hogy mennyi ideig tart az ágens effektje.
+     * @return Visszaadja, hogy mennyi ideig tart az agens effektje.
      */
     public long getEffectTime() {
         return effectTime;
     }
     /**
-     * @return Visszaadja, hogy mennyi aminosavba kerül a létrehozása.
+     * @return Visszaadja, hogy mennyi aminosavba kerul a letrehozasa.
      */
     public long getCostAmino() {
         return costAmino;
     }
     /**
-     * @return Visszaadja, hogy mennyi nukleotidba kerül a létrehozása.
+     * @return Visszaadja, hogy mennyi nukleotidba kerul a letrehozasa.
      */
     public long getCostNucleotide() {
         return costNucleotide;
     }
     /**
-     * @return Visszaadja, hogy mennyi idő múlva jár le.
+     * @return Visszaadja, hogy mennyi ido mulva jar le.
      */
     public long getExpireTime() {
         return expireTime;
     }
     /**
-     * @return Visszaadja, hogy melyik genCode kell a létrehozásához.
+     * @return Visszaadja, hogy melyik genCode kell a letrehozasahoz.
      */
     public String getRequireGenCode() {
         return requireGenCode;
     }
 
     /**
-     * Abstract függvény, ami akkor fut le  ha egy ágenst felhasználódik egy virológuson.
-     * @param v a virológus akire megy az effekt
+     * Abstract fuggveny, ami akkor fut le  ha egy agenst felhasznalodik egy virologuson.
+     * @param v a virologus akire megy az effekt
      */
     public abstract void useOn(Virologist v);
 
     /**
-     * step inferface függvénye
+     * step inferface fuggvenye
      */
 
     public void step() {
@@ -104,8 +104,8 @@ public abstract class Agent implements Steppable {
     }
 
     /**
-     * a kratfoláshoz szükséges erőforrások felhasználása, ezek levonása az adott viológustól
-     * @param v virológus aki craftol
+     * a kratfolashoz szukseges eroforrasok felhasznalasa, ezek levonasa az adott viologustol
+     * @param v virologus aki craftol
      */
     public void getCrafted(Virologist v) {
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);

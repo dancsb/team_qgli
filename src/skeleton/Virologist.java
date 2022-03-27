@@ -4,43 +4,43 @@ import java.util.ArrayList;
 
 
 /**
- * Egy virológust reprezentáló osztály
+ * Egy virologust reprezentalo osztaly
  */
 public class Virologist implements Steppable {
 
 
     /**
-     * A kesztyű által nyújtott hatás beállítása
+     * A kesztyu altal nyujtott hatas beallítasa
      */
     private boolean parry;
 
     /**
-     * A varázsló ezen a mezőn tartózkodik
+     * A varazslo ezen a mezon tartozkodik
      */
     private Field f;
     /**
-     * A birokában levő ágensek listája
+     * A birokaban levo agensek listaja
      */
     private ArrayList<Agent> agents;
     /**
-     * A birokában levő erőforrások listája
+     * A birokaban levo eroforrasok listaja
      */
     private ArrayList<Resources>resources;
     /**
-     * A megtanult levő genetikai kódok listája
+     * A megtanult levo genetikai kodok listaja
      */
     private ArrayList<GeneticCode>geneticCodes;
     /**
-     * A virológus tulajdonságainak listája
+     * A virologus tulajdonsagainak listaja
      */
     private ArrayList<Attribute>attributes;
     /**
-     * A birokában levő felszerelések listája
+     * A birokaban levo felszerelesek listaja
      */
     private ArrayList<Equipment>equipments;
 
     /**
-     * A virologus konstruktora, letrehoztuk tesztelési szempontok miatt
+     * A virologus konstruktora, letrehoztuk tesztelesi szempontok miatt
      */
     public Virologist() {
         resources = new ArrayList<>(2);
@@ -56,18 +56,18 @@ public class Virologist implements Steppable {
     }
 
     /**
-     * A virológus mozgását végző függvény
-     * @param f a mező amire a virológus lépni szeretne
+     * A virologus mozgasat vegzo fuggveny
+     * @param f a mezo amire a virologus lepni szeretne
      */
     public void move(Field f){
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
         SkeletonWriter.println("Virologist.move()");
-        //lekéri a szomszédos mezőket
+        //lekeri a szomszedos mezoket
         ArrayList<Field> neighbours = this.f.getNeighbours();
         for(Field fNeighbours : neighbours)
         {
             if(fNeighbours == f){
-                //átlépés egy másik mezőre és törlés az előző mezőről
+                //atlepes egy masik mezore es torles az elozo mezorol
                 f.accept(this); this.f.remove(this);
             }
         }
@@ -75,32 +75,32 @@ public class Virologist implements Steppable {
     }
 
     /**
-     * Azt ellenórzi, hogy egy virológus megtanulta-e már az osszes genetikai kódot, ha igen akkor a játéknak vége van
+     * Azt ellenorzi, hogy egy virologus megtanulta-e mar az osszes genetikai kodot, ha igen akkor a jateknak vege van
      */
     public boolean checkWin(){
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
         SkeletonWriter.println("Virologist.checkWin()");
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
-        //az összes genetikai kód tudásának esetében igaz értékkel tér vissza
+        //az osszes genetikai kod tudasanak eseteben igaz ertekkel ter vissza
         return geneticCodes.size() == 4;
     }
 
     /**
-     * Az erőforrások ellopása egy másik virlógustól
-     * @param v a virológus akitől ellopja az erőforrásokat
-     * @param r az erőforrás amit el szeretne lopni
+     * Az eroforrasok ellopasa egy masik virlogustol
+     * @param v a virologus akitol ellopja az eroforrasokat
+     * @param r az eroforras amit el szeretne lopni
      */
     public void stealResources(Virologist v,Resources r){
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
         SkeletonWriter.println("Virologist.stealResources()");
-        //lekérdezi az ugyanazon a mezón lévő virológusokat, azok közül lophat erőforrásokat
+        //lekerdezi az ugyanazon a mezon levo virologusokat, azok kozul lophat eroforrasokat
         ArrayList<Virologist>virologists=f.getVirologists();
         for (Virologist viro:virologists) {
             if(viro==v){
-                //a kiválasztott virológustól ellopja a megadott erőforrásokat
-                //target virológustól való elvétel
+                //a kivalasztott virologustol ellopja a megadott eroforrasokat
+                //target virologustol valo elvetel
                 v.loseResources(r);
-                //saját inventoryba felveszi a lopott erőforrásokat
+                //sajat inventoryba felveszi a lopott eroforrasokat
                 this.pickUpResource(r);
             }
         }
@@ -108,55 +108,55 @@ public class Virologist implements Steppable {
     }
 
     /**
-     * A felszerelések ellopása egy másik virlógustól
-     * @param v a virológus akitől ellopja az erőforrásokat
-     * @param e a felszerelés amit el szeretne lopni
+     * A felszerelesek ellopasa egy masik virlogustol
+     * @param v a virologus akitol ellopja az eroforrasokat
+     * @param e a felszereles amit el szeretne lopni
      */
     public void stealEquipment(Virologist v,Equipment e){
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
         SkeletonWriter.println("Virologist.stealEquipment()");
-        //lekérdezi az ugyanazon a mezón lévő virológusokat, azok közül lophat felszerelést
+        //lekerdezi az ugyanazon a mezon levo virologusokat, azok kozul lophat felszerelest
         ArrayList<Virologist> av = f.getVirologists();
         for (Virologist viro:av)
             if(viro == v) {
-                //a kiválasztott virológustól ellopja a megadott felszerelést
-                //target virológustól való elvétel
+                //a kivalasztott virologustol ellopja a megadott felszerelest
+                //target virologustol valo elvetel
                 v.loseEquipment(e);
-                //saját inventoryba felveszi a lopott felszerelést
+                //sajat inventoryba felveszi a lopott felszerelest
                 this.pickUpEquipment(e);
             }
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
 
     /**
-     * A felszerelések ellopása egy másik virlógustól
-     * @param target a virológus akitől ellopja az erőforrásokat
-     * @param a az ágens amit használni szeretne
+     * A felszerelesek ellopasa egy masik virlogustol
+     * @param target a virologus akitol ellopja az eroforrasokat
+     * @param a az agens amit hasznalni szeretne
      */
      public void useAgent(Virologist target, Agent a){
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
         SkeletonWriter.println("Virologist.useAgent()");
-        //lekérdezi az ugyanazon a mezón lévő virológusokat, azokra támadhat
+        //lekerdezi az ugyanazon a mezon levo virologusokat, azokra tamadhat
         ArrayList<Virologist> av = f.getVirologists();
         for (Virologist viro:av)
             if(viro == target) {
-                //a kiválasztott virológuson az ágens használata
+                //a kivalasztott virologuson az agens hasznalata
                 a.useOn(target);
             }
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
 
     /**
-     * A léptetés
+     * A leptetes
      */
     public void step(){
         System.out.println("Virologist.step()");
     }
 
     /**
-     * Ágensek kraftolása
-     * @param a az ágens amit kraftolni szeretne
-     * @return igaz értékkel tér vissza, ha az ágenst sikeresen lekraftolta, különben hamis értékkel
+     * Agensek kraftolasa
+     * @param a az agens amit kraftolni szeretne
+     * @return igaz ertekkel ter vissza, ha az agenst sikeresen lekraftolta, kulonben hamis ertekkel
      */
     public boolean craftAgent(Agent a){
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
@@ -167,61 +167,61 @@ public class Virologist implements Steppable {
     }
 
     /**
-     * Felszerelés felvétele
-     * @param e a felszerelés amelyet fel szertne venni
-     * @return igaz értékkel tér vissza, ha a felszerelést sikeresen felvette, különben hamis értékkel
+     * Felszereles felvetele
+     * @param e a felszereles amelyet fel szertne venni
+     * @return igaz ertekkel ter vissza, ha a felszerelest sikeresen felvette, kulonben hamis ertekkel
      */
     public boolean pickUpEquipment(Equipment e){
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
         SkeletonWriter.println("Virologist.pickUpEquipment()");
-        //meghívja az adott felszerelés collect függvényét
+        //meghívja az adott felszereles collect fuggvenyet
         e.collect(this);
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
         return true;
     }
 
     /**
-     * Erőforrások felvétele
-     * @param r az erőforrás amelyet fel szertne venni
-     * @return igaz értékkel tér vissza, ha az adott erőforrást sikeresen felvette, különben hamis értékkel
+     * Eroforrasok felvetele
+     * @param r az eroforras amelyet fel szertne venni
+     * @return igaz ertekkel ter vissza, ha az adott eroforrast sikeresen felvette, kulonben hamis ertekkel
      */
     public boolean pickUpResource(Resources r){
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
         SkeletonWriter.println("Virologist.pickUpResource()");
-        //meghívja az adott erőforrás collect függvényét
+        //meghívja az adott eroforras collect fuggvenyet
         r.collect(this);
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
         return true;
     }
 
     /**
-     * Felszerelés elvesztése
-     * @param e a felszerelés amelyet elvesztett
+     * Felszereles elvesztese
+     * @param e a felszereles amelyet elvesztett
      */
     public void loseEquipment(Equipment e){
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
         SkeletonWriter.println("Virologist.loseEquipment()");
-        //meghívja az adott felszerelés remove függvényét, mely a  felszerelés hatásást is elveszi
+        //meghívja az adott felszereles remove fuggvenyet, mely a  felszereles hatasast is elveszi
         e.remove(this);
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
 
     /**
-     * Erőforrások elvesztése
-     * @param r a felszerelés amelyet elvesztett
+     * Eroforrasok elvesztese
+     * @param r a felszereles amelyet elvesztett
      */
     public void loseResources(Resources r){
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
         SkeletonWriter.println("Virologist.loseResources()");
-        //meghívja az aminosav es nukleotid mennyiség változtató függvényét
+        //meghívja az aminosav es nukleotid mennyiseg valtoztato fuggvenyet
         r.changeAmountAminoAcid(-r.amount);
         r.changeAmountNucleotide(-r.amount);
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
 
     /**
-     * Visszatér egy attributummokkal teli listával, melyek az adott varázslón vannak
-     @return visszatér egy attributumokkal teli listával
+     * Visszater egy attributummokkal teli listaval, melyek az adott varazslon vannak
+     @return visszater egy attributumokkal teli listaval
      */
     public ArrayList<Attribute> getAttributes() {
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
@@ -231,22 +231,22 @@ public class Virologist implements Steppable {
     }
 
     /**
-     * Egy genetikai kód hozzáadása a megtanult kódokhoz
-     * @param g a felszerelés amelyet elvesztett
-     * @return igaz értékkel tér vissza ,ha a gentetikai kódot sikeresen megtanulta
+     * Egy genetikai kod hozzaadasa a megtanult kodokhoz
+     * @param g a felszereles amelyet elvesztett
+     * @return igaz ertekkel ter vissza ,ha a gentetikai kodot sikeresen megtanulta
      */
     public boolean addGeneticCode(GeneticCode g){
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
         SkeletonWriter.println("Virologist.addGeneticCode()");
-        //ha minden genetikai kódot megtanult akkor a játéknak vége van
+        //ha minden genetikai kodot megtanult akkor a jateknak vege van
         if(checkWin())Game.endGame();
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
         return true;
     }
 
     /**
-     * Visszatér egy erőforrásokkal teli listával, melyek az adott varázsló birtokában vannak
-     * @return visszatér az erőforrásokkal teli listával melyek egy virológusnál vannak
+     * Visszater egy eroforrasokkal teli listaval, melyek az adott varazslo birtokaban vannak
+     * @return visszater az eroforrasokkal teli listaval melyek egy virologusnal vannak
      */
     public ArrayList<Resources> getResources() {
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
@@ -256,9 +256,9 @@ public class Virologist implements Steppable {
     }
 
     /**
-     * Beállítja az ágens visszakenő képességet, igazra ha a kesztyű a varázslónál van
+     * Beallítja az agens visszakeno kepesseget, igazra ha a kesztyu a varazslonal van
      * Hamisra ha elvesztette azt
-     * @param b igaz vagy hamis értéke lehet, attól függ a varázslónál van e a kesztyű
+     * @param b igaz vagy hamis erteke lehet, attol fugg a varazslonal van e a kesztyu
      */
     public void setParry(boolean b){
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
@@ -268,8 +268,8 @@ public class Virologist implements Steppable {
     }
 
     /**
-     * Visszatér egy genetikai kódokkal teli listával, melyeket az adott varázsló megtanult
-     * @return visszatér a genetikai kódok teli listával melyeket egy virológus megtanult
+     * Visszater egy genetikai kodokkal teli listaval, melyeket az adott varazslo megtanult
+     * @return visszater a genetikai kodok teli listaval melyeket egy virologus megtanult
      */
     public ArrayList<GeneticCode> getGenCode() {
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
@@ -279,8 +279,8 @@ public class Virologist implements Steppable {
     }
 
     /**
-     * Visszatér a mezővel amin a varázsló tartózkodik
-     * @return visszatér a mezőkkel
+     * Visszater a mezovel amin a varazslo tartozkodik
+     * @return visszater a mezokkel
      */
     public Field getField() {
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);

@@ -3,16 +3,16 @@ package skeleton;
 import java.util.ArrayList;
 
 /**
- * Egy mezőt reprezentál.
+ * Egy mezot reprezental.
  */
 public class Field {
 
     /**
-     * A szomszédos mezőket tároló lista
+     * A szomszedos mezoket tarolo lista
      */
     private ArrayList<Field> neighbours;
     /**
-     * A mezőn tartózkodó virológusokat tároló lista
+     * A mezon tartozkodo virologusokat tarolo lista
      */
     private ArrayList<Virologist> virologists;
 
@@ -30,7 +30,7 @@ public class Field {
 
 
     /**
-     * @return visszatér egy adott mező szomszédos mezőivel
+     * @return visszater egy adott mezo szomszedos mezoivel
      */
     public ArrayList<Field> getNeighbours() {
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
@@ -40,8 +40,8 @@ public class Field {
     }
 
     /**
-     * Hozzáad egy szomszédot egy mezőhöz
-     * @param n a szomszéd mező amit hozzá akarunk adni
+     * Hozzaad egy szomszedot egy mezohoz
+     * @param n a szomszed mezo amit hozza akarunk adni
      */
     public void addNeighbour(Field n){
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
@@ -52,7 +52,7 @@ public class Field {
 
     /**
      *
-     * @return visszatér a virológusokkal amelyek az adott mezőn tartózkodnak
+     * @return visszater a virologusokkal amelyek az adott mezon tartozkodnak
      */
     public ArrayList<Virologist> getVirologists() {
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
@@ -61,9 +61,9 @@ public class Field {
         return virologists;
     }
     /**
-     * Ha egy virológus arra a mezőre szeretne lépni, eldöntheti, hogy léphet e oda vagy sem
-     * @param v a virológus aki lépni akar
-     * @return true ha léphet, false ha nem
+     * Ha egy virologus arra a mezore szeretne lepni, eldontheti, hogy lephet e oda vagy sem
+     * @param v a virologus aki lepni akar
+     * @return true ha lephet, false ha nem
      */
     public boolean accept(Virologist v){
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
@@ -72,8 +72,8 @@ public class Field {
         return virologists.add(v);
     }
     /**
-     * Eltávolít egy virológust az adott mezőről
-     * @param v az eltávolítandó virolgóus
+     * Eltavolít egy virologust az adott mezorol
+     * @param v az eltavolítando virolgous
      */
     public void remove(Virologist v){
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);

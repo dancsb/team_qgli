@@ -5,14 +5,14 @@ import java.util.ArrayList;
 public class Storage extends Field{
 
     /**
-     * A raktárban elhelyezett felszerelés
+     * A raktarban elhelyezett felszereles
      */
     private ArrayList<Resources> res;
 
     /**
-     * Storage kosntruktora, storage létrehozása benne egy megtanulható erőforrásokkal
-     * @param r1 a storage mezőn megtalálható aminosavak
-     * @param r2 a storage mezőn megtalálható nukleotidok
+     * Storage kosntruktora, storage letrehozasa benne egy megtanulhato eroforrasokkal
+     * @param r1 a storage mezon megtalalhato aminosavak
+     * @param r2 a storage mezon megtalalhato nukleotidok
      */
     public Storage (Resources r1, Resources r2){
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
@@ -24,10 +24,10 @@ public class Storage extends Field{
     }
 
     /**
-     * Ha egy virológus arra a mezőre szeretne lépni,ez a függvény eldöntheti, hogy léphet e oda vagy sem
-     * Illetve az adott mezőn lévő tárgyak begyűjtését végzi el
-     * @param v az adott storage mezőre lépni kívánó virológus
-     * @return igaz értékkel tér vissza ha a virológust beengedte az adott mezőre, hamis értékkel ha oda nem léphet a virológus
+     * Ha egy virologus arra a mezore szeretne lepni,ez a fuggveny eldontheti, hogy lephet e oda vagy sem
+     * Illetve az adott mezon levo targyak begyujteset vegzi el
+     * @param v az adott storage mezore lepni kívano virologus
+     * @return igaz ertekkel ter vissza ha a virologust beengedte az adott mezore, hamis ertekkel ha oda nem lephet a virologus
      */
     @Override
     public boolean accept(Virologist v) {
@@ -35,7 +35,7 @@ public class Storage extends Field{
         SkeletonWriter.println("Storage.accept()");
         if (super.accept(v)){
             for (Resources r: res){
-                //erőforrások begyűjtése
+                //eroforrasok begyujtese
                 r.collect(v);
             }
             SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);

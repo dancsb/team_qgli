@@ -1,16 +1,16 @@
 package skeleton;
 /**
- * Azt a hatást reprezentálja amikor a virológus sebezhetetlen jár.
+ * Azt a hatast reprezentalja amikor a virologus sebezhetetlen jar.
  */
 public class Invulnerabled extends Attribute{
     /**
-     * Védekezési előny mértéke
+     * Vedekezesi elony merteke
      */
     private long defPrec;
 
     /**
-     * Beállítja a sebezhetetlenség hatásának idjét
-     * @param x az idő
+     * Beallítja a sebezhetetlenseg hatasanak idjet
+     * @param x az ido
      */
     @Override
     public void setTimeInvu(long x) {
@@ -20,8 +20,8 @@ public class Invulnerabled extends Attribute{
     }
 
     /**
-     * Visszatér a sebezhetetlenség hatásának idejével
-     * @return visszatér a sebezhetetlenség hatásának idejé
+     * Visszater a sebezhetetlenseg hatasanak idejevel
+     * @return visszater a sebezhetetlenseg hatasanak ideje
      */
     @Override
     public long getTimeInvu() {
@@ -32,8 +32,8 @@ public class Invulnerabled extends Attribute{
     }
 
     /**
-     * Megváltoztatja a sebezhetetlenség hatásának mértékét
-     * @param x az idő
+     * Megvaltoztatja a sebezhetetlenseg hatasanak merteket
+     * @param x az ido
      */
     @Override
     public void changeDefPerc(long x) {

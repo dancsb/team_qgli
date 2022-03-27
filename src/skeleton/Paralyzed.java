@@ -3,8 +3,8 @@ package skeleton;
 public class Paralyzed extends Attribute{
 
     /**
-     * Beállítja a bénaság hatásának idjét
-     * @param x az idő mértéke amennyire béna lesz az adott varázsló
+     * Beallítja a benasag hatasanak idjet
+     * @param x az ido merteke amennyire bena lesz az adott varazslo
      */
     @Override
     public void setTimePara(long x) {
@@ -14,8 +14,8 @@ public class Paralyzed extends Attribute{
     }
 
     /**
-     * Visszatér a bénaság hatásának idjével
-     * @return visszatér a hatás idejével
+     * Visszater a benasag hatasanak idjevel
+     * @return visszater a hatas idejevel
      */
     @Override
     public long getTimePara() {

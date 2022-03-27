@@ -1,12 +1,12 @@
 package skeleton;
 
 /**
- * Begyűjthető dolgokat reprezentáló osztály.
+ * Begyujtheto dolgokat reprezentalo osztaly.
  */
 public interface Collectible {
     /**
-     * Ez a függvény fut le ha felveszi
-     * @param v a virológus aki felveszi
+     * Ez a fuggveny fut le ha felveszi
+     * @param v a virologus aki felveszi
      */
     void collect(Virologist v);
 }

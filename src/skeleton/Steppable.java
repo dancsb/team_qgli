@@ -2,7 +2,7 @@ package skeleton;
 
 
 /**
- * Steppable interface megvalósítója
+ * Steppable interface megvalosítoja
  */
 public interface Steppable {
 

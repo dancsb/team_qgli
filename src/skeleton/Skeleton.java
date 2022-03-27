@@ -2,19 +2,19 @@ package skeleton;
 
 import java.util.Scanner;
 /**
- * A szkeleton részfeladat tesztelésének a megvalósítása
+ * A szkeleton reszfeladat tesztelesenek a megvalosítasa
  */
 public class Skeleton {
 
     /**
-     * A felhasználó áltak kiválkasztott szcenárió
+     * A felhasznalo altak kivalkasztott szcenario
      */
     int selectedUseCase;
 
     public Skeleton(){}
 
     /**
-     * Teszteket lefuttató függvény, a felhasználó által kiválasztott tesztet futtatja le
+     * Teszteket lefuttato fuggveny, a felhasznalo altal kivalasztott tesztet futtatja le
      */
     public void runTests() {
         while (true) {
@@ -137,14 +137,14 @@ public class Skeleton {
                 default:
                     throw new IllegalStateException("Ervenytelen szam: " + selectedUseCase);
             }
-            System.out.println("Üss egy ENTERT a továbblépéshez");
+            System.out.println("Üss egy ENTERT a tovabblepeshez");
             new Scanner(System.in).nextLine();
         }
     }
 
     /**
-     *  A KÖVETKEZŐ SOROKBAN TALÁLHATÓAK MEG A TESZTFÜGGVÉNYEK, MELYEKETE AZ EGSZERŰSÉG KEDVÉÉRT NEM FOGUNK KÜLÖN KOMMENTELNI
-     *  MINDEN TESZTFÜGGVÉNY LÉTREHOZZA A SZÁMÁRA SZÜKSÉGES OBJEKTUMOKAT ÉS MEGHIVJA A TESZTELENDŐ FÜGGVÉNYEKET
+     *  A KOVETKEZO SOROKBAN TALALHATOAK MEG A TESZTFÜGGVENYEK, MELYEKETE AZ EGYSZERUSEG KEDVEERT NEM FOGUNK KÜLON KOMMENTELNI
+     *  MINDEN TESZTFÜGGVENY LETREHOZZA A SZAMARA SZÜKSEGES OBJEKTUMOKAT ES MEGHIVJA A TESZTELENDO FÜGGVENYEKET
      */
     private void usesVitusdanceTest(){
         System.out.println("Virologist uses Vitusdance");

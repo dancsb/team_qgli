@@ -1,12 +1,12 @@
 package skeleton;
 
 /**
- * Azt a hatást reprezentálja amikor a virológus vítustáncot jár.
+ * Azt a hatast reprezentalja amikor a virologus vítustancot jar.
  */
 public class Dancing extends Attribute{
     /**
-     * Beállítja, hogy mennyi ideig járja a vítustáncot a virológus.
-     * @param x az idő
+     * Beallítja, hogy mennyi ideig jarja a vítustancot a virologus.
+     * @param x az ido
      */
     @Override
     public void setTimeDance(long x) {
@@ -15,8 +15,8 @@ public class Dancing extends Attribute{
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
     /**
-     * Visszaadja, hogy mennyi ideig járja a vítustáncot a virológus.
-     * @return az idő
+     * Visszaadja, hogy mennyi ideig jarja a vítustancot a virologus.
+     * @return az ido
      */
     @Override
     public long getTimeDance() {

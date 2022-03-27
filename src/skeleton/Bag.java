@@ -3,18 +3,18 @@ package skeleton;
 import java.util.ArrayList;
 
 /**
- * A "Zsák" különleges felszerelést reprezentálja, leszármazik az Equipmentből
+ * A "Zsak" kulonleges felszerelest reprezentalja, leszarmazik az Equipmentbol
  */
 public class Bag extends Equipment {
 
     /**
-     * A mérték amivel a zsák megnöveli a virológus anyageltárolási képességét.
+     * A mertek amivel a zsak megnoveli a virologus anyageltarolasi kepesseget.
      */
     private long sizeIncrease;
 
     /**
-     * Ez a függvény viszi végbe az effekteket amik végbemennek ha felveszi a virológus a zsákot.
-     * @param v a virológus aki felveszi.
+     * Ez a fuggveny viszi vegbe az effekteket amik vegbemennek ha felveszi a virologus a zsakot.
+     * @param v a virologus aki felveszi.
      */
     @Override
     public void action(Virologist v) {
@@ -26,8 +26,8 @@ public class Bag extends Equipment {
     }
 
     /**
-     * Ez a függvény viszi végbe az effekteket amik végbemennek ha a virológus elveszti a zsákot.
-     * @param v a virológus aki felveszi.
+     * Ez a fuggveny viszi vegbe az effekteket amik vegbemennek ha a virologus elveszti a zsakot.
+     * @param v a virologus aki felveszi.
      */
     @Override
     public void remove(Virologist v) {

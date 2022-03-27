@@ -1,16 +1,16 @@
 package skeleton;
 
 /**
- * A Game osztály idnítja el a játékot.
+ * A Game osztaly idnítja el a jatekot.
  */
 public class Game {
     /**
-     * A pálya
+     * A palya
      */
     private Map map;
 
     /**
-     * A játék indítása
+     * A jatek indítasa
      */
     public void startGame(){
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
@@ -19,7 +19,7 @@ public class Game {
     }
 
     /**
-     * Játék vége, akkor hívódik meg, ha checkWin() igaz értékkel tér visssza
+     * Jatek vege, akkor hívodik meg, ha checkWin() igaz ertekkel ter visssza
      */
     public static void endGame(){
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);

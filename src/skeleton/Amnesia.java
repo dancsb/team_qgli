@@ -3,31 +3,31 @@ package skeleton;
 import java.util.ArrayList;
 
 /**
- * Amnézia ágenst reprezentálja.
+ * Amnezia agenst reprezentalja.
  */
 public class Amnesia extends Agent {
 
     /**
-     * Ágens konstruktor
-     * @param v az tulajdonos virológus
-     * @param effT az idő ameddig tart
-     * @param amino az aminosav mértéke ami a craftoláshoz kell
-     * @param nucleo a nukleotid mértéke ami a craftoláshoz kell
-     * @param exTime az idő ameddig nem jár le az ágens
-     * @param genCode a genetikai kód ami a craftoláshoz kell.
+     * Agens konstruktor
+     * @param v az tulajdonos virologus
+     * @param effT az ido ameddig tart
+     * @param amino az aminosav merteke ami a craftolashoz kell
+     * @param nucleo a nukleotid merteke ami a craftolashoz kell
+     * @param exTime az ido ameddig nem jar le az agens
+     * @param genCode a genetikai kod ami a craftolashoz kell.
      */
     public Amnesia(Virologist v, long effT, long amino, long nucleo, long exTime, String genCode) {
         super(v, effT, amino, nucleo, exTime, genCode);
     }
 
     /**
-     * Az amnézia ágens használata egy virológuson.
-     * @param v a virológus akire megy az effekt
+     * Az amnezia agens hasznalata egy virologuson.
+     * @param v a virologus akire megy az effekt
      */
     public void useOn(Virologist v) {
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
         SkeletonWriter.println("Amnesia.useOn()");
-        //Elfelejti az összes genetikai kódját, ezért kell a .clear()
+        //Elfelejti az osszes genetikai kodjat, ezert kell a .clear()
         v.getGenCode().clear();
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
 
