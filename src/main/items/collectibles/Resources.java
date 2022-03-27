@@ -24,6 +24,17 @@ public abstract class Resources implements Collectible{
     public abstract void collect(Virologist v);
 
     /**
+     * Megadja az eroforras mennyiseget
+     * @return amount erteke
+     */
+    public long getAmount() {
+        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
+        SkeletonWriter.println("Resources.getAmount()");
+        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
+        return amount;
+    }
+
+    /**
      * Megvaltoztatja egy virologus atal tarolt aminosavak mennyiseget
      * Ha felvesz akkor noveli , ha kraftol vagy lopnak tole, akkor csokkenti
      * @param x az ertek amennyivel valtoztatja az aminosavak mennyiseget

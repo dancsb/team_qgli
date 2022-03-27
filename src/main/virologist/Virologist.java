@@ -220,8 +220,8 @@ public class Virologist implements Steppable {
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
         SkeletonWriter.println("Virologist.loseResources()");
         //meghivja az aminosav es nukleotid mennyiseg valtoztato fuggvenyet
-        r.changeAmountAminoAcid(-r.amount);
-        r.changeAmountNucleotide(-r.amount);
+        r.changeAmountAminoAcid(-r.getAmount());
+        r.changeAmountNucleotide(-r.getAmount());
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
 
