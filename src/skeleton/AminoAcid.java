@@ -21,7 +21,7 @@ public class AminoAcid extends Resources{
     }
 
     /**
-     * Aminosavak felvetelet megvalosíto fuggveny
+     * Aminosavak felvetelet megvalosito fuggveny
      * @param v a Virologus aki felveszi az aminosavat
      */
 

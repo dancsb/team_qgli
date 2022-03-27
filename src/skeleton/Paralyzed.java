@@ -3,7 +3,7 @@ package skeleton;
 public class Paralyzed extends Attribute{
 
     /**
-     * Beallítja a benasag hatasanak idjet
+     * Beallitja a benasag hatasanak idjet
      * @param x az ido merteke amennyire bena lesz az adott varazslo
      */
     @Override

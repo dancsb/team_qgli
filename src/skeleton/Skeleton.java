@@ -2,7 +2,7 @@ package skeleton;
 
 import java.util.Scanner;
 /**
- * A szkeleton reszfeladat tesztelesenek a megvalosítasa
+ * A szkeleton reszfeladat tesztelesenek a megvalositasa
  */
 public class Skeleton {
 
@@ -137,14 +137,14 @@ public class Skeleton {
                 default:
                     throw new IllegalStateException("Ervenytelen szam: " + selectedUseCase);
             }
-            System.out.println("Üss egy ENTERT a tovabblepeshez");
+            System.out.println("Uss egy ENTERT a tovabblepeshez");
             new Scanner(System.in).nextLine();
         }
     }
 
     /**
-     *  A KOVETKEZO SOROKBAN TALALHATOAK MEG A TESZTFÜGGVENYEK, MELYEKETE AZ EGYSZERUSEG KEDVEERT NEM FOGUNK KÜLON KOMMENTELNI
-     *  MINDEN TESZTFÜGGVENY LETREHOZZA A SZAMARA SZÜKSEGES OBJEKTUMOKAT ES MEGHIVJA A TESZTELENDO FÜGGVENYEKET
+     *  A KOVETKEZO SOROKBAN TALALHATOAK MEG A TESZTFUGGVENYEK, MELYEKETE AZ EGYSZERUSEG KEDVEERT NEM FOGUNK KULON KOMMENTELNI
+     *  MINDEN TESZTFUGGVENY LETREHOZZA A SZAMARA SZUKSEGES OBJEKTUMOKAT ES MEGHIVJA A TESZTELENDO FUGGVENYEKET
      */
     private void usesVitusdanceTest(){
         System.out.println("Virologist uses Vitusdance");

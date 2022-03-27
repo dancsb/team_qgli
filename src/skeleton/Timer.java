@@ -3,7 +3,7 @@ package skeleton;
 import java.util.ArrayList;
 
 /**
- * Timer osztaly megvalosítasa
+ * Timer osztaly megvalositasa
  */
 public class Timer {
 

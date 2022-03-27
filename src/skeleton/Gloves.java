@@ -5,7 +5,7 @@ package skeleton;
  */
 public class Gloves extends Equipment{
     /**
-     * A kesztyu begyujteset valosítja meg, es az azzal jaro "visszakenes" kepesseget allítja be
+     * A kesztyu begyujteset valositja meg, es az azzal jaro "visszakenes" kepesseget allitja be
      * @param v a virologus aki felveszi
      */
     @Override

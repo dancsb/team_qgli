@@ -3,7 +3,7 @@ package skeleton;
 import java.util.ArrayList;
 
 /**
- *  Agenst megvalosíto class, abstract, implementalja a Steppablet.
+ *  Agenst megvalosito class, abstract, implementalja a Steppablet.
  */
 public abstract class Agent implements Steppable {
     /**

@@ -3,7 +3,7 @@ package skeleton;
 import java.util.ArrayList;
 
 /**
- * A kopeny kulonelges felszerelest megvalosíto osztaly,az equipmentbol szarmazik le.
+ * A kopeny kulonelges felszerelest megvalosito osztaly,az equipmentbol szarmazik le.
  */
 public class Cape extends Equipment{
 

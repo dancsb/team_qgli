@@ -3,7 +3,7 @@ package skeleton;
 import java.util.ArrayList;
 
 /**
- * A sebezhetetlen agenst valosítja meg, leszarmazik az Agentbol
+ * A sebezhetetlen agenst valositja meg, leszarmazik az Agentbol
  */
 public class Invulnerable extends Agent {
 

@@ -9,7 +9,7 @@ public class Invulnerabled extends Attribute{
     private long defPrec;
 
     /**
-     * Beallítja a sebezhetetlenseg hatasanak idjet
+     * Beallitja a sebezhetetlenseg hatasanak idjet
      * @param x az ido
      */
     @Override

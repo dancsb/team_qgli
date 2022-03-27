@@ -14,7 +14,7 @@ public abstract class Resources implements Collectible{
 
 
     /**
-     * Eroforrasok felvetelet megvalosíto fuggveny
+     * Eroforrasok felvetelet megvalosito fuggveny
      * @param v a virologus amely felvette az adott eroforrast
      */
     @Override
@@ -42,8 +42,8 @@ public abstract class Resources implements Collectible{
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
     /**
-     * Beallítja, hogy egy virologus maximalisan mennyi eroforrast tarthat maganal
-     * @param x az ertek amennyire allítodik a maximalisan tarolhato eroforrasok szama
+     * Beallitja, hogy egy virologus maximalisan mennyi eroforrast tarthat maganal
+     * @param x az ertek amennyire allitodik a maximalisan tarolhato eroforrasok szama
      */
     public void setMaxAmount(long x){
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);

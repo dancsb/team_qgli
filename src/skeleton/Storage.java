@@ -26,7 +26,7 @@ public class Storage extends Field{
     /**
      * Ha egy virologus arra a mezore szeretne lepni,ez a fuggveny eldontheti, hogy lephet e oda vagy sem
      * Illetve az adott mezon levo targyak begyujteset vegzi el
-     * @param v az adott storage mezore lepni kívano virologus
+     * @param v az adott storage mezore lepni kivano virologus
      * @return igaz ertekkel ter vissza ha a virologust beengedte az adott mezore, hamis ertekkel ha oda nem lephet a virologus
      */
     @Override

@@ -11,7 +11,7 @@ public class Attribute implements Steppable{
     protected long time;
 
     /**
-     * egy virologus paralelizalt allapotanak idejenek a beallítasa
+     * egy virologus paralelizalt allapotanak idejenek a beallitasa
      * @param x az ido
      */
     public void setTimePara(long x){
@@ -31,7 +31,7 @@ public class Attribute implements Steppable{
         return 0;
     }
     /**
-     * Egy virologus sebezhetetlen allapotanak idejenek a beallítasa
+     * Egy virologus sebezhetetlen allapotanak idejenek a beallitasa
      * @param x az ido
      */
     public void setTimeInvu(long x){
@@ -50,7 +50,7 @@ public class Attribute implements Steppable{
         return 0;
     }
     /**
-     * Egy virologus vitustancot jaro allapotanak idejenek a beallítasa
+     * Egy virologus vitustancot jaro allapotanak idejenek a beallitasa
      * @param x az ido
      */
     public void setTimeDance(long x){
@@ -69,7 +69,7 @@ public class Attribute implements Steppable{
         return 0;
     }
     /**
-     * Egy virologus "visszaveresi" allapotanak a beallítasa
+     * Egy virologus "visszaveresi" allapotanak a beallitasa
      * @param x az ido
      */
     public void changeDefPerc(long x){

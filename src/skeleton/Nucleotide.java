@@ -19,7 +19,7 @@ public class Nucleotide extends Resources{
     }
 
     /**
-     *  Nukleotidok felvetelet megvalosíto fuggveny
+     *  Nukleotidok felvetelet megvalosito fuggveny
      * @param v a virologus aki felveszi a nukleotidot.
      */
     @Override

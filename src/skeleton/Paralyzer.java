@@ -2,7 +2,7 @@ package skeleton;
 
 import java.util.ArrayList;
 /**
- * A beníto agenst valosítja meg, leszarmazik az Agentbol
+ * A benito agenst valositja meg, leszarmazik az Agentbol
  */
 public class Paralyzer extends Agent {
 
@@ -20,7 +20,7 @@ public class Paralyzer extends Agent {
     }
 
     /**
-     * A beníto agens hasznalata egy virologuson.
+     * A benito agens hasznalata egy virologuson.
      * @param v a virologus akire megy az effekt
      */
     public void useOn(Virologist v) {

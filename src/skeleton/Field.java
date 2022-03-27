@@ -72,8 +72,8 @@ public class Field {
         return virologists.add(v);
     }
     /**
-     * Eltavolít egy virologust az adott mezorol
-     * @param v az eltavolítando virolgous
+     * Eltavolit egy virologust az adott mezorol
+     * @param v az eltavolitando virolgous
      */
     public void remove(Virologist v){
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);

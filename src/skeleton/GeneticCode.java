@@ -11,7 +11,7 @@ public class GeneticCode implements Collectible{
     private String name;
 
     /**
-     * Konstruktor melyben beallítjuk a genetikai kod nevet
+     * Konstruktor melyben beallitjuk a genetikai kod nevet
      * @param name a nev
      */
     public GeneticCode(String name){

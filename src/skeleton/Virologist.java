@@ -10,7 +10,7 @@ public class Virologist implements Steppable {
 
 
     /**
-     * A kesztyu altal nyujtott hatas beallítasa
+     * A kesztyu altal nyujtott hatas beallitasa
      */
     private boolean parry;
 
@@ -174,7 +174,7 @@ public class Virologist implements Steppable {
     public boolean pickUpEquipment(Equipment e){
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
         SkeletonWriter.println("Virologist.pickUpEquipment()");
-        //meghívja az adott felszereles collect fuggvenyet
+        //meghivja az adott felszereles collect fuggvenyet
         e.collect(this);
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
         return true;
@@ -188,7 +188,7 @@ public class Virologist implements Steppable {
     public boolean pickUpResource(Resources r){
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
         SkeletonWriter.println("Virologist.pickUpResource()");
-        //meghívja az adott eroforras collect fuggvenyet
+        //meghivja az adott eroforras collect fuggvenyet
         r.collect(this);
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
         return true;
@@ -201,7 +201,7 @@ public class Virologist implements Steppable {
     public void loseEquipment(Equipment e){
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
         SkeletonWriter.println("Virologist.loseEquipment()");
-        //meghívja az adott felszereles remove fuggvenyet, mely a  felszereles hatasast is elveszi
+        //meghivja az adott felszereles remove fuggvenyet, mely a  felszereles hatasast is elveszi
         e.remove(this);
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
@@ -213,7 +213,7 @@ public class Virologist implements Steppable {
     public void loseResources(Resources r){
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
         SkeletonWriter.println("Virologist.loseResources()");
-        //meghívja az aminosav es nukleotid mennyiseg valtoztato fuggvenyet
+        //meghivja az aminosav es nukleotid mennyiseg valtoztato fuggvenyet
         r.changeAmountAminoAcid(-r.amount);
         r.changeAmountNucleotide(-r.amount);
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
@@ -256,7 +256,7 @@ public class Virologist implements Steppable {
     }
 
     /**
-     * Beallítja az agens visszakeno kepesseget, igazra ha a kesztyu a varazslonal van
+     * Beallitja az agens visszakeno kepesseget, igazra ha a kesztyu a varazslonal van
      * Hamisra ha elvesztette azt
      * @param b igaz vagy hamis erteke lehet, attol fugg a varazslonal van e a kesztyu
      */

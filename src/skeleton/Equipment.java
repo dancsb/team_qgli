@@ -5,7 +5,7 @@ package skeleton;
  */
 public abstract class Equipment implements Collectible {
     /**
-     * Egy felszereles begyujteset valosítja meg, es az azzal jaro hatast/kepesseget allítja be
+     * Egy felszereles begyujteset valositja meg, es az azzal jaro hatast/kepesseget allitja be
      * @param v a virologus aki felveszi
      */
     @Override
