@@ -48,96 +48,96 @@ public class Skeleton {
             System.out.println("28. Exit");
             System.out.println();
             System.out.println("Ird be a megfelelo szamot:");
-            int selectedUseCase=new Scanner(System.in).nextInt();
-            switch (selectedUseCase) {
-                case 1:
-                    craftsAmenesiaTest();
-                    break;
-                case 2:
-                    craftsInvulnerableTest();
-                    break;
-                case 3:
-                    craftsParalyzerTest();
-                    break;
-                case 4:
-                    craftsVitusdanceTest();
-                    break;
-                case 5:
-                    losesAminoAcidTest();
-                    break;
-                case 6:
-                    losesBagTest();
-                    break;
-                case 7:
-                    losesCapeTest();
-                    break;
-                case 8:
-                    losesGlovesTest();
-                    break;
-                case 9:
-                    losesNucleotideTest();
-                case 10:
-                    picksUpAminoAcidTest();
-                    break;
-                case 11:
-                    picksUpBagTest();
-                    break;
-                case 12:
-                    picksUpCapeTest();
-                    break;
-                case 13:
-                    picksUpGlovesTest();
-                    break;
-                case 14:
-                    picksUpNucleotideTest();
-                    break;
-                case 15:
-                    stealsAminoAcidTest();
-                    break;
-                case 16:
-                    stealsBagTest();
-                    break;
-                case 17:
-                    stealsCapeTest();
-                    break;
-                case 18:
-                    stealsGlovesTest();
-                    break;
-                case 19:
-                    stealsNucleotideTest();
-                    break;
-                case 20:
-                    stepsOnFieldTest();
-                    break;
-                case 21:
-                    stepsOnLabTest();
-                    break;
-                case 22:
-                    stepsOnShelterTest();
-                    break;
-                case 23:
-                    stepsOnStorageTest();
-                    break;
-                case 24:
-                    usesAmnesiaTest();
-                    break;
-                case 25:
-                    usesInvulnerableTest();
-                    break;
-                case 26:
-                    usesParalyzerTest();
-                    break;
-                case 27:
-                    usesVitusdanceTest();
-                    break;
-                case 28:
-                    System.exit(0);
-                    break;
-                default:
-                    throw new IllegalStateException("Ervenytelen szam: " + selectedUseCase);
-            }
+            try {
+                int selectedUseCase=new Scanner(System.in).nextInt();
+                switch (selectedUseCase) {
+                    case 1:
+                        craftsAmenesiaTest();
+                        break;
+                    case 2:
+                        craftsInvulnerableTest();
+                        break;
+                    case 3:
+                        craftsParalyzerTest();
+                        break;
+                    case 4:
+                        craftsVitusdanceTest();
+                        break;
+                    case 5:
+                        losesAminoAcidTest();
+                        break;
+                    case 6:
+                        losesBagTest();
+                        break;
+                    case 7:
+                        losesCapeTest();
+                        break;
+                    case 8:
+                        losesGlovesTest();
+                        break;
+                    case 9:
+                        losesNucleotideTest();
+                    case 10:
+                        picksUpAminoAcidTest();
+                        break;
+                    case 11:
+                        picksUpBagTest();
+                        break;
+                    case 12:
+                        picksUpCapeTest();
+                        break;
+                    case 13:
+                        picksUpGlovesTest();
+                        break;
+                    case 14:
+                        picksUpNucleotideTest();
+                        break;
+                    case 15:
+                        stealsAminoAcidTest();
+                        break;
+                    case 16:
+                        stealsBagTest();
+                        break;
+                    case 17:
+                        stealsCapeTest();
+                        break;
+                    case 18:
+                        stealsGlovesTest();
+                        break;
+                    case 19:
+                        stealsNucleotideTest();
+                        break;
+                    case 20:
+                        stepsOnFieldTest();
+                        break;
+                    case 21:
+                        stepsOnLabTest();
+                        break;
+                    case 22:
+                        stepsOnShelterTest();
+                        break;
+                    case 23:
+                        stepsOnStorageTest();
+                        break;
+                    case 24:
+                        usesAmnesiaTest();
+                        break;
+                    case 26:
+                        usesParalyzerTest();
+                        break;
+                    case 27:
+                        usesVitusdanceTest();
+                        break;
+                    case 28:
+                        System.exit(0);
+                        break;
+                    default:
+                        System.out.println("Ervenytelen szam: " + selectedUseCase);
+                }
             System.out.println("Uss egy ENTERT a tovabblepeshez");
             new Scanner(System.in).nextLine();
+            }   catch (Exception e) {System.out.println("Ez nem egy szám!\nUss egy ENTERT a tovabblepeshez");
+                                     new Scanner(System.in).nextLine();}
         }
     }
 
