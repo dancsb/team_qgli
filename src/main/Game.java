@@ -1,4 +1,7 @@
-package skeleton;
+package main;
+
+import main.map.Map;
+import skeleton.SkeletonWriter;
 
 /**
  * A Game osztaly idnitja el a jatekot.
@@ -15,6 +18,7 @@ public class Game {
     public void startGame(){
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
         SkeletonWriter.println("Game.startGame()");
+        map = new Map();
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
 
