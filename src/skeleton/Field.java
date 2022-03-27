@@ -20,11 +20,8 @@ public class Field {
      * Field konstruktora
      */
     public Field(){
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.println("Field.constructor()");
         neighbours = new ArrayList<>();
         virologists = new ArrayList<>();
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
 
 

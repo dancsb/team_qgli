@@ -49,7 +49,6 @@ public class Skeleton {
             System.out.println();
             System.out.println("Ird be a megfelelo szamot:");
             int selectedUseCase=new Scanner(System.in).nextInt();
-
             switch (selectedUseCase) {
                 case 1:
                     craftsAmenesiaTest();

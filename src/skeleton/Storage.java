@@ -15,12 +15,9 @@ public class Storage extends Field{
      * @param r2 a storage mezon megtalalhato nukleotidok
      */
     public Storage (Resources r1, Resources r2){
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.println("Storage.constructor()");
         res = new ArrayList<>();
         res.add(r1);
         res.add(r2);
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
 
     /**

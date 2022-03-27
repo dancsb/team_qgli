@@ -14,10 +14,7 @@ public class Lab extends Field{
      * @param gc megtanulhato genetikai kod
      */
     public Lab(GeneticCode gc) {
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.println("Lab.constructor()");
         this.gc = gc;
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
     /**
      * Az adott laborban megtalalhato genetikai koddal ter vissza

@@ -17,10 +17,7 @@ public class Shelter extends Field{
      */
 
     public Shelter(Equipment eq) {
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.println("Shelter.constructor()");
         this.eq = eq;
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
 
     /**
