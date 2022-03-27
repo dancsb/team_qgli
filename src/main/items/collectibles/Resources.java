@@ -1,4 +1,7 @@
-package skeleton;
+package main.items.collectibles;
+
+import skeleton.SkeletonWriter;
+import main.virologist.*;
 
 /**
  * A gyujtheto eroforrasokat reprezentalja

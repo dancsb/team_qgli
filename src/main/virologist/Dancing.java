@@ -1,9 +1,12 @@
-package skeleton;
+package main.virologist;
+
+import main.virologist.Attribute;
+import skeleton.SkeletonWriter;
 
 /**
  * Azt a hatast reprezentalja amikor a virologus vitustancot jar.
  */
-public class Dancing extends Attribute{
+public class Dancing extends Attribute {
     /**
      * Beallitja, hogy mennyi ideig jarja a vitustancot a virologus.
      * @param x az ido

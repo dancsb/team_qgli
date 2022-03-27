@@ -1,4 +1,10 @@
-package skeleton;
+package main.virologist;
+
+import main.*;
+import main.map.Field;
+import main.items.collectibles.*;
+import main.items.agents.*;
+import skeleton.SkeletonWriter;
 
 import java.util.ArrayList;
 

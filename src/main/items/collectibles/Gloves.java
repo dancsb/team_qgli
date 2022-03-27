@@ -1,4 +1,7 @@
-package skeleton;
+package main.items.collectibles;
+
+import main.virologist.*;
+import skeleton.SkeletonWriter;
 
 /**
  * A kesztyu kulonleges felszerelest reprezentalja, leszarmazik az Equipment osztalybol.

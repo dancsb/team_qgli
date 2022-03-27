@@ -1,4 +1,6 @@
-package skeleton;
+package main;
+
+import skeleton.Skeleton;
 
 public class Main {
 

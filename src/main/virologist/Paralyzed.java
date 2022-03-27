@@ -1,6 +1,9 @@
-package skeleton;
+package main.virologist;
 
-public class Paralyzed extends Attribute{
+import main.virologist.Attribute;
+import skeleton.SkeletonWriter;
+
+public class Paralyzed extends Attribute {
 
     /**
      * Beallitja a benasag hatasanak idjet

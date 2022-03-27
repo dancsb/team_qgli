@@ -1,4 +1,9 @@
-package skeleton;
+package main.items.agents;
+
+import main.items.collectibles.*;
+import main.Steppable;
+import main.virologist.Virologist;
+import skeleton.SkeletonWriter;
 
 import java.util.ArrayList;
 

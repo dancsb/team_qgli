@@ -1,6 +1,7 @@
-package skeleton;
+package main.items.agents;
 
-import java.util.ArrayList;
+import main.virologist.*;
+import skeleton.SkeletonWriter;
 
 /**
  * Amnezia agenst reprezentalja.

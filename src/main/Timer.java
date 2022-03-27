@@ -1,4 +1,7 @@
-package skeleton;
+package main;
+
+import main.Steppable;
+import skeleton.SkeletonWriter;
 
 import java.util.ArrayList;
 

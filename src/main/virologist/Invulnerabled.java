@@ -1,8 +1,12 @@
-package skeleton;
+package main.virologist;
+
+import main.virologist.Attribute;
+import skeleton.SkeletonWriter;
+
 /**
  * Azt a hatast reprezentalja amikor a virologus sebezhetetlen jar.
  */
-public class Invulnerabled extends Attribute{
+public class Invulnerabled extends Attribute {
     /**
      * Vedekezesi elony merteke
      */

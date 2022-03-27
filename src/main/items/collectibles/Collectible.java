@@ -1,5 +1,6 @@
-package skeleton;
+package main.items.collectibles;
 
+import main.virologist.*;
 /**
  * Begyujtheto dolgokat reprezentalo osztaly.
  */

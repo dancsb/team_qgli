@@ -1,8 +1,11 @@
-package skeleton;
+package main.map;
 
 import java.util.ArrayList;
+import main.items.collectibles.*;
+import main.virologist.*;
+import skeleton.SkeletonWriter;
 
-public class Storage extends Field{
+public class Storage extends Field {
 
     /**
      * A raktarban elhelyezett felszereles

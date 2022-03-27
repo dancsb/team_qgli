@@ -1,4 +1,7 @@
-package skeleton;
+package main.items.collectibles;
+
+import main.virologist.*;
+import skeleton.SkeletonWriter;
 
 /**
  * Egy genetikai kodot reprezental, implementalja a Collectible interfacet

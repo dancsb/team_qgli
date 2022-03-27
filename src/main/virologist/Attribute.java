@@ -1,4 +1,7 @@
-package skeleton;
+package main.virologist;
+
+import main.*;
+import skeleton.SkeletonWriter;
 
 /**
  * Valamilyen effektet reprezentalo osztaly, implementalja a Steppable interfacet

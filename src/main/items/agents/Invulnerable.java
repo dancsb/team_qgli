@@ -1,5 +1,7 @@
-package skeleton;
+package main.items.agents;
 
+import main.virologist.*;
+import skeleton.SkeletonWriter;
 import java.util.ArrayList;
 
 /**

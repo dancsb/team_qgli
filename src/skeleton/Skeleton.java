@@ -1,5 +1,11 @@
 package skeleton;
 
+import main.items.collectibles.*;
+import main.items.agents.*;
+import main.map.*;
+import main.virologist.*;
+
+
 import java.util.Scanner;
 /**
  * A szkeleton reszfeladat tesztelesenek a megvalositasa

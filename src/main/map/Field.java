@@ -1,6 +1,8 @@
-package skeleton;
+package main.map;
 
 import java.util.ArrayList;
+import main.virologist.*;
+import skeleton.SkeletonWriter;
 
 /**
  * Egy mezot reprezental.

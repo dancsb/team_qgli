@@ -1,10 +1,14 @@
-package skeleton;
+package main.map;
+
+import main.items.collectibles.*;
+import main.virologist.*;
+import skeleton.SkeletonWriter;
 
 /**
  * A shelter specialis mezot reprezentalja
  */
 
-public class Shelter extends Field{
+public class Shelter extends Field {
 
     /**
      * A  felszereles amely az ovohelyen talalhato meg

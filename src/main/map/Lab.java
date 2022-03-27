@@ -1,9 +1,13 @@
-package skeleton;
+package main.map;
+
+import main.items.collectibles.*;
+import main.virologist.*;
+import skeleton.SkeletonWriter;
 
 /**
  * A labor kulonleges mezot reprezentalja
  */
-public class Lab extends Field{
+public class Lab extends Field {
 
     /**
      * A laboron elhelyezett genetikai kod

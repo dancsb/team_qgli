@@ -1,4 +1,6 @@
-package skeleton;
+package main.map;
+
+import skeleton.SkeletonWriter;
 
 import java.util.ArrayList;
 
