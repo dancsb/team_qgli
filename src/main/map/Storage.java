@@ -10,14 +10,14 @@ public class Storage extends Field {
     /**
      * A raktarban elhelyezett felszereles
      */
-    private ArrayList<Resources> res;
+    private ArrayList<Resource> res;
 
     /**
      * Storage kosntruktora, storage letrehozasa benne egy megtanulhato eroforrasokkal
      * @param r1 a storage mezon megtalalhato aminosavak
      * @param r2 a storage mezon megtalalhato nukleotidok
      */
-    public Storage (Resources r1, Resources r2){
+    public Storage (Resource r1, Resource r2){
         res = new ArrayList<>();
         res.add(r1);
         res.add(r2);
@@ -34,7 +34,7 @@ public class Storage extends Field {
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
         SkeletonWriter.println("Storage.accept()");
         if (super.accept(v)){
-            for (Resources r: res){
+            for (Resource r: res){
                 //eroforrasok begyujtese
                 r.collect(v);
             }

@@ -4,7 +4,7 @@ import main.virologist.*;
 import skeleton.SkeletonWriter;
 import java.util.ArrayList;
 
-public class Nucleotide extends Resources {
+public class Nucleotide extends Resource {
 
 
 
@@ -28,8 +28,8 @@ public class Nucleotide extends Resources {
     public void collect(Virologist v) {
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
         SkeletonWriter.println("Nucleotide.collect()");
-        ArrayList<Resources> resources = v.getResources();
-        for (Resources r:
+        ArrayList<Resource> resources = v.getResources();
+        for (Resource r:
                 resources) {
             //megnoveli a nukleotidok szamat
             r.changeAmountNucleotide(amount);

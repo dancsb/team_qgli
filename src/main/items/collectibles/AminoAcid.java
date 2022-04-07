@@ -7,7 +7,7 @@ import java.util.ArrayList;
 /**
  * Ez az osztaly reprezentalja az Aminosavat, leszarmazik a Resourcesbol.
  */
-public class AminoAcid extends Resources{
+public class AminoAcid extends Resource {
 
 
     /**
@@ -31,8 +31,8 @@ public class AminoAcid extends Resources{
     public void collect(Virologist v) {
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
         SkeletonWriter.println("AminoAcid.collect()");
-        ArrayList<Resources> resources = v.getResources();
-        for (Resources r:
+        ArrayList<Resource> resources = v.getResources();
+        for (Resource r:
                 resources) {
             //megnoveli az aminosavak szamat
             r.changeAmountAminoAcid(amount);

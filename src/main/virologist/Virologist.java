@@ -31,7 +31,7 @@ public class Virologist implements Steppable {
     /**
      * A birokaban levo eroforrasok listaja
      */
-    private ArrayList<Resources>resources;
+    private ArrayList<Resource>resources;
     /**
      * A megtanult levo genetikai kodok listaja
      */
@@ -96,7 +96,7 @@ public class Virologist implements Steppable {
      * @param v a virologus akitol ellopja az eroforrasokat
      * @param r az eroforras amit el szeretne lopni
      */
-    public void stealResources(Virologist v,Resources r){
+    public void stealResources(Virologist v, Resource r){
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
         SkeletonWriter.println("Virologist.stealResources()");
         //lekerdezi az ugyanazon a mezon levo virologusokat, azok kozul lophat eroforrasokat
@@ -191,7 +191,7 @@ public class Virologist implements Steppable {
      * @param r az eroforras amelyet fel szertne venni
      * @return igaz ertekkel ter vissza, ha az adott eroforrast sikeresen felvette, kulonben hamis ertekkel
      */
-    public boolean pickUpResource(Resources r){
+    public boolean pickUpResource(Resource r){
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
         SkeletonWriter.println("Virologist.pickUpResource()");
         //meghivja az adott eroforras collect fuggvenyet
@@ -216,7 +216,7 @@ public class Virologist implements Steppable {
      * Eroforrasok elvesztese
      * @param r a felszereles amelyet elvesztett
      */
-    public void loseResources(Resources r){
+    public void loseResources(Resource r){
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
         SkeletonWriter.println("Virologist.loseResources()");
         //meghivja az aminosav es nukleotid mennyiseg valtoztato fuggvenyet
@@ -254,7 +254,7 @@ public class Virologist implements Steppable {
      * Visszater egy eroforrasokkal teli listaval, melyek az adott varazslo birtokaban vannak
      * @return visszater az eroforrasokkal teli listaval melyek egy virologusnal vannak
      */
-    public ArrayList<Resources> getResources() {
+    public ArrayList<Resource> getResources() {
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
         SkeletonWriter.println("Virologist.getResources()");
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);

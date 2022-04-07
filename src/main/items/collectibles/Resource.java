@@ -7,7 +7,7 @@ import main.virologist.*;
  * A gyujtheto eroforrasokat reprezentalja
  */
 
-public abstract class Resources implements Collectible{
+public abstract class Resource implements Collectible{
 
     /**
      * Eltarolhato eroforrasok mennyisege es egy virologus altal a maximalis eltarolhato mennyiseg
@@ -29,7 +29,7 @@ public abstract class Resources implements Collectible{
      */
     public long getAmount() {
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.println("Resources.getAmount()");
+        SkeletonWriter.println("Resource.getAmount()");
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
         return amount;
     }
@@ -41,7 +41,7 @@ public abstract class Resources implements Collectible{
      */
     public void changeAmountAminoAcid(long x){
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.println("Resources.changeAmountAminoAcid()");
+        SkeletonWriter.println("Resource.changeAmountAminoAcid()");
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
 
@@ -52,7 +52,7 @@ public abstract class Resources implements Collectible{
      */
     public void changeAmountNucleotide(long x){
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.println("Resources.changeAmountAminoAcid()");
+        SkeletonWriter.println("Resource.changeAmountAminoAcid()");
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
     /**
@@ -61,7 +61,7 @@ public abstract class Resources implements Collectible{
      */
     public void setMaxAmount(long x){
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.println("Resources.changeMaxAmount()");
+        SkeletonWriter.println("Resource.changeMaxAmount()");
         maxCapacity = x;
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }

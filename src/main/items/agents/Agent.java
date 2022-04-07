@@ -115,8 +115,8 @@ public abstract class Agent implements Steppable {
     public void getCrafted(Virologist v) {
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
         SkeletonWriter.println("Agent.getCrafted()");
-        ArrayList<Resources> resource = v.getResources();
-        for (Resources r:
+        ArrayList<Resource> resource = v.getResources();
+        for (Resource r:
              resource) {
             v.loseResources(r);
         }
