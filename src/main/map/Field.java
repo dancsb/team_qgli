@@ -7,7 +7,7 @@ import skeleton.SkeletonWriter;
 /**
  * Egy mezot reprezental.
  */
-public class Field {
+public class  Field {
 
     /**
      * A szomszedos mezoket tarolo lista
