@@ -1,9 +1,6 @@
 package main.items.agents;
 
-import main.virologist.*;
-import skeleton.SkeletonWriter;
-
-import java.util.ArrayList;
+import main.virologist.Virologist;
 /**
  * A benito agenst valositja meg, leszarmazik az Agentbol
  */
@@ -27,12 +24,10 @@ public class Paralyzer extends Agent {
      * @param v a virologus akire megy az effekt
      */
     public void useOn(Virologist v) {
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.println("Paralyzer.useOn()");
-        ArrayList<Attribute> attribute=v.getAttributes();
-        for (Attribute a:attribute) {
-            a.setTimePara(effectTime);
-        }
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
+        v.getAttributes().forEach(a->a.setTimePara(effectTime));
+    }
+    @Override
+    public void printStat(){
+        System.out.print("paralyzer "+expireTime);
     }
 }

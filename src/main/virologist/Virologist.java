@@ -303,4 +303,8 @@ public class Virologist implements Steppable {
     public ArrayList<Equipment> getEquipments() {
         return equipments;
     }
+
+    public ArrayList<Agent> getAgents() {
+        return agents;
+    }
 }

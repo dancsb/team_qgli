@@ -1,7 +1,6 @@
 package main.items.agents;
 
-import main.virologist.*;
-import skeleton.SkeletonWriter;
+import main.virologist.Virologist;
 
 /**
  * Amnezia agenst reprezentalja.
@@ -26,11 +25,11 @@ public class Amnesia extends Agent {
      * @param v a virologus akire megy az effekt
      */
     public void useOn(Virologist v) {
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.println("Amnesia.useOn()");
         //Elfelejti az osszes genetikai kodjat, ezert kell a .clear()
         v.getGenCode().clear();
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
-
+    }
+    @Override
+    public void printStat(){
+        System.out.print("amnesia "+expireTime);
     }
 }

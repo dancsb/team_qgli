@@ -1,8 +1,6 @@
 package main.items.agents;
 
-import main.virologist.*;
-import skeleton.SkeletonWriter;
-import java.util.ArrayList;
+import main.virologist.Virologist;
 
 /**
  * A sebezhetetlen agenst valositja meg, leszarmazik az Agentbol
@@ -27,12 +25,10 @@ public class Invulnerable extends Agent {
      * @param v a virologus akire megy az effekt
      */
     public void useOn(Virologist v) {
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.println("Invulnerable.useOn()");
-        ArrayList<Attribute> attribute=v.getAttributes();
-        for (Attribute a:attribute) {
-            a.setTimeInvu(effectTime);
-        }
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
+        v.getAttributes().forEach(a->a.setTimeInvu(effectTime));
+    }
+    @Override
+    public void printStat(){
+        System.out.print("invulnerable "+expireTime);
     }
 }

@@ -1,11 +1,9 @@
 package main.items.agents;
 
-import main.items.collectibles.*;
 import main.Steppable;
 import main.virologist.Virologist;
-import skeleton.SkeletonWriter;
 
-import java.util.ArrayList;
+import java.util.Random;
 
 /**
  *  Agenst megvalosito class, abstract, implementalja a Steppablet.
@@ -49,10 +47,12 @@ public abstract class Agent implements Steppable {
      */
     public Agent(Virologist v, long effT, long amino, long nucleo, long exTime, String genCode) {
         owner = v;
-        effectTime = effT;
+        //2 meg 5 között ideig tart
+        effectTime = 2+new Random().nextInt()%4;
         costAmino = amino;
         costNucleotide = nucleo;
-        expireTime = exTime;
+        //3-tól 10 körig marad meg.
+        expireTime = 3+new Random().nextInt()%8;
         requireGenCode = genCode;
     }
 
@@ -105,7 +105,7 @@ public abstract class Agent implements Steppable {
      */
 
     public void step() {
-        System.out.println("Agent.step()");
+        expireTime--;
     }
 
     /**
@@ -113,13 +113,17 @@ public abstract class Agent implements Steppable {
      * @param v virologus aki craftol
      */
     public void getCrafted(Virologist v) {
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.println("Agent.getCrafted()");
-        ArrayList<Resource> resource = v.getResources();
-        for (Resource r:
-             resource) {
-            v.loseResources(r);
+        if(v.getGenCode().stream().anyMatch(g->requireGenCode.equals(g.getName()))
+               && costAmino<=v.getResources().get(0).getAmount()
+               && costNucleotide<=v.getResources().get(1).getAmount()){
+           //Nem értem a loseResources az mit csinál v.getResources().forEach(r->v.loseResources(costAmino));
+            v.getResources().get(0).changeAmountAminoAcid(-costAmino);
+            v.getResources().get(1).changeAmountNucleotide(-costNucleotide);
+            v.getAgents().add(this);
         }
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
+
+    }
+    public void printStat(){
+
     }
 }
