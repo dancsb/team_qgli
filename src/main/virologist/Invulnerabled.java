@@ -1,8 +1,5 @@
 package main.virologist;
 
-import main.virologist.Attribute;
-import skeleton.SkeletonWriter;
-
 /**
  * Azt a hatast reprezentalja amikor a virologus sebezhetetlen jar.
  */
@@ -10,7 +7,7 @@ public class Invulnerabled extends Attribute {
     /**
      * Vedekezesi elony merteke
      */
-    private long defPrec;
+    private long defPerc;
 
     /**
      * Beallitja a sebezhetetlenseg hatasanak idjet
@@ -18,9 +15,6 @@ public class Invulnerabled extends Attribute {
      */
     @Override
     public void setTimeInvu(long x) {
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.println("Invulnerabled.setTimeInvu()");
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
 
     /**
@@ -29,9 +23,6 @@ public class Invulnerabled extends Attribute {
      */
     @Override
     public long getTimeInvu() {
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.println("Invulnerabled.getTimeInvu()");
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
         return time;
     }
 
@@ -41,8 +32,14 @@ public class Invulnerabled extends Attribute {
      */
     @Override
     public void changeDefPerc(long x) {
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.println("Invulnerabled.changeDefPerc()");
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
+        defPerc = x;
+    }
+
+    /**
+     * Csokkenti a sebezhetetlenseg hatasanak idejet
+     */
+    public void step() {
+        if (time > 0)
+            time--;
     }
 }

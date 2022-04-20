@@ -1,30 +1,30 @@
 package main.virologist;
 
-import main.virologist.Attribute;
-import skeleton.SkeletonWriter;
-
 public class Paralyzed extends Attribute {
 
     /**
-     * Beallitja a benasag hatasanak idjet
+     * Beallitja a benasag hatasanak idejet
      * @param x az ido merteke amennyire bena lesz az adott varazslo
      */
     @Override
     public void setTimePara(long x) {
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.println("Paralyzed.setTimePara()");
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
+        time = x;
     }
 
     /**
-     * Visszater a benasag hatasanak idjevel
+     * Visszater a benasag hatasanak idejevel
      * @return visszater a hatas idejevel
      */
     @Override
     public long getTimePara() {
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.println("Paralyzed.getTimePara()");
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
         return time;
+    }
+
+    /**
+     * Csokkenti a benasag hatasanak idejet
+     */
+    public void step() {
+        if (time > 0)
+            time--;
     }
 }
