@@ -1,8 +1,6 @@
 package main.items.collectibles;
 
-import main.virologist.*;
-import skeleton.SkeletonWriter;
-import java.util.ArrayList;
+import main.virologist.Virologist;
 
 /**
  * A kopeny kulonelges felszerelest megvalosito osztaly,az equipmentbol szarmazik le.
@@ -15,16 +13,21 @@ public class Cape extends Equipment{
     private long defPerc;
 
     /**
+     * A köpeny constructora
+     * @param defPerc mennyi % esélye van annak, hogy levédi? Pl:37
+     */
+    public Cape(long defPerc) {
+        this.defPerc = defPerc;
+    }
+
+    /**
      * Ez a fuggveny viszi vegbe az effekteket amik vegbemennek ha felveszi a virologus a kopenyt.
      * @param v a virologus aki felveszi.
      */
     @Override
     public void action(Virologist v) {
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.println("Cape.action()");
-        ArrayList<Attribute> attributes = v.getAttributes();
-        attributes.forEach(r -> r.changeDefPerc(defPerc));
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
+        //Lekérem a virológus attribútumait végigmegyek rajtuk és átállítom a def %-ot
+        v.getAttributes().forEach(a->a.changeDefPerc(defPerc));
     }
 
     /**
@@ -33,10 +36,7 @@ public class Cape extends Equipment{
      */
     @Override
     public void remove(Virologist v) {
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.println("Cape.remove()");
-        ArrayList<Attribute> attributes = v.getAttributes();
-        attributes.forEach(r -> r.changeDefPerc(-defPerc));
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
+        //Lekérem a virológus attribútumait végigmegyek rajtuk és átállítom a def %-ot
+        v.getAttributes().forEach(a->a.changeDefPerc(-defPerc));
     }
 }

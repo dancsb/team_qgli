@@ -1,27 +1,11 @@
 package skeleton;
 
-import main.items.collectibles.*;
-import main.items.agents.*;
-import main.map.*;
-import main.virologist.*;
-
-
-import java.util.Scanner;
-/**
- * A szkeleton reszfeladat tesztelesenek a megvalositasa
- */
 public class Skeleton {
-
-    /**
-     * A felhasznalo altak kivalkasztott szcenario
-     */
+/*
     int selectedUseCase;
 
     public Skeleton(){}
 
-    /**
-     * Teszteket lefuttato fuggveny, a felhasznalo altal kivalasztott tesztet futtatja le
-     */
     public void runTests() {
         while (true) {
             System.out.println("1. Virologist crafts Amnesia");
@@ -147,10 +131,6 @@ public class Skeleton {
         }
     }
 
-    /**
-     *  A KOVETKEZO SOROKBAN TALALHATOAK MEG A TESZTFUGGVENYEK, MELYEKETE AZ EGYSZERUSEG KEDVEERT NEM FOGUNK KULON KOMMENTELNI
-     *  MINDEN TESZTFUGGVENY LETREHOZZA A SZAMARA SZUKSEGES OBJEKTUMOKAT ES MEGHIVJA A TESZTELENDO FUGGVENYEKET
-     */
     private void usesVitusdanceTest(){
         System.out.println("Virologist uses Vitusdance");
         Virologist v = new Virologist();
@@ -362,4 +342,5 @@ public class Skeleton {
         Vitusdance g=new Vitusdance(v,10,10,10,10,"a");
         v.craftAgent(g);
     }
+ */
 }

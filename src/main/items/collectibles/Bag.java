@@ -1,8 +1,6 @@
 package main.items.collectibles;
 
-import main.virologist.*;
-import skeleton.SkeletonWriter;
-import java.util.ArrayList;
+import main.virologist.Virologist;
 
 /**
  * A "Zsak" kulonleges felszerelest reprezentalja, leszarmazik az Equipmentbol
@@ -12,7 +10,11 @@ public class Bag extends Equipment {
     /**
      * A mertek amivel a zsak megnoveli a virologus anyageltarolasi kepesseget.
      */
-    private long sizeIncrease;
+    private final long sizeIncrease; //itt long van szóval majd csak egész számmal lehet lérehozni :D
+
+    public Bag(long sizeIncrease) {
+        this.sizeIncrease = sizeIncrease;
+    }
 
     /**
      * Ez a fuggveny viszi vegbe az effekteket amik vegbemennek ha felveszi a virologus a zsakot.
@@ -20,11 +22,8 @@ public class Bag extends Equipment {
      */
     @Override
     public void action(Virologist v) {
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.println("Bag.action()");
-        ArrayList<Resource> resources = v.getResources();
-        resources.forEach(r -> r.setMaxAmount(sizeIncrease));
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
+        //A virológus összes resourceára lekérem a mennyiségét és megszorzom a sizeIncreaseel.
+        v.getResources().forEach(r->r.setMaxAmount(sizeIncrease*r.getAmount()));
     }
 
     /**
@@ -33,10 +32,7 @@ public class Bag extends Equipment {
      */
     @Override
     public void remove(Virologist v) {
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.println("Bag.remove()");
-        ArrayList<Resource> resources = v.getResources();
-        resources.forEach(r -> r.setMaxAmount(sizeIncrease));
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
+        //A virológus összes resourceára lekérem a mennyiségét és leosztom a sizeIncreaseel.
+        v.getResources().forEach(r->r.setMaxAmount(r.getAmount()/sizeIncrease));
     }
 }

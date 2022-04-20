@@ -156,6 +156,8 @@ public class Virologist implements Steppable {
      * A leptetes
      */
     public void step(){
+        //Aki ezt írja: A kesztyűt mindig le kell majd csekkolni, hogy a durability-je 0-e, mert ha igen,
+        //akkor hívni kell rá egy loseEquipmentet!
         System.out.println("Virologist.step()");
     }
 
@@ -293,5 +295,13 @@ public class Virologist implements Steppable {
         SkeletonWriter.println("Virologist.getF()");
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
         return f;
+    }
+
+    /**
+     * Visszatér az equipmentek tömbjével
+     * @return a virológus equipmentjeinek tömbje
+     */
+    public ArrayList<Equipment> getEquipments() {
+        return equipments;
     }
 }
