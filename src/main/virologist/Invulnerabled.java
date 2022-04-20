@@ -41,5 +41,7 @@ public class Invulnerabled extends Attribute {
     public void step() {
         if (time > 0)
             time--;
+        if (time == 0)
+            defPerc -= 100;
     }
 }
