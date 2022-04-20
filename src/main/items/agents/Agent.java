@@ -39,13 +39,11 @@ public abstract class Agent implements Steppable {
     /**
      * Agens konstruktora
      * @param v a virologus aki owner lesz
-     * @param effT az ido amennyi ideig tart az effekt
      * @param amino amennyi aminosavra szukseg van a craftolashoz
      * @param nucleo amennyi nukleotidra szukseg van a craftolashoz
-     * @param exTime mennyi ideig tartson az agens
      * @param genCode a genetikai kod amihez szukseg lesz a craftolashoz
      */
-    public Agent(Virologist v, long effT, long amino, long nucleo, long exTime, String genCode) {
+    public Agent(Virologist v, long amino, long nucleo,String genCode) {
         owner = v;
         //2 meg 5 között ideig tart
         effectTime = 2+new Random().nextInt()%4;

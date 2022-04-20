@@ -11,14 +11,12 @@ public class Vitusdance extends Agent {
      * Viutsdance agens konstruktora, melyben parameterul kapja a virologust amely lekraftolta, hatasi idot,
      * Amino es nukleo koltsegeket es a szukseges genetikai kodot
      * @param amino kraftolashoz szukseges aminosavak szama
-     * @param effT az ido ameddig tart
-     * @param exTime az ido ameddig nem jar le az agens
      * @param genCode kraftolashoz szukseges genetikai kod
      * @param nucleo kraftolashoz szukseges nukleotidok szama
      * @param v a tulajdonos virologus
      */
-    public Vitusdance(Virologist v, long effT, long amino, long nucleo, long exTime, String genCode) {
-        super(v, effT, amino, nucleo, exTime, genCode);
+    public Vitusdance(Virologist v, long amino, long nucleo, String genCode) {
+        super(v, amino, nucleo, genCode);
     }
 
     /**
