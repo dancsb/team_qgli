@@ -1,12 +1,13 @@
 package main.items.collectibles;
 
-import main.virologist.*;
-import skeleton.SkeletonWriter;
-import java.util.ArrayList;
+import main.virologist.Virologist;
 
 public class Nucleotide extends Resource {
 
 
+    public Nucleotide(long amount, long maxCapacity) {
+        super(amount, maxCapacity);
+    }
 
     /**
      * Megvaltoztatja egy virologus atal tarolt nukleotidok mennyiseget
@@ -15,9 +16,7 @@ public class Nucleotide extends Resource {
      */
     @Override
     public void changeAmountNucleotide(long x) {
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.println("Nucleotide.changeAmountNucleotide()");
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
+        amount+=x;
     }
 
     /**
@@ -26,14 +25,10 @@ public class Nucleotide extends Resource {
      */
     @Override
     public void collect(Virologist v) {
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.println("Nucleotide.collect()");
-        ArrayList<Resource> resources = v.getResources();
-        for (Resource r:
-                resources) {
-            //megnoveli a nukleotidok szamat
-            r.changeAmountNucleotide(amount);
-        }
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
+        //Lekérem a resourcest és ami nucleotid ott átállítom annyival amit az r ad
+        v.getResources().forEach(r->r.changeAmountNucleotide(r.getAmount()));
+    }
+    public void printStat(){
+        System.out.print(amount+" ");
     }
 }

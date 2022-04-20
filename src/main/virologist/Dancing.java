@@ -29,4 +29,8 @@ public class Dancing extends Attribute {
         if (time > 0)
             time--;
     }
+    @Override
+    public void printStat(){
+        System.out.println("vitustancol: "+time);
+    }
 }

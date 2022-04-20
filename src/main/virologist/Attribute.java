@@ -65,4 +65,7 @@ public class Attribute implements Steppable{
     @Override
     public void step() {
     }
+    public void printStat(){
+
+    }
 }

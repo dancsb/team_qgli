@@ -1,14 +1,20 @@
 package main.items.collectibles;
 
-import main.virologist.*;
-import skeleton.SkeletonWriter;
-import java.util.ArrayList;
+import main.virologist.Virologist;
 
 /**
  * Ez az osztaly reprezentalja az Aminosavat, leszarmazik a Resourcesbol.
  */
 public class AminoAcid extends Resource {
 
+    /**
+     * Amino konstruktor
+     * @param amount mennyi legyen
+     * @param maxCapacity mennyi a max
+     */
+    public AminoAcid(long amount, long maxCapacity) {
+        super(amount, maxCapacity);
+    }
 
     /**
      * Megvaltoztatja egy virologus atal tarolt aminosavak mennyiseget
@@ -17,9 +23,7 @@ public class AminoAcid extends Resource {
      */
     @Override
     public void changeAmountAminoAcid(long x) {
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.println("AminoAcid.changeAmountAminoAcid()");
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
+        amount+=x;
     }
 
     /**
@@ -29,14 +33,11 @@ public class AminoAcid extends Resource {
 
     @Override
     public void collect(Virologist v) {
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.println("AminoAcid.collect()");
-        ArrayList<Resource> resources = v.getResources();
-        for (Resource r:
-                resources) {
-            //megnoveli az aminosavak szamat
-            r.changeAmountAminoAcid(amount);
-        }
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
+        //Lekérem a resourcest és ami aminoacid ott átállítom annyival amit az r ad
+        v.getResources().forEach(r->r.changeAmountAminoAcid(r.getAmount()));
+    }
+    @Override
+    public void printStat(){
+        System.out.print(amount+" ");
     }
 }

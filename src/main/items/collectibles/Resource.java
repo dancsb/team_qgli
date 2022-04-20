@@ -1,7 +1,6 @@
 package main.items.collectibles;
 
-import skeleton.SkeletonWriter;
-import main.virologist.*;
+import main.virologist.Virologist;
 
 /**
  * A gyujtheto eroforrasokat reprezentalja
@@ -15,6 +14,10 @@ public abstract class Resource implements Collectible{
     protected long amount;
     protected long maxCapacity;
 
+    public Resource(long amount, long maxCapacity) {
+        this.amount = amount;
+        this.maxCapacity = maxCapacity;
+    }
 
     /**
      * Eroforrasok felvetelet megvalosito fuggveny
@@ -28,9 +31,6 @@ public abstract class Resource implements Collectible{
      * @return amount erteke
      */
     public long getAmount() {
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.println("Resource.getAmount()");
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
         return amount;
     }
 
@@ -39,30 +39,22 @@ public abstract class Resource implements Collectible{
      * Ha felvesz akkor noveli , ha kraftol vagy lopnak tole, akkor csokkenti
      * @param x az ertek amennyivel valtoztatja az aminosavak mennyiseget
      */
-    public void changeAmountAminoAcid(long x){
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.println("Resource.changeAmountAminoAcid()");
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
-    }
+    public void changeAmountAminoAcid(long x){}
 
     /**
      * Megvaltoztatja egy virologus atal tarolt nukleotidok mennyiseget
      * Ha felvesz akkor noveli , ha kraftol vagy lopnak tole, akkor csokkenti
      * @param x az ertek amennyivel valtoztatja a nukleotidok mennyiseget
      */
-    public void changeAmountNucleotide(long x){
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.println("Resource.changeAmountAminoAcid()");
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
-    }
+    public void changeAmountNucleotide(long x){}
     /**
      * Beallitja, hogy egy virologus maximalisan mennyi eroforrast tarthat maganal
      * @param x az ertek amennyire allitodik a maximalisan tarolhato eroforrasok szama
      */
     public void setMaxAmount(long x){
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.println("Resource.changeMaxAmount()");
         maxCapacity = x;
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
+    }
+    public void printStat(){
+
     }
 }

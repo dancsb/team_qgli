@@ -42,4 +42,8 @@ public class Invulnerabled extends Attribute {
         if (time > 0)
             time--;
     }
+    @Override
+    public void printStat(){
+        System.out.println("invulnerabled: "+time);
+    }
 }

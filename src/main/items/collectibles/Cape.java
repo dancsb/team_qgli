@@ -39,4 +39,8 @@ public class Cape extends Equipment{
         //Lekérem a virológus attribútumait végigmegyek rajtuk és átállítom a def %-ot
         v.getAttributes().forEach(a->a.changeDefPerc(-defPerc));
     }
+    @Override
+    public void printStat(){
+        System.out.print("cape "+defPerc);
+    }
 }

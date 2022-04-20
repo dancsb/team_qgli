@@ -57,4 +57,7 @@ public abstract class Equipment implements Collectible {
     public void setUsed(boolean used){
 
     }
+    public void printStat(){
+
+    }
 }
