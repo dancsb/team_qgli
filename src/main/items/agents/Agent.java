@@ -50,7 +50,7 @@ public abstract class Agent implements Steppable {
         costAmino = amino;
         costNucleotide = nucleo;
         //3-tól 10 körig marad meg.
-        expireTime = 3+new Random().nextInt()%8;
+        expireTime = 10;
         requireGenCode = genCode;
     }
 
