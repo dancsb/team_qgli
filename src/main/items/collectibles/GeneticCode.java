@@ -1,7 +1,6 @@
 package main.items.collectibles;
 
-import main.virologist.*;
-import skeleton.SkeletonWriter;
+import main.virologist.Virologist;
 
 /**
  * Egy genetikai kodot reprezental, implementalja a Collectible interfacet
@@ -26,9 +25,6 @@ public class GeneticCode implements Collectible{
      * @return a genetikai kod neve
      */
     public String getName() {
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.println("GeneticCode.getName()");
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
         return name;
     }
 
@@ -38,8 +34,9 @@ public class GeneticCode implements Collectible{
      */
     @Override
     public void collect(Virologist v) {
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.println("GeneticCode.collect()");
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
+        v.addGeneticCode(this);
+    }
+    public void printStat(){
+        System.out.print(name);
     }
 }

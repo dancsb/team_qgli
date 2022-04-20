@@ -244,11 +244,10 @@ public class Virologist implements Steppable {
      * @return igaz ertekkel ter vissza ,ha a gentetikai kodot sikeresen megtanulta
      */
     public boolean addGeneticCode(GeneticCode g){
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.println("Virologist.addGeneticCode()");
+        if(geneticCodes.contains(g))return false;
+        else geneticCodes.add(g);
         //ha minden genetikai kodot megtanult akkor a jateknak vege van
         if(checkWin())Game.endGame();
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
         return true;
     }
 
