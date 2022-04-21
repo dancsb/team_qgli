@@ -20,6 +20,8 @@ public class Virologist implements Steppable {
      */
     private boolean parry;
 
+    private boolean bearDance;
+
     /**
      * A varazslo ezen a mezon tartozkodik
      */
@@ -306,5 +308,49 @@ public class Virologist implements Steppable {
 
     public ArrayList<Agent> getAgents() {
         return agents;
+    }
+
+    public void setF(Field f) {
+        this.f = f;
+    }
+
+    public void setAgents(ArrayList<Agent> agents) {
+        this.agents = agents;
+    }
+
+    public void setResources(ArrayList<Resource> resources) {
+        this.resources = resources;
+    }
+
+    public void setGeneticCodes(ArrayList<GeneticCode> geneticCodes) {
+        this.geneticCodes = geneticCodes;
+    }
+
+    public void setAttributes(ArrayList<Attribute> attributes) {
+        this.attributes = attributes;
+    }
+
+    public void setEquipments(ArrayList<Equipment> equipments) {
+        this.equipments = equipments;
+    }
+
+    public boolean isParry() {
+        return parry;
+    }
+
+    public boolean isBearDance() {
+        return bearDance;
+    }
+
+    public void setBearDance(boolean bearDance) {
+        this.bearDance = bearDance;
+    }
+
+    public Field getF() {
+        return f;
+    }
+
+    public ArrayList<GeneticCode> getGeneticCodes() {
+        return geneticCodes;
     }
 }
