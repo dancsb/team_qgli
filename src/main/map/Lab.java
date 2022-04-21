@@ -12,12 +12,14 @@ public class Lab extends Field {
      * A laboron elhelyezett genetikai kod
      */
     private GeneticCode gc;
+    private boolean medvevirusos;
     /**
      * Lab kosntruktora
      * @param gc megtanulhato genetikai kod
      */
-    public Lab(GeneticCode gc) {
+    public Lab(boolean mv, GeneticCode gc) {
         this.gc = gc;
+        this.medvevirusos = mv;
     }
     /**
      * Az adott laborban megtalalhato genetikai koddal ter vissza

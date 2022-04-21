@@ -7,7 +7,7 @@ public class Invulnerabled extends Attribute {
     /**
      * Vedekezesi elony merteke
      */
-    private long defPerc;
+    private double defPerc;
 
     /**
      * Beallitja a sebezhetetlenseg hatasanak idjet
@@ -31,7 +31,7 @@ public class Invulnerabled extends Attribute {
      * @param x az ido
      */
     @Override
-    public void changeDefPerc(long x) {
+    public void changeDefPerc(double x) {
         defPerc = x;
     }
 

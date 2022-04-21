@@ -10,13 +10,13 @@ public class Cape extends Equipment{
     /**
      * a kopennyel jaro vedekezesi % merteke
      */
-    private long defPerc;
+    private double defPerc;
 
     /**
      * A köpeny constructora
      * @param defPerc mennyi % esélye van annak, hogy levédi? Pl:37
      */
-    public Cape(long defPerc) {
+    public Cape(double defPerc) {
         this.defPerc = defPerc;
     }
 

@@ -56,7 +56,7 @@ public class Attribute implements Steppable{
      * Egy virologus "visszaveresi" allapotanak a beallitasa
      * @param x az ido
      */
-    public void changeDefPerc(long x){
+    public void changeDefPerc(double x){
     }
 
     /**
