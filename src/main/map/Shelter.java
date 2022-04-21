@@ -2,7 +2,6 @@ package main.map;
 
 import main.items.collectibles.*;
 import main.virologist.*;
-import skeleton.SkeletonWriter;
 
 /**
  * A shelter specialis mezot reprezentalja
@@ -32,15 +31,11 @@ public class Shelter extends Field {
      */
     @Override
     public boolean accept(Virologist v) {
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.println("Shelter.accept()");
         if (super.accept(v)){
             //felszereles begyujtese
             eq.collect(v);
-            SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
             return true;
         }
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
         return false;
     }
 }

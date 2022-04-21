@@ -2,7 +2,6 @@ package main.map;
 
 import main.items.collectibles.*;
 import main.virologist.*;
-import skeleton.SkeletonWriter;
 
 /**
  * A labor kulonleges mezot reprezentalja
@@ -25,9 +24,6 @@ public class Lab extends Field {
      * @return adott laborban megtalalhato genetikai kod
      */
     public GeneticCode getGeneticCode() {
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.println("Lab.getGeneticCode()");
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
         return gc;
     }
     /**
@@ -37,15 +33,11 @@ public class Lab extends Field {
      */
     @Override
     public boolean accept(Virologist v) {
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.println("Lab.accept()");
          if (super.accept(v)){
              //genetikai kod megtanulasa
              gc.collect(v);
-             SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
              return true;
          }
-         SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
          return false;
     }
 }

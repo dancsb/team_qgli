@@ -2,7 +2,6 @@ package main.map;
 
 import java.util.ArrayList;
 import main.virologist.*;
-import skeleton.SkeletonWriter;
 
 /**
  * Egy mezot reprezental.
@@ -32,9 +31,6 @@ public class  Field {
      * @return visszater egy adott mezo szomszedos mezoivel
      */
     public ArrayList<Field> getNeighbours() {
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.println("Field.getNeighbours()");
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
         return neighbours;
     }
 
@@ -43,10 +39,7 @@ public class  Field {
      * @param n a szomszed mezo amit hozza akarunk adni
      */
     public void addNeighbour(Field n){
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.println("Field.addNeighbour()");
         neighbours.add(n);
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
 
     /**
@@ -54,9 +47,6 @@ public class  Field {
      * @return visszater a virologusokkal amelyek az adott mezon tartozkodnak
      */
     public ArrayList<Virologist> getVirologists() {
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.println("Field.getVirologists()");
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
         return virologists;
     }
     /**
@@ -65,9 +55,6 @@ public class  Field {
      * @return true ha lephet, false ha nem
      */
     public boolean accept(Virologist v){
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.println("Field.accept()");
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
         return virologists.add(v);
     }
     /**
@@ -75,9 +62,6 @@ public class  Field {
      * @param v az eltavolitando virolgous
      */
     public void remove(Virologist v){
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.println("Field.remove()");
         virologists.remove(v);
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
 }

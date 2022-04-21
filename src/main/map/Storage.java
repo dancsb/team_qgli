@@ -3,7 +3,6 @@ package main.map;
 import java.util.ArrayList;
 import main.items.collectibles.*;
 import main.virologist.*;
-import skeleton.SkeletonWriter;
 
 public class Storage extends Field {
 
@@ -31,17 +30,13 @@ public class Storage extends Field {
      */
     @Override
     public boolean accept(Virologist v) {
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.println("Storage.accept()");
         if (super.accept(v)){
             for (Resource r: res){
                 //eroforrasok begyujtese
                 r.collect(v);
             }
-            SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
             return true;
         }
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
         return false;
     }
 }
