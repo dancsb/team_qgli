@@ -4,7 +4,6 @@ import main.*;
 import main.map.Field;
 import main.items.collectibles.*;
 import main.items.agents.*;
-import skeleton.SkeletonWriter;
 
 import java.util.ArrayList;
 
@@ -68,8 +67,6 @@ public class Virologist implements Steppable {
      * @param f a mezo amire a virologus lepni szeretne
      */
     public void move(Field f){
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.println("Virologist.move()");
         //lekeri a szomszedos mezoket
         ArrayList<Field> neighbours = this.f.getNeighbours();
         for(Field fNeighbours : neighbours)
@@ -79,16 +76,12 @@ public class Virologist implements Steppable {
                 f.accept(this); this.f.remove(this);
             }
         }
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
 
     /**
      * Azt ellenorzi, hogy egy virologus megtanulta-e mar az osszes genetikai kodot, ha igen akkor a jateknak vege van
      */
     public boolean checkWin(){
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.println("Virologist.checkWin()");
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
         //az osszes genetikai kod tudasanak eseteben igaz ertekkel ter vissza
         return geneticCodes.size() == 4;
     }
@@ -99,8 +92,6 @@ public class Virologist implements Steppable {
      * @param r az eroforras amit el szeretne lopni
      */
     public void stealResources(Virologist v, Resource r){
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.println("Virologist.stealResources()");
         //lekerdezi az ugyanazon a mezon levo virologusokat, azok kozul lophat eroforrasokat
         ArrayList<Virologist>virologists=f.getVirologists();
         for (Virologist viro:virologists) {
@@ -112,7 +103,6 @@ public class Virologist implements Steppable {
                 this.pickUpResource(r);
             }
         }
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
 
     /**
@@ -121,8 +111,6 @@ public class Virologist implements Steppable {
      * @param e a felszereles amit el szeretne lopni
      */
     public void stealEquipment(Virologist v,Equipment e){
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.println("Virologist.stealEquipment()");
         //lekerdezi az ugyanazon a mezon levo virologusokat, azok kozul lophat felszerelest
         ArrayList<Virologist> av = f.getVirologists();
         for (Virologist viro:av)
@@ -133,7 +121,6 @@ public class Virologist implements Steppable {
                 //sajat inventoryba felveszi a lopott felszerelest
                 this.pickUpEquipment(e);
             }
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
 
     /**
@@ -142,8 +129,6 @@ public class Virologist implements Steppable {
      * @param a az agens amit hasznalni szeretne
      */
      public void useAgent(Virologist target, Agent a){
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.println("Virologist.useAgent()");
         //lekerdezi az ugyanazon a mezon levo virologusokat, azokra tamadhat
         ArrayList<Virologist> av = f.getVirologists();
         for (Virologist viro:av)
@@ -151,7 +136,6 @@ public class Virologist implements Steppable {
                 //a kivalasztott virologuson az agens hasznalata
                 a.useOn(target);
             }
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
 
     /**
@@ -165,15 +149,11 @@ public class Virologist implements Steppable {
 
     /**
      * Agensek kraftolasa
+     *
      * @param a az agens amit kraftolni szeretne
-     * @return igaz ertekkel ter vissza, ha az agenst sikeresen lekraftolta, kulonben hamis ertekkel
      */
-    public boolean craftAgent(Agent a){
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.println("Virologist.craftAgent()");
+    public void craftAgent(Agent a){
         a.getCrafted(this);
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
-        return true;
     }
 
     /**
@@ -182,26 +162,19 @@ public class Virologist implements Steppable {
      * @return igaz ertekkel ter vissza, ha a felszerelest sikeresen felvette, kulonben hamis ertekkel
      */
     public boolean pickUpEquipment(Equipment e){
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.println("Virologist.pickUpEquipment()");
         //meghivja az adott felszereles collect fuggvenyet
         e.collect(this);
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
         return true;
     }
 
     /**
      * Eroforrasok felvetele
+     *
      * @param r az eroforras amelyet fel szertne venni
-     * @return igaz ertekkel ter vissza, ha az adott eroforrast sikeresen felvette, kulonben hamis ertekkel
      */
-    public boolean pickUpResource(Resource r){
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.println("Virologist.pickUpResource()");
+    public void pickUpResource(Resource r){
         //meghivja az adott eroforras collect fuggvenyet
         r.collect(this);
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
-        return true;
     }
 
     /**
@@ -209,11 +182,8 @@ public class Virologist implements Steppable {
      * @param e a felszereles amelyet elvesztett
      */
     public void loseEquipment(Equipment e){
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.println("Virologist.loseEquipment()");
         //meghivja az adott felszereles remove fuggvenyet, mely a  felszereles hatasast is elveszi
         e.remove(this);
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
 
     /**
@@ -221,12 +191,9 @@ public class Virologist implements Steppable {
      * @param r a felszereles amelyet elvesztett
      */
     public void loseResources(Resource r){
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.println("Virologist.loseResources()");
         //meghivja az aminosav es nukleotid mennyiseg valtoztato fuggvenyet
         r.changeAmountAminoAcid(-r.getAmount());
         r.changeAmountNucleotide(-r.getAmount());
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
 
     /**
@@ -234,9 +201,6 @@ public class Virologist implements Steppable {
      @return visszater egy attributumokkal teli listaval
      */
     public ArrayList<Attribute> getAttributes() {
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.println("Virologist.getAttributes()");
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
         return attributes;
     }
 
@@ -258,9 +222,6 @@ public class Virologist implements Steppable {
      * @return visszater az eroforrasokkal teli listaval melyek egy virologusnal vannak
      */
     public ArrayList<Resource> getResources() {
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.println("Virologist.getResources()");
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
         return resources;
     }
 
@@ -270,10 +231,7 @@ public class Virologist implements Steppable {
      * @param b igaz vagy hamis erteke lehet, attol fugg a varazslonal van e a kesztyu
      */
     public void setParry(boolean b){
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.println("Virologist.setParry()");
         parry=b;
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
 
     /**
@@ -281,9 +239,6 @@ public class Virologist implements Steppable {
      * @return visszater a genetikai kodok teli listaval melyeket egy virologus megtanult
      */
     public ArrayList<GeneticCode> getGenCode() {
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.println("Virologist.getGenCode()");
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
         return geneticCodes;
     }
 
@@ -292,9 +247,6 @@ public class Virologist implements Steppable {
      * @return visszater a mezokkel
      */
     public Field getField() {
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.println("Virologist.getF()");
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
         return f;
     }
 
