@@ -7,7 +7,7 @@ import main.virologist.*;
 public class Storage extends Field {
 
     /**
-     * A raktarban elhelyezett felszereles
+     * A raktarban elhelyezett nyersanyag
      */
     private ArrayList<Resource> res;
 
@@ -33,10 +33,33 @@ public class Storage extends Field {
         if (super.accept(v)){
             for (Resource r: res){
                 //eroforrasok begyujtese
+                if (v.isBearDance()){
+                    destroy();
+                }
                 r.collect(v);
             }
             return true;
         }
         return false;
+    }
+
+    /**
+     * A raktarban levo nyersanyagokat pusztitja el
+     */
+    private void destroy(){
+        for (Resource r:
+             res) {
+            r.changeAmountAminoAcid(0);
+            r.changeAmountNucleotide(0);
+        }
+    }
+
+    /**
+     * A raktar adatait kiiro fuggveny
+     */
+    @Override
+    public void printStat() {
+        super.printStat();
+        System.out.println("resources: " + res.get(0).getAmount() + " " + res.get(1).getAmount());
     }
 }

@@ -6,11 +6,14 @@ import main.virologist.Virologist;
  * A kopeny kulonelges felszerelest megvalosito osztaly,az equipmentbol szarmazik le.
  */
 public class Cape extends Equipment{
-
     /**
      * a kopennyel jaro vedekezesi % merteke
      */
     private double defPerc;
+
+    {
+        name = "cape";
+    }
 
     /**
      * A köpeny constructora

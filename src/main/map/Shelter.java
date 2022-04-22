@@ -10,7 +10,7 @@ import main.virologist.*;
 public class Shelter extends Field {
 
     /**
-     * A  felszereles amely az ovohelyen talalhato meg
+     * A  felszereles, amely az ovohelyen talalhato meg
      */
     private Equipment eq;
 
@@ -37,5 +37,14 @@ public class Shelter extends Field {
             return true;
         }
         return false;
+    }
+
+    /**
+     * A shelter adatait kiiro fuggveny
+     */
+    @Override
+    public void printStat() {
+        super.printStat();
+        System.out.println("equipment: " + eq.getName());
     }
 }

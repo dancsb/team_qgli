@@ -22,7 +22,7 @@ public class Proto {
 
 
 
-    private void running() throws IOException {
+    public void running() throws IOException {
         while (true) {
             BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
             String line = br.readLine();

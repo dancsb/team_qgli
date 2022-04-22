@@ -26,8 +26,6 @@ public class  Field {
         virologists = new ArrayList<>();
     }
 
-
-
     /**
      * @return visszater egy adott mezo szomszedos mezoivel
      */
@@ -50,6 +48,7 @@ public class  Field {
     public ArrayList<Virologist> getVirologists() {
         return virologists;
     }
+
     /**
      * Ha egy virologus arra a mezore szeretne lepni, eldontheti, hogy lephet e oda vagy sem
      * @param v a virologus aki lepni akar
@@ -58,6 +57,7 @@ public class  Field {
     public boolean accept(Virologist v){
         return virologists.add(v);
     }
+
     /**
      * Eltavolit egy virologust az adott mezorol
      * @param v az eltavolitando virolgous
@@ -66,9 +66,26 @@ public class  Field {
         virologists.remove(v);
     }
 
+    /**
+     * A mezo adatait kiiro fuggveny
+     */
     public void printStat() {
-        /*
-         * A Field leszáramzottaiban overrideolni kell!
-         */
+        System.out.println("tipus: field");
+        System.out.print("szomszedok: ");
+        //szomszedok
+        if (neighbours.size()==0){
+            System.out.println("null");
+        }else{
+
+            System.out.println();
+        }
+        System.out.print("virologusokNevei: ");
+        //virologusok
+        if (virologists.size()==0){
+            System.out.println("null");
+        }else{
+
+            System.out.println();
+        }
     }
 }

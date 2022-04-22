@@ -19,16 +19,21 @@ public class Virologist implements Steppable {
      */
     private boolean parry;
 
+    /**
+     * Megmondja medvevirusos-e a virologus
+     */
     private boolean bearDance;
 
     /**
      * A varazslo ezen a mezon tartozkodik
      */
     private Field f;
+
     /**
      * A birokaban levo agensek listaja
      */
     private ArrayList<Agent> agents;
+
     /**
      * A birokaban levo eroforrasok listaja
      */
@@ -37,10 +42,12 @@ public class Virologist implements Steppable {
      * A megtanult levo genetikai kodok listaja
      */
     private ArrayList<GeneticCode>geneticCodes;
+
     /**
      * A virologus tulajdonsagainak listaja
      */
     private ArrayList<Attribute>attributes;
+
     /**
      * A birokaban levo felszerelesek listaja
      */

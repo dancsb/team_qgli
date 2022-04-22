@@ -7,6 +7,11 @@ import main.virologist.Virologist;
  */
 public abstract class Equipment implements Collectible {
     /**
+     * Az equipment neve
+     */
+    protected String name;
+
+    /**
      * Egy felszereles begyujteset valositja meg, es az azzal jaro hatast/kepesseget allitja be
      * @param v a virologus aki felveszi
      */
@@ -57,6 +62,11 @@ public abstract class Equipment implements Collectible {
     public void setUsed(boolean used){
 
     }
+
+    public String getName(){
+        return name;
+    };
+
     public void printStat(){
 
     }

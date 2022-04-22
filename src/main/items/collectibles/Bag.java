@@ -7,6 +7,10 @@ import main.virologist.Virologist;
  */
 public class Bag extends Equipment {
 
+    {
+        name="bag";
+    }
+
     /**
      * A mertek amivel a zsak megnoveli a virologus anyageltarolasi kepesseget.
      */
