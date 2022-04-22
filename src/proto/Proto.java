@@ -1,27 +1,28 @@
 package proto;
 
-import main.items.agents.Amnesia;
-import main.items.agents.Invulnerable;
-import main.items.agents.Paralyzer;
-import main.items.agents.Vitusdance;
+import main.items.agents.*;
 import main.items.collectibles.*;
 import main.map.*;
-import main.virologist.Virologist;
+import main.virologist.*;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.HashMap;
 
 public class Proto {
     /**
-     * Eltároljuk benne a virológusokat. Az azonosító a key.
+     * Eltaroljuk benne a virologusokat. Az azonosito a kulcs.
      */
     private HashMap<String, Virologist> virologists;
+    /**
+     * A palya
+     */
     private Map map;
 
 
-
+    /**
+     * Parancsokat fogado es vegrahajto fuggveny
+     * @throws IOException kivetel
+     */
     public void running() throws IOException {
         while (true) {
             BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -62,7 +63,7 @@ public class Proto {
 
                 case "virologist":
                     Virologist viro=new Virologist();
-                    viro.setF(map.getFields().get(Integer.parseInt(cmd[2])));
+                    viro.setField(map.getFields().get(Integer.parseInt(cmd[2])));
                     map.getFields().get(Integer.parseInt(cmd[2])).getVirologists().add(viro);
                     virologists.put(cmd[1],viro);
                     break;
@@ -159,15 +160,13 @@ public class Proto {
                     break;
 
                 case "die":
-                    //Írja meg valaki
+                    virologists.get(cmd[1]).die();
                     break;
 
                 case "stat":
                     switch (cmd[1]) {
                         case "v" -> virologists.get(cmd[1]).printStat(cmd[2]);
-                        case "f" ->
-                            //nincs megírva
-                                map.getFields().get(Integer.parseInt(cmd[1])).printStat();
+                        case "f" -> map.getFields().get(Integer.parseInt(cmd[1])).printStat(virologists,map.getFields());
                     }
                     break;
             }

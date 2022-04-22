@@ -75,12 +75,29 @@ public class Virologist implements Steppable {
      */
     public void move(Field f){
         //lekeri a szomszedos mezoket
-        ArrayList<Field> neighbours = this.f.getNeighbours();
-        for(Field fNeighbours : neighbours)
-        {
-            if(fNeighbours == f){
-                //atlepes egy masik mezore es torles az elozo mezorol
-                f.accept(this); this.f.remove(this);
+        ArrayList<Field> neighbours = f.getNeighbours();
+        if(neighbours.contains(f)){
+            //atlepes egy masik mezore es torles az elozo mezorol
+            f.accept(this);
+            f.remove(this);
+            ArrayList<Virologist> virologists = f.getVirologists();
+            if (bearDance){
+                for (Virologist v:
+                     virologists) {
+                    ArrayList<Equipment> equips = v.getEquipments();
+                    for (Equipment e:
+                         equips) {
+                        if (!e.getUsed()){
+                            die();
+                        }
+                    }
+                    v.setBearDance(bearDance);
+                }
+            }else{
+                for (Virologist v:
+                     virologists) {
+                    setBearDance(v.isBearDance());
+                }
             }
         }
     }
@@ -149,9 +166,6 @@ public class Virologist implements Steppable {
      * A leptetes
      */
     public void step(){
-        //Aki ezt írja: A kesztyűt mindig le kell majd csekkolni, hogy a durability-je 0-e, mert ha igen,
-        //akkor hívni kell rá egy loseEquipmentet!
-        System.out.println("Virologist.step()");
     }
 
     /**
@@ -165,13 +179,12 @@ public class Virologist implements Steppable {
 
     /**
      * Felszereles felvetele
+     *
      * @param e a felszereles amelyet fel szertne venni
-     * @return igaz ertekkel ter vissza, ha a felszerelest sikeresen felvette, kulonben hamis ertekkel
      */
-    public boolean pickUpEquipment(Equipment e){
+    public void pickUpEquipment(Equipment e){
         //meghivja az adott felszereles collect fuggvenyet
         e.collect(this);
-        return true;
     }
 
     /**
@@ -213,15 +226,14 @@ public class Virologist implements Steppable {
 
     /**
      * Egy genetikai kod hozzaadasa a megtanult kodokhoz
+     *
      * @param g a felszereles amelyet elvesztett
-     * @return igaz ertekkel ter vissza ,ha a gentetikai kodot sikeresen megtanulta
      */
-    public boolean addGeneticCode(GeneticCode g){
-        if(geneticCodes.contains(g))return false;
+    public void addGeneticCode(GeneticCode g){
+        if(geneticCodes.contains(g))return;
         else geneticCodes.add(g);
         //ha minden genetikai kodot megtanult akkor a jateknak vege van
         if(checkWin())Game.endGame();
-        return true;
     }
 
     /**
@@ -265,54 +277,59 @@ public class Virologist implements Steppable {
         return equipments;
     }
 
+    /**
+     * Megadja a virologus agenseit
+     * @return az agensek listaja
+     */
     public ArrayList<Agent> getAgents() {
         return agents;
     }
 
-    public void setF(Field f) {
+    /**
+     * Beallitja a virologus helyet
+     * @param f erre a mezore allitja be a helyet
+     */
+    public void setField(Field f) {
         this.f = f;
     }
 
-    public void setAgents(ArrayList<Agent> agents) {
-        this.agents = agents;
-    }
-
-    public void setResources(ArrayList<Resource> resources) {
-        this.resources = resources;
-    }
-
-    public void setGeneticCodes(ArrayList<GeneticCode> geneticCodes) {
-        this.geneticCodes = geneticCodes;
-    }
-
-    public void setAttributes(ArrayList<Attribute> attributes) {
-        this.attributes = attributes;
-    }
-
-    public void setEquipments(ArrayList<Equipment> equipments) {
-        this.equipments = equipments;
-    }
-
+    /**
+     * megmondja a virologus kivedi-e az agenst
+     * @return a parry erteke
+     */
     public boolean isParry() {
         return parry;
     }
 
+    /**
+     * Megmondja medvevirusos-e a medve
+     * @return a bearDance erteke
+     */
     public boolean isBearDance() {
         return bearDance;
     }
 
+    /**
+     * Beallitja a viologus bearDance-t a kapott ertekre
+     * @param bearDance erre allitja be az erteket
+     */
     public void setBearDance(boolean bearDance) {
         this.bearDance = bearDance;
     }
 
-    public Field getF() {
-        return f;
+    /**
+     * A virologus meghal(lekerul a mezorol es nullra allitodik a helye)
+     */
+    public void die(){
+        f.remove(this);
+        f=null;
+        bearDance=false;
     }
 
-    public ArrayList<GeneticCode> getGeneticCodes() {
-        return geneticCodes;
-    }
-
+    /**
+     * A virologus adatait irja ki
+     * @param name megkapja a sajat nevet
+     */
     public void printStat(String name) {
         System.out.println("virologusNev: " + name);
         System.out.println("sajatfield: " + f);

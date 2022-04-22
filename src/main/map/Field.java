@@ -3,6 +3,7 @@ package main.map;
 import main.virologist.Virologist;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Egy mezot reprezental.
@@ -69,14 +70,17 @@ public class  Field {
     /**
      * A mezo adatait kiiro fuggveny
      */
-    public void printStat() {
+    public void printStat(HashMap<String, Virologist> hashMap, ArrayList<Field> allFields) {
         System.out.println("tipus: field");
         System.out.print("szomszedok: ");
         //szomszedok
         if (neighbours.size()==0){
             System.out.println("null");
         }else{
-
+            for (Field f:
+                 neighbours) {
+                System.out.print(allFields.indexOf(f) + " ");
+            }
             System.out.println();
         }
         System.out.print("virologusokNevei: ");
@@ -84,7 +88,12 @@ public class  Field {
         if (virologists.size()==0){
             System.out.println("null");
         }else{
-
+            for (String key:
+                 hashMap.keySet()) {
+                if (virologists.contains(hashMap.get(key))){
+                    System.out.print(key + " ");
+                }
+            }
             System.out.println();
         }
     }
