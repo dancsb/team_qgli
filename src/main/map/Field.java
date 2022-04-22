@@ -1,7 +1,8 @@
 package main.map;
 
+import main.virologist.Virologist;
+
 import java.util.ArrayList;
-import main.virologist.*;
 
 /**
  * Egy mezot reprezental.
@@ -66,5 +67,8 @@ public class  Field {
     }
 
     public void printStat() {
+        /*
+         * A Field leszáramzottaiban overrideolni kell!
+         */
     }
 }

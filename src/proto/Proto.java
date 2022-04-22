@@ -63,6 +63,7 @@ public class Proto {
                 case "virologist":
                     Virologist viro=new Virologist();
                     viro.setF(map.getFields().get(Integer.parseInt(cmd[2])));
+                    map.getFields().get(Integer.parseInt(cmd[2])).getVirologists().add(viro);
                     virologists.put(cmd[1],viro);
                     break;
 
