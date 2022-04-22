@@ -353,4 +353,37 @@ public class Virologist implements Steppable {
     public ArrayList<GeneticCode> getGeneticCodes() {
         return geneticCodes;
     }
+
+    public void printStat(String name) {
+        System.out.println("virologusNev: " + name);
+        System.out.println("sajatfield: " + f);
+        for (Attribute a: attributes)
+            a.printStat();
+        System.out.println("medvetancol: " + bearDance);
+        System.out.print("genetikaiKodjanakListaja: ");
+        if (geneticCodes.size() == 0)
+            System.out.println("null");
+        else
+            for (GeneticCode g: geneticCodes)
+                g.printStat();
+        System.out.println();
+        System.out.print("agenseinekListaja: ");
+        if (agents.size() == 0)
+            System.out.println("null");
+        else
+            for (Agent a: agents)
+                a.printStat();
+        System.out.println();
+        System.out.print("resourceErtek: ");
+        for (Resource r: resources)
+            r.printStat();
+        System.out.println();
+        System.out.print("equipmentek: ");
+        if (equipments.size() == 0)
+            System.out.println("null");
+        else
+            for (Equipment e: equipments)
+                e.printStat();
+        System.out.println();
+    }
 }

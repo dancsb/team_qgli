@@ -162,6 +162,12 @@ public class Proto {
                     break;
 
                 case "stat":
+                    switch (cmd[1]) {
+                        case "v" -> virologists.get(cmd[1]).printStat(cmd[2]);
+                        case "f" ->
+                            //nincs megírva
+                                map.getFields().get(Integer.parseInt(cmd[1])).printStat();
+                    }
                     break;
             }
         }

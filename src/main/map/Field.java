@@ -64,4 +64,7 @@ public class  Field {
     public void remove(Virologist v){
         virologists.remove(v);
     }
+
+    public void printStat() {
+    }
 }

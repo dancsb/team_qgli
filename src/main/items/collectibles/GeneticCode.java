@@ -37,6 +37,6 @@ public class GeneticCode implements Collectible{
         v.addGeneticCode(this);
     }
     public void printStat(){
-        System.out.print(name);
+        System.out.print(name + " ");
     }
 }
