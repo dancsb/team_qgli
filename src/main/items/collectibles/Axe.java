@@ -5,10 +5,6 @@ import main.virologist.Virologist;
 public class Axe extends Equipment{
     private boolean used=false;
 
-    {
-        name = "axe";
-    }
-
     @Override
     public void action(Virologist v) {
 

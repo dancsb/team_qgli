@@ -3,6 +3,9 @@ package main.map;
 import main.items.collectibles.*;
 import main.virologist.*;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 /**
  * A labor kulonleges mezot reprezentalja
  */
@@ -63,8 +66,8 @@ public class Lab extends Field {
      * A labor adatait kiiro fuggveny
      */
     @Override
-    public void printStat() {
-        super.printStat();
+    public void printStat(HashMap<String, Virologist> hashMap, ArrayList<Field> allFields) {
+        super.printStat(hashMap, allFields);
         System.out.println("bearRegion: " + bearRegion);
         System.out.println("geneticCode: " + gc.getName());
     }

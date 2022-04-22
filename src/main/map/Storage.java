@@ -1,6 +1,8 @@
 package main.map;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+
 import main.items.collectibles.*;
 import main.virologist.*;
 
@@ -58,8 +60,8 @@ public class Storage extends Field {
      * A raktar adatait kiiro fuggveny
      */
     @Override
-    public void printStat() {
-        super.printStat();
+    public void printStat(HashMap<String, Virologist> hashMap, ArrayList<Field> allFields) {
+        super.printStat(hashMap, allFields);
         System.out.println("resources: " + res.get(0).getAmount() + " " + res.get(1).getAmount());
     }
 }

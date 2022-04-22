@@ -6,11 +6,6 @@ import main.virologist.Virologist;
  * A "Zsak" kulonleges felszerelest reprezentalja, leszarmazik az Equipmentbol
  */
 public class Bag extends Equipment {
-
-    {
-        name="bag";
-    }
-
     /**
      * A mertek amivel a zsak megnoveli a virologus anyageltarolasi kepesseget.
      */

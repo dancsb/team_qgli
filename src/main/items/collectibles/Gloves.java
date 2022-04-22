@@ -7,9 +7,6 @@ import main.virologist.Virologist;
  */
 public class Gloves extends Equipment{
     private int durability=3;
-    {
-        name = "gloves";
-    }
 
     /**
      * A kesztyu begyujteset valositja meg, es az azzal jaro "visszakenes" kepesseget allitja be

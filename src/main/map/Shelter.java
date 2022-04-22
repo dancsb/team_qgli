@@ -3,6 +3,9 @@ package main.map;
 import main.items.collectibles.*;
 import main.virologist.*;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 /**
  * A shelter specialis mezot reprezentalja
  */
@@ -43,8 +46,10 @@ public class Shelter extends Field {
      * A shelter adatait kiiro fuggveny
      */
     @Override
-    public void printStat() {
-        super.printStat();
-        System.out.println("equipment: " + eq.getName());
+    public void printStat(HashMap<String, Virologist> hashMap, ArrayList<Field> allFields) {
+        super.printStat(hashMap, allFields);
+        System.out.print("equipment: ");
+        eq.printStat();
+        System.out.println();
     }
 }

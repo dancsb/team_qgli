@@ -11,10 +11,6 @@ public class Cape extends Equipment{
      */
     private double defPerc;
 
-    {
-        name = "cape";
-    }
-
     /**
      * A köpeny constructora
      * @param defPerc mennyi % esélye van annak, hogy levédi? Pl:37
