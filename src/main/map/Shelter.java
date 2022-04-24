@@ -47,6 +47,7 @@ public class Shelter extends Field {
      */
     @Override
     public void printStat(HashMap<String, Virologist> hashMap, ArrayList<Field> allFields) {
+        System.out.println("tipus: shelter");
         printStandard(hashMap, allFields);
         System.out.print("equipment: ");
         eq.printStat();

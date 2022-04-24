@@ -13,11 +13,11 @@ public class  Field {
     /**
      * A szomszedos mezoket tarolo lista
      */
-    private ArrayList<Field> neighbours;
+    protected ArrayList<Field> neighbours;
     /**
      * A mezon tartozkodo virologusokat tarolo lista
      */
-    private ArrayList<Virologist> virologists;
+    protected ArrayList<Virologist> virologists;
 
     /**
      * Field konstruktora
@@ -70,8 +70,7 @@ public class  Field {
     /**
      * Egy mező adatainak kiirasa (leszarmazottak ezt meghivjak)
      */
-    public void printStandard(HashMap<String, Virologist> hashMap, ArrayList<Field> allFields) {
-        System.out.println("tipus: field");
+    protected void printStandard(HashMap<String, Virologist> hashMap, ArrayList<Field> allFields) {
         System.out.print("szomszedok: ");
         //szomszedok
         if (neighbours.size() == 0) {
@@ -102,6 +101,7 @@ public class  Field {
      * A mezo adatait kiiro fuggveny + ures sorral
      */
     public void printStat(HashMap<String, Virologist> hashMap, ArrayList<Field> allFields) {
+        System.out.println("tipus: field");
         printStandard(hashMap,allFields);
         System.out.println();
     }
