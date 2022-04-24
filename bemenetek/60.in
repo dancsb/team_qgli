@@ -1,0 +1,7 @@
+field 1
+virologist v1 0
+resource v1 100 100 100
+bag v1 50
+pickUpResource v1 50
+loseEquipment v1 0
+stat v v1
