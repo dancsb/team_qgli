@@ -21,6 +21,6 @@ public class Amnesia extends Agent {
     }
     @Override
     public void printStat(){
-        System.out.print("amnesia "+expireTime);
+        System.out.print("amnesia "+expireTime); System.out.println();
     }
 }

@@ -1,9 +1,9 @@
-virologistNev: v1
-sajatfield: 1
+nev: v1
+sajatField: 1
 vitustancol: 0
-medvetancol: false
 paralyzed: 0
 invulnerabled: 0
+medvetancol: false
 genetikaiKodjanakListaja: paralyzer
 agenseinekListaja: null
 resourceErtek: 0 0

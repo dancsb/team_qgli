@@ -45,5 +45,6 @@ public class Gloves extends Equipment{
     @Override
     public void printStat(){
         System.out.print("gloves "+durability);
+        System.out.println();
     }
 }

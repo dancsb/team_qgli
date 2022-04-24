@@ -28,5 +28,6 @@ public class Invulnerable extends Agent {
     @Override
     public void printStat(){
         System.out.print("invulnerable "+expireTime);
+        System.out.println();
     }
 }

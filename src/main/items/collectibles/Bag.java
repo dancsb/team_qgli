@@ -37,5 +37,6 @@ public class Bag extends Equipment {
     @Override
     public void printStat(){
         System.out.print("bag "+sizeIncrease);
+        System.out.println();
     }
 }

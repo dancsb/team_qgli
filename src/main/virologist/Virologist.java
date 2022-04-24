@@ -334,7 +334,7 @@ public class Virologist implements Steppable {
      */
     public void printStat(String name,int fieldIndex) {
         System.out.println("nev: " + name);
-        System.out.println("sajatfield: " + fieldIndex);
+        System.out.println("sajatField: " + fieldIndex);
         for (Attribute a: attributes)
             a.printStat();
         System.out.println("medvetancol: " + bearDance);
