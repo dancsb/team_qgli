@@ -11,6 +11,5 @@ public class Main {
      */
     public static void main(String[] args){
         Proto p = new Proto();
-        //p.running();
     }
 }

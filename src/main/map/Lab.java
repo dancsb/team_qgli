@@ -67,8 +67,9 @@ public class Lab extends Field {
      */
     @Override
     public void printStat(HashMap<String, Virologist> hashMap, ArrayList<Field> allFields) {
-        super.printStat(hashMap, allFields);
+        printStandard(hashMap, allFields);
         System.out.println("bearRegion: " + bearRegion);
         System.out.println("geneticCode: " + gc.getName());
+        System.out.println();
     }
 }

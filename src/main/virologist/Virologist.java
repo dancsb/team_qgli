@@ -361,5 +361,6 @@ public class Virologist implements Steppable {
             for (Equipment e: equipments)
                 e.printStat();
         System.out.println();
+        System.out.println();
     }
 }

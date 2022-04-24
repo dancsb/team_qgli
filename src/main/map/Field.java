@@ -68,33 +68,41 @@ public class  Field {
     }
 
     /**
-     * A mezo adatait kiiro fuggveny
+     * Egy mező adatainak kiirasa (leszarmazottak ezt meghivjak)
      */
-    public void printStat(HashMap<String, Virologist> hashMap, ArrayList<Field> allFields) {
+    public void printStandard(HashMap<String, Virologist> hashMap, ArrayList<Field> allFields) {
         System.out.println("tipus: field");
         System.out.print("szomszedok: ");
         //szomszedok
-        if (neighbours.size()==0){
+        if (neighbours.size() == 0) {
             System.out.println("null");
-        }else{
-            for (Field f:
-                 neighbours) {
+        } else {
+            for (Field f :
+                    neighbours) {
                 System.out.print(allFields.indexOf(f) + " ");
             }
             System.out.println();
         }
         System.out.print("virologusokNevei: ");
         //virologusok
-        if (virologists.size()==0){
+        if (virologists.size() == 0) {
             System.out.println("null");
-        }else{
-            for (String key:
-                 hashMap.keySet()) {
-                if (virologists.contains(hashMap.get(key))){
+        } else {
+            for (String key :
+                    hashMap.keySet()) {
+                if (virologists.contains(hashMap.get(key))) {
                     System.out.print(key + " ");
                 }
             }
             System.out.println();
         }
+    }
+
+    /**
+     * A mezo adatait kiiro fuggveny + ures sorral
+     */
+    public void printStat(HashMap<String, Virologist> hashMap, ArrayList<Field> allFields) {
+        printStandard(hashMap,allFields);
+        System.out.println();
     }
 }

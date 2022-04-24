@@ -1,15 +1,18 @@
 tipus: field
 szomszedok: 1 2 3
 virologusokNevei: null
+
 tipus: lab
 szomszedok: 0 2 3
 virologusokNevei: null
 bearRegion: false
 geneticCode: invulnerable
+
 tipus: shelter
 szomszedok: 0 1 3
 virologusokNevei: null
-equipment: axe
+equipment: axe false
+
 tipus: storage
 szomszedok: 0 1 2
 virologusokNevei: null

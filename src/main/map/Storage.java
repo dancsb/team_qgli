@@ -61,7 +61,8 @@ public class Storage extends Field {
      */
     @Override
     public void printStat(HashMap<String, Virologist> hashMap, ArrayList<Field> allFields) {
-        super.printStat(hashMap, allFields);
+        printStandard(hashMap, allFields);
         System.out.println("resources: " + res.get(0).getAmount() + " " + res.get(1).getAmount());
+        System.out.println();
     }
 }

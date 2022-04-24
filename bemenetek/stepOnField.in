@@ -1,0 +1,5 @@
+field 2
+setRoute 0 1
+virologist v1 1
+move v1 0
+stat v v1
