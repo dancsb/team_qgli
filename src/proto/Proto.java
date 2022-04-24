@@ -35,9 +35,7 @@ public class Proto {
         }
     }
     private void readIn(String fileName) throws FileNotFoundException {
-        //File f=new File("src/bemenetek/"+fileName);
-        //System.out.print(f);
-        Scanner sc=new Scanner(new File("src/bemenetek/"+fileName));
+        Scanner sc=new Scanner(new File("bemenetek/"+fileName));
         while(sc.hasNext()){
             commandAnalyzer(sc.nextLine().split(" "));
         }
