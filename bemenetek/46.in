@@ -1,5 +1,5 @@
 field 1
 virologist v1 0
 agent v1 paralyzer
-useAgent v1 v1 1
+useAgent v1 v1 0
 stat v v1

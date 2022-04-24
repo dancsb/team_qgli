@@ -1,6 +1,6 @@
 field 1
 shelter 1 gloves
 setRoute 0 1
-virologist v1
+virologist v1 0
 move v1 1
 stat v v1
