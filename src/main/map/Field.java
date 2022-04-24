@@ -58,6 +58,7 @@ public class  Field {
      * @return true ha lephet, false ha nem
      */
     public boolean accept(Virologist v){
+        v.setField(this);
         return virologists.add(v);
     }
 

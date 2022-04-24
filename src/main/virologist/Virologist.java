@@ -59,13 +59,15 @@ public class Virologist implements Steppable {
     public Virologist() {
         resources = new ArrayList<>(2);
         attributes = new ArrayList<>();
-        //resources.add(new AminoAcid());
-        //resources.add(new Nucleotide());
+        agents=new ArrayList<>();
+        equipments=new ArrayList<>();
+        resources.add(new AminoAcid(0,30));
+        resources.add(new Nucleotide(0,30));
         attributes.add(new Dancing());
         attributes.add(new Paralyzed());
         attributes.add(new Invulnerabled());
         geneticCodes=new ArrayList<>();
-        geneticCodes.add(new GeneticCode("test"));
+       // geneticCodes.add(new GeneticCode("test"));
         f=new Field();
     }
 
@@ -75,11 +77,11 @@ public class Virologist implements Steppable {
      */
     public void move(Field f){
         //lekeri a szomszedos mezoket
-        ArrayList<Field> neighbours = f.getNeighbours();
+        ArrayList<Field> neighbours = this.f.getNeighbours();
         if(neighbours.contains(f)){
             //atlepes egy masik mezore es torles az elozo mezorol
             f.accept(this);
-            f.remove(this);
+            this.f.remove(this);
             ArrayList<Virologist> virologists = f.getVirologists();
             if (bearDance){
                 for (Virologist v:
@@ -332,15 +334,15 @@ public class Virologist implements Steppable {
      * A virologus adatait irja ki
      * @param name megkapja a sajat nevet
      */
-    public void printStat(String name) {
-        System.out.println("virologusNev: " + name);
-        System.out.println("sajatfield: " + f);
+    public void printStat(String name,int fieldIndex) {
+        System.out.println("nev: " + name);
+        System.out.println("sajatfield: " + fieldIndex);
         for (Attribute a: attributes)
             a.printStat();
         System.out.println("medvetancol: " + bearDance);
         System.out.print("genetikaiKodjanakListaja: ");
         if (geneticCodes.size() == 0)
-            System.out.println("null");
+            System.out.print("null");
         else
             for (GeneticCode g: geneticCodes)
                 g.printStat();
@@ -351,7 +353,7 @@ public class Virologist implements Steppable {
         else
             for (Agent a: agents)
                 a.printStat();
-        System.out.println();
+        //System.out.println();
         System.out.print("resourceErtek: ");
         for (Resource r: resources)
             r.printStat();
@@ -362,7 +364,5 @@ public class Virologist implements Steppable {
         else
             for (Equipment e: equipments)
                 e.printStat();
-        System.out.println();
-        System.out.println();
     }
 }

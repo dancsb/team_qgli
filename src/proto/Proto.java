@@ -180,7 +180,7 @@ public class Proto {
 
             case "stat":
                 switch (cmd[1]) {
-                    case "v" -> virologists.get(cmd[2]).printStat(cmd[3]);
+                    case "v" -> virologists.get(cmd[2]).printStat(cmd[2],map.getFields().indexOf(virologists.get(cmd[2]).getField()));
                     case "f" -> map.getFields().get(Integer.parseInt(cmd[2])).printStat(virologists,map.getFields());
                 }
                 break;
