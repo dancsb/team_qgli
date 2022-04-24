@@ -194,6 +194,7 @@ public class Proto {
                     System.out.println("Megfelelo teszt!");
                 else
                     System.out.println("Rossz teszt!");
+                tempFileP.toFile().delete();
                 break;
         }
     }
