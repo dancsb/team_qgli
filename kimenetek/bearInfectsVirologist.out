@@ -1,0 +1,27 @@
+nev: v1
+sajatField: 1
+vitustancol: 0
+medvetancol: true
+paralyzed: 0
+invulnerabled: 0
+genetikaiKodokListaja: paralyzer
+agensekListaja: null
+resourceErtek: 0 0
+equipmentek: null
+
+nev: v2
+sajatField: 1
+vitustancol: 0
+medvetancol: true
+paralyzed: 0
+invulnerabled: 0
+genetikaiKodokListaja: paralyzer
+agensekListaja: null
+resourceErtek: 0 0
+equipmentek: null
+
+tipus: lab
+szomszedok: 0
+virologusokNevei: v1 v2
+bearRegion: false
+geneticCode: paralyzer

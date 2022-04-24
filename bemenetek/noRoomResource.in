@@ -1,0 +1,7 @@
+field 1
+storage 1 30
+setRoute 0 1
+virologist v1 0
+resource v1 20 20 20
+move v1 1
+stat v v1

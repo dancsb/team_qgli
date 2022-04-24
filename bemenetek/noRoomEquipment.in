@@ -1,0 +1,9 @@
+field 1
+shelter 1 bag
+setRoute 0 1
+virologist v1
+cape v1 80
+axe v1 false
+gloves v1 3
+move v1 1
+stat v v1
