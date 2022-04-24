@@ -1,0 +1,21 @@
+nev: v1
+sajatField: 0
+vitustancol: 0
+medvetancol: false
+paralyzed: 0
+invulnerabled: 0
+genetikaiKodjanakListaja: null
+agenseinekListaja: null
+resourceErtek: 0 0
+equipmentek: axe false
+
+nev: v2
+sajatField: 0
+vitustancol: 0
+medvetancol: false
+paralyzed: 5
+invulnerabled: 0
+genetikaiKodjanakListaja: null
+agenseinekListaja: null
+resourceErtek: 0 0
+equipmentek: null

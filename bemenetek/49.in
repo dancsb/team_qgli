@@ -1,0 +1,9 @@
+field 1
+virologist v1 0
+virologist v2 0
+agent v1 paralyzer
+axe v2 false
+useAgent v1 v2 1
+stealEquipment v1 v2 1
+stat v v1
+stat v v2
