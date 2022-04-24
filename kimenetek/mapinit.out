@@ -16,4 +16,5 @@ equipment: axe false
 tipus: storage
 szomszedok: 0 1 2
 virologusokNevei: null
-resource: 30 30
+resources: 30 30
+

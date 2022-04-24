@@ -6,9 +6,9 @@ import main.items.agents.Vitusdance;
 import main.items.collectibles.*;
 import main.map.*;
 import main.virologist.Virologist;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+
+import java.io.*;
+import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -34,13 +34,13 @@ public class Proto {
             commandAnalyzer(cmd);
         }
     }
-    private void readIn(String fileName) throws FileNotFoundException {
+    private void readIn(String fileName) throws IOException {
         Scanner sc=new Scanner(new File("bemenetek/"+fileName));
         while(sc.hasNext()){
             commandAnalyzer(sc.nextLine().split(" "));
         }
     }
-    private void commandAnalyzer(String []cmd) throws FileNotFoundException {
+    private void commandAnalyzer(String []cmd) throws IOException {
         switch (cmd[0]) {
             case "field":
                 for (int i = 0; i < Integer.parseInt(cmd[1]); i++)
@@ -183,8 +183,47 @@ public class Proto {
                 }
                 break;
             case "runtest":
+                String tempFilename = cmd[1].substring(0, cmd[1].indexOf('.')) + ".temp";
+                String outFilename = cmd[1].substring(0, cmd[1].indexOf('.')) + ".out";
+                System.setOut(new PrintStream(tempFilename));
                 readIn(cmd[1]);
+                Path outFileP = new File(outFilename).toPath();
+                Path tempFileP = new File(tempFilename).toPath();
+                System.setOut(new PrintStream(new FileOutputStream(FileDescriptor.out)));
+                if (compareFiles(outFileP, tempFileP))
+                    System.out.println("Megfelelo teszt!");
+                else
+                    System.out.println("Rossz teszt!");
                 break;
         }
+    }
+
+    private boolean compareFiles(Path outFile, Path tempFile) throws IOException {
+        BufferedReader reader1 = new BufferedReader(new FileReader("kimenetek/"+ outFile));
+        BufferedReader reader2 = new BufferedReader(new FileReader(String.valueOf(tempFile)));
+        String line1 = reader1.readLine();
+        String line2 = reader2.readLine();
+
+        while (line1 != null || line2 != null)
+        {
+            if(line1 == null || line2 == null)
+            {
+                reader1.close();
+                reader2.close();
+                return false;
+            }
+            else if(!line1.equals(line2))
+            {
+                reader1.close();
+                reader2.close();
+                return false;
+            }
+
+            line1 = reader1.readLine();
+            line2 = reader2.readLine();
+        }
+        reader1.close();
+        reader2.close();
+        return true;
     }
 }

@@ -29,6 +29,6 @@ public class Nucleotide extends Resource {
         v.getResources().forEach(r->r.changeAmountNucleotide(r.getAmount()));
     }
     public void printStat(){
-        System.out.print(amount+" ");
+        System.out.print(amount);
     }
 }

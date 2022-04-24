@@ -40,6 +40,8 @@ public class  Field {
      */
     public void addNeighbour(Field n){
         neighbours.add(n);
+        if (!n.neighbours.contains(this))
+            n.addNeighbour(this);
     }
 
     /**
@@ -78,7 +80,9 @@ public class  Field {
         } else {
             for (Field f :
                     neighbours) {
-                System.out.print(allFields.indexOf(f) + " ");
+                System.out.print(allFields.indexOf(f));
+                if (neighbours.get(neighbours.size()-1) != f)
+                    System.out.print(" ");
             }
             System.out.println();
         }
