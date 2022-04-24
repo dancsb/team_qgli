@@ -1,0 +1,9 @@
+field 2
+setRoute 0 1
+virologist v1 0
+virologist v2 1
+bearDance v2
+axe v1 false
+move v1 1
+stat v v1
+stat f 1

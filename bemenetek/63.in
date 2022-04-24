@@ -1,0 +1,8 @@
+field 1
+virologist v1 0
+virologist v2 0
+cape v1 80
+paralyze v1 10
+stealEquipment v2 v1 0
+stat v v1
+stat v v2
