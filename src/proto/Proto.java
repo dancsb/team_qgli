@@ -35,6 +35,8 @@ public class Proto {
         }
     }
     private void readIn(String fileName) throws IOException {
+        virologists.clear();
+        map.getFields().clear();
         Scanner sc=new Scanner(new File("bemenetek/"+fileName));
         while(sc.hasNext()){
             commandAnalyzer(sc.nextLine().split(" "));
