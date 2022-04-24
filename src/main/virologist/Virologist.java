@@ -316,7 +316,9 @@ public class Virologist implements Steppable {
      * @param bearDance erre allitja be az erteket
      */
     public void setBearDance(boolean bearDance) {
-        this.bearDance = bearDance;
+        if(!bearDance) {
+            this.bearDance = bearDance;
+        }
     }
 
     /**
