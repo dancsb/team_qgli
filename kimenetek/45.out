@@ -1,9 +1,9 @@
 nev: v1
 sajatField: 0
 vitustancol: 0
-medvetancol: false
 paralyzed: 0
 invulnerabled: 5
+medvetancol: false
 genetikaiKodjanakListaja: null
 agenseinekListaja: null
 resourceErtek: 0 0

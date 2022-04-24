@@ -1,20 +1,19 @@
 nev: v1
 sajatField: 0
-vitustancol: 0
-medvetancol: false
+vitustancol: 1
 paralyzed: 0
 invulnerabled: 0
+medvetancol: false
 genetikaiKodjanakListaja: null
 agensekListaja: null
 resourceErtek: 0 0
 equipmentek: null
-
 nev: v2
 sajatField: 0
-vitustancol: 10
-medvetancol: false
+vitustancol: 0
 paralyzed: 0
 invulnerabled: 0
+medvetancol: false
 genetikaiKodjanakListaja: null
 agensekListaja: vitusdance 10
 resourceErtek: 0 0

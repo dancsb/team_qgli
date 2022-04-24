@@ -1,14 +1,13 @@
 nev: v1
 sajatField: 1
 vitustancol: 0
-medvetancol: false
 paralyzed: 0
 invulnerabled: 0
+medvetancol: false
 genetikaiKodokListaja: paralyzer
 agensekListaja: null
 resourceErtek: 0 0
 equipmentek: cape
-
 tipus: lab
 szomszedok: 0
 virologusokNevei: v1
