@@ -186,7 +186,10 @@ public class Virologist implements Steppable {
      */
     public void pickUpEquipment(Equipment e){
         //meghivja az adott felszereles collect fuggvenyet
-        e.collect(this);
+        if (equipments.size()<3) {
+            equipments.add(e);
+            e.collect(this);
+        }
     }
 
     /**
