@@ -1,7 +1,7 @@
 nev: v1
 sajatField: 0
-vitustancol:10
-paralyzed: 0
+vitustancol:0
+paralyzed: 10
 invulnerabled: 0
 medvetancol: false
 genetikaiKodjanakListaja: null

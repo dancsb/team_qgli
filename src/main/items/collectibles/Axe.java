@@ -12,7 +12,7 @@ public class Axe extends Equipment{
 
     @Override
     public void remove(Virologist v) {
-
+        v.loseEquipment(this);
     }
 
     @Override

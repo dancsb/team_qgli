@@ -23,6 +23,7 @@ public class Gloves extends Equipment{
      */
     @Override
     public void remove(Virologist v) {
+        v.loseEquipment(this);
         v.setParry(false);
     }
 

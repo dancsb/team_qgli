@@ -38,6 +38,7 @@ public class Cape extends Equipment{
     public void remove(Virologist v) {
         //Lekérem a virológus attribútumait végigmegyek rajtuk és átállítom a def %-ot
         v.getAttributes().forEach(a->a.changeDefPerc(-defPerc));
+        v.loseEquipment(this);
     }
     @Override
     public void printStat(){
