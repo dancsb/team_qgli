@@ -11,7 +11,11 @@ public class Main {
      */
     public static void main(String[] args){
         Proto p = new Proto();
-        //p.running();
-        p.tesztelekHaha();
+        try {
+            p.running();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        //p.tesztelekHaha();
     }
 }

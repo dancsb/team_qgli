@@ -94,7 +94,6 @@ public class Proto {
                 Virologist viro=new Virologist();
                 viro.setField(map.getFields().get(Integer.parseInt(cmd[2])));
                 viro.getField().accept(viro);
-                map.getFields().get(Integer.parseInt(cmd[2])).getVirologists().add(viro);
                 virologists.put(cmd[1],viro);
                 break;
 

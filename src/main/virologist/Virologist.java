@@ -5,7 +5,6 @@ import main.map.Field;
 import main.items.collectibles.*;
 import main.items.agents.*;
 
-import javax.sound.midi.SysexMessage;
 import java.util.ArrayList;
 
 
@@ -202,8 +201,7 @@ public class Virologist implements Steppable {
                             e.setDurability(e.getDurability()-1);
                         }
                     }
-                    if(removeTheGloves)viro.getEquipments().remove(gl);
-                   //TODO: megvaltoztatni a kesztyu durabilityt
+                    if(removeTheGloves) viro.getEquipments().remove(gl);
                     return;
                 }
                 //a kivalasztott virologuson az agens hasznalata
