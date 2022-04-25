@@ -22,6 +22,7 @@ public class Bag extends Equipment {
     @Override
     public void action(Virologist v) {
         //A virológus összes resourceára lekérem a mennyiségét és megszorzom a sizeIncreaseel.
+        v.pickUpEquipment(this);
         v.getResources().forEach(r->r.setMaxAmount(sizeIncrease*r.getAmount()));
     }
 
@@ -37,6 +38,5 @@ public class Bag extends Equipment {
     @Override
     public void printStat(){
         System.out.print("bag "+sizeIncrease);
-        System.out.println();
     }
 }

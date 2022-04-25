@@ -1,7 +1,7 @@
-field 2
-setRoute 0 1
+field 1
 virologist v1 0
 lab 1 true paralyzer
+setRoute 0 1
 cape v1 100
 move v1 1
 stat v v1

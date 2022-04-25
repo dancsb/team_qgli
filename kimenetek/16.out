@@ -4,12 +4,12 @@ vitustancol: 0
 paralyzed: 0
 invulnerabled: 0
 medvetancol: false
-genetikaiKodokListaja: paralyzer
-agensekListaja: null
+genetikaiKodokListaja: paralyzer 
+agenseinekListaja: null
 resourceErtek: 0 0
 equipmentek: null
 tipus: lab
 szomszedok: 0
-virologusokNevei: v1
+virologusokNevei: v1 
 bearRegion: false
 geneticCode: paralyzer

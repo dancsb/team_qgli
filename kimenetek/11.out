@@ -1,10 +1,10 @@
 nev: v1
 sajatField: 1
 vitustancol: 0
-medvetancol: false
 paralyzed: 0
 invulnerabled: 0
+medvetancol: false
 genetikaiKodjanakListaja: null
 agenseinekListaja: null
 resourceErtek: 0 0
-equipmentek: cape 80, axe false, gloves 3
+equipmentek: cape 82.3, axe false, gloves 3

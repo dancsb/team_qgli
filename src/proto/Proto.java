@@ -104,11 +104,11 @@ public class Proto {
                 break;
 
             case "cape":
-                virologists.get(cmd[1]).getEquipments().add(new Cape(80));
+                virologists.get(cmd[1]).getEquipments().add(new Cape(Double.parseDouble(cmd[2])));
                 break;
 
             case "bag":
-                virologists.get(cmd[1]).getEquipments().add(new Bag(50));
+                virologists.get(cmd[1]).getEquipments().add(new Bag(Integer.parseInt(cmd[2])));
                 break;
 
             case "gloves":
@@ -141,7 +141,7 @@ public class Proto {
 
             case "move":
                 virologists.get(cmd[1]).move(map.getFields().get(Integer.parseInt(cmd[2])));
-                
+
                 break;
 
             case "stealEquipment":

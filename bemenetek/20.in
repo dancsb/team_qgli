@@ -1,7 +1,7 @@
-field 2
-setRoute 0 1
+field 1
 virologist v1 0
 lab 1 false paralyzer
+setRoute 0 1
 virologist v2 1
 bearDance v1
 move v1 1

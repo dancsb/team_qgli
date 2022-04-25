@@ -1,8 +1,8 @@
-field 2
-setRoute 0 1
+field 1
 virologist v1 0
 addGenCode v1 paralyzer
 lab 1 false paralyzer
+setRoute 0 1
 move v1 1
 stat v v1
 stat f 1

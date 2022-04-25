@@ -80,8 +80,8 @@ public class Virologist implements Steppable {
         ArrayList<Field> neighbours = this.f.getNeighbours();
         if(neighbours.contains(f)){
             //atlepes egy masik mezore es torles az elozo mezorol
-            f.accept(this);
             this.f.remove(this);
+            f.accept(this);
             ArrayList<Virologist> virologists = f.getVirologists();
             if (bearDance){
                 for (Virologist v:
@@ -342,7 +342,7 @@ public class Virologist implements Steppable {
         for (Attribute a: attributes)
             a.printStat();
         System.out.println("medvetancol: " + bearDance);
-        System.out.print("genetikaiKodjanakListaja: ");
+        System.out.print("genetikaiKodokListaja: ");
         if (geneticCodes.size() == 0)
             System.out.print("null");
         else
@@ -364,7 +364,12 @@ public class Virologist implements Steppable {
         if (equipments.size() == 0)
             System.out.println("null");
         else
-            for (Equipment e: equipments)
-                e.printStat();
+            for (int i = 0; i < equipments.size(); i++) {
+                equipments.get(i).printStat();
+                if(i != equipments.size() - 1)
+                    System.out.print(", ");
+                else
+                    System.out.println();
+            }
     }
 }

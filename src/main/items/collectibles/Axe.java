@@ -27,6 +27,5 @@ public class Axe extends Equipment{
     @Override
     public void printStat(){
         System.out.print("axe "+used);
-        System.out.println();
     }
 }

@@ -1,7 +1,7 @@
-field 2
-setRoute 0 1
+field 1
 virologist v1 0
 storage 1 500
+setRoute 0 1
 bearDance v1
 move v1 1
 stat v v1

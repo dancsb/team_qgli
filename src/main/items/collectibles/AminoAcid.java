@@ -34,7 +34,8 @@ public class AminoAcid extends Resource {
     @Override
     public void collect(Virologist v) {
         //Lekérem a resourcest és ami aminoacid ott átállítom annyival amit az r ad
-        v.getResources().forEach(r->r.changeAmountAminoAcid(amount));
+        if(v.getResources().get(0).getAmount() + amount <= v.getResources().get(0).maxCapacity)
+            v.getResources().forEach(r->r.changeAmountAminoAcid(amount));
     }
     @Override
     public void printStat(){
