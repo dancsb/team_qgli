@@ -5,9 +5,9 @@ paralyzed: 0
 invulnerabled: 0
 medvetancol: false
 genetikaiKodjanakListaja: null
-agensekListaja: null
+agenseinekListaja: null
 resourceErtek: 0 0
 equipmentek: axe true
 tipus: field
-szomszedok: null
+szomszedok: 0
 virologusokNevei: v1
