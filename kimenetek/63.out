@@ -5,7 +5,7 @@ paralyzed: 10
 invulnerabled: 0
 medvetancol: false
 genetikaiKodjanakListaja: null
-agensekListaja: null
+agenseinekListaja: null
 resourceErtek: 0 0
 equipmentek: cape 80.0
 nev: v2
@@ -15,6 +15,6 @@ paralyzed: 0
 invulnerabled: 0
 medvetancol: false
 genetikaiKodjanakListaja: null
-agensekListaja: null
+agenseinekListaja: null
 resourceErtek: 0 0
 equipmentek: null

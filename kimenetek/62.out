@@ -5,7 +5,7 @@ paralyzed: 5
 invulnerabled: 0
 medvetancol: false
 genetikaiKodjanakListaja: null
-agensekListaja: null
+agenseinekListaja: null
 resourceErtek: 0 0
 equipmentek: null
 nev: v2
@@ -15,6 +15,6 @@ paralyzed: 0
 invulnerabled: 0
 medvetancol: false
 genetikaiKodjanakListaja: null
-agensekListaja: null
+agenseinekListaja: null
 resourceErtek: 50 50
 equipmentek: bag 50

@@ -118,6 +118,5 @@ public class  Field {
     public void printStat(HashMap<String, Virologist> hashMap, ArrayList<Field> allFields) {
         System.out.println("tipus: field");
         printStandard(hashMap,allFields);
-        //System.out.println();
     }
 }
