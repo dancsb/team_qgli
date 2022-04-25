@@ -5,6 +5,7 @@ import main.map.Field;
 import main.items.collectibles.*;
 import main.items.agents.*;
 
+import javax.sound.midi.SysexMessage;
 import java.util.ArrayList;
 
 
@@ -121,7 +122,8 @@ public class Virologist implements Steppable {
         //lekerdezi az ugyanazon a mezon levo virologusokat, azok kozul lophat eroforrasokat
         ArrayList<Virologist>virologists= field.getVirologists();
         for (Virologist viro:virologists) {
-            if(viro==v){
+            if(viro==v && this.resources.size() < resources.get(0).getMaxCapacity()){
+                if(v.getAttributes().get(0).getTimeInvu() > 0) return;
                 //a kivalasztott virologustol ellopja a megadott eroforrasokat
                 //target virologustol valo elvetel
                 v.loseResources(r);
@@ -140,12 +142,14 @@ public class Virologist implements Steppable {
         //lekerdezi az ugyanazon a mezon levo virologusokat, azok kozul lophat felszerelest
         ArrayList<Virologist> av = field.getVirologists();
         for (Virologist viro:av)
-            if(viro == v) {
+            if(viro == v && this.equipments.size() < 3) {
+                if(v.getAttributes().get(0).getTimeInvu() > 0) return;
                 //a kivalasztott virologustol ellopja a megadott felszerelest
                 //target virologustol valo elvetel
                 v.loseEquipment(e);
                 //sajat inventoryba felveszi a lopott felszerelest
                 this.pickUpEquipment(e);
+                return;
             }
     }
 
@@ -159,8 +163,16 @@ public class Virologist implements Steppable {
         ArrayList<Virologist> av = field.getVirologists();
         for (Virologist viro:av)
             if(viro == target) {
+                if(target.getAttributes().get(0).getTimeInvu() > 0) return;
+                if(target.parry == true) {
+                    a.useOn(this);
+                   //TODO: megvaltoztatni a kesztyu durabilityt
+
+                    return;
+                }
                 //a kivalasztott virologuson az agens hasznalata
                 a.useOn(target);
+                this.agents.remove(a);
             }
     }
 
@@ -208,7 +220,7 @@ public class Virologist implements Steppable {
      */
     public void loseEquipment(Equipment e){
         //meghivja az adott felszereles remove fuggvenyet, mely a  felszereles hatasast is elveszi
-        e.remove(this);
+        this.equipments.remove(e);
     }
 
     /**

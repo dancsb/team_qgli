@@ -1,20 +1,20 @@
 nev: v1
 sajatField: 0
-vitustancol:0
+vitustancol: 0
 paralyzed: 10
 invulnerabled: 0
 medvetancol: false
-genetikaiKodjanakListaja: null
+genetikaiKodokListaja: null
 agenseinekListaja: null
 resourceErtek: 0 0
-equipmentek: gloves 3
+equipmentek: null
 nev: v2
 sajatField: 0
 vitustancol: 0
 paralyzed: 0
 invulnerabled: 0
 medvetancol: false
-genetikaiKodjanakListaja: null
+genetikaiKodokListaja: null
 agenseinekListaja: null
 resourceErtek: 0 0
-equipmentek: null
+equipmentek: gloves 3

@@ -4,8 +4,8 @@ vitustancol: 0
 paralyzed: 0
 invulnerabled: 0
 medvetancol: false
-genetikaiKodjanakListaja: null
-agenseinekListaja: paralyzer
+genetikaiKodokListaja: null
+agenseinekListaja: paralyzer 10
 resourceErtek: 0 0
 equipmentek: null
 nev: v2
@@ -14,7 +14,7 @@ vitustancol: 0
 paralyzed: 0
 invulnerabled: 0
 medvetancol: false
-genetikaiKodjanakListaja: null
+genetikaiKodokListaja: null
 agenseinekListaja: null
 resourceErtek: 30 30
-equipmentek: cape 3
+equipmentek: cape 3.0

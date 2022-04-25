@@ -26,7 +26,7 @@ public class Nucleotide extends Resource {
     @Override
     public void collect(Virologist v) {
         //Lekérem a resourcest és ami nucleotid ott átállítom annyival amit az r ad
-        if(v.getResources().get(0).getAmount() + amount <= v.getResources().get(0).maxCapacity)
+        if(v.getResources().get(1).getAmount() + amount <= v.getResources().get(1).maxCapacity)
             v.getResources().forEach(r->r.changeAmountNucleotide(amount));
     }
     public void printStat(){

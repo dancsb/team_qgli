@@ -6,8 +6,9 @@ invulnerabled: 0
 medvetancol: true
 genetikaiKodokListaja: null
 agenseinekListaja: null
-resourceErtek: 0 0
+resourceErtek: 30 30
 equipmentek: null
 tipus: storage
 szomszedok: 0
-virologusokNevei: v1
+virologusokNevei: v1 
+resources: 30 30

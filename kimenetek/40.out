@@ -10,7 +10,7 @@ resourceErtek: 0 0
 equipmentek: null
 nev: v2
 sajatField: 0
-vitustancol: 5
+vitustancol: 10
 paralyzed: 0
 invulnerabled: 0
 medvetancol: false

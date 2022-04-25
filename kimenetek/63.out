@@ -4,17 +4,17 @@ vitustancol: 0
 paralyzed: 10
 invulnerabled: 0
 medvetancol: false
-genetikaiKodjanakListaja: null
+genetikaiKodokListaja: null
 agenseinekListaja: null
 resourceErtek: 0 0
-equipmentek: cape 80.0
+equipmentek: null
 nev: v2
 sajatField: 0
 vitustancol: 0
 paralyzed: 0
 invulnerabled: 0
 medvetancol: false
-genetikaiKodjanakListaja: null
+genetikaiKodokListaja: null
 agenseinekListaja: null
 resourceErtek: 0 0
-equipmentek: null
+equipmentek: cape 80.0

@@ -3,6 +3,7 @@ virologist v1 0
 virologist v2 0
 gloves v1 3
 resource v2 100 100 100
+genCode vitusdance v2
 craftAgent v2 vitusdance
 useAgent v2 v1 0
 stat v v1

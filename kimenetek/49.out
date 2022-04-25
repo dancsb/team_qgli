@@ -11,7 +11,7 @@ equipmentek: axe false
 nev: v2
 sajatField: 0
 vitustancol: 0
-paralyzed: 5
+paralyzed: 10
 invulnerabled: 0
 medvetancol: false
 genetikaiKodokListaja: null

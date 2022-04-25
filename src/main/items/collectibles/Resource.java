@@ -34,6 +34,10 @@ public abstract class Resource implements Collectible{
         return amount;
     }
 
+    public long getMaxCapacity() {
+        return maxCapacity;
+    }
+
     /**
      * Megvaltoztatja egy virologus atal tarolt aminosavak mennyiseget
      * Ha felvesz akkor noveli , ha kraftol vagy lopnak tole, akkor csokkenti

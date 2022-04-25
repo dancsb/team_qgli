@@ -22,7 +22,7 @@ public class Paralyzer extends Agent {
      * @param v a virologus akire megy az effekt
      */
     public void useOn(Virologist v) {
-        v.getAttributes().forEach(a->a.setTimePara(effectTime));
+        v.getAttributes().forEach(a->a.setTimePara(expireTime));
     }
     @Override
     public void printStat(){

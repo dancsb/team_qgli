@@ -1,8 +1,8 @@
 field 1
 virologist v1 0
 virologist v2 0
-agent v1 paralyzer
 agent v2 invulnerable
+agent v1 paralyzer
 bag v2 50
 useAgent v2 v2 0
 useAgent v1 v2 0

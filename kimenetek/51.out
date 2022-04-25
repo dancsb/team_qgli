@@ -7,11 +7,11 @@ medvetancol: false
 genetikaiKodokListaja: null
 agenseinekListaja: null
 resourceErtek: 0 0
-equipmentek: cape 50
+equipmentek: cape 50.0
 nev: v2
 sajatField: 0
 vitustancol: 0
-paralyzed: 5
+paralyzed: 10
 invulnerabled: 0
 medvetancol: false
 genetikaiKodokListaja: null

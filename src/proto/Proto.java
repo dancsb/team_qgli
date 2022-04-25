@@ -94,8 +94,8 @@ public class Proto {
                 break;
 
             case "genCode":
-                switch (cmd[2]) {
-                    case "amnesia", "invulnerable", "paralyzer", "vitusdance" -> virologists.get(cmd[1]).addGeneticCode(new GeneticCode(cmd[2]));
+                switch (cmd[1]) {
+                    case "amnesia", "invulnerable", "paralyzer", "vitusdance" -> virologists.get(cmd[2]).addGeneticCode(new GeneticCode(cmd[1]));
                 }
                 break;
 
