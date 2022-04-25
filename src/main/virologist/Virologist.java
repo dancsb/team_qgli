@@ -23,7 +23,7 @@ public class Virologist implements Steppable {
     /**
      * Megmondja medvevirusos-e a virologus
      */
-    private boolean bearDance;
+    private boolean bearDance=false;
 
     /**
      * A varazslo ezen a mezon tartozkodik
@@ -86,9 +86,9 @@ public class Virologist implements Steppable {
             ArrayList<Virologist> virologists = f.getVirologists();
             if (bearDance){
                 for (Virologist v:virologists) {
-                    ArrayList<Equipment> equips = v.getEquipments();
-                    for (Equipment e : equips) {
+                    for (Equipment e : v.getEquipments()) {
                         if (!e.getUsed()){
+                            e.setUsed(true);
                             die();
                             return;
                         }
@@ -98,8 +98,21 @@ public class Virologist implements Steppable {
                 }
             }
             else{
+                Virologist deadBear=null;
                 for (Virologist v:virologists) {
-                    this.setBearDance(v.isBearDance());
+                    if(v.isBearDance()){
+                        for(Equipment e:equipments) {
+                            if(!e.getUsed()) {
+                                e.setUsed(true);
+                                deadBear=v;
+                            }
+                        }
+                    }
+                    //Ennek a sornak szerintem 0 értelme van, nem tudom, hogy került ide.
+                    //this.setBearDance(v.isBearDance());
+                }
+                if(deadBear!=null){
+                    deadBear.die();
                 }
             }
         }
@@ -143,13 +156,14 @@ public class Virologist implements Steppable {
         ArrayList<Virologist> av = field.getVirologists();
         for (Virologist viro:av)
             if(viro == v && this.equipments.size() < 3) {
-                if(v.getAttributes().get(0).getTimeInvu() > 0) return;
-                //a kivalasztott virologustol ellopja a megadott felszerelest
-                //target virologustol valo elvetel
-                v.loseEquipment(e);
-                //sajat inventoryba felveszi a lopott felszerelest
-                this.pickUpEquipment(e);
-                return;
+                for(Attribute atr:viro.getAttributes()){
+                    if(atr.getTimePara()>0){
+                        v.loseEquipment(e);
+                        //sajat inventoryba felveszi a lopott felszerelest
+                        this.pickUpEquipment(e);
+                        return;
+                    }
+                }
             }
     }
 
@@ -161,13 +175,35 @@ public class Virologist implements Steppable {
      public void useAgent(Virologist target, Agent a){
         //lekerdezi az ugyanazon a mezon levo virologusokat, azokra tamadhat
         ArrayList<Virologist> av = field.getVirologists();
+        if(target==this){
+            a.useOn(this);
+            this.agents.remove(a);
+            return;
+        }
         for (Virologist viro:av)
             if(viro == target) {
-                if(target.getAttributes().get(0).getTimeInvu() > 0) return;
-                if(target.parry == true) {
+                for(Attribute atr:viro.getAttributes()){
+                    if(atr.getTimeInvu()>0){
+                        this.agents.remove(a);
+                        return;
+                    }
+                }
+                if(viro.parry) {
                     a.useOn(this);
+                    this.agents.remove(a);
+                    boolean removeTheGloves=false;
+                    Equipment gl=null;
+                    for(Equipment e:viro.getEquipments()){
+                        if(e.getDurability()==1){
+                            removeTheGloves=true;
+                            gl=e;
+                        }
+                        else{
+                            e.setDurability(e.getDurability()-1);
+                        }
+                    }
+                    if(removeTheGloves)viro.getEquipments().remove(gl);
                    //TODO: megvaltoztatni a kesztyu durabilityt
-
                     return;
                 }
                 //a kivalasztott virologuson az agens hasznalata
@@ -343,8 +379,9 @@ public class Virologist implements Steppable {
      * A virologus meghal(lekerul a mezorol es nullra allitodik a helye)
      */
     public void die(){
-        field.remove(this);
-        field =null;
+        //field.remove(this);
+        ///field =null;
+        this.field.getVirologists().remove(this);
         bearDance=false;
     }
 

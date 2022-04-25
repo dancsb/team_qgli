@@ -2,8 +2,8 @@ field 1
 virologist v1 0
 virologist v2 0
 agent v1 paralyzer
-gloves v2 3
 useAgent v1 v2 0
+gloves v2 3
 stealEquipment v1 v2 0
 stat v v1
 stat v v2

@@ -42,6 +42,20 @@ public class Proto {
             commandAnalyzer(sc.nextLine().split(" "));
         }
     }
+    public void tesztelekHaha(){
+        int i=1;
+        while(i!=68){
+            try {
+                System.out.println(i+". teszt");
+                String[]s={"runtest",i+".in"};
+                commandAnalyzer(s);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            i++;
+        }
+
+    }
     private void commandAnalyzer(String []cmd) throws IOException {
         switch (cmd[0]) {
             case "field":
@@ -208,7 +222,6 @@ public class Proto {
         BufferedReader reader2 = new BufferedReader(new FileReader(String.valueOf(tempFile)));
         String line1 = reader1.readLine();
         String line2 = reader2.readLine();
-
         while (line1 != null || line2 != null)
         {
             if(line1 == null || line2 == null)
@@ -219,6 +232,8 @@ public class Proto {
             }
             else if(!line1.equals(line2))
             {
+                System.out.println("az elvárt output sora: "+line1);
+                System.out.println("a temp: "+line2);
                 reader1.close();
                 reader2.close();
                 return false;
