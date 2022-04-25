@@ -1,5 +1,7 @@
 package main.map;
 
+import main.items.collectibles.Equipment;
+import main.items.collectibles.Resource;
 import main.virologist.Virologist;
 
 import java.util.ArrayList;
@@ -50,6 +52,14 @@ public class  Field {
      */
     public ArrayList<Virologist> getVirologists() {
         return virologists;
+    }
+
+    public Equipment getEquipment() {
+        return null;
+    }
+
+    public ArrayList<Resource> getResources() {
+        return null;
     }
 
     /**

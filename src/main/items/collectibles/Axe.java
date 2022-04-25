@@ -7,7 +7,7 @@ public class Axe extends Equipment{
 
     @Override
     public void action(Virologist v) {
-
+        v.pickUpEquipment(this);
     }
 
     @Override

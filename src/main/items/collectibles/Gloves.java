@@ -15,6 +15,7 @@ public class Gloves extends Equipment{
     @Override
     public void action(Virologist v) {
         v.setParry(true);
+        v.pickUpEquipment(this);
     }
     /**
      * A kesztyu elvesztesekor "elveszi" a kesztyu altal nyujtott "visszakenes" kepesseget a virologustol

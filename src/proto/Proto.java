@@ -141,6 +141,7 @@ public class Proto {
 
             case "move":
                 virologists.get(cmd[1]).move(map.getFields().get(Integer.parseInt(cmd[2])));
+                
                 break;
 
             case "stealEquipment":

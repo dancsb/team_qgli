@@ -45,6 +45,11 @@ public class Storage extends Field {
         return false;
     }
 
+    @Override
+    public ArrayList<Resource> getResources() {
+        return this.res;
+    }
+
     /**
      * A raktarban levo nyersanyagokat pusztitja el
      */

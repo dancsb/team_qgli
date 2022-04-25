@@ -42,6 +42,11 @@ public class Shelter extends Field {
         return false;
     }
 
+    @Override
+    public Equipment getEquipment() {
+        return this.eq;
+    }
+
     /**
      * A shelter adatait kiiro fuggveny
      */
