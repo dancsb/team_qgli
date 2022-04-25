@@ -9,12 +9,18 @@ public class Invulnerabled extends Attribute {
      */
     private double defPerc;
 
+    @Override
+    public double getDefPerc() {
+        return defPerc;
+    }
+
     /**
      * Beallitja a sebezhetetlenseg hatasanak idjet
      * @param x az ido
      */
     @Override
     public void setTimeInvu(long x) {
+        time = x;
     }
 
     /**

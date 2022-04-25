@@ -12,6 +12,10 @@ public class Attribute implements Steppable{
      */
     protected long time;
 
+    public double getDefPerc() {
+        return 0;
+    }
+
     /**
      * Egy virologus paralelizalt allapotanak idejenek a beallitasa
      * @param x az ido

@@ -27,7 +27,7 @@ public class Virologist implements Steppable {
     /**
      * A varazslo ezen a mezon tartozkodik
      */
-    private Field f;
+    private Field field;
 
     /**
      * A birokaban levo agensek listaja
@@ -68,7 +68,7 @@ public class Virologist implements Steppable {
         attributes.add(new Invulnerabled());
         geneticCodes=new ArrayList<>();
        // geneticCodes.add(new GeneticCode("test"));
-        f=new Field();
+        field =new Field();
     }
 
     /**
@@ -77,28 +77,28 @@ public class Virologist implements Steppable {
      */
     public void move(Field f){
         //lekeri a szomszedos mezoket
-        ArrayList<Field> neighbours = this.f.getNeighbours();
+        ArrayList<Field> neighbours = this.field.getNeighbours();
         if(neighbours.contains(f)){
             //atlepes egy masik mezore es torles az elozo mezorol
-            this.f.remove(this);
+            this.field.remove(this);
             f.accept(this);
             ArrayList<Virologist> virologists = f.getVirologists();
             if (bearDance){
-                for (Virologist v:
-                     virologists) {
+                for (Virologist v:virologists) {
                     ArrayList<Equipment> equips = v.getEquipments();
-                    for (Equipment e:
-                         equips) {
+                    for (Equipment e : equips) {
                         if (!e.getUsed()){
                             die();
+                            return;
                         }
+
                     }
-                    v.setBearDance(bearDance);
+                    v.setBearDance(true);
                 }
-            }else{
-                for (Virologist v:
-                     virologists) {
-                    setBearDance(v.isBearDance());
+            }
+            else{
+                for (Virologist v:virologists) {
+                    this.setBearDance(v.isBearDance());
                 }
             }
         }
@@ -119,7 +119,7 @@ public class Virologist implements Steppable {
      */
     public void stealResources(Virologist v, Resource r){
         //lekerdezi az ugyanazon a mezon levo virologusokat, azok kozul lophat eroforrasokat
-        ArrayList<Virologist>virologists=f.getVirologists();
+        ArrayList<Virologist>virologists= field.getVirologists();
         for (Virologist viro:virologists) {
             if(viro==v){
                 //a kivalasztott virologustol ellopja a megadott eroforrasokat
@@ -138,7 +138,7 @@ public class Virologist implements Steppable {
      */
     public void stealEquipment(Virologist v,Equipment e){
         //lekerdezi az ugyanazon a mezon levo virologusokat, azok kozul lophat felszerelest
-        ArrayList<Virologist> av = f.getVirologists();
+        ArrayList<Virologist> av = field.getVirologists();
         for (Virologist viro:av)
             if(viro == v) {
                 //a kivalasztott virologustol ellopja a megadott felszerelest
@@ -156,7 +156,7 @@ public class Virologist implements Steppable {
      */
      public void useAgent(Virologist target, Agent a){
         //lekerdezi az ugyanazon a mezon levo virologusokat, azokra tamadhat
-        ArrayList<Virologist> av = f.getVirologists();
+        ArrayList<Virologist> av = field.getVirologists();
         for (Virologist viro:av)
             if(viro == target) {
                 //a kivalasztott virologuson az agens hasznalata
@@ -188,6 +188,7 @@ public class Virologist implements Steppable {
         //meghivja az adott felszereles collect fuggvenyet
         if (equipments.size()<3) {
             equipments.add(e);
+            e.action(this);
         }
     }
 
@@ -270,7 +271,7 @@ public class Virologist implements Steppable {
      * @return visszater a mezokkel
      */
     public Field getField() {
-        return f;
+        return field;
     }
 
     /**
@@ -294,7 +295,7 @@ public class Virologist implements Steppable {
      * @param f erre a mezore allitja be a helyet
      */
     public void setField(Field f) {
-        this.f = f;
+        this.field = f;
     }
 
     /**
@@ -318,17 +319,20 @@ public class Virologist implements Steppable {
      * @param bearDance erre allitja be az erteket
      */
     public void setBearDance(boolean bearDance) {
-        if(!bearDance) {
+        boolean vedve = false;
+        for (Attribute atr:this.getAttributes())
+            if(atr.getDefPerc() == 100)
+                vedve = true;
+        if(!vedve)
             this.bearDance = bearDance;
-        }
     }
 
     /**
      * A virologus meghal(lekerul a mezorol es nullra allitodik a helye)
      */
     public void die(){
-        f.remove(this);
-        f=null;
+        field.remove(this);
+        field =null;
         bearDance=false;
     }
 

@@ -48,7 +48,8 @@ public class Lab extends Field {
          if (super.accept(v)){
              //genetikai kod megtanulasa
              gc.collect(v);
-             v.setBearDance(bearRegion);
+             if(bearRegion)
+                v.setBearDance(true);
              return true;
          }
          return false;

@@ -36,7 +36,7 @@ public class Shelter extends Field {
     public boolean accept(Virologist v) {
         if (super.accept(v)){
             //felszereles begyujtese
-            eq.collect(v);
+            v.pickUpEquipment(eq);
             return true;
         }
         return false;

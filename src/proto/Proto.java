@@ -79,6 +79,7 @@ public class Proto {
             case "virologist":
                 Virologist viro=new Virologist();
                 viro.setField(map.getFields().get(Integer.parseInt(cmd[2])));
+                viro.getField().accept(viro);
                 map.getFields().get(Integer.parseInt(cmd[2])).getVirologists().add(viro);
                 virologists.put(cmd[1],viro);
                 break;
@@ -99,24 +100,24 @@ public class Proto {
                 break;
 
             case "axe":
-                virologists.get(cmd[1]).getEquipments().add(new Axe());
+                virologists.get(cmd[1]).pickUpEquipment(new Axe());
                 virologists.get(cmd[1]).getEquipments().forEach(a->a.setUsed(Boolean.parseBoolean(cmd[2])));
                 break;
 
             case "cape":
-                virologists.get(cmd[1]).getEquipments().add(new Cape(Double.parseDouble(cmd[2])));
+                virologists.get(cmd[1]).pickUpEquipment(new Cape(Double.parseDouble(cmd[2])));
                 break;
 
             case "bag":
-                virologists.get(cmd[1]).getEquipments().add(new Bag(Integer.parseInt(cmd[2])));
+                virologists.get(cmd[1]).pickUpEquipment(new Bag(Integer.parseInt(cmd[2])));
                 break;
 
             case "gloves":
-                virologists.get(cmd[1]).getEquipments().add(new Gloves());
+                virologists.get(cmd[1]).pickUpEquipment(new Gloves());
                 virologists.get(cmd[1]).getEquipments().forEach(a->a.setDurability(Integer.parseInt(cmd[2])));
                 break;
 
-            case "beardance":
+            case "bearDance":
                 virologists.get(cmd[1]).setBearDance(true);
                 break;
 
@@ -126,7 +127,7 @@ public class Proto {
 
             case "invulnerable":
                 virologists.get(cmd[1]).getAttributes().forEach(a->a.setTimeInvu(Integer.parseInt(cmd[2])));
-                virologists.get(cmd[1]).getAttributes().forEach(a->a.changeDefPerc(Double.parseDouble(cmd[2])));
+                virologists.get(cmd[1]).getAttributes().forEach(a->a.changeDefPerc(100));
                 break;
 
             case "dancing":

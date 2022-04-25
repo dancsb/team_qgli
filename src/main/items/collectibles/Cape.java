@@ -26,7 +26,6 @@ public class Cape extends Equipment{
     @Override
     public void action(Virologist v) {
         //Lekérem a virológus attribútumait végigmegyek rajtuk és átállítom a def %-ot
-        v.pickUpEquipment(this);
         v.getAttributes().forEach(a->a.changeDefPerc(defPerc));
     }
 
