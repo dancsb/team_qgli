@@ -73,10 +73,10 @@ public class Proto {
             case "shelter":
                 for (int i = 0; i < Integer.parseInt(cmd[1]); i++) {
                     switch (cmd[2]) {
-                        case "axe" -> map.addField(new Shelter(new Axe()));
-                        case "gloves" -> map.addField(new Shelter(new Gloves()));
-                        case "cape" -> map.addField(new Shelter(new Cape(82.3)));
-                        case "bag" -> map.addField(new Shelter(new Bag(50)));
+                        case "axe" : map.addField(new Shelter(new Axe())); break;
+                        case "gloves" : map.addField(new Shelter(new Gloves())); break;
+                        case "cape" : map.addField(new Shelter(new Cape(82.3))); break;
+                        case "bag" : map.addField(new Shelter(new Bag(50))); break;
                     }
                 }
                 break;
@@ -99,16 +99,16 @@ public class Proto {
 
             case "agent":
                 switch (cmd[2]) {
-                    case "amnesia" -> virologists.get(cmd[1]).getAgents().add(new Amnesia(virologists.get(cmd[1]), 50, 50, "amnesia"));
-                    case "invulnerable" -> virologists.get(cmd[1]).getAgents().add(new Invulnerable(virologists.get(cmd[1]), 50, 50, "invulnerable"));
-                    case "paralyzer" -> virologists.get(cmd[1]).getAgents().add(new Paralyzer(virologists.get(cmd[1]), 50, 50, "paralyzer"));
-                    case "vitusdance" -> virologists.get(cmd[1]).getAgents().add(new Vitusdance(virologists.get(cmd[1]), 50, 50, "vitusdance"));
+                    case "amnesia" : virologists.get(cmd[1]).getAgents().add(new Amnesia(virologists.get(cmd[1]), 50, 50, "amnesia")); break;
+                    case "invulnerable" : virologists.get(cmd[1]).getAgents().add(new Invulnerable(virologists.get(cmd[1]), 50, 50, "invulnerable")); break;
+                    case "paralyzer" : virologists.get(cmd[1]).getAgents().add(new Paralyzer(virologists.get(cmd[1]), 50, 50, "paralyzer")); break;
+                    case "vitusdance" : virologists.get(cmd[1]).getAgents().add(new Vitusdance(virologists.get(cmd[1]), 50, 50, "vitusdance")); break;
                 }
                 break;
 
             case "genCode":
                 switch (cmd[1]) {
-                    case "amnesia", "invulnerable", "paralyzer", "vitusdance" -> virologists.get(cmd[2]).addGeneticCode(new GeneticCode(cmd[1]));
+                    case "amnesia", "invulnerable", "paralyzer", "vitusdance" : virologists.get(cmd[2]).addGeneticCode(new GeneticCode(cmd[1])); break;
                 }
                 break;
 
@@ -173,10 +173,10 @@ public class Proto {
 
             case "craftAgent":
                 switch (cmd[2]) {
-                    case "amnesia" -> virologists.get(cmd[1]).craftAgent((new Amnesia(virologists.get(cmd[1]), 100, 100, "amnesia")));
-                    case "invulnerable" -> virologists.get(cmd[1]).craftAgent(new Invulnerable(virologists.get(cmd[1]), 100, 100, "invulnerable"));
-                    case "paralyzer" -> virologists.get(cmd[1]).craftAgent(new Paralyzer(virologists.get(cmd[1]), 100, 100, "paralyzer"));
-                    case "vitusdance" -> virologists.get(cmd[1]).craftAgent(new Vitusdance(virologists.get(cmd[1]), 100, 100, "vitusdance"));
+                    case "amnesia" : virologists.get(cmd[1]).craftAgent((new Amnesia(virologists.get(cmd[1]), 100, 100, "amnesia"))); break;
+                    case "invulnerable" : virologists.get(cmd[1]).craftAgent(new Invulnerable(virologists.get(cmd[1]), 100, 100, "invulnerable")); break;
+                    case "paralyzer" : virologists.get(cmd[1]).craftAgent(new Paralyzer(virologists.get(cmd[1]), 100, 100, "paralyzer")); break;
+                    case "vitusdance" : virologists.get(cmd[1]).craftAgent(new Vitusdance(virologists.get(cmd[1]), 100, 100, "vitusdance")); break;
                 }
                 break;
 
@@ -195,8 +195,8 @@ public class Proto {
 
             case "stat":
                 switch (cmd[1]) {
-                    case "v" -> virologists.get(cmd[2]).printStat(cmd[2],map.getFields().indexOf(virologists.get(cmd[2]).getField()));
-                    case "f" -> map.getFields().get(Integer.parseInt(cmd[2])).printStat(virologists,map.getFields());
+                    case "v" : virologists.get(cmd[2]).printStat(cmd[2],map.getFields().indexOf(virologists.get(cmd[2]).getField())); break;
+                    case "f" : map.getFields().get(Integer.parseInt(cmd[2])).printStat(virologists,map.getFields()); break;
                 }
                 break;
             case "runtest":
