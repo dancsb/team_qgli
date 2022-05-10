@@ -1,5 +1,7 @@
 package main.virologist;
 
+import View.IView;
+import View.View;
 import main.*;
 import main.map.Field;
 import main.items.collectibles.*;
@@ -11,7 +13,7 @@ import java.util.ArrayList;
 /**
  * Egy virologust reprezentalo osztaly
  */
-public class Virologist implements Steppable {
+public class Virologist implements Steppable, IView {
 
 
     /**
@@ -422,5 +424,9 @@ public class Virologist implements Steppable {
                 else
                     System.out.println();
             }
+    }
+    @Override
+    public void mustDraw(View v) {
+
     }
 }

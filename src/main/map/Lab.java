@@ -1,5 +1,6 @@
 package main.map;
 
+import View.View;
 import main.items.collectibles.*;
 import main.virologist.*;
 
@@ -72,5 +73,10 @@ public class Lab extends Field {
         printStandard(hashMap, allFields);
         System.out.println("bearRegion: " + bearRegion);
         System.out.println("geneticCode: " + gc.getName());
+    }
+
+    @Override
+    public void mustDraw(View v) {
+
     }
 }

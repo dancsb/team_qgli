@@ -3,6 +3,7 @@ package main.map;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import View.View;
 import main.items.collectibles.*;
 import main.virologist.*;
 
@@ -69,5 +70,9 @@ public class Storage extends Field {
         System.out.println("tipus: storage");
         printStandard(hashMap, allFields);
         System.out.println("resources: " + res.get(0).getAmount() + " " + res.get(1).getAmount());
+    }
+    @Override
+    public void mustDraw(View v) {
+
     }
 }

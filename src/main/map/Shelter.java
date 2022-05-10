@@ -1,5 +1,6 @@
 package main.map;
 
+import View.View;
 import main.items.collectibles.*;
 import main.virologist.*;
 
@@ -58,5 +59,10 @@ public class Shelter extends Field {
         eq.printStat();
         System.out.println();
         System.out.println();
+    }
+
+    @Override
+    public void mustDraw(View v) {
+
     }
 }

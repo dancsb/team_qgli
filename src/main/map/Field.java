@@ -1,5 +1,7 @@
 package main.map;
 
+import View.IView;
+import View.View;
 import main.items.collectibles.Equipment;
 import main.items.collectibles.Resource;
 import main.virologist.Virologist;
@@ -10,7 +12,7 @@ import java.util.HashMap;
 /**
  * Egy mezot reprezental.
  */
-public class  Field {
+public class  Field implements IView {
 
     /**
      * A szomszedos mezoket tarolo lista
@@ -118,5 +120,10 @@ public class  Field {
     public void printStat(HashMap<String, Virologist> hashMap, ArrayList<Field> allFields) {
         System.out.println("tipus: field");
         printStandard(hashMap,allFields);
+    }
+
+    @Override
+    public void mustDraw(View v) {
+
     }
 }
