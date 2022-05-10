@@ -108,7 +108,7 @@ public class Proto {
 
             case "genCode":
                 switch (cmd[1]) {
-                    case "amnesia", "invulnerable", "paralyzer", "vitusdance" : virologists.get(cmd[2]).addGeneticCode(new GeneticCode(cmd[1])); break;
+                    case "amnesia": case "invulnerable": case "paralyzer": case "vitusdance": virologists.get(cmd[2]).addGeneticCode(new GeneticCode(cmd[1])); break;
                 }
                 break;
 
@@ -155,7 +155,6 @@ public class Proto {
 
             case "move":
                 virologists.get(cmd[1]).move(map.getFields().get(Integer.parseInt(cmd[2])));
-
                 break;
 
             case "stealEquipment":
