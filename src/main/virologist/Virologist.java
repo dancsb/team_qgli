@@ -217,6 +217,17 @@ public class Virologist implements Steppable, IView {
      * A leptetes
      */
     public void step(){
+        //minden Steppable leptetese
+        for (Attribute a:
+             attributes) {
+            a.step();
+        }
+        for (Agent a:
+             agents) {
+            a.step();
+        }
+
+        //eldöntjük.hogy tancol-e
         boolean vitus = false;
         for (Attribute a:
              attributes) {
@@ -225,6 +236,7 @@ public class Virologist implements Steppable, IView {
                 break;
             }
         }
+
         //ha random kell lepnie
         if (bearDance || vitus){
             Random rnd = new Random();
