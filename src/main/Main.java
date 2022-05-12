@@ -1,6 +1,7 @@
 package main;
 
-import View.View;
+import View.*;
+import main.map.Map;
 import proto.Proto;
 
 import java.io.IOException;
@@ -12,6 +13,7 @@ public class Main {
      * Main fuggveny itt kerulnek a tesztek meghivasra
      */
     public static void main(String[] args){
-
+        View v = new View();
+        new Controller(v, new Game(new Map(v.getMapView().getPolygons())));
     }
 }

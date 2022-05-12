@@ -9,6 +9,7 @@ import main.virologist.Virologist;
 
 import java.io.*;
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -20,7 +21,7 @@ public class Proto {
     /**
      * A palya
      */
-    private Map map=new Map();
+    private Map map=new Map(new ArrayList<>());
 
 //
     /**

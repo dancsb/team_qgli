@@ -3,6 +3,8 @@ package main;
 import main.map.Map;
 import skeleton.SkeletonWriter;
 
+import java.util.ArrayList;
+
 /**
  * A Game osztaly idnitja el a jatekot.
  */
@@ -12,13 +14,17 @@ public class Game {
      */
     private Map map;
 
+    public Game(Map m) {
+        map = m;
+    }
+
     /**
      * A jatek inditasa
      */
     public void startGame(){
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
         SkeletonWriter.println("Game.startGame()");
-        map = new Map();
+        //map = new Map();
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
 

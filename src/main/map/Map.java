@@ -1,5 +1,6 @@
 package main.map;
 
+import java.awt.*;
 import java.util.ArrayList;
 
 
@@ -9,8 +10,24 @@ public class Map {
     private ArrayList<Field> fields;
 
     //konstruktor, melyben legeneraljuk a palyat
-    public Map() {
+    public Map(ArrayList<Polygon> polygons) {
         this.fields = new ArrayList<>();
+        for (int i = 0; i < polygons.size(); i++)
+            fields.add(new Field());
+
+        for (int i = 0; i < polygons.size() - 1; i++) {
+            for (int j = i + 1; j < polygons.size(); j++) {
+                for (int k = 0; k < polygons.get(i).npoints; k++) {
+                    for (int l = 0; l < polygons.get(j).npoints; l++) {
+                        if((polygons.get(i).xpoints[k % polygons.get(i).npoints] == polygons.get(j).xpoints[l % polygons.get(j).npoints] && polygons.get(i).ypoints[k % polygons.get(i).npoints] == polygons.get(j).ypoints[l % polygons.get(j).npoints] &&
+                            polygons.get(i).xpoints[(k + 1)  % polygons.get(i).npoints] == polygons.get(j).xpoints[(l + 1)  % polygons.get(j).npoints] && polygons.get(i).ypoints[(k + 1) % polygons.get(i).npoints] == polygons.get(j).ypoints[(l + 1) % polygons.get(j).npoints]) || (
+                            polygons.get(i).xpoints[k % polygons.get(i).npoints] == polygons.get(j).xpoints[(l + 1) % polygons.get(j).npoints] && polygons.get(i).ypoints[k % polygons.get(i).npoints] == polygons.get(j).ypoints[(l + 1) % polygons.get(j).npoints] &&
+                            polygons.get(i).xpoints[(k + 1) % polygons.get(i).npoints] == polygons.get(j).xpoints[l % polygons.get(j).npoints] && polygons.get(i).ypoints[(k + 1) % polygons.get(i).npoints] == polygons.get(j).ypoints[l % polygons.get(j).npoints]))
+                                fields.get(i).addNeighbour(fields.get(j));
+                    }
+                }
+            }
+        }
     }
 
     //visszater a palyan levo mezokkel
@@ -22,4 +39,5 @@ public class Map {
     public void addField(Field f){
         fields.add(f);
     }
+
 }
