@@ -8,6 +8,7 @@ import main.items.collectibles.*;
 import main.items.agents.*;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 
 /**
@@ -216,6 +217,25 @@ public class Virologist implements Steppable, IView {
      * A leptetes
      */
     public void step(){
+        boolean vitus = false;
+        for (Attribute a:
+             attributes) {
+            vitus = a.getTimeDance()>0;
+            if (vitus){
+                break;
+            }
+        }
+        //ha random kell lepnie
+        if (bearDance || vitus){
+            Random rnd = new Random();
+            ArrayList<Field> neighbours = field.getNeighbours();
+            int route = rnd.nextInt() % neighbours.size();  //random mezo sorsolasa
+            Field target = neighbours.get(route);
+            move(target);
+        //kulonben normalis lepes
+        }else{
+
+        }
     }
 
     /**
