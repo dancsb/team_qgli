@@ -3,13 +3,14 @@ package View;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class View extends JFrame {
     private MapView mapView = new MapView();
     private StartView startView=new StartView();
 
+
     public View() {
-        //this.setSize(new Dimension(600,600));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(new BorderLayout());
         this.add(startView, BorderLayout.CENTER);
@@ -29,8 +30,8 @@ public class View extends JFrame {
         return mapView;
     }
 
-    public void drawVirologist(){
-
+    public void drawVirologist(int whichViro,int fieldIdx){
+        mapView.addViroPos(whichViro,fieldIdx);
     }
     public void drawBear(){
 

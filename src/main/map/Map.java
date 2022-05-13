@@ -42,7 +42,7 @@ public class Map {
     public void generateVirologists(int n){
         for(int i=0;i<n;i++){
             int fieldIndex=new Random().nextInt(fields.size());
-            Virologist v=new Virologist(fields.get(fieldIndex));
+            Virologist v=new Virologist(fields.get(fieldIndex),i);
             fields.get(fieldIndex).getVirologists().add(v);
         }
     }

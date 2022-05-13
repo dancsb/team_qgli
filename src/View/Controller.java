@@ -1,11 +1,14 @@
 package View;
 
 import main.Game;
+import main.map.Field;
+import main.virologist.Virologist;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.HashMap;
 
 public class Controller {
     private View view;
@@ -20,8 +23,18 @@ public class Controller {
     public void startGame(int viros) {
         numberOfViros = viros;
         view.startGame();
-        game.getMap().getFields().forEach(f->f.mustDraw(view,game.getMap().getFields().indexOf(f)));
         game.getMap().generateVirologists(numberOfViros);
+        for (Field f: game.getMap().getFields()){
+            if(f.getVirologists().size()!=0){
+                System.out.println("ASD");
+            }
+        }
+        for (Field f:
+             game.getMap().getFields()) {
+            int idx = game.getMap().getFields().indexOf(f);
+            f.mustDraw(view,idx);
+        }
+        //game.getMap().getFields().forEach(f->{f.mustDraw(view,game.getMap().getFields().indexOf(f));});
         view.paintMap();
     }
 }

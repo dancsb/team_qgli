@@ -124,6 +124,13 @@ public class  Field implements IView {
 
     @Override
     public void mustDraw(View v,int idx) {
+        if(virologists.size()!=0)
+            System.out.println("eredeti" + virologists.size());
         v.drawField(idx);
+        if(virologists.size()!=0)
+            System.out.println(virologists.size());
+        for(Virologist viro:virologists){
+            viro.mustDraw(v,idx);
+        }
     }
 }

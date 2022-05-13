@@ -14,7 +14,7 @@ import java.util.Random;
 /**
  * Egy virologust reprezentalo osztaly
  */
-public class Virologist implements Steppable, IView {
+public class Virologist implements Steppable {
 
 
     /**
@@ -55,11 +55,12 @@ public class Virologist implements Steppable, IView {
      * A birokaban levo felszerelesek listaja
      */
     private ArrayList<Equipment>equipments;
+    private int viroID;
 
     /**
      * A virologus konstruktora, letrehoztuk tesztelesi szempontok miatt
      */
-    public Virologist(Field f) {
+    public Virologist(Field f,int viroID) {
         resources = new ArrayList<>(2);
         attributes = new ArrayList<>();
         agents=new ArrayList<>();
@@ -71,6 +72,7 @@ public class Virologist implements Steppable, IView {
         attributes.add(new Invulnerabled());
         geneticCodes=new ArrayList<>();
         field =f;
+        this.viroID=viroID;
     }
 
     /**
@@ -456,8 +458,7 @@ public class Virologist implements Steppable, IView {
                     System.out.println();
             }
     }
-    @Override
-    public void mustDraw(View v,int idx) {
-
+    public void mustDraw(View v,int fieldIdx) {
+        v.drawVirologist(viroID,fieldIdx);
     }
 }
