@@ -6,6 +6,7 @@ import main.virologist.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Random;
 
 /**
  * A shelter specialis mezot reprezentalja
@@ -22,11 +23,17 @@ public class Shelter extends Field {
      * Shelter kosntruktora, letrehozasa benne egy megszerezheto felszerelessel
      * @param eq az a felszereles amely a shleterben talalhato meg
      */
+    private static ArrayList<Equipment>allEquipments=new ArrayList<>(){{add(new Axe());
+                                                                        add(new Cape(82.3));
+                                                                        add(new Bag(50));
+                                                                        add(new Gloves());}};
 
     public Shelter(Equipment eq) {
         this.eq = eq;
     }
-
+    public Shelter(){
+        this.eq=allEquipments.get(new Random().nextInt(4));
+    }
     /**
      * Ha egy virologus arra a mezore szeretne lepni, eldontheti, hogy lephet e oda vagy sem
      * Ha arra a mezore lep akkor elvegzi az eroforrasok begyujteset
@@ -62,7 +69,7 @@ public class Shelter extends Field {
     }
 
     @Override
-    public void mustDraw(View v) {
-
+    public void mustDraw(View v,int idx) {
+        v.drawShelter(idx);
     }
 }

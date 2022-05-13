@@ -5,7 +5,9 @@ import main.items.collectibles.*;
 import main.virologist.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Random;
 
 /**
  * A labor kulonleges mezot reprezentalja
@@ -22,6 +24,12 @@ public class Lab extends Field {
      */
     private boolean bearRegion;
 
+    private static ArrayList<GeneticCode>allGencodes=new ArrayList<>(){{add(new GeneticCode("paralyzer"));
+                                                                        add(new GeneticCode("invulnerable"));
+                                                                        add(new GeneticCode("vitusdance"));
+                                                                        add(new GeneticCode("amensia"));}};
+
+    private static int current=0;
     /**
      * Lab kosntruktora
      * @param gc megtanulhato genetikai kod
@@ -29,6 +37,12 @@ public class Lab extends Field {
     public Lab(boolean mv, GeneticCode gc) {
         this.gc = gc;
         this.bearRegion = mv;
+    }
+    public Lab(){
+        int r=new Random().nextInt(100);
+        this.bearRegion=r<25;
+        this.gc=allGencodes.get(current);
+        current=(current+1)%4;
     }
 
     /**
@@ -76,7 +90,7 @@ public class Lab extends Field {
     }
 
     @Override
-    public void mustDraw(View v) {
-
+    public void mustDraw(View v,int idx) {
+        v.drawLab(idx);
     }
 }

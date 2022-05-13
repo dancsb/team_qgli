@@ -36,4 +36,8 @@ public class Game {
         SkeletonWriter.println("Game.endGame()");
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
+
+    public Map getMap() {
+        return map;
+    }
 }

@@ -24,7 +24,11 @@ public class Storage extends Field {
         res.add(r1);
         res.add(r2);
     }
-
+    public Storage(){
+        res=new ArrayList<>();
+        res.add(new AminoAcid(100,100));
+        res.add(new Nucleotide(100,100));
+    }
     /**
      * Ha egy virologus arra a mezore szeretne lepni,ez a fuggveny eldontheti, hogy lephet e oda vagy sem
      * Illetve az adott mezon levo targyak begyujteset vegzi el
@@ -72,7 +76,7 @@ public class Storage extends Field {
         System.out.println("resources: " + res.get(0).getAmount() + " " + res.get(1).getAmount());
     }
     @Override
-    public void mustDraw(View v) {
-
+    public void mustDraw(View v,int idx) {
+        v.drawStorage(idx);
     }
 }

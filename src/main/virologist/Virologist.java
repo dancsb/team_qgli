@@ -458,7 +458,7 @@ public class Virologist implements Steppable, IView {
             }
     }
     @Override
-    public void mustDraw(View v) {
+    public void mustDraw(View v,int idx) {
 
     }
 }

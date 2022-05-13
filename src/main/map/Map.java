@@ -2,6 +2,7 @@ package main.map;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Random;
 
 
 public class Map {
@@ -12,8 +13,15 @@ public class Map {
     //konstruktor, melyben legeneraljuk a palyat
     public Map(ArrayList<Polygon> polygons) {
         this.fields = new ArrayList<>();
-        for (int i = 0; i < polygons.size(); i++)
-            fields.add(new Field());
+        for (int i = 0; i < polygons.size(); i++){
+            //70% Field, 10% Storage,Shelter,Lab
+            int r=new Random().nextInt(10);
+            if(r==0)fields.add(new Lab());
+            else if(r==1)fields.add(new Shelter());
+            else if(r==2)fields.add(new Storage());
+            else fields.add(new Field());
+            System.out.println(fields.get(i).toString());
+        }
 
         for (int i = 0; i < polygons.size() - 1; i++) {
             for (int j = i + 1; j < polygons.size(); j++) {

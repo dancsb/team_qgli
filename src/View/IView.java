@@ -1,5 +1,5 @@
 package View;
 
 public interface IView {
-    void mustDraw(View v);
+    void mustDraw(View v,int idx);
 }

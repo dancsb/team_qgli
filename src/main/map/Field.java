@@ -123,7 +123,7 @@ public class  Field implements IView {
     }
 
     @Override
-    public void mustDraw(View v) {
-
+    public void mustDraw(View v,int idx) {
+        v.drawField(idx);
     }
 }
