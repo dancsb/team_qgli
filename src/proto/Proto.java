@@ -92,7 +92,7 @@ public class Proto {
                 break;
 
             case "virologist":
-                Virologist viro=new Virologist();
+                Virologist viro=new Virologist(new Field());
                 viro.setField(map.getFields().get(Integer.parseInt(cmd[2])));
                 viro.getField().accept(viro);
                 virologists.put(cmd[1],viro);
