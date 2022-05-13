@@ -11,7 +11,7 @@ public class MapView extends JPanel {
     private ArrayList<Polygon> polygons = new ArrayList<>();
     private boolean firstRepaint=false;
     private ArrayList<Color> c=new ArrayList<>();
-    private int currentIndex;
+
 
     public MapView() {
         this.setPreferredSize(new Dimension(600,600));
@@ -30,10 +30,6 @@ public class MapView extends JPanel {
 
     public void addC(Color c) {
         this.c.add(c);
-    }
-
-    public void setCurrentIndex(int currentIndex) {
-        this.currentIndex = currentIndex;
     }
 
     public void paintComponent(Graphics g) {

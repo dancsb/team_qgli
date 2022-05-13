@@ -7,13 +7,16 @@ import proto.Proto;
 import java.io.IOException;
 
 public class Main {
-    private View view;
-    private Game game;
+    private static Controller controller;
     /**
      * Main fuggveny itt kerulnek a tesztek meghivasra
      */
     public static void main(String[] args){
         View v = new View();
-        new Controller(v, new Game(new Map(v.getMapView().getPolygons())));
+        controller = new Controller(v, new Game(new Map(v.getMapView().getPolygons())));
+    }
+
+    public static Controller getController() {
+        return controller;
     }
 }
