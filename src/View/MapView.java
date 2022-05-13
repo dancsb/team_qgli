@@ -9,7 +9,7 @@ public class MapView extends JPanel {
      * Polygonok listája amik a mezőket jelképezik majd vizuálisan.
      */
     private ArrayList<Polygon> polygons = new ArrayList<>();
-
+    private boolean firstRepaint=false;
     private Color c;
     private int currentIndex;
 
@@ -37,6 +37,10 @@ public class MapView extends JPanel {
     }
 
     public void paintComponent(Graphics g) {
+        if(!firstRepaint){
+            firstRepaint=true;
+            this.setBackground(Color.WHITE);
+        }
         g.setColor(c);
         g.fillPolygon(polygons.get(currentIndex));
         g.setColor(Color.black);
