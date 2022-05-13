@@ -9,11 +9,13 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.HashMap;
+import java.util.Scanner;
 
 public class Controller {
     private View view;
     private Game game;
     private int numberOfViros;
+
 
     public Controller(View v, Game g) {
         view = v;

@@ -3,12 +3,15 @@ package View;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 
-public class MapView extends JPanel {
+public class MapView extends JPanel implements MouseListener {
     /**
      * Polygonok listája amik a mezőket jelképezik majd vizuálisan.
      */
@@ -16,19 +19,21 @@ public class MapView extends JPanel {
     private boolean firstRepaint=false;
     private ArrayList<Color> c=new ArrayList<>();
     private Integer viroPositions[]=new Integer[8];
+    private int destField=-1;
 
     public MapView() {
-        this.setPreferredSize(new Dimension(600,600));
-        for (int i = 0; i < 12; i++) {
-            int[] x = {i * 50, (i + 1) * 50, (i + 1) * 50, i * 50};
-            for (int j = 0; j < 12; j++) {
-                int[] y = {j * 50, j * 50, (j + 1) * 50, (j + 1) * 50};
+        this.setPreferredSize(new Dimension(800,800));
+        for (int i = 0; i < 8; i++) {
+            int[] x = {i * 100, (i + 1) * 100, (i + 1) * 100, i * 100};
+            for (int j = 0; j < 8; j++) {
+                int[] y = {j * 100, j * 100, (j + 1) * 100, (j + 1) * 100};
                 polygons.add(new Polygon(x, y, 4));
             }
         }
         for (int i = 0; i < 8; i++) {
             viroPositions[i]=-1;
         }
+        this.addMouseListener(this);
     }
 
     public ArrayList<Polygon> getPolygons() {
@@ -56,12 +61,49 @@ public class MapView extends JPanel {
         for(int i=0;i<viroPositions.length;i++){
             if (viroPositions[i]!=-1) {
                 try {
-                    BufferedImage bufferedImage = ImageIO.read(new File("src/img/virologist_" + (i + 1) + ".png"));
-                    g.drawImage(bufferedImage, polygons.get(viroPositions[i]).xpoints[0], polygons.get(viroPositions[i]).ypoints[0], null);
+                    int x=0;
+                    int y=0;
+                    for(int j=0;j<polygons.get(viroPositions[i]).npoints;j++){
+                        x+=polygons.get(viroPositions[i]).xpoints[j];
+                        y+=polygons.get(viroPositions[i]).ypoints[j];
+                    }
+                    x/=polygons.get(viroPositions[i]).npoints;
+                    y/=polygons.get(viroPositions[i]).npoints;
+
+                    Image bufferedImage = (ImageIO.read(new File("src/img/virologist_" + (i + 1) + ".png"))).getScaledInstance(32,32,Image.SCALE_DEFAULT);
+                    g.drawImage(bufferedImage, x-bufferedImage.getWidth(null)/2, y-bufferedImage.getHeight(null)/2, null);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
         }
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        for(Polygon p:polygons){
+            if(p.contains(new Point(e.getX(),e.getY())))destField=polygons.indexOf(p);
+        }
+        System.out.println(destField);
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+
     }
 }
