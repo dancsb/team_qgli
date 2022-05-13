@@ -241,7 +241,7 @@ public class Virologist implements Steppable, IView {
         if (bearDance || vitus){
             Random rnd = new Random();
             ArrayList<Field> neighbours = field.getNeighbours();
-            int route = rnd.nextInt() % neighbours.size();  //random mezo sorsolasa
+            int route = rnd.nextInt(neighbours.size());  //random mezo sorsolasa
             Field target = neighbours.get(route);
             move(target);
         //kulonben normalis lepes
