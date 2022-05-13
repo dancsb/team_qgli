@@ -78,5 +78,8 @@ public class Storage extends Field {
     @Override
     public void mustDraw(View v,int idx) {
         v.drawStorage(idx);
+        for(Virologist viro:virologists){
+            viro.mustDraw(v,idx);
+        }
     }
 }

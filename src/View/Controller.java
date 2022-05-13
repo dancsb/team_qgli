@@ -24,15 +24,10 @@ public class Controller {
         numberOfViros = viros;
         view.startGame();
         game.getMap().generateVirologists(numberOfViros);
-        for (Field f: game.getMap().getFields()){
-            if(f.getVirologists().size()!=0){
-                System.out.println("ASD");
-            }
-        }
         for (Field f:
              game.getMap().getFields()) {
             int idx = game.getMap().getFields().indexOf(f);
-            f.mustDraw(view,idx);
+            f.mustDraw(view, idx);
         }
         //game.getMap().getFields().forEach(f->{f.mustDraw(view,game.getMap().getFields().indexOf(f));});
         view.paintMap();

@@ -15,7 +15,7 @@ public class MapView extends JPanel {
     private ArrayList<Polygon> polygons = new ArrayList<>();
     private boolean firstRepaint=false;
     private ArrayList<Color> c=new ArrayList<>();
-    private ArrayList<Integer>viroPositions=new ArrayList();
+    private Integer viroPositions[]=new Integer[8];
 
     public MapView() {
         this.setPreferredSize(new Dimension(600,600));
@@ -25,6 +25,9 @@ public class MapView extends JPanel {
                 int[] y = {j * 50, j * 50, (j + 1) * 50, (j + 1) * 50};
                 polygons.add(new Polygon(x, y, 4));
             }
+        }
+        for (int i = 0; i < 8; i++) {
+            viroPositions[i]=-1;
         }
     }
 
@@ -36,11 +39,7 @@ public class MapView extends JPanel {
         this.c.add(c);
     }
     public void addViroPos(int whichViro,int fieldIdx) {
-        if(whichViro<viroPositions.size()){
-            viroPositions.remove(whichViro);
-            viroPositions.add(whichViro,fieldIdx);
-        }
-        else viroPositions.add(fieldIdx);
+        viroPositions[whichViro]=fieldIdx;
     }
 
     public void paintComponent(Graphics g) {
@@ -54,14 +53,15 @@ public class MapView extends JPanel {
             g.setColor(Color.black);
             g.drawPolygon(polygons.get(i));
         }
-        for(int i=0;i<viroPositions.size();i++){
-            try {
-                BufferedImage bufferedImage = ImageIO.read(new File("src/img/virologist_"+(i+1)+".png"));
-                g.drawImage(bufferedImage,polygons.get(viroPositions.get(i)).xpoints[0],polygons.get(viroPositions.get(i)).ypoints[0],null);
-            } catch (IOException e) {
-                e.printStackTrace();
+        for(int i=0;i<viroPositions.length;i++){
+            if (viroPositions[i]!=-1) {
+                try {
+                    BufferedImage bufferedImage = ImageIO.read(new File("src/img/virologist_" + (i + 1) + ".png"));
+                    g.drawImage(bufferedImage, polygons.get(viroPositions[i]).xpoints[0], polygons.get(viroPositions[i]).ypoints[0], null);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         }
-
     }
 }

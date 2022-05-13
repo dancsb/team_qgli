@@ -92,5 +92,8 @@ public class Lab extends Field {
     @Override
     public void mustDraw(View v,int idx) {
         v.drawLab(idx);
+        for(Virologist viro:virologists){
+            viro.mustDraw(v,idx);
+        }
     }
 }

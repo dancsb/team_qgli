@@ -15,7 +15,7 @@ public class View extends JFrame {
         this.setLayout(new BorderLayout());
         this.add(startView, BorderLayout.CENTER);
         this.pack();
-        this.setResizable(false);
+        this.setResizable(true);
         this.setVisible(true);
     }
 
