@@ -10,7 +10,7 @@ public class MapView extends JPanel {
      */
     private ArrayList<Polygon> polygons = new ArrayList<>();
     private boolean firstRepaint=false;
-    private Color c;
+    private ArrayList<Color> c=new ArrayList<>();
     private int currentIndex;
 
     public MapView() {
@@ -28,8 +28,8 @@ public class MapView extends JPanel {
         return polygons;
     }
 
-    public void setC(Color c) {
-        this.c = c;
+    public void addC(Color c) {
+        this.c.add(c);
     }
 
     public void setCurrentIndex(int currentIndex) {
@@ -41,9 +41,12 @@ public class MapView extends JPanel {
             firstRepaint=true;
             this.setBackground(Color.WHITE);
         }
-        g.setColor(c);
-        g.fillPolygon(polygons.get(currentIndex));
-        g.setColor(Color.black);
-        g.drawPolygon(polygons.get(currentIndex));
+        for(int i=0;i<c.size();i++) {
+            g.setColor(c.get(i));
+            g.fillPolygon(polygons.get(i));
+            g.setColor(Color.black);
+            g.drawPolygon(polygons.get(i));
+        }
+
     }
 }

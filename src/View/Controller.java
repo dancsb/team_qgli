@@ -15,5 +15,6 @@ public class Controller {
         view = v;
         game = g;
         game.getMap().getFields().forEach(f->f.mustDraw(view,game.getMap().getFields().indexOf(f)));
+        view.getMapView().paintComponent(view.getMapView().getGraphics());
     }
 }

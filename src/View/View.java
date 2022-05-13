@@ -15,6 +15,7 @@ public class View extends JFrame {
         this.pack();
         this.setResizable(false);
         this.setVisible(true);
+
     }
 
     public MapView getMapView() {
@@ -29,24 +30,16 @@ public class View extends JFrame {
     }
 
     public void drawField(int idx){
-        mapView.setC(Color.GREEN);
-        mapView.setCurrentIndex(idx);
-        mapView.paintComponent(mapView.getGraphics());
+        mapView.addC(Color.GREEN);
     }
     public void drawLab(int idx){
-        mapView.setC(Color.BLUE);
-        mapView.setCurrentIndex(idx);
-        mapView.paintComponent(mapView.getGraphics());
+        mapView.addC(Color.BLUE);
     }
     public void drawShelter(int idx){
-        mapView.setC(new Color(205,133,63));
-        mapView.setCurrentIndex(idx);
-        mapView.paintComponent(mapView.getGraphics());
+        mapView.addC(new Color(205,133,63));
     }
     public void drawStorage(int idx) {
-        mapView.setC(Color.YELLOW);
-        mapView.setCurrentIndex(idx);
-        mapView.paintComponent(mapView.getGraphics());
+        mapView.addC(Color.YELLOW);
     }
 
     public void update(){
