@@ -13,6 +13,7 @@ public class View extends JFrame {
         this.setLayout(new BorderLayout());
         this.add(mapView, BorderLayout.CENTER);
         this.pack();
+        this.setResizable(false);
         this.setVisible(true);
     }
 
