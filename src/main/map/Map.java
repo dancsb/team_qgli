@@ -20,7 +20,6 @@ public class Map {
             else if(r==1)fields.add(new Shelter());
             else if(r==2)fields.add(new Storage());
             else fields.add(new Field());
-            System.out.println(fields.get(i).toString());
         }
 
         for (int i = 0; i < polygons.size() - 1; i++) {

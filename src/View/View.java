@@ -2,19 +2,24 @@ package View;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
 
 public class View extends JFrame {
-    private MapView mapView = new MapView();
+    private MapView mapView;
+    private Color c;
+    private int currentIndex;
 
-    @Override
-    public void paintComponents(Graphics g) {
-        super.paintComponents(g);
-        g.setColor(Color.GREEN);
-        g.fillPolygon(this.getMapView().getPolygons().get(0));
-        this.invalidate();
-        this.validate();
-        this.repaint();
+    public View() {
+        //this.setSize(new Dimension(600,600));
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setLayout(new BorderLayout());
+        mapView = new MapView();
+        this.add(mapView, BorderLayout.CENTER);
+        this.pack();
+        this.setVisible(true);
+    }
+
+    public MapView getMapView() {
+        return mapView;
     }
 
     public void drawVirologist(){
@@ -25,43 +30,32 @@ public class View extends JFrame {
     }
 
     public void drawField(int idx){
-      //  this.getGraphics().setColor(Color.GREEN);
-       // this.getGraphics().fillPolygon(mapView.getPolygons().get(idx));
-      //  SwingUtilities.updateComponentTreeUI(this);
-        //this.repaint();
+        c = Color.GREEN;
+        currentIndex = idx;
+        paintComponents(this.getGraphics());
     }
     public void drawLab(int idx){
-     /*   this.getMapView().getGraphics().setColor(Color.BLUE);
-        this.getMapView().getGraphics().fillPolygon(mapView.getPolygons().get(idx));
-        this.invalidate();
-        this.validate();*/
+        c = Color.BLUE;
+        currentIndex = idx;
+        paintComponents(this.getGraphics());
     }
     public void drawShelter(int idx){
-       /* this.getMapView().getGraphics().setColor(new Color(205,133,63));
-        this.getMapView().getGraphics().fillPolygon(mapView.getPolygons().get(idx));
-        this.invalidate();
-        this.validate();*/
+        c = new Color(205,133,63);
+        currentIndex = idx;
+        paintComponents(this.getGraphics());
     }
     public void drawStorage(int idx) {
-       /* this.getMapView().getGraphics().setColor(Color.YELLOW);
-        this.getGraphics().fillPolygon(mapView.getPolygons().get(idx));
-        this.invalidate();
-        this.validate();*/
+        c = Color.YELLOW;
+        currentIndex = idx;
+        paintComponents(this.getGraphics());
     }
     public void update(){
 
     }
-
-    public View() {
-        this.setSize(new Dimension(600,600));
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setLayout(new GridLayout());
-        this.add(mapView);
-        pack();
-        this.setVisible(true);
-    }
-
-    public MapView getMapView() {
-        return mapView;
+    @Override
+    public void paintComponents(Graphics g) {
+        g.drawPolygon(mapView.getPolygons().get(currentIndex));
+        g.setColor(c);
+        g.fillPolygon(mapView.getPolygons().get(currentIndex));
     }
 }
