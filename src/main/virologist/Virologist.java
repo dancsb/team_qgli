@@ -59,7 +59,7 @@ public class Virologist implements Steppable, IView {
     /**
      * A virologus konstruktora, letrehoztuk tesztelesi szempontok miatt
      */
-    public Virologist() {
+    public Virologist(Field f) {
         resources = new ArrayList<>(2);
         attributes = new ArrayList<>();
         agents=new ArrayList<>();
@@ -70,8 +70,7 @@ public class Virologist implements Steppable, IView {
         attributes.add(new Paralyzed());
         attributes.add(new Invulnerabled());
         geneticCodes=new ArrayList<>();
-       // geneticCodes.add(new GeneticCode("test"));
-        field =new Field();
+        field =f;
     }
 
     /**

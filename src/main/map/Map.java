@@ -1,5 +1,7 @@
 package main.map;
 
+import main.virologist.Virologist;
+
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Random;
@@ -35,8 +37,15 @@ public class Map {
                 }
             }
         }
-    }
 
+    }
+    public void generateVirologists(int n){
+        for(int i=0;i<n;i++){
+            int fieldIndex=new Random().nextInt(fields.size());
+            Virologist v=new Virologist(fields.get(fieldIndex));
+            fields.get(fieldIndex).getVirologists().add(v);
+        }
+    }
     //visszater a palyan levo mezokkel
     public ArrayList<Field> getFields() {
         return fields;
