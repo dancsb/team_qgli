@@ -2,6 +2,7 @@ package View;
 
 import main.Game;
 import main.map.Field;
+import main.virologist.DieException;
 import main.virologist.Virologist;
 
 import javax.imageio.ImageIO;
@@ -52,6 +53,15 @@ public class Controller implements MouseListener{
         }
     }
 
+    private void exceptionHandling(DieException ex){
+        if(game.getViros().get(currentVirologist)==ex.getVirologist()){
+            currentVirologist--;
+        }
+        game.getViros().remove(ex.getVirologist());
+        numberOfViros--;
+        ex.getVirologist().mustDraw(view,-1);
+    }
+
     @Override
     public void mouseClicked(MouseEvent e) {
         if(SwingUtilities.isLeftMouseButton(e)){
@@ -59,22 +69,29 @@ public class Controller implements MouseListener{
                 if(p.contains(new Point(e.getX(),e.getY())))destField=view.getMapView().getPolygons().indexOf(p);
             }
             if(game.getViros().get(currentVirologist).getField().getNeighbours().contains(game.getMap().getFields().get(destField))&&!game.getViros().get(currentVirologist).isBearDance()){
-                game.getViros().get(currentVirologist).move(game.getMap().getFields().get(destField));
+                try {
+                    game.getViros().get(currentVirologist).move(game.getMap().getFields().get(destField));
+                } catch (DieException ex) {
+                    exceptionHandling(ex);
+                }
                 game.getViros().get(currentVirologist).mustDraw(view,game.getMap().getFields().indexOf(game.getViros().get(currentVirologist).getField()));
                 currentVirologist++;
-                if(currentVirologist==numberOfViros)currentVirologist=0;
+                if(currentVirologist>=numberOfViros)currentVirologist=0;
             }
             while(game.getViros().get(currentVirologist).isBearDance()){
-                game.getViros().get(currentVirologist).step();
+                try {
+                    game.getViros().get(currentVirologist).step();
+                } catch (DieException ex) {
+                    exceptionHandling(ex);
+                }
                 game.getViros().get(currentVirologist).mustDraw(view,game.getMap().getFields().indexOf(game.getViros().get(currentVirologist).getField()));
                 currentVirologist++;
-                if(currentVirologist==numberOfViros){
+                if(currentVirologist>=numberOfViros){
                     currentVirologist=0;
-                    break;
                 }
             }
             try {
-                view.getViroStatView().setCurrentVirImage((ImageIO.read(new File("src/img/virologist_" +(currentVirologist+1)+ ".png"))).getScaledInstance(256,256,Image.SCALE_DEFAULT));
+                view.getViroStatView().setCurrentVirImage((ImageIO.read(new File("src/img/virologist_" +(game.getViros().get(currentVirologist).getViroID()+1)+ ".png"))).getScaledInstance(256,256,Image.SCALE_DEFAULT));
             } catch (IOException ex) {
                 ex.printStackTrace();
             }

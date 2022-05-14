@@ -5,6 +5,7 @@ import main.items.agents.Paralyzer;
 import main.items.agents.Vitusdance;
 import main.items.collectibles.*;
 import main.map.*;
+import main.virologist.DieException;
 import main.virologist.Virologist;
 
 import java.io.*;
@@ -155,7 +156,10 @@ public class Proto {
                 break;
 
             case "move":
-                virologists.get(cmd[1]).move(map.getFields().get(Integer.parseInt(cmd[2])));
+                try {
+                    virologists.get(cmd[1]).move(map.getFields().get(Integer.parseInt(cmd[2])));
+                } catch (DieException e) {
+                }
                 break;
 
             case "stealEquipment":
@@ -190,7 +194,11 @@ public class Proto {
                 break;
 
             case "die":
-                virologists.get(cmd[1]).die();
+                try {
+                    virologists.get(cmd[1]).die();
+                } catch (DieException e) {
+
+                }
                 break;
 
             case "stat":

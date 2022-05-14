@@ -33,6 +33,7 @@ public class Shelter extends Field {
     }
     public Shelter(){
         this.eq=allEquipments.get(new Random().nextInt(4));
+        eq = new Axe();
     }
     /**
      * Ha egy virologus arra a mezore szeretne lepni, eldontheti, hogy lephet e oda vagy sem
