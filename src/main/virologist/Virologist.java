@@ -265,9 +265,11 @@ public class Virologist implements Steppable {
      */
     public void pickUpEquipment(Equipment e){
         //meghivja az adott felszereles collect fuggvenyet
-        if (equipments.size()<3) {
-            equipments.add(e);
-            e.action(this);
+        if(!bearDance) {
+            if (equipments.size() < 3) {
+                equipments.add(e);
+                e.action(this);
+            }
         }
     }
 
@@ -402,8 +404,11 @@ public class Virologist implements Steppable {
         for (Attribute atr:this.getAttributes())
             if(atr.getDefPerc() == 100)
                 vedve = true;
-        if(!vedve && !isBearDance())
+        if(!vedve && !isBearDance()) {
             this.bearDance = bearDance;
+            equipments.clear();
+            agents.clear();
+        }
     }
 
     /**

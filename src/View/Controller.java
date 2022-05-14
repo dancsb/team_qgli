@@ -95,7 +95,6 @@ public class Controller implements MouseListener{
                 currentVirologist++;
                 if(currentVirologist>=numberOfViros){
                     currentVirologist=0;
-                    break;
                 }
             }
             try {
@@ -105,7 +104,7 @@ public class Controller implements MouseListener{
             }
             view.getViroImagePanel().paintComponent(view.getViroImagePanel().getGraphics());
 
-           viroStatString = game.getViros().get(currentVirologist).toString();
+            viroStatString = game.getViros().get(currentVirologist).toString();
             view.getViroStatPanel().setStats(viroStatString);
             view.getViroStatPanel().showViroStat();
 

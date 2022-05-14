@@ -19,13 +19,14 @@ public class MapView extends JPanel {
 
     public MapView() {
         this.setPreferredSize(new Dimension(800,800));
-        for (int i = 0; i < 8; i++) {
+        /*for (int i = 0; i < 8; i++) {
             int[] x = {i * 100, (i + 1) * 100, (i + 1) * 100, i * 100};
             for (int j = 0; j < 8; j++) {
                 int[] y = {j * 100, j * 100, (j + 1) * 100, (j + 1) * 100};
                 polygons.add(new Polygon(x, y, 4));
             }
-        }
+        }*/
+        polygons=MapGen.genMap(new Dimension(800,800));
         for (int i = 0; i < 8; i++) {
             viroPositions[i]=-1;
             bearPositions[i]=-1;
