@@ -10,6 +10,7 @@ public class Cape extends Equipment{
      * a kopennyel jaro vedekezesi % merteke
      */
     private double defPerc;
+    private final String name = "cape";
 
     /**
      * A köpeny constructora
@@ -18,6 +19,7 @@ public class Cape extends Equipment{
     public Cape(double defPerc) {
         this.defPerc = defPerc;
     }
+    public String getName(){return name;}
 
     /**
      * Ez a fuggveny viszi vegbe az effekteket amik vegbemennek ha felveszi a virologus a kopenyt.

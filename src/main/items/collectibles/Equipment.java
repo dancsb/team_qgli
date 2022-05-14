@@ -58,4 +58,5 @@ public abstract class Equipment implements Collectible {
 
     public abstract void printStat();
     public String toString(){return null;}
+    public String getName(){return null;}
 }

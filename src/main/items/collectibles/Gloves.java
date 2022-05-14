@@ -6,7 +6,11 @@ import main.virologist.Virologist;
  * A kesztyu kulonleges felszerelest reprezentalja, leszarmazik az Equipment osztalybol.
  */
 public class Gloves extends Equipment{
+
     private int durability=3;
+    private final String name = "gloves";
+
+    public String getName(){return name;}
 
     /**
      * A kesztyu begyujteset valositja meg, es az azzal jaro "visszakenes" kepesseget allitja be

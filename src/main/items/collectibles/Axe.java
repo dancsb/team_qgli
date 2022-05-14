@@ -4,6 +4,9 @@ import main.virologist.Virologist;
 
 public class Axe extends Equipment{
     private boolean used=false;
+    private final String name = "axe";
+
+    public String getName(){return name;}
 
     @Override
     public void action(Virologist v) {

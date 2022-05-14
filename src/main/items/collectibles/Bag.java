@@ -10,10 +10,12 @@ public class Bag extends Equipment {
      * A mertek amivel a zsak megnoveli a virologus anyageltarolasi kepesseget.
      */
     private final long sizeIncrease; //itt long van szóval majd csak egész számmal lehet lérehozni :D
+    private final String name = "bag";
 
     public Bag(long sizeIncrease) {
         this.sizeIncrease = sizeIncrease;
     }
+    public String getName(){return name;}
 
     /**
      * Ez a fuggveny viszi vegbe az effekteket amik vegbemennek ha felveszi a virologus a zsakot.
