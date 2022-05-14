@@ -25,6 +25,7 @@ public class Amnesia extends Agent {
     }
     @Override
     public String toString(){
-        return "amnesia "+expireTime + "\n";
+        if(expireTime > 0) return "        amnesia hatas ideje: "+expireTime + "\n";
+        else return null;
     }
 }

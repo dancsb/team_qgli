@@ -503,17 +503,14 @@ public class Virologist implements Steppable {
             }
         temp += "\n";
 
-        temp += "agenseinekListaja: ";
         if (agents.size() == 0)
-            temp += "null";
+            temp += "agenseinekListaja: null\n";
         else
+            temp += "agenseinekListaja: ";
             for (int i = 0; i < agents.size(); i++) {
-                temp += agents.get(i).toString();
-                if(i != agents.size() - 1)
-                    temp += ", ";
+                temp+= "\n";
+                if(agents.get(i).toString() != null)temp += agents.get(i).toString();
             }
-        temp += "\n";
-
         temp += "resourceErtek: ";
         for (Resource r: resources)
             temp += r.toString();

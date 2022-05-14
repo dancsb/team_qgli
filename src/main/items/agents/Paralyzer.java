@@ -15,7 +15,9 @@ public class Paralyzer extends Agent {
      */
     public Paralyzer(Virologist v, long amino, long nucleo, String genCode) {
         super(v, amino, nucleo, genCode);
+
     }
+
 
     /**
      * A benito agens hasznalata egy virologuson.
@@ -31,6 +33,7 @@ public class Paralyzer extends Agent {
     }
     @Override
     public String toString(){
-        return "paralyzer "+expireTime + "\n";
+        if(expireTime > 0) return "        paralyzer hatas ideje: "+expireTime + "\n";
+        else return null;
     }
 }

@@ -1,6 +1,10 @@
 package View;
 
 import main.Game;
+import main.items.agents.Amnesia;
+import main.items.agents.Invulnerable;
+import main.items.agents.Paralyzer;
+import main.items.agents.Vitusdance;
 import main.map.Field;
 import main.virologist.DieException;
 import main.virologist.Virologist;
@@ -8,6 +12,8 @@ import main.virologist.Virologist;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.File;
@@ -28,6 +34,10 @@ public class Controller implements MouseListener{
         view = v;
         game = g;
         v.getMapView().addMouseListener(this);
+        view.getCraftParalyzed().addActionListener(new AgentCrafter());
+        view.getCraftInvulnerable().addActionListener(new AgentCrafter());
+        view.getCraftAmnesia().addActionListener(new AgentCrafter());
+        view.getCraftVitusdance().addActionListener(new AgentCrafter());
     }
 
     public void startGame(int viros) {
@@ -77,6 +87,7 @@ public class Controller implements MouseListener{
             }
             if(virologists.get(currentVirologist).getField().getNeighbours().contains(game.getMap().getFields().get(destField))&&!virologists.get(currentVirologist).isBearDance()){
                 try {
+                    virologists.get(currentVirologist).step();
                     virologists.get(currentVirologist).move(game.getMap().getFields().get(destField));
                 } catch (DieException ex) {
                     exceptionHandling(ex);
@@ -146,5 +157,24 @@ public class Controller implements MouseListener{
     @Override
     public void mouseExited(MouseEvent e) {
 
+    }
+
+    public class AgentCrafter implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if(e.getSource() == view.getCraftParalyzed()){
+                game.getViros().get(currentVirologist).craftAgent(new Paralyzer(game.getViros().get(currentVirologist), 100,100, "paralyzer"));
+            }
+            if(e.getSource() == view.getCraftVitusdance()){
+                game.getViros().get(currentVirologist).craftAgent(new Vitusdance(game.getViros().get(currentVirologist), 100,100, "vitusdance"));
+            }
+            if(e.getSource() == view.getCraftAmnesia()){
+                game.getViros().get(currentVirologist).craftAgent(new Amnesia(game.getViros().get(currentVirologist), 100,100, "amnesia"));
+            }
+            if(e.getSource() == view.getCraftInvulnerable()){
+                game.getViros().get(currentVirologist).craftAgent(new Invulnerable(game.getViros().get(currentVirologist), 100,100, "invulnerable"));
+            }
+        }
     }
 }

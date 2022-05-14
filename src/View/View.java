@@ -2,6 +2,8 @@ package View;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class View extends JFrame {
     private MapView mapView = new MapView();
@@ -11,6 +13,10 @@ public class View extends JFrame {
     private JSplitPane jSplitPane;
     private EndGamePanel endGamePanel;
     private JMenuBar menuBar = new JMenuBar();
+    private JMenuItem craftAmnesia = new JMenuItem("Amnesia");
+    private JMenuItem craftInvulnerable = new JMenuItem("Invulnerable");
+    private JMenuItem craftParalyzed = new JMenuItem("Paralyzed");
+    private JMenuItem craftVitusdance = new JMenuItem("Vitusdance");
 
     public View() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -32,10 +38,6 @@ public class View extends JFrame {
 
         //menu item hozzaadas
         JMenu craftMenu = new JMenu("Craft");
-        JMenuItem craftAmnesia = new JMenuItem("Amnesia");
-        JMenuItem craftInvulnerable = new JMenuItem("Invulnerable");
-        JMenuItem craftParalyzed = new JMenuItem("Paralyzed");
-        JMenuItem craftVitusdance = new JMenuItem("Vitusdance");
 
         craftMenu.add(craftAmnesia);
         craftMenu.add(craftInvulnerable);
@@ -93,4 +95,19 @@ public class View extends JFrame {
     }
 
     public ViroStatPanel getViroStatPanel(){return viroStatPanel;}
+
+    public JMenuItem getCraftAmnesia(){return craftAmnesia;}
+
+    public JMenuItem getCraftInvulnerable() {
+        return craftInvulnerable;
+    }
+
+    public JMenuItem getCraftParalyzed() {
+        return craftParalyzed;
+    }
+
+    public JMenuItem getCraftVitusdance() {
+        return craftVitusdance;
+    }
 }
+
