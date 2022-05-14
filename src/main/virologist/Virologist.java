@@ -88,15 +88,17 @@ public class Virologist implements Steppable {
             ArrayList<Virologist> virologists = f.getVirologists();
             if (bearDance){
                 for (Virologist v:virologists) {
-                    for (Equipment e : v.getEquipments()) {
-                        if (!e.getUsed()){
-                            e.setUsed(true);
-                            die();
-                            return;
-                        }
+                    if (v!=this) {
+                        for (Equipment e : v.getEquipments()) {
+                            if (!e.getUsed()) {
+                                e.setUsed(true);
+                                die();
+                                return;
+                            }
 
+                        }
+                        v.setBearDance(true);
                     }
-                    v.setBearDance(true);
                 }
             }
             else{
@@ -400,7 +402,7 @@ public class Virologist implements Steppable {
         for (Attribute atr:this.getAttributes())
             if(atr.getDefPerc() == 100)
                 vedve = true;
-        if(!vedve)
+        if(!vedve && !isBearDance())
             this.bearDance = bearDance;
     }
 
@@ -411,6 +413,7 @@ public class Virologist implements Steppable {
         //field.remove(this);
         ///field =null;
         this.field.getVirologists().remove(this);
+        field=new Field();
         bearDance=false;
     }
 
