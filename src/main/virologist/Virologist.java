@@ -128,8 +128,7 @@ public class Virologist implements Steppable {
      */
     public boolean checkWin(){
         //az osszes genetikai kod tudasanak eseteben igaz ertekkel ter vissza
-        //return geneticCodes.size() == 4;
-        return false;
+        return geneticCodes.size() == 4;
     }
 
     /**

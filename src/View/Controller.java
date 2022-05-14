@@ -79,7 +79,6 @@ public class Controller implements MouseListener{
                 } catch (DieException ex) {
                     exceptionHandling(ex);
                 }
-                System.out.println(game.getViros().get(currentVirologist).getEquipments().size());
                 game.getViros().get(currentVirologist).mustDraw(view,game.getMap().getFields().indexOf(game.getViros().get(currentVirologist).getField()));
                 if(game.getViros().get(currentVirologist).checkWin()){view.endGame(currentVirologist);return;}
                 currentVirologist++;
@@ -91,7 +90,6 @@ public class Controller implements MouseListener{
                 } catch (DieException ex) {
                     exceptionHandling(ex);
                 }
-                System.out.println(game.getViros().get(currentVirologist).getEquipments().size());
                 game.getViros().get(currentVirologist).mustDraw(view,game.getMap().getFields().indexOf(game.getViros().get(currentVirologist).getField()));
                 if(game.getViros().get(currentVirologist).checkWin()){view.endGame(currentVirologist);return;}
                 currentVirologist++;
