@@ -24,10 +24,10 @@ public class View extends JFrame {
     public void startGame() {
         this.remove(startView);
         this.setLayout(new BorderLayout());
-        this.add(mapView,BorderLayout.LINE_START);
-        jSplitPane = new JSplitPane(SwingConstants.HORIZONTAL, viroImagePanel, viroStatPanel);
+        this.add(mapView,BorderLayout.CENTER);
+        jSplitPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT, viroImagePanel, viroStatPanel);
         jSplitPane.setEnabled(false);
-        this.add(jSplitPane);
+        this.add(jSplitPane, BorderLayout.EAST);
 
 
         //menu item hozzaadas

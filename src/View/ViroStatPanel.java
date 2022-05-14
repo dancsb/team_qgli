@@ -8,7 +8,6 @@ public class ViroStatPanel extends JPanel {
     private String stats;
 
     public ViroStatPanel() {
-        this.setPreferredSize(new Dimension(400,400));
         this.viroStat.setEditable(false);
         this.viroStat.setVisible(true);
         this.add(viroStat);
