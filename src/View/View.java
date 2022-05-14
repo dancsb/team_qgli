@@ -8,6 +8,8 @@ public class View extends JFrame {
     private StartView startView = new StartView();
     private ViroImagePanel viroImagePanel = new ViroImagePanel();
     private ViroStatPanel viroStatPanel = new ViroStatPanel();
+    private JSplitPane jSplitPane;
+    private EndGamePanel endGamePanel;
 
     public View() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -22,9 +24,19 @@ public class View extends JFrame {
         this.remove(startView);
         this.setLayout(new BorderLayout());
         this.add(mapView,BorderLayout.LINE_START);
-        JSplitPane sl = new JSplitPane(SwingConstants.HORIZONTAL, viroImagePanel, viroStatPanel);
-        sl.setEnabled(false);
-        this.add(sl);
+        jSplitPane = new JSplitPane(SwingConstants.HORIZONTAL, viroImagePanel, viroStatPanel);
+        jSplitPane.setEnabled(false);
+        this.add(jSplitPane);
+        this.pack();
+        this.setResizable(false);
+    }
+
+    public void endGame(int currentVirologist){
+        endGamePanel = new EndGamePanel(currentVirologist);
+        this.remove(mapView);
+        this.remove(jSplitPane);
+        this.setLayout(new BorderLayout());
+        this.add(endGamePanel);
         this.pack();
         this.setResizable(false);
     }
