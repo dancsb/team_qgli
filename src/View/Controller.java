@@ -54,13 +54,13 @@ public class Controller implements MouseListener{
             }
             if(game.getViros().get(currentVirologist).getField().getNeighbours().contains(game.getMap().getFields().get(destField))&&!game.getViros().get(currentVirologist).isBearDance()){
                 game.getViros().get(currentVirologist).move(game.getMap().getFields().get(destField));
-                view.getMapView().addViroPos(currentVirologist,game.getMap().getFields().indexOf(game.getViros().get(currentVirologist).getField()));
+                game.getViros().get(currentVirologist).mustDraw(view,game.getMap().getFields().indexOf(game.getViros().get(currentVirologist).getField()));
                 currentVirologist++;
                 if(currentVirologist==numberOfViros)currentVirologist=0;
             }
             while(game.getViros().get(currentVirologist).isBearDance()){
                 game.getViros().get(currentVirologist).step();
-                view.getMapView().addBearPos(currentVirologist,game.getMap().getFields().indexOf(game.getViros().get(currentVirologist).getField()));
+                game.getViros().get(currentVirologist).mustDraw(view,game.getMap().getFields().indexOf(game.getViros().get(currentVirologist).getField()));
                 currentVirologist++;
                 if(currentVirologist==numberOfViros){
                     currentVirologist=0;
