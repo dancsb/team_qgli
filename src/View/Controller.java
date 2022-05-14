@@ -91,7 +91,7 @@ public class Controller implements MouseListener{
                     exceptionHandling(ex);
                 }
                 game.getViros().get(currentVirologist).mustDraw(view,game.getMap().getFields().indexOf(game.getViros().get(currentVirologist).getField()));
-                if(game.getViros().get(currentVirologist).checkWin()){view.endGame(currentVirologist);return;}
+                //if(game.getViros().get(currentVirologist).checkWin()){view.endGame(currentVirologist);return;}
                 currentVirologist++;
                 if(currentVirologist>=numberOfViros){
                     currentVirologist=0;

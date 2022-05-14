@@ -270,8 +270,7 @@ public class Virologist implements Steppable {
         if (equipments.size() < 3) {
             for (Equipment eq:equipments) {
                 if(e.getName().equals(eq.getName())){
-                    if(e.getUsed())owned = false;
-                    else owned = true;
+                    owned = !e.getName().equals("axe") || !e.getUsed();
                 }
             }
             if(!owned){
@@ -329,8 +328,8 @@ public class Virologist implements Steppable {
         }
         geneticCodes.add(g);
         //ha minden genetikai kodot megtanult akkor a jateknak vege van
-        if(checkWin())
-            Game.endGame();
+//        if(checkWin())
+//            Game.endGame();
     }
 
     /**
