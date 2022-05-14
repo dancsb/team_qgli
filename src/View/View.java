@@ -6,7 +6,7 @@ import java.awt.*;
 public class View extends JFrame {
     private MapView mapView = new MapView();
     private StartView startView=new StartView();
-
+    private ViroStatsPanel viroStatView=new ViroStatsPanel();
 
     public View() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -19,7 +19,9 @@ public class View extends JFrame {
 
     public void startGame() {
         this.remove(startView);
-        this.add(mapView);
+        this.setLayout(new BorderLayout());
+        this.add(mapView,BorderLayout.LINE_START);
+        this.add(viroStatView,BorderLayout.LINE_END);
         this.pack();
         this.setResizable(false);
     }
@@ -50,5 +52,9 @@ public class View extends JFrame {
 
     public void paintMap() {
         mapView.repaint();
+    }
+
+    public ViroStatsPanel getViroStatView() {
+        return viroStatView;
     }
 }

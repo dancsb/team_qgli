@@ -4,10 +4,13 @@ import main.Game;
 import main.map.Field;
 import main.virologist.Virologist;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.File;
+import java.io.IOException;
 import java.util.Comparator;
 
 public class Controller implements MouseListener{
@@ -41,6 +44,12 @@ public class Controller implements MouseListener{
             f.mustDraw(view, idx);
         }
         view.paintMap();
+        try {
+            view.getViroStatView().setCurrentVirImage((ImageIO.read(new File("src/img/virologist_" +(currentVirologist+1)+ ".png"))).getScaledInstance(256,256,Image.SCALE_DEFAULT));
+            view.getViroStatView().paintComponent(view.getViroStatView().getGraphics());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -64,7 +73,12 @@ public class Controller implements MouseListener{
                     break;
                 }
             }
-
+            try {
+                view.getViroStatView().setCurrentVirImage((ImageIO.read(new File("src/img/virologist_" +(currentVirologist+1)+ ".png"))).getScaledInstance(256,256,Image.SCALE_DEFAULT));
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+            view.getViroStatView().paintComponent(view.getViroStatView().getGraphics());
             view.paintMap();
         }
     }
