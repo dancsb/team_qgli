@@ -459,7 +459,6 @@ public class Virologist implements Steppable {
             }
     }
     public void mustDraw(View v,int fieldIdx) {
-        bearDance=true;
         if (!bearDance) {
             v.drawVirologist(viroID, fieldIdx);
         }else{
