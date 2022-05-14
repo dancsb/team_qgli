@@ -2,8 +2,6 @@ package View;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 public class View extends JFrame {
     private MapView mapView = new MapView();
