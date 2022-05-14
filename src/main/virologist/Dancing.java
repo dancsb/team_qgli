@@ -33,4 +33,8 @@ public class Dancing extends Attribute {
     public void printStat(){
         System.out.println("vitustancol: "+time);
     }
+
+    public String toString(){
+        return "vitustancol: " + time + "\n";
+    }
 }

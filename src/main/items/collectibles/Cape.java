@@ -43,4 +43,6 @@ public class Cape extends Equipment{
     public void printStat(){
         System.out.print("cape "+defPerc);
     }
+    @Override
+    public String toString(){return "cape "+defPerc; }
 }

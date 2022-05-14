@@ -31,4 +31,8 @@ public class Paralyzed extends Attribute {
     public void printStat(){
         System.out.println("paralyzed: "+time);
     }
+
+    public String toString(){
+        return "paralyzed: "+time + "\n";
+    }
 }

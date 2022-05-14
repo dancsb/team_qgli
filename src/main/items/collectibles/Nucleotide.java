@@ -29,7 +29,11 @@ public class Nucleotide extends Resource {
         if(v.getResources().get(1).getAmount() + amount <= v.getResources().get(1).maxCapacity)
             v.getResources().forEach(r->r.changeAmountNucleotide(amount));
     }
+    @Override
     public void printStat(){
         System.out.print(amount);
     }
+
+    @Override
+    public String toString(){return amount + " ";}
 }

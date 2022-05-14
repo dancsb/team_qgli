@@ -72,4 +72,8 @@ public class Attribute implements Steppable{
     public void printStat(){
 
     }
+
+    public String toString(){
+        return null;
+    }
 }

@@ -468,4 +468,49 @@ public class Virologist implements Steppable {
     public int getViroID() {
         return viroID;
     }
+
+    public String toString() {
+        String temp ="";
+
+        for (Attribute a: attributes)
+            temp += a.toString();
+
+        temp += "genetikaiKodokListaja: ";
+        if (geneticCodes.size() == 0)
+            temp += "null";
+        else
+            for (int i = 0; i < geneticCodes.size(); i++) {
+                temp += geneticCodes.get(i).toString();
+                if(i != geneticCodes.size() - 1)
+                    temp += ", ";
+            }
+        temp += "\n";
+
+        temp += "agenseinekListaja: ";
+        if (agents.size() == 0)
+            temp += "null";
+        else
+            for (int i = 0; i < agents.size(); i++) {
+                temp += agents.get(i).toString();
+                if(i != agents.size() - 1)
+                    temp += ", ";
+            }
+        temp += "\n";
+
+        temp += "resourceErtek: ";
+        for (Resource r: resources)
+            temp += r.toString();
+        temp += "\n";
+
+        temp += "equipmentek: ";
+        if (equipments.size() == 0)
+            temp += "null";
+        else
+            for (int i = 0; i < equipments.size(); i++) {
+                temp += equipments.get(i).toString();
+                if(i != equipments.size() - 1)
+                    temp += ", ";
+            }
+        return  temp;
+    }
 }

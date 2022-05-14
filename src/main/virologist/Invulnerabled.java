@@ -54,4 +54,8 @@ public class Invulnerabled extends Attribute {
     public void printStat(){
         System.out.println("invulnerabled: "+time);
     }
+
+    public String toString(){
+        return "invulnerabled: "+time + "\n";
+    }
 }

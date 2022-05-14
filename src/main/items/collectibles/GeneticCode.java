@@ -39,4 +39,7 @@ public class GeneticCode implements Collectible{
     public void printStat(){
         System.out.print(name + " ");
     }
+    public String toString(){
+        return name + " ";
+    }
 }

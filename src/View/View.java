@@ -5,8 +5,9 @@ import java.awt.*;
 
 public class View extends JFrame {
     private MapView mapView = new MapView();
-    private StartView startView=new StartView();
-    private ViroStatsPanel viroStatView=new ViroStatsPanel();
+    private StartView startView = new StartView();
+    private ViroImagePanel viroImagePanel = new ViroImagePanel();
+    private ViroStatPanel viroStatPanel = new ViroStatPanel();
 
     public View() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -21,7 +22,9 @@ public class View extends JFrame {
         this.remove(startView);
         this.setLayout(new BorderLayout());
         this.add(mapView,BorderLayout.LINE_START);
-        this.add(viroStatView,BorderLayout.LINE_END);
+        JSplitPane sl = new JSplitPane(SwingConstants.HORIZONTAL, viroImagePanel, viroStatPanel);
+        sl.setEnabled(false);
+        this.add(sl);
         this.pack();
         this.setResizable(false);
     }
@@ -54,7 +57,9 @@ public class View extends JFrame {
         mapView.repaint();
     }
 
-    public ViroStatsPanel getViroStatView() {
-        return viroStatView;
+    public ViroImagePanel getViroImagePanel() {
+        return viroImagePanel;
     }
+
+    public ViroStatPanel getViroStatPanel(){return viroStatPanel;}
 }

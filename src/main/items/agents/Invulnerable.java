@@ -30,4 +30,8 @@ public class Invulnerable extends Agent {
         System.out.print("invulnerable "+expireTime);
         System.out.println();
     }
+    @Override
+    public String toString(){
+        return "invulnerable "+expireTime + "\n";
+    }
 }

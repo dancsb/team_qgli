@@ -41,4 +41,7 @@ public class AminoAcid extends Resource {
     public void printStat(){
         System.out.print(amount+" ");
     }
+
+    @Override
+    public String toString(){return amount + ", ";}
 }

@@ -30,4 +30,8 @@ public class Vitusdance extends Agent {
     public void printStat(){
         System.out.print("vitusdance "+expireTime);System.out.println();
     }
+    @Override
+    public String toString(){
+        return "vitusdance "+expireTime + "\n";
+    }
 }

@@ -29,4 +29,8 @@ public class Paralyzer extends Agent {
         System.out.print("paralyzer "+expireTime);
         System.out.println();
     }
+    @Override
+    public String toString(){
+        return "paralyzer "+expireTime + "\n";
+    }
 }

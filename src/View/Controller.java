@@ -1,6 +1,7 @@
 package View;
 
 import main.Game;
+import main.items.collectibles.Equipment;
 import main.map.Field;
 import main.virologist.Virologist;
 
@@ -11,14 +12,17 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Comparator;
 
 public class Controller implements MouseListener{
     private View view;
     private Game game;
+    private String viroStatString;
     private int numberOfViros;
     private int destField=-1;
     private int currentVirologist=0;
+
 
     public Controller(View v, Game g) {
         view = v;
@@ -45,8 +49,11 @@ public class Controller implements MouseListener{
         }
         view.paintMap();
         try {
-            view.getViroStatView().setCurrentVirImage((ImageIO.read(new File("src/img/virologist_" +(currentVirologist+1)+ ".png"))).getScaledInstance(256,256,Image.SCALE_DEFAULT));
-            view.getViroStatView().paintComponent(view.getViroStatView().getGraphics());
+            viroStatString = game.getViros().get(currentVirologist).toString();
+            view.getViroStatPanel().setStats(viroStatString);
+            view.getViroStatPanel().showViroStat();
+            view.getViroImagePanel().setCurrentVirImage((ImageIO.read(new File("src/img/virologist_" +(currentVirologist+1)+ ".png"))).getScaledInstance(256,256,Image.SCALE_DEFAULT));
+            view.getViroImagePanel().paintComponent(view.getViroImagePanel().getGraphics());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -74,11 +81,16 @@ public class Controller implements MouseListener{
                 }
             }
             try {
-                view.getViroStatView().setCurrentVirImage((ImageIO.read(new File("src/img/virologist_" +(currentVirologist+1)+ ".png"))).getScaledInstance(256,256,Image.SCALE_DEFAULT));
+                view.getViroImagePanel().setCurrentVirImage((ImageIO.read(new File("src/img/virologist_" +(currentVirologist+1)+ ".png"))).getScaledInstance(256,256,Image.SCALE_DEFAULT));
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
-            view.getViroStatView().paintComponent(view.getViroStatView().getGraphics());
+            view.getViroImagePanel().paintComponent(view.getViroImagePanel().getGraphics());
+
+           viroStatString = game.getViros().get(currentVirologist).toString();
+            view.getViroStatPanel().setStats(viroStatString);
+            view.getViroStatPanel().showViroStat();
+
             view.paintMap();
         }
     }
