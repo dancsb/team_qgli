@@ -113,7 +113,8 @@ public class Virologist implements Steppable {
                         }
                     }
                     //Ennek a sornak szerintem 0 értelme van, nem tudom, hogy került ide.
-                    //this.setBearDance(v.isBearDance());
+                    //Úgy, hogy kell a fertőződés miatt, köszönjük László
+                    this.setBearDance(v.isBearDance());
                 }
                 if(deadBear!=null){
                     deadBear.die();
