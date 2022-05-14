@@ -17,14 +17,26 @@ public abstract class MapGen {
     private final static int LINE_MIN_ANGLE = 20;
     private final static int LINE_MAX_ANGLE = 150;
 
+    private final static float MINIMUM_LINE_POINT_DIST = 1;
+
     private static Dimension size;
     private static ArrayList<Polygon> polygons;
     private static ArrayList<Line> lines;
 
+    private static boolean tooClose(Line l, ArrayList<Line> lines) {
+        for (Line line:lines)
+            if (MapView.pEsVonalTav(l.getP2().x, l.getP2().y, line.getP1().x, line.getP1().y, line.getP2().x, line.getP2().y) < MINIMUM_LINE_POINT_DIST)
+            {
+                return true;
+            }
+        return false;
+    }
+
     private static boolean doesntIntersects(Line l, ArrayList<Line> lines) {
         for (Line line:lines)
             if (Line2D.linesIntersect(l.getP1().x, l.getP1().y, l.getP2().x, l.getP2().y, line.getP1().x, line.getP1().y, line.getP2().x, line.getP2().y) &&
-                    !(l.getP1().equals(line.getP1()) || l.getP1().equals(line.getP2()) || l.getP2().equals(line.getP1()) || l.getP2().equals(line.getP2()))) {
+                    !(l.getP1().equals(line.getP1()) || l.getP1().equals(line.getP2()) || l.getP2().equals(line.getP1()) || l.getP2().equals(line.getP2())))
+            {
                 return false;
             }
         return true;
@@ -77,7 +89,14 @@ public abstract class MapGen {
         Point p = new Point(x, y);
         Line l = new Line(start, p);
 
-        if(doesntIntersects(l, lines)) {
+        if(doesntIntersects(l, lines)){
+            /*if (tooClose(l, lines)) {
+                d -= MINIMUM_LINE_POINT_DIST;
+                x = start.x + (int) (d * Math.cos(a));
+                y = start.y + (int) (d * Math.sin(a));
+                p = new Point(x, y);
+                l = new Line(start, p);
+            }*/
             lines.add(l);
             if(!outOfBounds)
                 if(genLines(p, sPhi + phi, depth + 1) && depth != 0)
