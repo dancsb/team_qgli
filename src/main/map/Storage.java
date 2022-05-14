@@ -43,7 +43,7 @@ public class Storage extends Field {
                 if (v.isBearDance()){
                     destroy();
                 }
-                r.collect(v);
+                else r.collect(v);
             }
             return true;
         }

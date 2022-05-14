@@ -58,6 +58,7 @@ public abstract class Resource implements Collectible{
     public void setMaxAmount(long x){
         maxCapacity = x;
     }
+
     public void printStat(){
     }
     public String toString(){return null;}

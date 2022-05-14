@@ -64,8 +64,8 @@ public class Virologist implements Steppable {
         attributes = new ArrayList<>();
         agents=new ArrayList<>();
         equipments=new ArrayList<>();
-        resources.add(new AminoAcid(0,30));
-        resources.add(new Nucleotide(0,30));
+        resources.add(new AminoAcid(0,500));
+        resources.add(new Nucleotide(0,500));
         attributes.add(new Dancing());
         attributes.add(new Paralyzed());
         attributes.add(new Invulnerabled());
