@@ -78,7 +78,7 @@ public class Virologist implements Steppable {
      * A virologus mozgasat vegzo fuggveny
      * @param f a mezo amire a virologus lepni szeretne
      */
-    public void move(Field f){
+    public void move(Field f) throws DieException {
         //lekeri a szomszedos mezoket
         ArrayList<Field> neighbours = this.field.getNeighbours();
         if(neighbours.contains(f)){
@@ -218,7 +218,7 @@ public class Virologist implements Steppable {
     /**
      * A leptetes
      */
-    public void step() {
+    public void step() throws DieException {
         //minden Steppable leptetese
         for (Attribute a :
                 attributes) {
@@ -409,12 +409,12 @@ public class Virologist implements Steppable {
     /**
      * A virologus meghal(lekerul a mezorol es nullra allitodik a helye)
      */
-    public void die(){
-        //field.remove(this);
+    public void die() throws DieException {
+        field.remove(this);
         ///field =null;
-        this.field.getVirologists().remove(this);
         field=new Field();
         bearDance=false;
+        throw new DieException(this);
     }
 
     /**
