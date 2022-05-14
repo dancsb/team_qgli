@@ -9,8 +9,6 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.Comparator;
-import java.util.HashMap;
-import java.util.Scanner;
 
 public class Controller implements MouseListener{
     private View view;

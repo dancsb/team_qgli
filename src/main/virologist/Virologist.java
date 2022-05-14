@@ -1,6 +1,5 @@
 package main.virologist;
 
-import View.IView;
 import View.View;
 import main.*;
 import main.map.Field;
