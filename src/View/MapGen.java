@@ -343,11 +343,7 @@ public abstract class MapGen {
                 findPolygons(line);
             }
 
-        System.out.println(polygons.size());
-
         removeDuplicatePolygons();
-
-        System.out.println(polygons.size());
 
         return polygons;
     }
