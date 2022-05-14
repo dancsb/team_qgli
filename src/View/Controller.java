@@ -52,14 +52,22 @@ public class Controller implements MouseListener{
             for(Polygon p:view.getMapView().getPolygons()){
                 if(p.contains(new Point(e.getX(),e.getY())))destField=view.getMapView().getPolygons().indexOf(p);
             }
-            if(game.getViros().get(currentVirologist).getField().getNeighbours().contains(game.getMap().getFields().get(destField))){
-                System.out.println("Ideléptem");
+            if(game.getViros().get(currentVirologist).getField().getNeighbours().contains(game.getMap().getFields().get(destField))&&!game.getViros().get(currentVirologist).isBearDance()){
                 game.getViros().get(currentVirologist).move(game.getMap().getFields().get(destField));
                 view.getMapView().addViroPos(currentVirologist,game.getMap().getFields().indexOf(game.getViros().get(currentVirologist).getField()));
-                //System.out.println(currentVirologist+" "+destField);
                 currentVirologist++;
                 if(currentVirologist==numberOfViros)currentVirologist=0;
             }
+            while(game.getViros().get(currentVirologist).isBearDance()){
+                game.getViros().get(currentVirologist).step();
+                view.getMapView().addBearPos(currentVirologist,game.getMap().getFields().indexOf(game.getViros().get(currentVirologist).getField()));
+                currentVirologist++;
+                if(currentVirologist==numberOfViros){
+                    currentVirologist=0;
+                    break;
+                }
+            }
+
             view.paintMap();
         }
     }
