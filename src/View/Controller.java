@@ -1,7 +1,6 @@
 package View;
 
 import main.Game;
-import main.items.collectibles.Equipment;
 import main.map.Field;
 import main.virologist.DieException;
 import main.virologist.Virologist;
@@ -13,7 +12,6 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Comparator;
 
 public class Controller implements MouseListener{
@@ -82,6 +80,7 @@ public class Controller implements MouseListener{
                     exceptionHandling(ex);
                 }
                 game.getViros().get(currentVirologist).mustDraw(view,game.getMap().getFields().indexOf(game.getViros().get(currentVirologist).getField()));
+                if(game.getViros().get(currentVirologist).checkWin()){view.endGame(currentVirologist);return;}
                 currentVirologist++;
                 if(currentVirologist>=numberOfViros)currentVirologist=0;
             }
@@ -92,6 +91,7 @@ public class Controller implements MouseListener{
                     exceptionHandling(ex);
                 }
                 game.getViros().get(currentVirologist).mustDraw(view,game.getMap().getFields().indexOf(game.getViros().get(currentVirologist).getField()));
+                if(game.getViros().get(currentVirologist).checkWin()){view.endGame(currentVirologist);return;}
                 currentVirologist++;
                 if(currentVirologist>=numberOfViros){
                     currentVirologist=0;
@@ -108,6 +108,7 @@ public class Controller implements MouseListener{
            viroStatString = game.getViros().get(currentVirologist).toString();
             view.getViroStatPanel().setStats(viroStatString);
             view.getViroStatPanel().showViroStat();
+
 
             view.paintMap();
         }
