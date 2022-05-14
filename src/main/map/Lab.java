@@ -26,7 +26,7 @@ public class Lab extends Field {
     private static ArrayList<GeneticCode>allGencodes=new ArrayList<>(){{add(new GeneticCode("paralyzer"));
                                                                         add(new GeneticCode("invulnerable"));
                                                                         add(new GeneticCode("vitusdance"));
-                                                                        add(new GeneticCode("amensia"));}};
+                                                                        add(new GeneticCode("amnesia"));}};
 
     private static int current=0;
     /**

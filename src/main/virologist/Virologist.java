@@ -269,7 +269,10 @@ public class Virologist implements Steppable {
         boolean owned = false;
         if (equipments.size() < 3) {
             for (Equipment eq:equipments) {
-                if(e.getName().equals(eq.getName()))owned = true;
+                if(e.getName().equals(eq.getName())){
+                    if(e.getUsed())owned = false;
+                    else owned = true;
+                }
             }
             if(!owned){
                 equipments.add(e);
@@ -321,8 +324,10 @@ public class Virologist implements Steppable {
      * @param g a felszereles amelyet elvesztett
      */
     public void addGeneticCode(GeneticCode g){
-        if(geneticCodes.contains(g))return;
-        else geneticCodes.add(g);
+        for (GeneticCode genCode: geneticCodes) {
+            if (genCode.getName().equals(g.getName())) return;
+        }
+        geneticCodes.add(g);
         //ha minden genetikai kodot megtanult akkor a jateknak vege van
         if(checkWin())
             Game.endGame();

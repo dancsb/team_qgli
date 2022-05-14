@@ -10,6 +10,7 @@ public class View extends JFrame {
     private ViroStatPanel viroStatPanel = new ViroStatPanel();
     private JSplitPane jSplitPane;
     private EndGamePanel endGamePanel;
+    private JMenuBar menuBar = new JMenuBar();
 
     public View() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -27,6 +28,23 @@ public class View extends JFrame {
         jSplitPane = new JSplitPane(SwingConstants.HORIZONTAL, viroImagePanel, viroStatPanel);
         jSplitPane.setEnabled(false);
         this.add(jSplitPane);
+
+
+        //menu item hozzaadas
+        JMenu craftMenu = new JMenu("Craft");
+        JMenuItem craftAmnesia = new JMenuItem("Amnesia");
+        JMenuItem craftInvulnerable = new JMenuItem("Invulnerable");
+        JMenuItem craftParalyzed = new JMenuItem("Paralyzed");
+        JMenuItem craftVitusdance = new JMenuItem("Vitusdance");
+
+        craftMenu.add(craftAmnesia);
+        craftMenu.add(craftInvulnerable);
+        craftMenu.add(craftParalyzed);
+        craftMenu.add(craftVitusdance);
+
+        menuBar.add(craftMenu);
+        this.add(menuBar, BorderLayout.NORTH);
+
         this.pack();
         this.setResizable(false);
     }
@@ -35,6 +53,7 @@ public class View extends JFrame {
         endGamePanel = new EndGamePanel(currentVirologist);
         this.remove(mapView);
         this.remove(jSplitPane);
+        this.remove(menuBar);
         this.setLayout(new BorderLayout());
         this.add(endGamePanel);
         this.pack();
