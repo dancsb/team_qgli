@@ -51,8 +51,4 @@ public class View extends JFrame {
     public void paintMap() {
         mapView.repaint();
     }
-
-    public void update(){
-
-    }
 }

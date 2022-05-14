@@ -40,7 +40,6 @@ public class Controller implements MouseListener{
             int idx = game.getMap().getFields().indexOf(f);
             f.mustDraw(view, idx);
         }
-        //game.getMap().getFields().forEach(f->{f.mustDraw(view,game.getMap().getFields().indexOf(f));});
         view.paintMap();
     }
 
