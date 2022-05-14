@@ -217,37 +217,34 @@ public class Virologist implements Steppable {
     /**
      * A leptetes
      */
-    public void step(){
+    public void step() {
         //minden Steppable leptetese
-        for (Attribute a:
-             attributes) {
+        for (Attribute a :
+                attributes) {
             a.step();
         }
-        for (Agent a:
-             agents) {
+        for (Agent a :
+                agents) {
             a.step();
         }
 
         //eldöntjük.hogy tancol-e
         boolean vitus = false;
-        for (Attribute a:
-             attributes) {
-            vitus = a.getTimeDance()>0;
-            if (vitus){
+        for (Attribute a :
+                attributes) {
+            vitus = a.getTimeDance() > 0;
+            if (vitus) {
                 break;
             }
         }
 
         //ha random kell lepnie
-        if (bearDance || vitus){
+        if (bearDance || vitus) {
             Random rnd = new Random();
             ArrayList<Field> neighbours = field.getNeighbours();
             int route = rnd.nextInt(neighbours.size());  //random mezo sorsolasa
             Field target = neighbours.get(route);
             move(target);
-        //kulonben normalis lepes
-        }else{
-
         }
     }
 
@@ -459,7 +456,6 @@ public class Virologist implements Steppable {
             }
     }
     public void mustDraw(View v,int fieldIdx) {
-        bearDance=true;
         if (!bearDance) {
             v.drawVirologist(viroID, fieldIdx);
         }else{
