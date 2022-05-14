@@ -17,6 +17,7 @@ public class Map {
         int labNumber = 0;
         this.fields = new ArrayList<>();
         while(labNumber<4){
+            this.fields.clear();
             labNumber=0;
             for (int i = 0; i < polygons.size(); i++){
                 //70% Field, 10% Storage,Shelter,Lab

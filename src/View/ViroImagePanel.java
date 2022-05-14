@@ -8,12 +8,14 @@ public class ViroImagePanel extends JPanel {
 
     public ViroImagePanel() {
         this.setPreferredSize(new Dimension(400,400));
+        this.setBackground(Color.WHITE);
+
     }
 
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.drawImage(currentVirImage,72,72,null);
+        g.drawImage(currentVirImage,220,72,null);
     }
 
     public void setCurrentVirImage(Image currentVirImage) {
