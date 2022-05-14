@@ -52,15 +52,15 @@ public class MapView extends JPanel {
         bearPositions[whichBear]=fieldIdx;
     }
 
-    private void paintPicture(int idx,String pic, Graphics g) throws IOException {
+    private void paintPicture(int pos,String pic, Graphics g) throws IOException {
         int x=0;
         int y=0;
-        for(int j=0;j<polygons.get(viroPositions[idx]).npoints;j++){
-            x+=polygons.get(viroPositions[idx]).xpoints[j];
-            y+=polygons.get(viroPositions[idx]).ypoints[j];
+        for(int j=0;j<polygons.get(pos).npoints;j++){
+            x+=polygons.get(pos).xpoints[j];
+            y+=polygons.get(pos).ypoints[j];
         }
-        x/=polygons.get(viroPositions[idx]).npoints;
-        y/=polygons.get(viroPositions[idx]).npoints;
+        x/=polygons.get(pos).npoints;
+        y/=polygons.get(pos).npoints;
 
         Image bufferedImage = (ImageIO.read(new File(pic))).getScaledInstance(32,32,Image.SCALE_DEFAULT);
         g.drawImage(bufferedImage, x-bufferedImage.getWidth(null)/2, y-bufferedImage.getHeight(null)/2, null);
@@ -80,7 +80,8 @@ public class MapView extends JPanel {
         for(int i=0;i<viroPositions.length;i++){
             if (viroPositions[i]!=-1) {
                 try {
-                    paintPicture(i,"src/img/virologist_" + (i + 1) + ".png",g);
+                    int pos=viroPositions[i];
+                    paintPicture(pos,"src/img/virologist_" + (i + 1) + ".png",g);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -89,7 +90,8 @@ public class MapView extends JPanel {
         for(int i=0;i<bearPositions.length;i++){
             if (bearPositions[i]!=-1) {
                 try {
-                    paintPicture(i,"src/img/bear.png",g);
+                    int pos=bearPositions[i];
+                    paintPicture(pos,"src/img/bear.png",g);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

@@ -2,9 +2,6 @@ package main;
 
 import View.*;
 import main.map.Map;
-import proto.Proto;
-
-import java.io.IOException;
 
 public class Main {
     private static Controller controller;
