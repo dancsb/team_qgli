@@ -128,7 +128,8 @@ public class Virologist implements Steppable {
      */
     public boolean checkWin(){
         //az osszes genetikai kod tudasanak eseteben igaz ertekkel ter vissza
-        return geneticCodes.size() == 4;
+        //return geneticCodes.size() == 4;
+        return false;
     }
 
     /**
@@ -266,11 +267,9 @@ public class Virologist implements Steppable {
      */
     public void pickUpEquipment(Equipment e){
         //meghivja az adott felszereles collect fuggvenyet
-        if(!bearDance) {
-            if (equipments.size() < 3) {
-                equipments.add(e);
-                e.action(this);
-            }
+        if (equipments.size() < 3) {
+            equipments.add(e);
+            e.action(this);
         }
     }
 
@@ -320,7 +319,8 @@ public class Virologist implements Steppable {
         if(geneticCodes.contains(g))return;
         else geneticCodes.add(g);
         //ha minden genetikai kodot megtanult akkor a jateknak vege van
-        if(checkWin())Game.endGame();
+        if(checkWin())
+            Game.endGame();
     }
 
     /**
@@ -407,8 +407,10 @@ public class Virologist implements Steppable {
                 vedve = true;
         if(!vedve && !isBearDance()) {
             this.bearDance = bearDance;
-            equipments.clear();
-            agents.clear();
+            if(bearDance) {
+                equipments.clear();
+                agents.clear();
+            }
         }
     }
 
