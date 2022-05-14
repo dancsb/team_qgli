@@ -17,17 +17,17 @@ public class View extends JFrame {
         this.setLayout(new BorderLayout());
         this.add(startView, BorderLayout.CENTER);
         this.pack();
-        this.setResizable(true);
+        this.setResizable(false);
         this.setVisible(true);
     }
 
     public void startGame() {
         this.remove(startView);
         this.setLayout(new BorderLayout());
-        this.add(mapView,BorderLayout.LINE_START);
-        jSplitPane = new JSplitPane(SwingConstants.HORIZONTAL, viroImagePanel, viroStatPanel);
+        this.add(mapView, BorderLayout.CENTER);
+        jSplitPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT, viroImagePanel, viroStatPanel);
         jSplitPane.setEnabled(false);
-        this.add(jSplitPane);
+        this.add(jSplitPane, BorderLayout.EAST);
 
 
         //menu item hozzaadas
