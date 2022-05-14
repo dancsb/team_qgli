@@ -99,7 +99,7 @@ public class Controller implements MouseListener{
                 }
             }
             try {
-                view.getViroStatView().setCurrentVirImage((ImageIO.read(new File("src/img/virologist_" +(game.getViros().get(currentVirologist).getViroID()+1)+ ".png"))).getScaledInstance(256,256,Image.SCALE_DEFAULT));
+                view.getViroImagePanel().setCurrentVirImage((ImageIO.read(new File("src/img/virologist_" +(game.getViros().get(currentVirologist).getViroID()+1)+ ".png"))).getScaledInstance(256,256,Image.SCALE_DEFAULT));
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
