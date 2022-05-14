@@ -15,23 +15,23 @@ public class Game {
      * A palya
      */
     private Map map;
-    private ArrayList<Virologist>viros;
+    private ArrayList<Virologist>viros=new ArrayList<>();
 
     public void round(Field f){
 
     }
     public Game(Map m) {
         map = m;
-        for(Field f:m.getFields()){
-            if(f.getVirologists().size()>0){
-                viros.addAll(f.getVirologists());
-            }
-        }
+    }
+
+    public ArrayList<Virologist> getViros() {
+        return viros;
     }
 
     /**
      * A jatek inditasa
      */
+
     public void startGame(){
         SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
         SkeletonWriter.println("Game.startGame()");

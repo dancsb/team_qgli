@@ -461,4 +461,8 @@ public class Virologist implements Steppable {
     public void mustDraw(View v,int fieldIdx) {
         v.drawVirologist(viroID,fieldIdx);
     }
+
+    public int getViroID() {
+        return viroID;
+    }
 }

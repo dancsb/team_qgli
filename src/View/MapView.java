@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class MapView extends JPanel implements MouseListener {
+public class MapView extends JPanel {
     /**
      * Polygonok listája amik a mezőket jelképezik majd vizuálisan.
      */
@@ -19,7 +19,6 @@ public class MapView extends JPanel implements MouseListener {
     private boolean firstRepaint=false;
     private ArrayList<Color> c=new ArrayList<>();
     private Integer viroPositions[]=new Integer[8];
-    private int destField=-1;
 
     public MapView() {
         this.setPreferredSize(new Dimension(800,800));
@@ -33,7 +32,6 @@ public class MapView extends JPanel implements MouseListener {
         for (int i = 0; i < 8; i++) {
             viroPositions[i]=-1;
         }
-        this.addMouseListener(this);
     }
 
     public ArrayList<Polygon> getPolygons() {
@@ -79,31 +77,4 @@ public class MapView extends JPanel implements MouseListener {
         }
     }
 
-    @Override
-    public void mouseClicked(MouseEvent e) {
-        for(Polygon p:polygons){
-            if(p.contains(new Point(e.getX(),e.getY())))destField=polygons.indexOf(p);
-        }
-        System.out.println(destField);
-    }
-
-    @Override
-    public void mousePressed(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseReleased(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseEntered(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseExited(MouseEvent e) {
-
-    }
 }
