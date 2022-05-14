@@ -33,8 +33,8 @@ public class View extends JFrame {
     public void drawVirologist(int whichViro,int fieldIdx){
         mapView.addViroPos(whichViro,fieldIdx);
     }
-    public void drawBear(){
-
+    public void drawBear(int whichBear, int fieldIdx){
+        mapView.addBearPos(whichBear,fieldIdx);
     }
 
     public void drawField(int idx){

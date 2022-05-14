@@ -19,6 +19,7 @@ public class MapView extends JPanel {
     private boolean firstRepaint=false;
     private ArrayList<Color> c=new ArrayList<>();
     private Integer viroPositions[]=new Integer[8];
+    private Integer bearPositions[]=new Integer[8];
 
     public MapView() {
         this.setPreferredSize(new Dimension(800,800));
@@ -31,6 +32,7 @@ public class MapView extends JPanel {
         }
         for (int i = 0; i < 8; i++) {
             viroPositions[i]=-1;
+            bearPositions[i]=-1;
         }
     }
 
@@ -43,6 +45,25 @@ public class MapView extends JPanel {
     }
     public void addViroPos(int whichViro,int fieldIdx) {
         viroPositions[whichViro]=fieldIdx;
+    }
+
+    public void addBearPos(int whichBear,int fieldIdx) {
+        viroPositions[whichBear]=-1;
+        bearPositions[whichBear]=fieldIdx;
+    }
+
+    private void paintPicture(int idx,String pic, Graphics g) throws IOException {
+        int x=0;
+        int y=0;
+        for(int j=0;j<polygons.get(viroPositions[idx]).npoints;j++){
+            x+=polygons.get(viroPositions[idx]).xpoints[j];
+            y+=polygons.get(viroPositions[idx]).ypoints[j];
+        }
+        x/=polygons.get(viroPositions[idx]).npoints;
+        y/=polygons.get(viroPositions[idx]).npoints;
+
+        Image bufferedImage = (ImageIO.read(new File(pic))).getScaledInstance(32,32,Image.SCALE_DEFAULT);
+        g.drawImage(bufferedImage, x-bufferedImage.getWidth(null)/2, y-bufferedImage.getHeight(null)/2, null);
     }
 
     public void paintComponent(Graphics g) {
@@ -59,17 +80,16 @@ public class MapView extends JPanel {
         for(int i=0;i<viroPositions.length;i++){
             if (viroPositions[i]!=-1) {
                 try {
-                    int x=0;
-                    int y=0;
-                    for(int j=0;j<polygons.get(viroPositions[i]).npoints;j++){
-                        x+=polygons.get(viroPositions[i]).xpoints[j];
-                        y+=polygons.get(viroPositions[i]).ypoints[j];
-                    }
-                    x/=polygons.get(viroPositions[i]).npoints;
-                    y/=polygons.get(viroPositions[i]).npoints;
-
-                    Image bufferedImage = (ImageIO.read(new File("src/img/virologist_" + (i + 1) + ".png"))).getScaledInstance(32,32,Image.SCALE_DEFAULT);
-                    g.drawImage(bufferedImage, x-bufferedImage.getWidth(null)/2, y-bufferedImage.getHeight(null)/2, null);
+                    paintPicture(i,"src/img/virologist_" + (i + 1) + ".png",g);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        for(int i=0;i<bearPositions.length;i++){
+            if (bearPositions[i]!=-1) {
+                try {
+                    paintPicture(i,"src/img/bear.png",g);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
