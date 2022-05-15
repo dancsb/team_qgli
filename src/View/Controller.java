@@ -1,10 +1,8 @@
 package View;
 
 import main.Game;
-import main.items.agents.Amnesia;
-import main.items.agents.Invulnerable;
-import main.items.agents.Paralyzer;
-import main.items.agents.Vitusdance;
+import main.items.agents.*;
+import main.items.collectibles.Equipment;
 import main.map.Field;
 import main.virologist.DieException;
 import main.virologist.Virologist;
@@ -209,8 +207,11 @@ public class Controller implements MouseListener{
         @Override
         public void actionPerformed(ActionEvent e) {
             ArrayList<Integer> viroIDs = fillViroIDs();
+            ArrayList<Agent> agents = game.getViros().get(currentVirologist).getAgents();
+            ArrayList<String> agentNames = new ArrayList<>();
+            agents.forEach(agent->agentNames.add(agent.getRequireGenCode()));
 
-            view.setChooseView(new ChooseView(viroIDs, game.getViros().get(currentVirologist).getAgents(), true));
+            view.setChooseView(new ChooseView(viroIDs, agentNames, true));
         }
     }
 
@@ -218,8 +219,11 @@ public class Controller implements MouseListener{
         @Override
         public void actionPerformed(ActionEvent e) {
             ArrayList<Integer> viroIDs = fillViroIDs();
-
-            view.setChooseView(new ChooseView(viroIDs, game.getViros().get(currentVirologist).getAgents(), true));
+            ArrayList<Equipment> equipments = game.getViros().get(currentVirologist).getEquipments();
+            ArrayList<String> equipmentNames = new ArrayList<>();
+            equipments.forEach(eq->equipmentNames.add(eq.getName()));
+            // TODO: 2022. 05. 15. a comboboxot frissiteni, ha megnyomunk egy virologusgombot es neki lekerdezni a cuccait 
+            view.setChooseView(new ChooseView(viroIDs, equipmentNames, true));
         }
 
     }
@@ -229,15 +233,14 @@ public class Controller implements MouseListener{
         public void actionPerformed(ActionEvent e) {
             ArrayList<Integer> viroIDs = fillViroIDs();
 
-            view.setChooseView(new ChooseView(viroIDs, game.getViros().get(currentVirologist).getAgents(), false));
+            view.setChooseView(new ChooseView(viroIDs, null, false));
         }
     }
 
     private ArrayList<Integer> fillViroIDs() {
         ArrayList<Integer> viroIDs = new ArrayList<>();
-        for(Virologist v:game.getViros().get(currentVirologist).getField().getVirologists()){
+        for(Virologist v:game.getViros().get(currentVirologist).getField().getVirologists())
             viroIDs.add(v.getViroID());
-        }
         viroIDs.sort(Integer::compare);
         return viroIDs;
     }

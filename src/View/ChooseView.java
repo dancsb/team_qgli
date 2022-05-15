@@ -14,23 +14,13 @@ public class ChooseView extends JFrame {
     private ArrayList<JButton>virosButtons=new ArrayList<>();
     private JComboBox agentList;
 
-    public ChooseView(ArrayList<Integer>viroIDs, ArrayList<Agent>agents, boolean needComboBox) {
+    public ChooseView(ArrayList<Integer>viroIDs, ArrayList<String> itemek, boolean needComboBox) {
         JPanel p1 = new JPanel();
 
         this.setSize(new Dimension(600,400));
         this.setResizable(false);
         this.setLayout(new BorderLayout());
-        ArrayList<String>agentNames=new ArrayList<>();
-        agents.forEach(x->agentNames.add(x.getRequireGenCode()));
-        agentList=new JComboBox(agentNames.toArray());
         p1.setLayout(new GridLayout(2,4));
-        viroIDs.add(1);
-        viroIDs.add(2);
-        viroIDs.add(3);
-        viroIDs.add(4);
-        viroIDs.add(5);
-        viroIDs.add(6);
-        viroIDs.add(7);
         for(int i=0;i<viroIDs.size();i++){
             try {
                 virosButtons.add(new JButton());
@@ -43,6 +33,7 @@ public class ChooseView extends JFrame {
         this.add(p1, needComboBox ? BorderLayout.NORTH : BorderLayout.CENTER);
         if (needComboBox) {
             JPanel p2 = new JPanel();
+            agentList=new JComboBox(itemek.toArray());
             p2.add(agentList);
             this.add(p2,BorderLayout.SOUTH);
         }
