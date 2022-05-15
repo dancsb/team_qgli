@@ -24,7 +24,7 @@ public class Vitusdance extends Agent {
      * @param v a virologus amelyen az agenst hasznaljuk
      */
     public void useOn(Virologist v) {
-        v.getAttributes().forEach(a->a.setTimeDance(expireTime));
+        v.getAttributes().forEach(a->a.setTimeDance(effectTime));
     }
     @Override
     public void printStat(){
