@@ -144,9 +144,9 @@ public class Virologist implements Steppable {
                 if(v.getAttributes().get(0).getTimeInvu() > 0) return;
                 //a kivalasztott virologustol ellopja a megadott eroforrasokat
                 //target virologustol valo elvetel
-                v.loseResources(r);
                 //sajat inventoryba felveszi a lopott eroforrasokat
                 this.pickUpResource(r);
+                v.loseResources(r);
             }
         }
     }

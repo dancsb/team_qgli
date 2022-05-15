@@ -28,6 +28,8 @@ public class Nucleotide extends Resource {
         //Lekérem a resourcest és ami nucleotid ott átállítom annyival amit az r ad
         if(v.getResources().get(1).getAmount() + amount <= v.getResources().get(1).maxCapacity)
             v.getResources().get(1).changeAmountNucleotide(amount);
+        else v.getResources().get(1).changeAmountAminoAcid(v.getResources().get(1).maxCapacity - v.getResources().get(1).getAmount());
+
     }
     @Override
     public void printStat(){

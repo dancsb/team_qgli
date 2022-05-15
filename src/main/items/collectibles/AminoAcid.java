@@ -36,6 +36,7 @@ public class AminoAcid extends Resource {
         //Lekérem a resourcest és ami aminoacid ott átállítom annyival amit az r ad
         if(v.getResources().get(0).getAmount() + amount <= v.getResources().get(0).maxCapacity)
             v.getResources().get(0).changeAmountAminoAcid(amount);
+        else v.getResources().get(0).changeAmountAminoAcid(v.getResources().get(0).maxCapacity - v.getResources().get(0).getAmount());
     }
     @Override
     public void printStat(){
