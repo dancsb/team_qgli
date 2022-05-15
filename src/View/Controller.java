@@ -39,6 +39,7 @@ public class Controller implements MouseListener{
         view.getCraftAmnesia().addActionListener(new AgentCrafter());
         view.getCraftVitusdance().addActionListener(new AgentCrafter());
         view.getEndTurnButton().addActionListener(new EndTurnListener());
+        view.getUseAgentMenu().addActionListener(new UseAgentListener());
     }
 
     public void startGame(int viros) {
@@ -123,6 +124,9 @@ public class Controller implements MouseListener{
 
     @Override
     public void mouseClicked(MouseEvent e) {
+        if (SwingUtilities.isRightMouseButton(e)) {
+
+        }
         if(SwingUtilities.isLeftMouseButton(e)){
             ArrayList<Virologist> virologists = game.getViros();
             for(Polygon p:view.getMapView().getPolygons()){
@@ -197,6 +201,21 @@ public class Controller implements MouseListener{
                 resetWindow();
                 moved = false;
             }
+        }
+    }
+
+    public class UseAgentListener implements ActionListener{
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            ArrayList<Integer>viroIDs=new ArrayList<>();
+
+            for(Virologist v:game.getViros().get(currentVirologist).getField().getVirologists()){
+                viroIDs.add(v.getViroID());
+            }
+            viroIDs.sort(Integer::compare);
+            view.setUseAgentView(new UseAgentView(viroIDs));
+
+           // view.paintComponents(view.getUseAgentView().getGraphics());
         }
     }
 }

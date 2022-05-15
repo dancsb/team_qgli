@@ -13,6 +13,7 @@ public class MapView extends JPanel {
      * Polygonok listája amik a mezőket jelképezik majd vizuálisan.
      */
     private ArrayList<Polygon> polygons = new ArrayList<>();
+    private ArrayList<int[]> polyLabel = new ArrayList<>();
     private boolean firstRepaint=false;
     private ArrayList<Color> c=new ArrayList<>();
     private Integer[] viroPositions =new Integer[8];
@@ -30,6 +31,9 @@ public class MapView extends JPanel {
         }
         //Polygonos pálya
         //polygons=MapGen.genMap(new Dimension(800,800));
+
+        for (Polygon p: polygons)
+            polyLabel.add(getCenter(p));
         for (int i = 0; i < 8; i++) {
             viroPositions[i]=-1;
             bearPositions[i]=-1;

@@ -6,6 +6,8 @@ import java.awt.*;
 public class View extends JFrame {
     private MapView mapView = new MapView();
     private StartView startView = new StartView();
+
+    private UseAgentView useAgentView;
     private ViroImagePanel viroImagePanel = new ViroImagePanel();
     private ViroStatPanel viroStatPanel = new ViroStatPanel();
     private JSplitPane jSplitPane;
@@ -16,7 +18,9 @@ public class View extends JFrame {
     private JMenuItem craftParalyzed = new JMenuItem("Paralyzed");
     private JMenuItem craftVitusdance = new JMenuItem("Vitusdance");
 
-    private JMenuItem endTurnButton = new JMenuItem("END TURN");
+    private JButton endTurnButton = new JButton("END TURN");
+
+    private JButton useAgentMenu = new JButton("Use Agent");
 
     public View() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -39,15 +43,21 @@ public class View extends JFrame {
         //menu item hozzaadas
         JMenu craftMenu = new JMenu("Craft");
 
+
+        useAgentMenu.setBorder(BorderFactory.createEmptyBorder());
+        endTurnButton.setBorder(BorderFactory.createEmptyBorder());
+        menuBar.setBackground(Color.WHITE);
+        endTurnButton.setBackground(Color.WHITE);
+        useAgentMenu.setBackground(Color.WHITE);
         craftMenu.add(craftAmnesia);
         craftMenu.add(craftInvulnerable);
         craftMenu.add(craftParalyzed);
         craftMenu.add(craftVitusdance);
-
         menuBar.add(craftMenu);
+        menuBar.add(useAgentMenu);
+        menuBar.add( Box.createHorizontalStrut( 10 ) );
         menuBar.add(endTurnButton);
         this.add(menuBar, BorderLayout.NORTH);
-
         this.pack();
         this.setResizable(false);
     }
@@ -111,6 +121,18 @@ public class View extends JFrame {
         return craftVitusdance;
     }
 
-    public JMenuItem getEndTurnButton(){ return endTurnButton; }
+    public JButton getEndTurnButton(){ return endTurnButton; }
+
+    public JButton getUseAgentMenu() {
+        return useAgentMenu;
+    }
+
+    public UseAgentView getUseAgentView() {
+        return useAgentView;
+    }
+
+    public void setUseAgentView(UseAgentView useAgentView) {
+        this.useAgentView = useAgentView;
+    }
 }
 
