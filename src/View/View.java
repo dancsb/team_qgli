@@ -7,7 +7,7 @@ public class View extends JFrame {
     private MapView mapView = new MapView();
     private StartView startView = new StartView();
 
-    private UseAgentView useAgentView;
+    private ChooseView chooseView;
     private ViroImagePanel viroImagePanel = new ViroImagePanel();
     private ViroStatPanel viroStatPanel = new ViroStatPanel();
     private JSplitPane jSplitPane;
@@ -21,6 +21,8 @@ public class View extends JFrame {
     private JButton endTurnButton = new JButton("END TURN");
 
     private JButton useAgentMenu = new JButton("Use Agent");
+    private JButton stealEquipmentMenu = new JButton("Steal Equipment");
+    private JButton stealResourceMenu = new JButton("Steal Resource");
 
     public View() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -45,16 +47,24 @@ public class View extends JFrame {
 
 
         useAgentMenu.setBorder(BorderFactory.createEmptyBorder());
+        stealEquipmentMenu.setBorder(BorderFactory.createEmptyBorder());
+        stealResourceMenu.setBorder(BorderFactory.createEmptyBorder());
         endTurnButton.setBorder(BorderFactory.createEmptyBorder());
         menuBar.setBackground(Color.WHITE);
         endTurnButton.setBackground(Color.WHITE);
         useAgentMenu.setBackground(Color.WHITE);
+        stealEquipmentMenu.setBackground(Color.WHITE);
+        stealResourceMenu.setBackground(Color.WHITE);
         craftMenu.add(craftAmnesia);
         craftMenu.add(craftInvulnerable);
         craftMenu.add(craftParalyzed);
         craftMenu.add(craftVitusdance);
         menuBar.add(craftMenu);
         menuBar.add(useAgentMenu);
+        menuBar.add( Box.createHorizontalStrut( 10 ) );
+        menuBar.add(stealEquipmentMenu);
+        menuBar.add( Box.createHorizontalStrut( 10 ) );
+        menuBar.add(stealResourceMenu);
         menuBar.add( Box.createHorizontalStrut( 10 ) );
         menuBar.add(endTurnButton);
         this.add(menuBar, BorderLayout.NORTH);
@@ -127,12 +137,16 @@ public class View extends JFrame {
         return useAgentMenu;
     }
 
-    public UseAgentView getUseAgentView() {
-        return useAgentView;
+    public JButton getStealEquipmentMenu() {
+        return stealEquipmentMenu;
     }
 
-    public void setUseAgentView(UseAgentView useAgentView) {
-        this.useAgentView = useAgentView;
+    public JButton getStealResourceMenu() {
+        return stealResourceMenu;
+    }
+
+    public void setChooseView(ChooseView chooseView) {
+        this.chooseView = chooseView;
     }
 }
 

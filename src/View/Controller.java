@@ -40,6 +40,8 @@ public class Controller implements MouseListener{
         view.getCraftVitusdance().addActionListener(new AgentCrafter());
         view.getEndTurnButton().addActionListener(new EndTurnListener());
         view.getUseAgentMenu().addActionListener(new UseAgentListener());
+        view.getStealEquipmentMenu().addActionListener(new StealEquipmentListener());
+        view.getStealResourceMenu().addActionListener(new StealResourceListener());
     }
 
     public void startGame(int viros) {
@@ -71,9 +73,8 @@ public class Controller implements MouseListener{
     }
 
     private void exceptionHandling(DieException ex){
-        if(game.getViros().get(currentVirologist)==ex.getVirologist()){
+        if(game.getViros().get(currentVirologist)==ex.getVirologist())
             currentVirologist--;
-        }
         game.getViros().remove(ex.getVirologist());
         numberOfViros--;
         ex.getVirologist().mustDraw(view,-1);
@@ -207,15 +208,37 @@ public class Controller implements MouseListener{
     public class UseAgentListener implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent e) {
-            ArrayList<Integer>viroIDs=new ArrayList<>();
+            ArrayList<Integer> viroIDs = fillViroIDs();
 
-            for(Virologist v:game.getViros().get(currentVirologist).getField().getVirologists()){
-                viroIDs.add(v.getViroID());
-            }
-            viroIDs.sort(Integer::compare);
-            view.setUseAgentView(new UseAgentView(viroIDs));
-
-           // view.paintComponents(view.getUseAgentView().getGraphics());
+            view.setChooseView(new ChooseView(viroIDs, game.getViros().get(currentVirologist).getAgents(), true));
         }
+    }
+
+    private class StealEquipmentListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            ArrayList<Integer> viroIDs = fillViroIDs();
+
+            view.setChooseView(new ChooseView(viroIDs, game.getViros().get(currentVirologist).getAgents(), true));
+        }
+
+    }
+
+    private class StealResourceListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            ArrayList<Integer> viroIDs = fillViroIDs();
+
+            view.setChooseView(new ChooseView(viroIDs, game.getViros().get(currentVirologist).getAgents(), false));
+        }
+    }
+
+    private ArrayList<Integer> fillViroIDs() {
+        ArrayList<Integer> viroIDs = new ArrayList<>();
+        for(Virologist v:game.getViros().get(currentVirologist).getField().getVirologists()){
+            viroIDs.add(v.getViroID());
+        }
+        viroIDs.sort(Integer::compare);
+        return viroIDs;
     }
 }
