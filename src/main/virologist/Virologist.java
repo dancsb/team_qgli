@@ -525,4 +525,14 @@ public class Virologist implements Steppable {
             }
         return  temp;
     }
+
+    public boolean isParalyzed(){
+        for (Attribute a:
+             attributes) {
+            if (a.getTimePara()>0){
+                return true;
+            }
+        }
+        return false;
+    }
 }

@@ -15,7 +15,6 @@ public class Paralyzer extends Agent {
      */
     public Paralyzer(Virologist v, long amino, long nucleo, String genCode) {
         super(v, amino, nucleo, genCode);
-
     }
 
 
@@ -24,7 +23,7 @@ public class Paralyzer extends Agent {
      * @param v a virologus akire megy az effekt
      */
     public void useOn(Virologist v) {
-        v.getAttributes().forEach(a->a.setTimePara(expireTime));
+        v.getAttributes().forEach(a->a.setTimePara(effectTime));
     }
     @Override
     public void printStat(){

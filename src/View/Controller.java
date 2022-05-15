@@ -82,15 +82,16 @@ public class Controller implements MouseListener{
     }
 
     private void resetWindow(){
-        try {
-            view.getViroImagePanel().setCurrentVirImage((ImageIO.read(new File("src/img/virologist_" +(game.getViros().get(currentVirologist).getViroID()+1)+ ".png"))).getScaledInstance(256,256,Image.SCALE_DEFAULT));
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-        view.getViroImagePanel().paintComponent(view.getViroImagePanel().getGraphics());
+        if(currentVirologist!=-1) {
+            try {
+                view.getViroImagePanel().setCurrentVirImage((ImageIO.read(new File("src/img/virologist_" + (game.getViros().get(currentVirologist).getViroID() + 1) + ".png"))).getScaledInstance(256, 256, Image.SCALE_DEFAULT));
+            } catch (Exception ignored) {
+            }
+            view.getViroImagePanel().paintComponent(view.getViroImagePanel().getGraphics());
 
-        viroStatString = game.getViros().get(currentVirologist).toString();
-        view.getViroStatPanel().setStats(viroStatString);
+            viroStatString = game.getViros().get(currentVirologist).toString();
+            view.getViroStatPanel().setStats(viroStatString);
+        }
 
         view.paintMap();
     }
@@ -126,9 +127,6 @@ public class Controller implements MouseListener{
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        if (SwingUtilities.isRightMouseButton(e)) {
-
-        }
         if(SwingUtilities.isLeftMouseButton(e)){
             ArrayList<Virologist> virologists = game.getViros();
             for(Polygon p:view.getMapView().getPolygons()){
@@ -201,6 +199,16 @@ public class Controller implements MouseListener{
 
                 medveSteps();
                 resetWindow();
+                while (game.getViros().get(currentVirologist).isParalyzed()){
+                    try {
+                        game.getViros().get(currentVirologist).step();
+                    } catch (DieException ex) {
+                        exceptionHandling(ex);
+                    }
+                    currentVirologist++;
+                    if (currentVirologist >= numberOfViros) currentVirologist = 0;
+                }
+                resetWindow();
                 moved = false;
             }
         }
@@ -218,7 +226,7 @@ public class Controller implements MouseListener{
             ArrayList<JButton> virosButtons = view.getChooseView().getVirosButtons();
             for (JButton j:
                     virosButtons) {
-                j.addActionListener(new ChooseViroListener(virosButtons, view.getChooseView().getComboBox()));
+                j.addActionListener(new ChooseViroListener(virosButtons, viroIDs, view.getChooseView().getComboBox()));
             }
             command=0;
         }
@@ -237,7 +245,7 @@ public class Controller implements MouseListener{
             ArrayList<JButton> virosButtons = view.getChooseView().getVirosButtons();
             for (JButton j:
                     virosButtons) {
-                j.addActionListener(new ChooseViroListener(virosButtons, view.getChooseView().getComboBox()));
+                j.addActionListener(new ChooseViroListener(virosButtons, viroIDs, view.getChooseView().getComboBox()));
             }
             command=1;
         }
@@ -253,7 +261,7 @@ public class Controller implements MouseListener{
             ArrayList<JButton> virosButtons = view.getChooseView().getVirosButtons();
             for (JButton j:
                     virosButtons) {
-                j.addActionListener(new ChooseViroListener(virosButtons, null));
+                j.addActionListener(new ChooseViroListener(virosButtons, viroIDs, null));
             }
             command=2;
         }
@@ -269,16 +277,18 @@ public class Controller implements MouseListener{
 
     private class ChooseViroListener implements ActionListener{
         private final ArrayList<JButton> viroButtons;
+        private final ArrayList<Integer> viroIDs ;
         private final JComboBox<String> options;
 
-        public ChooseViroListener(ArrayList<JButton> jButtons, JComboBox<String> options){
+        public ChooseViroListener(ArrayList<JButton> jButtons, ArrayList<Integer> viroIDs, JComboBox<String> options){
             viroButtons=jButtons;
+            this.viroIDs = viroIDs;
             this.options = options;
         }
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            Virologist target = game.getViros().get(viroButtons.indexOf(e.getSource()));
+            Virologist target = game.getViros().get(viroIDs.get(viroButtons.indexOf(e.getSource())));
             Virologist attacker = game.getViros().get(currentVirologist);
             switch (command){
                 case 0:{
@@ -306,6 +316,7 @@ public class Controller implements MouseListener{
                 }
             }
             view.getChooseView().setVisible(false);
+            resetWindow();
         }
     }
 }
