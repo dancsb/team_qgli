@@ -4,8 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class ViroStatPanel extends JPanel {
-    private JTextArea viroStat = new JTextArea(10,50);
-    private String stats;
+    private JTextArea viroStat = new JTextArea();
 
     public ViroStatPanel() {
         Font font = new Font("ViroStat", Font.BOLD, 15);
@@ -16,11 +15,7 @@ public class ViroStatPanel extends JPanel {
         this.add(viroStat);
     }
 
-    public void showViroStat(){
-        this.viroStat.setText(stats);
-    }
-
     public void setStats(String values){
-        stats = values;
+        this.viroStat.setText(values);
     }
 }

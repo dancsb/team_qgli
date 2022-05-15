@@ -7,7 +7,7 @@ import java.awt.*;
 
 public class StartView extends JPanel {
     private JButton start ;
-    private String[]options={"2","3","4","5","6","7","8"};
+    private String[]options={"2 virologist","3 virologist","4 virologist","5 virologist","6 virologist","7 virologist","8 virologist"};
     private JComboBox numberOfViros=new JComboBox(options);
 
     public StartView(){

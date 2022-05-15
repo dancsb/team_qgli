@@ -27,7 +27,7 @@ public class MapView extends JPanel {
                 polygons.add(new Polygon(x, y, 4));
             }
         }
-        polygons=MapGen.genMap(new Dimension(800,800));
+        //polygons=MapGen.genMap(new Dimension(800,800));
         for (int i = 0; i < 8; i++) {
             viroPositions[i]=-1;
             bearPositions[i]=-1;
