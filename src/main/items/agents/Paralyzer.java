@@ -32,7 +32,7 @@ public class Paralyzer extends Agent {
     }
     @Override
     public String toString(){
-        if(expireTime > 0) return "        paralyzer hatas ideje: "+expireTime + "\n";
+        if(expireTime > 0) return "        paralyzer agens felhasznalhato meg "+expireTime + " korig\n";
         else return null;
     }
 }

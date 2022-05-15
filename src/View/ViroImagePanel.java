@@ -14,7 +14,7 @@ public class ViroImagePanel extends JPanel {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.drawImage(currentVirImage,72,72,null);
+        g.drawImage(currentVirImage,165,72,null);
     }
 
     public void setCurrentVirImage(Image currentVirImage) {

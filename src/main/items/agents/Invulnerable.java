@@ -32,7 +32,7 @@ public class Invulnerable extends Agent {
     }
     @Override
     public String toString(){
-        if(expireTime > 0) return "        invulnerable hatas ideje: "+expireTime + "\n";
+        if(expireTime > 0) return "        invulnerable agens felhasznalhato meg "+expireTime + " korig\n";
         else  return null;
     }
 }

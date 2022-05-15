@@ -32,7 +32,7 @@ public class Vitusdance extends Agent {
     }
     @Override
     public String toString(){
-        if(expireTime > 0)return "        vitusdance hatas ideje: "+expireTime + "\n";
+        if(expireTime > 0)return "        vitusdance agens felhasznalhato meg "+expireTime + " korig\n";
         else return null;
     }
 }
