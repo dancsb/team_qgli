@@ -181,8 +181,9 @@ public class Virologist implements Steppable {
         //lekerdezi az ugyanazon a mezon levo virologusokat, azokra tamadhat
         ArrayList<Virologist> av = field.getVirologists();
         if(target==this){
-            a.useOn(this);
             this.agents.remove(a);
+            if(target.isInvulnerable())return;
+            a.useOn(this);
             return;
         }
         for (Virologist viro:av)
@@ -530,6 +531,15 @@ public class Virologist implements Steppable {
         for (Attribute a:
              attributes) {
             if (a.getTimePara()>0){
+                return true;
+            }
+        }
+        return false;
+    }
+    public boolean isInvulnerable(){
+        for (Attribute a:
+                attributes) {
+            if (a.getTimeInvu()>0){
                 return true;
             }
         }

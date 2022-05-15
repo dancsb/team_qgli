@@ -23,7 +23,7 @@ public class Invulnerable extends Agent {
      * @param v a virologus akire megy az effekt
      */
     public void useOn(Virologist v) {
-        v.getAttributes().forEach(a->a.setTimeInvu(expireTime));
+        v.getAttributes().forEach(a->a.setTimeInvu(effectTime));
     }
     @Override
     public void printStat(){
