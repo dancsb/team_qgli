@@ -228,6 +228,7 @@ public class Controller implements MouseListener{
         @Override
         public void actionPerformed(ActionEvent e) {
             ArrayList<Integer> viroIDs = fillViroIDs();
+            viroIDs.remove(game.getViros().get(currentVirologist).getViroID());
             ArrayList<Equipment> equipments = game.getViros().get(currentVirologist).getEquipments();
             ArrayList<String> equipmentNames = new ArrayList<>();
             equipments.forEach(eq->equipmentNames.add(eq.getName()));
@@ -247,7 +248,7 @@ public class Controller implements MouseListener{
         @Override
         public void actionPerformed(ActionEvent e) {
             ArrayList<Integer> viroIDs = fillViroIDs();
-
+            viroIDs.remove(game.getViros().get(currentVirologist).getViroID());
             view.setChooseView(new ChooseView(viroIDs, null, false));
             ArrayList<JButton> virosButtons = view.getChooseView().getVirosButtons();
             for (JButton j:
@@ -295,7 +296,6 @@ public class Controller implements MouseListener{
                     break;
                 }
                 case 1:{
-
                     attacker.stealEquipment(target,new Axe());
                     break;
                 }
