@@ -18,6 +18,7 @@ public class MapView extends JPanel {
     private ArrayList<Color> c=new ArrayList<>();
     private Integer[] viroPositions =new Integer[8];
     private Integer[] bearPositions =new Integer[8];
+    private boolean epicPolygons=false;
 
     public MapView() {
         this.setPreferredSize(new Dimension(800,800));
@@ -30,7 +31,10 @@ public class MapView extends JPanel {
             }
         }
         //Polygonos pálya
-        //polygons=MapGen.genMap(new Dimension(800,800));
+        if(epicPolygons){
+            polygons=MapGen.genMap(new Dimension(800,800));
+        }
+
 
         for (Polygon p: polygons)
             polyLabel.add(getCenter(p));
@@ -127,5 +131,9 @@ public class MapView extends JPanel {
                 }
             }
         }
+    }
+
+    public void setEpicPolygons(boolean epicPolygons) {
+        this.epicPolygons = epicPolygons;
     }
 }
