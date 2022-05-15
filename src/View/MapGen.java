@@ -359,8 +359,6 @@ public abstract class MapGen {
 
         removeDuplicatePolygons();
 
-        System.out.println(lines.size());
-
         return polygons;
     }
 }
