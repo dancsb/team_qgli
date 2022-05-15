@@ -15,11 +15,12 @@ public class MapView extends JPanel {
     private ArrayList<Polygon> polygons = new ArrayList<>();
     private boolean firstRepaint=false;
     private ArrayList<Color> c=new ArrayList<>();
-    private Integer viroPositions[]=new Integer[8];
-    private Integer bearPositions[]=new Integer[8];
+    private Integer[] viroPositions =new Integer[8];
+    private Integer[] bearPositions =new Integer[8];
 
     public MapView() {
         this.setPreferredSize(new Dimension(800,800));
+        //Négyzetes pálya
         for (int i = 0; i < 8; i++) {
             int[] x = {i * 100, (i + 1) * 100, (i + 1) * 100, i * 100};
             for (int j = 0; j < 8; j++) {
@@ -27,6 +28,7 @@ public class MapView extends JPanel {
                 polygons.add(new Polygon(x, y, 4));
             }
         }
+        //Polygonos pálya
         //polygons=MapGen.genMap(new Dimension(800,800));
         for (int i = 0; i < 8; i++) {
             viroPositions[i]=-1;
@@ -50,16 +52,7 @@ public class MapView extends JPanel {
         bearPositions[whichBear]=fieldIdx;
     }
 
-    private void paintPicture(int pos,String pic, Graphics g) throws IOException {
-        int x=0;
-        int y=0;
-        for(int j=0;j<polygons.get(pos).npoints;j++){
-            x+=polygons.get(pos).xpoints[j];
-            y+=polygons.get(pos).ypoints[j];
-        }
-        x/=polygons.get(pos).npoints;
-        y/=polygons.get(pos).npoints;
-
+    private void paintPicture(int pos, String pic, Graphics g) throws IOException {
         Image bufferedImage = (ImageIO.read(new File(pic))).getScaledInstance(32,32,Image.SCALE_DEFAULT);
         int[] position = getCenter(polygons.get(pos));
         g.drawImage(bufferedImage, position[0]-bufferedImage.getWidth(null)/2, position[1]-bufferedImage.getHeight(null)/2, null);
@@ -67,8 +60,6 @@ public class MapView extends JPanel {
 
     private int[] getCenter(Polygon polygon) {
         int[] temp = new int[2];
-        temp[0] = 0;
-        temp[1] = 0;
         Rectangle rect = polygon.getBounds();
         float maxTav = 0;
 

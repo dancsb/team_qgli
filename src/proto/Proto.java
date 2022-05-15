@@ -158,7 +158,7 @@ public class Proto {
             case "move":
                 try {
                     virologists.get(cmd[1]).move(map.getFields().get(Integer.parseInt(cmd[2])));
-                } catch (DieException e) {
+                } catch (DieException ignored) {
                 }
                 break;
 
@@ -196,7 +196,7 @@ public class Proto {
             case "die":
                 try {
                     virologists.get(cmd[1]).die();
-                } catch (DieException e) {
+                } catch (DieException ignored) {
 
                 }
                 break;

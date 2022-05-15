@@ -2,8 +2,6 @@ package View;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class View extends JFrame {
     private MapView mapView = new MapView();
@@ -73,16 +71,16 @@ public class View extends JFrame {
         mapView.addBearPos(whichBear,fieldIdx);
     }
 
-    public void drawField(int idx){
+    public void drawField(){
         mapView.addC(Color.GREEN);
     }
-    public void drawLab(int idx){
+    public void drawLab(){
         mapView.addC(Color.BLUE);
     }
-    public void drawShelter(int idx){
+    public void drawShelter(){
         mapView.addC(new Color(205,133,63));
     }
-    public void drawStorage(int idx) {
+    public void drawStorage() {
         mapView.addC(Color.YELLOW);
     }
 

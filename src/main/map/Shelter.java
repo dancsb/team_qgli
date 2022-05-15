@@ -71,7 +71,7 @@ public class Shelter extends Field {
 
     @Override
     public void mustDraw(View v,int idx) {
-        v.drawShelter(idx);
+        v.drawShelter();
         for(Virologist viro:virologists){
             viro.mustDraw(v,idx);
         }

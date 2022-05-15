@@ -10,7 +10,7 @@ public class GeneticCode implements Collectible{
     /**
      * Adott genetikai kod neve
      */
-    private String name;
+    private final String name;
 
     /**
      * Konstruktor melyben beallitjuk a genetikai kod nevet

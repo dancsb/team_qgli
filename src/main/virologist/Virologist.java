@@ -327,9 +327,6 @@ public class Virologist implements Steppable {
             if (genCode.getName().equals(g.getName())) return;
         }
         geneticCodes.add(g);
-        //ha minden genetikai kodot megtanult akkor a jateknak vege van
-//        if(checkWin())
-//            Game.endGame();
     }
 
     /**
@@ -505,12 +502,13 @@ public class Virologist implements Steppable {
 
         if (agents.size() == 0)
             temp += "agenseinekListaja: null\n";
-        else
+        else {
             temp += "agenseinekListaja: ";
-            for (int i = 0; i < agents.size(); i++) {
-                temp+= "\n";
-                if(agents.get(i).toString() != null)temp += agents.get(i).toString();
+            for (Agent agent : agents) {
+                temp += "\n";
+                if (agent.toString() != null) temp += agent.toString();
             }
+        }
         temp += "resourceErtek: ";
         for (Resource r: resources)
             temp += r.toString();

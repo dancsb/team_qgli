@@ -9,7 +9,7 @@ public class Cape extends Equipment{
     /**
      * a kopennyel jaro vedekezesi % merteke
      */
-    private double defPerc;
+    private final double defPerc;
     private final String name = "cape";
 
     /**

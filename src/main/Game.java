@@ -17,9 +17,6 @@ public class Game {
     private Map map;
     private ArrayList<Virologist>viros=new ArrayList<>();
 
-    public void round(Field f){
-
-    }
     public Game(Map m) {
         map = m;
     }
@@ -33,10 +30,6 @@ public class Game {
      */
 
     public void startGame(){
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() + 1);
-        SkeletonWriter.println("Game.startGame()");
-        //map = new Map();
-        SkeletonWriter.setLevel(SkeletonWriter.getLevel() - 1);
     }
 
     /**

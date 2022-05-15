@@ -124,7 +124,7 @@ public class  Field implements IView {
 
     @Override
     public void mustDraw(View v,int idx) {
-        v.drawField(idx);
+        v.drawField();
         for(Virologist viro:virologists){
             viro.mustDraw(v,idx);
         }

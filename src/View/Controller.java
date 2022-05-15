@@ -96,16 +96,13 @@ public class Controller implements MouseListener{
                 currentVirologist++;
                 if(currentVirologist>=numberOfViros)currentVirologist=0;
             }
-            //GABÓ ???? ez mi a halál??? azt bágod h ez mindig true és fölösleges????? @Jeges
-            boolean mindmedve = false;
-            while(virologists.get(currentVirologist).isBearDance() && !mindmedve){
+            while(virologists.get(currentVirologist).isBearDance()){
                 try {
                     virologists.get(currentVirologist).step();
                 } catch (DieException ex) {
                     exceptionHandling(ex);
                 }
                 virologists.get(currentVirologist).mustDraw(view,game.getMap().getFields().indexOf(virologists.get(currentVirologist).getField()));
-                //if(virologists.get(currentVirologist).checkWin()){view.endGame(currentVirologist);return;}
                 currentVirologist++;
                 if(currentVirologist>=numberOfViros){
                     currentVirologist=0;
