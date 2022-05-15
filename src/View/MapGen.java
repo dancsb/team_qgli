@@ -90,13 +90,14 @@ public abstract class MapGen {
         Line l = new Line(start, p);
 
         if(doesntIntersects(l, lines)){
-            /*if (tooClose(l, lines)) {
-                d -= MINIMUM_LINE_POINT_DIST;
+            if (tooClose(l, lines)) {
+                /*d -= MINIMUM_LINE_POINT_DIST;
                 x = start.x + (int) (d * Math.cos(a));
                 y = start.y + (int) (d * Math.sin(a));
                 p = new Point(x, y);
-                l = new Line(start, p);
-            }*/
+                l = new Line(start, p);*/
+                //return genLinesRecuse(start, sPhi, depth, phi);
+            }
             lines.add(l);
             if(!outOfBounds)
                 if(genLines(p, sPhi + phi, depth + 1) && depth != 0)
@@ -274,14 +275,8 @@ public abstract class MapGen {
                     break;
                 }
 
-            if(selAngle == startAngle) {
-                selAngle = 0;
-                for (Map.Entry<Double, Line> entry : temp.entrySet()) {
-                    if (entry.getKey() > selAngle)
-                        selAngle = entry.getKey();
-                    break;
-                }
-            }
+            if(selAngle == startAngle)
+                selAngle = temp.firstKey();
 
             start = temp.get(selAngle);
 
@@ -363,6 +358,8 @@ public abstract class MapGen {
             }
 
         removeDuplicatePolygons();
+
+        System.out.println(lines.size());
 
         return polygons;
     }
