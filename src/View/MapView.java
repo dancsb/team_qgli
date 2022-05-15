@@ -20,6 +20,8 @@ public class MapView extends JPanel {
     private Integer[] bearPositions =new Integer[8];
     private boolean epicPolygons=false;
 
+    private int OLDALRA_TOLAS = 12;
+
     public MapView(boolean epicPolygons) {
         this.setPreferredSize(new Dimension(800,800));
         //Négyzetes pálya
@@ -60,10 +62,57 @@ public class MapView extends JPanel {
         bearPositions[whichBear]=fieldIdx;
     }
 
-    private void paintPicture(int pos, String pic, Graphics g) throws IOException {
-        Image bufferedImage = (ImageIO.read(new File(pic))).getScaledInstance(32,32,Image.SCALE_DEFAULT);
-        int[] position = getCenter(polygons.get(pos));
-        g.drawImage(bufferedImage, position[0]-bufferedImage.getWidth(null)/2, position[1]-bufferedImage.getHeight(null)/2, null);
+    private void paintPicture(Graphics g) throws IOException {
+        for(int i=0;i<viroPositions.length;i++){
+            if (viroPositions[i]!=-1) {
+                try {
+                    int pos=viroPositions[i];
+                    String pic = "src/img/virologist_" + (i + 1) + ".png";
+                    Image bufferedImage = (ImageIO.read(new File(pic))).getScaledInstance(32,32,Image.SCALE_DEFAULT);
+                    int[] position = calcPos(i, polygons, pos, viroPositions);
+                    g.drawImage(bufferedImage, position[0]-bufferedImage.getWidth(null)/2, position[1]-bufferedImage.getHeight(null)/2, null);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    private int[] calcPos(int hanyadik, ArrayList<Polygon> polygons, int pos, Integer[] viroPositions) {
+        int[] position;
+        int viros = viroOnField(pos, viroPositions); //mennyi virologus van az adott mezon
+        int hatravanViro = 0;
+        for (int i = hanyadik + 1; i <viroPositions.length; i++)
+            if (viroPositions[i].equals(pos))
+                hatravanViro++;
+
+        position = getCenter(polygons.get(pos));
+        if (viros == 1) //ha egy viro van a polygonban
+            return position;
+
+        //tobb viro van egy polygonban
+        int tolas = OLDALRA_TOLAS;
+        if (viros % 2 == 0)
+            position[0] -= OLDALRA_TOLAS / 2;
+
+        for (int j = 0; j < hatravanViro; j++) {
+            position[0] += tolas;
+            if (tolas < 0)
+                tolas -= OLDALRA_TOLAS;
+            else
+                tolas += OLDALRA_TOLAS;
+            tolas *= -1;
+        }
+
+        return position;
+    }
+
+    private int viroOnField(int pos, Integer[] viroPositions) {
+        int c = 0;
+        for (int i = 0; i < viroPositions.length; i++)
+            if (viroPositions[i] == pos)
+            c++;
+        return c;
     }
 
     private int[] getCenter(Polygon polygon) {
@@ -111,21 +160,18 @@ public class MapView extends JPanel {
             g.setColor(Color.black);
             g.drawPolygon(polygons.get(i));
         }
-        for(int i=0;i<viroPositions.length;i++){
-            if (viroPositions[i]!=-1) {
-                try {
-                    int pos=viroPositions[i];
-                    paintPicture(pos,"src/img/virologist_" + (i + 1) + ".png",g);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
+        try {
+            paintPicture(g);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
         for(int i=0;i<bearPositions.length;i++){
             if (bearPositions[i]!=-1) {
                 try {
                     int pos=bearPositions[i];
-                    paintPicture(pos,"src/img/bear.png",g);
+                    Image bufferedImage = (ImageIO.read(new File("src/img/bear.png"))).getScaledInstance(32,32,Image.SCALE_DEFAULT);
+                    int[] position = getCenter(polygons.get(pos));
+                    g.drawImage(bufferedImage, position[0]-bufferedImage.getWidth(null)/2, position[1]-bufferedImage.getHeight(null)/2, null);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
