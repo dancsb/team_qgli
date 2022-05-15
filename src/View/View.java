@@ -30,6 +30,7 @@ public class View extends JFrame {
         this.add(startView, BorderLayout.CENTER);
         this.pack();
         this.setResizable(false);
+        this.setTitle("Medve Futam");
         this.setVisible(true);
     }
 
