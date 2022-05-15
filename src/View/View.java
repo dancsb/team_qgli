@@ -148,5 +148,9 @@ public class View extends JFrame {
     public void setChooseView(ChooseView chooseView) {
         this.chooseView = chooseView;
     }
+
+    public ChooseView getChooseView() {
+        return chooseView;
+    }
 }
 

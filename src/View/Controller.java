@@ -2,6 +2,7 @@ package View;
 
 import main.Game;
 import main.items.agents.*;
+import main.items.collectibles.Axe;
 import main.items.collectibles.Equipment;
 import main.map.Field;
 import main.virologist.DieException;
@@ -27,6 +28,8 @@ public class Controller implements MouseListener{
     private int destField=-1;
     private int currentVirologist=0;
     private boolean moved = false;
+
+    private int command;
 
     public Controller(View v, Game g) {
         view = v;
@@ -212,6 +215,12 @@ public class Controller implements MouseListener{
             agents.forEach(agent->agentNames.add(agent.getRequireGenCode()));
 
             view.setChooseView(new ChooseView(viroIDs, agentNames, true));
+            ArrayList<JButton> virosButtons = view.getChooseView().getVirosButtons();
+            for (JButton j:
+                    virosButtons) {
+                j.addActionListener(new ChooseViroListener(virosButtons, view.getChooseView().getComboBox()));
+            }
+            command=0;
         }
     }
 
@@ -224,6 +233,12 @@ public class Controller implements MouseListener{
             equipments.forEach(eq->equipmentNames.add(eq.getName()));
             // TODO: 2022. 05. 15. a comboboxot frissiteni, ha megnyomunk egy virologusgombot es neki lekerdezni a cuccait 
             view.setChooseView(new ChooseView(viroIDs, equipmentNames, true));
+            ArrayList<JButton> virosButtons = view.getChooseView().getVirosButtons();
+            for (JButton j:
+                    virosButtons) {
+                j.addActionListener(new ChooseViroListener(virosButtons, view.getChooseView().getComboBox()));
+            }
+            command=1;
         }
 
     }
@@ -234,6 +249,12 @@ public class Controller implements MouseListener{
             ArrayList<Integer> viroIDs = fillViroIDs();
 
             view.setChooseView(new ChooseView(viroIDs, null, false));
+            ArrayList<JButton> virosButtons = view.getChooseView().getVirosButtons();
+            for (JButton j:
+                    virosButtons) {
+                j.addActionListener(new ChooseViroListener(virosButtons, null));
+            }
+            command=2;
         }
     }
 
@@ -243,5 +264,48 @@ public class Controller implements MouseListener{
             viroIDs.add(v.getViroID());
         viroIDs.sort(Integer::compare);
         return viroIDs;
+    }
+
+    private class ChooseViroListener implements ActionListener{
+        private final ArrayList<JButton> viroButtons;
+        private final JComboBox<String> options;
+
+        public ChooseViroListener(ArrayList<JButton> jButtons, JComboBox<String> options){
+            viroButtons=jButtons;
+            this.options = options;
+        }
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            Virologist target = game.getViros().get(viroButtons.indexOf(e.getSource()));
+            Virologist attacker = game.getViros().get(currentVirologist);
+            switch (command){
+                case 0:{
+                    String nev = (String) options.getSelectedItem();
+                    Agent usethis=null;
+                    for (Agent a:
+                        attacker.getAgents()){
+                        if (a.getRequireGenCode().equals(nev)){
+                            usethis=a;
+                            break;
+                        }
+                    }
+                    if(usethis==null) return;
+                    attacker.useAgent(target,usethis);
+                    break;
+                }
+                case 1:{
+
+                    attacker.stealEquipment(target,new Axe());
+                    break;
+                }
+                case 2:{
+                    attacker.stealResources(target,target.getResources().get(0));
+                    attacker.stealResources(target,target.getResources().get(1));
+                    break;
+                }
+            }
+            view.getChooseView().setVisible(false);
+        }
     }
 }

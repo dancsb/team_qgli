@@ -1,7 +1,5 @@
 package View;
 
-import main.items.agents.Agent;
-
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
@@ -12,7 +10,7 @@ import java.util.ArrayList;
 public class ChooseView extends JFrame {
 
     private ArrayList<JButton>virosButtons=new ArrayList<>();
-    private JComboBox agentList;
+    private JComboBox<String> list;
 
     public ChooseView(ArrayList<Integer>viroIDs, ArrayList<String> itemek, boolean needComboBox) {
         JPanel p1 = new JPanel();
@@ -33,8 +31,8 @@ public class ChooseView extends JFrame {
         this.add(p1, needComboBox ? BorderLayout.NORTH : BorderLayout.CENTER);
         if (needComboBox) {
             JPanel p2 = new JPanel();
-            agentList=new JComboBox(itemek.toArray());
-            p2.add(agentList);
+            list=new JComboBox(itemek.toArray());
+            p2.add(list);
             this.add(p2,BorderLayout.SOUTH);
         }
         this.setVisible(true);
@@ -44,5 +42,13 @@ public class ChooseView extends JFrame {
     public void paintComponents(Graphics g) {
         super.paintComponents(g);
 
+    }
+
+    public ArrayList<JButton> getVirosButtons() {
+        return virosButtons;
+    }
+
+    public JComboBox<String> getComboBox() {
+        return list;
     }
 }
