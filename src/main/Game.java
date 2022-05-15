@@ -5,6 +5,7 @@ import main.map.Map;
 import main.virologist.Virologist;
 import skeleton.SkeletonWriter;
 
+import java.awt.*;
 import java.util.ArrayList;
 
 /**
@@ -41,5 +42,8 @@ public class Game {
 
     public Map getMap() {
         return map;
+    }
+    public void generateMap(ArrayList<Polygon>polygons){
+        map=new Map(polygons);
     }
 }

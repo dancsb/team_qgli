@@ -20,7 +20,7 @@ public class MapView extends JPanel {
     private Integer[] bearPositions =new Integer[8];
     private boolean epicPolygons=false;
 
-    public MapView() {
+    public MapView(boolean epicPolygons) {
         this.setPreferredSize(new Dimension(800,800));
         //Négyzetes pálya
         for (int i = 0; i < 8; i++) {

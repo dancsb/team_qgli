@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class View extends JFrame {
-    private MapView mapView = new MapView();
+    private MapView mapView = new MapView(false);
     private StartView startView = new StartView();
 
     private ChooseView chooseView;
@@ -151,6 +151,10 @@ public class View extends JFrame {
 
     public ChooseView getChooseView() {
         return chooseView;
+    }
+
+    public void genMapView(boolean poly){
+        mapView=new MapView(poly);
     }
 }
 

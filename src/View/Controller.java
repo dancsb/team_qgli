@@ -35,7 +35,6 @@ public class Controller implements MouseListener{
     public Controller(View v, Game g) {
         view = v;
         game = g;
-        v.getMapView().addMouseListener(this);
         view.getCraftParalyzed().addActionListener(new AgentCrafter());
         view.getCraftInvulnerable().addActionListener(new AgentCrafter());
         view.getCraftAmnesia().addActionListener(new AgentCrafter());
@@ -46,7 +45,10 @@ public class Controller implements MouseListener{
         view.getStealResourceMenu().addActionListener(new StealResourceListener());
     }
 
-    public void startGame(int viros) {
+    public void startGame(int viros,boolean polygon) {
+        view.genMapView(polygon);
+        game.generateMap(view.getMapView().getPolygons());
+        view.getMapView().addMouseListener(this);
         numberOfViros = viros;
         game.getMap().generateVirologists(numberOfViros);
         view.startGame();

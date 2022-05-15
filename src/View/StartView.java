@@ -74,6 +74,6 @@ public class StartView extends JPanel {
         start.setContentAreaFilled(false);
         this.add(start,gbc1);
 
-        start.addActionListener(e -> Main.getController().startGame(numberOfViros.getSelectedIndex() + 2));
+        start.addActionListener(e -> Main.getController().startGame(numberOfViros.getSelectedIndex() + 2,rb2.isSelected()));
     }
 }
