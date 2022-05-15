@@ -41,6 +41,7 @@ public class Lab extends Field {
         int r=new Random().nextInt(100);
         this.bearRegion=r<25;
         this.gc=allGencodes.get(current);
+        this.gc=new GeneticCode("paralyzer");
         current=(current+1)%4;
     }
 

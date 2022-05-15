@@ -18,6 +18,7 @@ import java.awt.event.MouseListener;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
 
 public class Controller implements MouseListener{
@@ -237,10 +238,8 @@ public class Controller implements MouseListener{
         public void actionPerformed(ActionEvent e) {
             ArrayList<Integer> viroIDs = fillViroIDs();
             viroIDs.remove(game.getViros().get(currentVirologist).getViroID());
-            ArrayList<Equipment> equipments = game.getViros().get(currentVirologist).getEquipments();
-            ArrayList<String> equipmentNames = new ArrayList<>();
-            equipments.forEach(eq->equipmentNames.add(eq.getName()));
-            // TODO: 2022. 05. 15. a comboboxot frissiteni, ha megnyomunk egy virologusgombot es neki lekerdezni a cuccait 
+            String[]names={"axe","bag","cape","gloves"};
+            ArrayList<String> equipmentNames = new ArrayList<>(java.util.List.of(names));
             view.setChooseView(new ChooseView(viroIDs, equipmentNames, true));
             ArrayList<JButton> virosButtons = view.getChooseView().getVirosButtons();
             for (JButton j:
@@ -306,7 +305,17 @@ public class Controller implements MouseListener{
                     break;
                 }
                 case 1:{
-                    attacker.stealEquipment(target,new Axe());
+                    Equipment desiredEquipment=null;
+                    for(Equipment equipment:target.getEquipments()){
+                        if(equipment.getName().equals((String) options.getSelectedItem())){
+                            desiredEquipment=equipment;
+                        }
+                    }
+                    if(desiredEquipment!=null){
+                        System.out.println(desiredEquipment.getName());
+                        attacker.stealEquipment(target,desiredEquipment);
+                    }
+
                     break;
                 }
                 case 2:{
