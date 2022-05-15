@@ -17,6 +17,7 @@ public class StartView extends JPanel {
         start = new JButton(icon);
         start.setBackground(Color.WHITE);
         start.setBorderPainted(true);
+        start.setContentAreaFilled(false);
         this.add(start,BorderLayout.CENTER);
         this.add(numberOfViros,BorderLayout.SOUTH);
         start.addActionListener(e -> Main.getController().startGame(numberOfViros.getSelectedIndex() + 2));
