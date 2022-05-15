@@ -61,7 +61,6 @@ public class Controller implements MouseListener{
         try {
             viroStatString = game.getViros().get(currentVirologist).toString();
             view.getViroStatPanel().setStats(viroStatString);
-            view.getViroStatPanel().showViroStat();
             view.getViroImagePanel().setCurrentVirImage((ImageIO.read(new File("src/img/virologist_" +(currentVirologist+1)+ ".png"))).getScaledInstance(256,256,Image.SCALE_DEFAULT));
             view.getViroImagePanel().paintComponent(view.getViroImagePanel().getGraphics());
         } catch (IOException e) {
@@ -97,6 +96,7 @@ public class Controller implements MouseListener{
                 currentVirologist++;
                 if(currentVirologist>=numberOfViros)currentVirologist=0;
             }
+            //GABÓ ???? ez mi a halál??? azt bágod h ez mindig true és fölösleges????? @Jeges
             boolean mindmedve = false;
             while(virologists.get(currentVirologist).isBearDance() && !mindmedve){
                 try {
@@ -132,7 +132,6 @@ public class Controller implements MouseListener{
 
             viroStatString = virologists.get(currentVirologist).toString();
             view.getViroStatPanel().setStats(viroStatString);
-            view.getViroStatPanel().showViroStat();
 
 
             view.paintMap();
