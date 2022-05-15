@@ -16,6 +16,8 @@ public class View extends JFrame {
     private JMenuItem craftParalyzed = new JMenuItem("Paralyzed");
     private JMenuItem craftVitusdance = new JMenuItem("Vitusdance");
 
+    private JMenuItem endTurnButton = new JMenuItem("END TURN");
+
     public View() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(new BorderLayout());
@@ -43,6 +45,7 @@ public class View extends JFrame {
         craftMenu.add(craftVitusdance);
 
         menuBar.add(craftMenu);
+        menuBar.add(endTurnButton);
         this.add(menuBar, BorderLayout.NORTH);
 
         this.pack();
@@ -107,5 +110,7 @@ public class View extends JFrame {
     public JMenuItem getCraftVitusdance() {
         return craftVitusdance;
     }
+
+    public JMenuItem getEndTurnButton(){ return endTurnButton; }
 }
 

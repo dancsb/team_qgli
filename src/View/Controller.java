@@ -28,7 +28,7 @@ public class Controller implements MouseListener{
     private int numberOfViros;
     private int destField=-1;
     private int currentVirologist=0;
-
+    private boolean moved = false;
 
     public Controller(View v, Game g) {
         view = v;
@@ -38,6 +38,7 @@ public class Controller implements MouseListener{
         view.getCraftInvulnerable().addActionListener(new AgentCrafter());
         view.getCraftAmnesia().addActionListener(new AgentCrafter());
         view.getCraftVitusdance().addActionListener(new AgentCrafter());
+        view.getEndTurnButton().addActionListener(new EndTurnListener());
     }
 
     public void startGame(int viros) {
@@ -77,6 +78,49 @@ public class Controller implements MouseListener{
         ex.getVirologist().mustDraw(view,-1);
     }
 
+    private void resetWindow(){
+        try {
+            view.getViroImagePanel().setCurrentVirImage((ImageIO.read(new File("src/img/virologist_" +(game.getViros().get(currentVirologist).getViroID()+1)+ ".png"))).getScaledInstance(256,256,Image.SCALE_DEFAULT));
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        view.getViroImagePanel().paintComponent(view.getViroImagePanel().getGraphics());
+
+        viroStatString = game.getViros().get(currentVirologist).toString();
+        view.getViroStatPanel().setStats(viroStatString);
+
+        view.paintMap();
+    }
+
+    private void medveSteps(){
+        ArrayList<Virologist> virologists = game.getViros();
+        while(virologists.get(currentVirologist).isBearDance()){
+            try {
+                virologists.get(currentVirologist).step();
+            } catch (DieException ex) {
+                exceptionHandling(ex);
+            }
+            virologists.get(currentVirologist).mustDraw(view,game.getMap().getFields().indexOf(virologists.get(currentVirologist).getField()));
+            currentVirologist++;
+            if(currentVirologist>=numberOfViros){
+                currentVirologist=0;
+            }
+            int medvek = 0;
+            for (Virologist v:
+                    virologists) {
+                if (v.isBearDance()){
+                    medvek++;
+                }
+            }
+            if (medvek==virologists.size()) {
+                currentVirologist=-1;
+                view.endGame(currentVirologist);
+                return;
+            }
+            moved = false;
+        }
+    }
+
     @Override
     public void mouseClicked(MouseEvent e) {
         if(SwingUtilities.isLeftMouseButton(e)){
@@ -84,7 +128,9 @@ public class Controller implements MouseListener{
             for(Polygon p:view.getMapView().getPolygons()){
                 if(p.contains(new Point(e.getX(),e.getY())))destField=view.getMapView().getPolygons().indexOf(p);
             }
-            if(virologists.get(currentVirologist).getField().getNeighbours().contains(game.getMap().getFields().get(destField))&&!virologists.get(currentVirologist).isBearDance()){
+            if(virologists.get(currentVirologist).getField().getNeighbours().contains(game.getMap().getFields().get(destField))
+                    && !virologists.get(currentVirologist).isBearDance()
+                    && !moved){
                 try {
                     virologists.get(currentVirologist).step();
                     virologists.get(currentVirologist).move(game.getMap().getFields().get(destField));
@@ -93,45 +139,10 @@ public class Controller implements MouseListener{
                 }
                 virologists.get(currentVirologist).mustDraw(view,game.getMap().getFields().indexOf(virologists.get(currentVirologist).getField()));
                 if(virologists.get(currentVirologist).checkWin()){view.endGame(currentVirologist);return;}
-                currentVirologist++;
-                if(currentVirologist>=numberOfViros)currentVirologist=0;
+                moved = true;
             }
-            while(virologists.get(currentVirologist).isBearDance()){
-                try {
-                    virologists.get(currentVirologist).step();
-                } catch (DieException ex) {
-                    exceptionHandling(ex);
-                }
-                virologists.get(currentVirologist).mustDraw(view,game.getMap().getFields().indexOf(virologists.get(currentVirologist).getField()));
-                currentVirologist++;
-                if(currentVirologist>=numberOfViros){
-                    currentVirologist=0;
-                }
-                int medvek = 0;
-                for (Virologist v:
-                     virologists) {
-                    if (v.isBearDance()){
-                        medvek++;
-                    }
-                }
-                if (medvek==virologists.size()) {
-                    currentVirologist=-1;
-                    view.endGame(currentVirologist);
-                    return;
-                }
-            }
-            try {
-                view.getViroImagePanel().setCurrentVirImage((ImageIO.read(new File("src/img/virologist_" +(virologists.get(currentVirologist).getViroID()+1)+ ".png"))).getScaledInstance(256,256,Image.SCALE_DEFAULT));
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
-            view.getViroImagePanel().paintComponent(view.getViroImagePanel().getGraphics());
-
-            viroStatString = virologists.get(currentVirologist).toString();
-            view.getViroStatPanel().setStats(viroStatString);
-
-
-            view.paintMap();
+            medveSteps();
+            resetWindow();
         }
     }
 
@@ -170,6 +181,21 @@ public class Controller implements MouseListener{
             }
             if(e.getSource() == view.getCraftInvulnerable()){
                 game.getViros().get(currentVirologist).craftAgent(new Invulnerable(game.getViros().get(currentVirologist), 100,100, "invulnerable"));
+            }
+            resetWindow();
+        }
+    }
+
+    public class EndTurnListener implements ActionListener{
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if(moved) {
+                currentVirologist++;
+                if (currentVirologist >= numberOfViros) currentVirologist = 0;
+
+                medveSteps();
+                resetWindow();
+                moved = false;
             }
         }
     }

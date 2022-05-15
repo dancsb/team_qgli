@@ -9,7 +9,6 @@ public class ViroImagePanel extends JPanel {
     public ViroImagePanel() {
         this.setPreferredSize(new Dimension(400,400));
         this.setBackground(Color.WHITE);
-
     }
 
     @Override
