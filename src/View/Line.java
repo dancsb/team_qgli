@@ -3,10 +3,25 @@ package View;
 import java.awt.*;
 import java.util.Objects;
 
+/**
+ * Vonalakat reprezentáló osztály
+ */
 public class Line {
+    /**
+     * A vonal kezdeti pontja
+     */
     private final Point p1;
+    /**
+     * A vonal végpontja
+     */
     private final Point p2;
+    /**
+     * A bool ami reprezentálja,hogy a vonal 2 pontjához kapcsolódik-e másik vonal
+     */
     private boolean terminated;
+    /**
+     * A vonal az ablak keretében van-e
+     */
     private boolean tagged;
 
     public Line(Point p1, Point p2) {

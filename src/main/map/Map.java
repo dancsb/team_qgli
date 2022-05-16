@@ -6,16 +6,24 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.Random;
 
-
+/**
+ * A pályát reprezentáló osztály
+ */
 public class Map {
 
-    //a palyat alkoto mezoket tarolo lista
+    /**
+     * A mezők listája
+     */
     private ArrayList<Field> fields;
 
-    //konstruktor, melyben legeneraljuk a palyat
+    /**
+     * Konstruktor ami polygonok alapján generál mapet
+     * @param polygons a polygonok listája
+     */
     public Map(ArrayList<Polygon> polygons) {
         int labNumber = 0;
         this.fields = new ArrayList<>();
+        //legalább 4 labornak kell lenni
         while(labNumber<4){
             this.fields.clear();
             labNumber=0;
@@ -30,7 +38,7 @@ public class Map {
                 else fields.add(new Field());
             }
         }
-
+        //Magic, hogy beállítsuk a szomszédságokat
         for (int i = 0; i < polygons.size() - 1; i++) {
             for (int j = i + 1; j < polygons.size(); j++) {
                 for (int k = 0; k < polygons.get(i).npoints; k++) {
@@ -46,6 +54,11 @@ public class Map {
         }
 
     }
+
+    /**
+     * Legenerálja a virológusokat a mapre
+     * @param n a virológusok száma
+     */
     public void generateVirologists(int n){
         for(int i=0;i<n;i++){
             int fieldIndex=new Random().nextInt(fields.size());
@@ -53,12 +66,19 @@ public class Map {
             fields.get(fieldIndex).getVirologists().add(v);
         }
     }
-    //visszater a palyan levo mezokkel
+
+    /**
+     * visszater a palyan levo mezokkel
+     */
+
     public ArrayList<Field> getFields() {
         return fields;
     }
 
-    //hozzaad egy mezot a palyahoz, ez lehet lab,shleter, sotrage vagy sima field
+    /**
+     * hozzáad egy fieldet
+     * @param f a field amit hozzáad
+     */
     public void addField(Field f){
         fields.add(f);
     }

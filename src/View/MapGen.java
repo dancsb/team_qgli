@@ -5,6 +5,9 @@ import java.awt.geom.Line2D;
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
+/**
+ * Mapet generáló osztály - Balázs Magic
+ */
 public abstract class MapGen {
     private final static int MAX_DEPTH = 100;
 

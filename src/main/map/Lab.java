@@ -87,7 +87,11 @@ public class Lab extends Field {
         System.out.println("bearRegion: " + bearRegion);
         System.out.println("geneticCode: " + gc.getName());
     }
-
+    /**
+     * kirajzoltat egy labet
+     * @param v a View amire ki kell rajzolni
+     * @param idx a field indexe ami = a polygon indexével így tudja hova kell rajzolni
+     */
     @Override
     public void mustDraw(View v,int idx) {
         v.drawLab();

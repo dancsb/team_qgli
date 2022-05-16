@@ -2,8 +2,17 @@ package main.items.collectibles;
 
 import main.virologist.Virologist;
 
+/**
+ * A Balta eszközt reprezentáló osztály
+ */
 public class Axe extends Equipment{
+    /**
+     * Volt-e használva
+     */
     private boolean used=false;
+    /**
+     * Az azonosítója
+     */
     private final String name = "axe";
 
     public String getName(){return name;}
@@ -12,6 +21,10 @@ public class Axe extends Equipment{
     public void action(Virologist v) {
     }
 
+    /**
+     * Elveszíti az equipmentet
+     * @param v a virologus aki elveszti
+     */
     @Override
     public void remove(Virologist v) {
         v.loseEquipment(this);

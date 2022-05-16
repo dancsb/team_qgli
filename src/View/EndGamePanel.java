@@ -6,9 +6,17 @@ import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 
+/**
+ * Ez az osztály ugrik be ha valaki nyert a játékban
+ */
 public class EndGamePanel extends JPanel {
-
+    /**
+     * A nyertes virológus (vagy medvék) képe
+     */
     private Image virologistImage;
+    /**
+     * Az Winner feliratos kép
+     */
     private Image winnerImage;
 
     public EndGamePanel(int currentVirologist){

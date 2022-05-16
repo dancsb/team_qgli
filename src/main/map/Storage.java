@@ -75,6 +75,11 @@ public class Storage extends Field {
         printStandard(hashMap, allFields);
         System.out.println("resources: " + res.get(0).getAmount() + " " + res.get(1).getAmount());
     }
+    /**
+     * kirajzoltat egy storaget
+     * @param v a View amire ki kell rajzolni
+     * @param idx a field indexe ami = a polygon indexével így tudja hova kell rajzolni
+     */
     @Override
     public void mustDraw(View v,int idx) {
         v.drawStorage();

@@ -7,9 +7,18 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * Egy olyan grafikus osztály ami egy olyan menüt reprezentál, ahol a virológus interaktálhat másik virológusokkal
+ */
 public class ChooseView extends JFrame {
 
+    /**
+     * A virológusokat reprezentáló gombok
+     */
     private ArrayList<JButton>virosButtons=new ArrayList<>();
+    /**
+     * A választható opciók ha vannak
+     */
     private JComboBox<String> list;
 
     public ChooseView(ArrayList<Integer>viroIDs, ArrayList<String> itemek, boolean needComboBox) {

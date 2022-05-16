@@ -122,6 +122,11 @@ public class  Field implements IView {
         printStandard(hashMap,allFields);
     }
 
+    /**
+     * kirajzoltat egy fieldet
+     * @param v a View amire ki kell rajzolni
+     * @param idx a field indexe ami = a polygon indexével így tudja hova kell rajzolni
+     */
     @Override
     public void mustDraw(View v,int idx) {
         v.drawField();

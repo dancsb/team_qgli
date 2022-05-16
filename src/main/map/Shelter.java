@@ -68,7 +68,11 @@ public class Shelter extends Field {
         System.out.println();
         System.out.println();
     }
-
+    /**
+     * kirajzoltat egy Sheltert
+     * @param v a View amire ki kell rajzolni
+     * @param idx a field indexe ami = a polygon indexével így tudja hova kell rajzolni
+     */
     @Override
     public void mustDraw(View v,int idx) {
         v.drawShelter();

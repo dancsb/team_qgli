@@ -21,15 +21,45 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 
+/**
+ * A logikát és a kinézetet kontrolláló osztály
+ */
 public class Controller implements MouseListener{
+    /**
+     * A kinézet
+     */
     private View view;
+    /**
+     * A logika
+     */
     private Game game;
+    /**
+     * Az adott virológus statjai
+     */
     private String viroStatString;
+    /**
+     * a virológusok száma
+     */
     private int numberOfViros;
+    /**
+     * A field ahová lépni szeretne a felhasználó
+     */
     private int destField=-1;
+    /**
+     * A virológus akinek a köre jön
+     */
     private int currentVirologist=0;
+    /**
+     * A virológus lépett-e már
+     */
     private boolean moved = false;
+    /**
+     * A virológus lopott-e már
+     */
     private boolean stole = false;
+    /**
+     * A virológus használt-e ágenst már
+     */
     private boolean used = false;
 
     private int command;
@@ -47,6 +77,11 @@ public class Controller implements MouseListener{
         view.getStealResourceMenu().addActionListener(new StealResourceListener());
     }
 
+    /**
+     * A játékot indító függvény
+     * @param viros a virológusok száma
+     * @param polygon polygon map legyen-e
+     */
     public void startGame(int viros,boolean polygon) {
         view.genMapView(polygon);
         game.generateMap(view.getMapView().getPolygons());
@@ -78,6 +113,10 @@ public class Controller implements MouseListener{
         }
     }
 
+    /**
+     * Ha meghal egy virológus ez kezeli le
+     * @param ex egy DieException
+     */
     private void exceptionHandling(DieException ex){
         if(game.getViros().get(currentVirologist)==ex.getVirologist())
             currentVirologist--;
@@ -86,6 +125,9 @@ public class Controller implements MouseListener{
         ex.getVirologist().mustDraw(view,-1);
     }
 
+    /**
+     * Újrarajzolja a windowt
+     */
     private void resetWindow(){
         if(currentVirologist!=-1) {
             try {
@@ -101,6 +143,9 @@ public class Controller implements MouseListener{
         view.paintMap();
     }
 
+    /**
+     * lépteti a medvéket
+     */
     private void medveSteps(){
         ArrayList<Virologist> virologists = game.getViros();
         while(virologists.get(currentVirologist).isBearDance()){
@@ -130,6 +175,10 @@ public class Controller implements MouseListener{
         }
     }
 
+    /**
+     * Az egérkattintásra lejátszódó eseményeket tartalmazza
+     * @param e egy MouseEvent
+     */
     @Override
     public void mouseClicked(MouseEvent e) {
         if(SwingUtilities.isLeftMouseButton(e)){
@@ -175,6 +224,9 @@ public class Controller implements MouseListener{
 
     }
 
+    /**
+     * Az ágenscraftoláshoz tartozó ActionListener
+     */
     public class AgentCrafter implements ActionListener{
 
         @Override
@@ -194,7 +246,9 @@ public class Controller implements MouseListener{
             resetWindow();
         }
     }
-
+    /**
+     * A kör vége gombhoz tartozó ActionListener
+     */
     public class EndTurnListener implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -220,7 +274,9 @@ public class Controller implements MouseListener{
             }
         }
     }
-
+    /**
+     * Az ágenshasználathoz tartozó ActionListener
+     */
     public class UseAgentListener implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -240,7 +296,9 @@ public class Controller implements MouseListener{
             }
         }
     }
-
+    /**
+     * A felszereléslopáshoz tartozó ActionListener
+     */
     private class StealEquipmentListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -260,7 +318,9 @@ public class Controller implements MouseListener{
         }
 
     }
-
+    /**
+     * Az anyaglopáshoz tartozó ActionListener
+     */
     private class StealResourceListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -277,7 +337,9 @@ public class Controller implements MouseListener{
             }
         }
     }
-
+    /**
+     * Visszaad egy ArrayListet a soron következő virológus mezőin lévő virológusok azonosítóival
+     */
     private ArrayList<Integer> fillViroIDs() {
         ArrayList<Integer> viroIDs = new ArrayList<>();
         for(Virologist v:game.getViros().get(currentVirologist).getField().getVirologists())
@@ -286,6 +348,10 @@ public class Controller implements MouseListener{
         return viroIDs;
     }
 
+    /**
+     * Egy olyan ActionListener, ami a ChooseViewhoz tartozik és akkor szükséges
+     * ha az egyik virológus valami akciót csinál magán/másik virológuson
+     */
     private class ChooseViroListener implements ActionListener{
         private final ArrayList<JButton> viroButtons;
         private final ArrayList<Integer> viroIDs ;

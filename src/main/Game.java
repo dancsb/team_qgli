@@ -16,6 +16,9 @@ public class Game {
      * A palya
      */
     private Map map;
+    /**
+     * A játékban lévő virológusok listája
+     */
     private ArrayList<Virologist>viros=new ArrayList<>();
 
     public Game(Map m) {
