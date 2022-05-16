@@ -29,6 +29,8 @@ public class Controller implements MouseListener{
     private int destField=-1;
     private int currentVirologist=0;
     private boolean moved = false;
+    private boolean stole = false;
+    private boolean used = false;
 
     private int command;
 
@@ -213,6 +215,8 @@ public class Controller implements MouseListener{
                 }
                 resetWindow();
                 moved = false;
+                stole = false;
+                used = false;
             }
         }
     }
@@ -220,35 +224,41 @@ public class Controller implements MouseListener{
     public class UseAgentListener implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent e) {
-            ArrayList<Integer> viroIDs = fillViroIDs();
-            ArrayList<Agent> agents = game.getViros().get(currentVirologist).getAgents();
-            ArrayList<String> agentNames = new ArrayList<>();
-            agents.forEach(agent->agentNames.add(agent.getRequireGenCode()));
+            if(!used) {
+                ArrayList<Integer> viroIDs = fillViroIDs();
+                ArrayList<Agent> agents = game.getViros().get(currentVirologist).getAgents();
+                ArrayList<String> agentNames = new ArrayList<>();
+                agents.forEach(agent -> agentNames.add(agent.getRequireGenCode()));
 
-            view.setChooseView(new ChooseView(viroIDs, agentNames, true));
-            ArrayList<JButton> virosButtons = view.getChooseView().getVirosButtons();
-            for (JButton j:
-                    virosButtons) {
-                j.addActionListener(new ChooseViroListener(virosButtons, viroIDs, view.getChooseView().getComboBox()));
+                view.setChooseView(new ChooseView(viroIDs, agentNames, true));
+                ArrayList<JButton> virosButtons = view.getChooseView().getVirosButtons();
+                for (JButton j :
+                        virosButtons) {
+                    j.addActionListener(new ChooseViroListener(virosButtons, viroIDs, view.getChooseView().getComboBox()));
+                }
+                command = 0;
+                used = true;
             }
-            command=0;
         }
     }
 
     private class StealEquipmentListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            ArrayList<Integer> viroIDs = fillViroIDs();
-            viroIDs.remove(game.getViros().get(currentVirologist).getViroID());
-            String[]names={"axe","bag","cape","gloves"};
-            ArrayList<String> equipmentNames = new ArrayList<>(java.util.List.of(names));
-            view.setChooseView(new ChooseView(viroIDs, equipmentNames, true));
-            ArrayList<JButton> virosButtons = view.getChooseView().getVirosButtons();
-            for (JButton j:
-                    virosButtons) {
-                j.addActionListener(new ChooseViroListener(virosButtons, viroIDs, view.getChooseView().getComboBox()));
+            if(!stole) {
+                ArrayList<Integer> viroIDs = fillViroIDs();
+                viroIDs.remove(game.getViros().get(currentVirologist).getViroID());
+                String[] names = {"axe", "bag", "cape", "gloves"};
+                ArrayList<String> equipmentNames = new ArrayList<>(java.util.List.of(names));
+                view.setChooseView(new ChooseView(viroIDs, equipmentNames, true));
+                ArrayList<JButton> virosButtons = view.getChooseView().getVirosButtons();
+                for (JButton j :
+                        virosButtons) {
+                    j.addActionListener(new ChooseViroListener(virosButtons, viroIDs, view.getChooseView().getComboBox()));
+                }
+                command = 1;
+                stole = true;
             }
-            command=1;
         }
 
     }
@@ -256,15 +266,18 @@ public class Controller implements MouseListener{
     private class StealResourceListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            ArrayList<Integer> viroIDs = fillViroIDs();
-            viroIDs.remove(game.getViros().get(currentVirologist).getViroID());
-            view.setChooseView(new ChooseView(viroIDs, null, false));
-            ArrayList<JButton> virosButtons = view.getChooseView().getVirosButtons();
-            for (JButton j:
-                    virosButtons) {
-                j.addActionListener(new ChooseViroListener(virosButtons, viroIDs, null));
+            if (!stole) {
+                ArrayList<Integer> viroIDs = fillViroIDs();
+                viroIDs.remove(game.getViros().get(currentVirologist).getViroID());
+                view.setChooseView(new ChooseView(viroIDs, null, false));
+                ArrayList<JButton> virosButtons = view.getChooseView().getVirosButtons();
+                for (JButton j :
+                        virosButtons) {
+                    j.addActionListener(new ChooseViroListener(virosButtons, viroIDs, null));
+                }
+                command = 2;
+                stole = true;
             }
-            command=2;
         }
     }
 
