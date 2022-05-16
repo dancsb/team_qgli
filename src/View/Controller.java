@@ -237,7 +237,6 @@ public class Controller implements MouseListener{
                     j.addActionListener(new ChooseViroListener(virosButtons, viroIDs, view.getChooseView().getComboBox()));
                 }
                 command = 0;
-                used = true;
             }
         }
     }
@@ -257,7 +256,6 @@ public class Controller implements MouseListener{
                     j.addActionListener(new ChooseViroListener(virosButtons, viroIDs, view.getChooseView().getComboBox()));
                 }
                 command = 1;
-                stole = true;
             }
         }
 
@@ -276,7 +274,6 @@ public class Controller implements MouseListener{
                     j.addActionListener(new ChooseViroListener(virosButtons, viroIDs, null));
                 }
                 command = 2;
-                stole = true;
             }
         }
     }
@@ -317,6 +314,7 @@ public class Controller implements MouseListener{
                     }
                     if(usethis==null) return;
                     attacker.useAgent(target,usethis);
+                    used=true;
                     break;
                 }
                 case 1:{
@@ -329,13 +327,14 @@ public class Controller implements MouseListener{
                     if(desiredEquipment!=null){
                         System.out.println(desiredEquipment.getName());
                         attacker.stealEquipment(target,desiredEquipment);
+                        stole=true;
                     }
-
                     break;
                 }
                 case 2:{
                     attacker.stealResources(target,target.getResources().get(0));
                     attacker.stealResources(target,target.getResources().get(1));
+                    stole=true;
                     break;
                 }
             }
