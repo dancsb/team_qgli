@@ -391,7 +391,6 @@ public class Controller implements MouseListener{
                         }
                     }
                     if(desiredEquipment!=null){
-                        System.out.println(desiredEquipment.getName());
                         attacker.stealEquipment(target,desiredEquipment);
                         stole=true;
                     }
